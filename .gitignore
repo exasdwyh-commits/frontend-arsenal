@@ -1,0 +1,13 @@
+# 工具本地状态
+.workbuddy/
+__pycache__/
+node_modules/
+
+# 系统与编辑器
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# 临时 QA 文件（截图验证用，验完即删）
+_qa-*.html
+_chk-*.mjs

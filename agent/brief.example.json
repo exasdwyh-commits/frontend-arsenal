@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "status": "example-not-a-user-requirement",
+  "objective": "让团队成员快速找到并打开项目",
+  "audience": "内部团队成员",
+  "primaryTask": "从项目列表搜索并打开项目详情",
+  "successCriteria": ["用户可以按项目名称搜索", "搜索无结果时可以清除条件"],
+  "target": {
+    "devices": ["desktop", "mobile"],
+    "technology": null,
+    "existingProjectPath": null
+  },
+  "constraints": ["键盘可完成搜索与打开", "尊重减少动态效果设置"],
+  "reference": null,
+  "assumptions": ["使用简洁的列表布局，待整体预览时审核"],
+  "openQuestions": [
+    {"question": "要接入哪个已有项目？", "blocksImplementation": true, "reason": "需要读取技术栈和路由方式"}
+  ],
+  "selection": [],
+  "validation": []
+}

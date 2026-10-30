@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>代码视频库 · WebUI 图鉴</title>
+  <link rel="stylesheet" href="src/style.css"><link rel="stylesheet" href="src/video.css">
+</head>
+<body>
+<div class="video-layout">
+  <aside class="video-sidebar">
+    <a class="library-link" href="library.html">← 综合搜索</a>
+    <a class="back-link" href="index.html">← 返回 UI 图鉴</a>
+    <a class="back-link" href="skills.html" style="margin-top:-8px">技能库 ↗</a>
+    <div class="video-brand">WebUI <span>图鉴</span></div><p>代码视频 / 创作参考</p>
+    <nav class="video-nav" aria-label="代码视频导航">
+      <a href="#sources">项目资源</a><a href="#films">风格样片</a><a href="#shots">镜头配方</a>
+    </nav>
+    <div class="side-note">从灵感到源码<br>把合适的动效带进下一个项目。</div>
+  </aside>
+  <main class="video-main">
+    <header class="video-intro"><div><div class="eyebrow">MOTION LIBRARY / 代码视频</div><h1>让代码，讲出好故事。</h1><p>收集角色动画、视觉风格与产品镜头。先看真实样片，再找到对应的提示词、源码和制作工具。</p></div><a href="#films" class="video-primary">浏览风格样片 <span>↘</span></a></header>
+    <section id="sources" class="video-section">
+      <div class="section-title"><div><span>01 / SOURCES</span><h2>创作资源</h2></div><p>四个项目，各自解决不同的创作问题。</p></div>
+      <div class="source-grid">
+        <article class="source-card featured"><div class="source-top"><span class="source-label">角色动画 · 推荐</span><span>01</span></div><h3>ClaudeAnimationBase</h3><p>手绘笔触、角色表演和连续镜头。适合有故事、有情绪的卡通短片。</p><div class="source-meta">p5.js · p5.brush · MIT</div><div class="source-links"><a href="https://github.com/JohnHeibel/ClaudeAnimationBase/blob/main/docs/emotions.webp" target="_blank" rel="noopener noreferrer">角色表情动画 ↗</a><a href="https://github.com/JohnHeibel/ClaudeAnimationBase" target="_blank" rel="noopener noreferrer">查看项目 ↗</a><a href="https://github.com/JohnHeibel/ClaudeAnimationBase/blob/main/ANIMATION_GUIDE.md" target="_blank" rel="noopener noreferrer">动画指南 ↗</a><a href="https://github.com/JohnHeibel/ClaudeAnimationBase/blob/main/src/scenes/demo.js" target="_blank" rel="noopener noreferrer">示例源码 ↗</a></div></article>
+        <article class="source-card"><div class="source-top"><span class="source-label">风格参考</span><span>02</span></div><h3>mg-styles-15</h3><p>15 种风格，每支包含成片、提示词和源码；适合探索视觉方向。</p><div class="source-meta">Canvas · WebGL · MIT</div><div class="source-links"><a href="https://vincentwei1021.github.io/mg-styles-15/" target="_blank" rel="noopener noreferrer">官方图鉴 ↗</a><a href="https://github.com/Vincentwei1021/mg-styles-15" target="_blank" rel="noopener noreferrer">查看源码 ↗</a></div></article>
+        <article class="source-card"><div class="source-top"><span class="source-label">产品视频</span><span>03</span></div><h3>video-shotcraft</h3><p>从产品页面到可编辑宣传片，用镜头配方组织画面、节奏和声音。</p><div class="source-meta">Remotion · Apache-2.0</div><div class="source-links"><a href="https://vincentwei1021.github.io/video-shotcraft/library.html" target="_blank" rel="noopener noreferrer">官方镜头库 ↗</a><a href="https://github.com/Vincentwei1021/video-shotcraft" target="_blank" rel="noopener noreferrer">查看项目 ↗</a></div></article>
+        <article class="source-card"><div class="source-top"><span class="source-label">电影风格 · 纯代码</span><span>04</span></div><h3>lemo-opuscar</h3><p>66 种用代码做片的电影风格，每个风格 = 提示词 + canvas/WebGL 逐帧 demo film，可直接让 Agent 复刻。</p><div class="source-meta">Canvas · WebGL · three.js · MIT + CC BY 4.0</div><div class="source-links"><a href="https://lemomo-ai.github.io/lemo-opuscar/" target="_blank" rel="noopener noreferrer">风格画廊 ↗</a><a href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" rel="noopener noreferrer">查看项目 ↗</a><a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/README.md" target="_blank" rel="noopener noreferrer">风格索引 ↗</a><a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/TECHNIQUE.md" target="_blank" rel="noopener noreferrer">制作技法 ↗</a></div></article>
+      </div>
+    </section>
+    <section id="films" class="video-section">
+      <div class="section-title"><div><span>02 / STYLE STUDIES</span><h2>15 种风格样片</h2></div><p>来自 mg-styles-15 · 点击加载原项目视频</p></div>
+      <div class="video-toolbar"><label><span>搜索风格</span><input id="filmSearch" type="search" placeholder="手绘、像素、科技…"></label><span id="filmCount" aria-live="polite"></span></div>
+      <div id="filmGrid" class="film-grid"></div><p id="filmEmpty" class="video-empty" hidden>没有找到匹配的风格，换个关键词试试。</p>
+      <p class="video-footnote">视频和封面来自原项目，播放需要网络；提示词和源码在原仓库中。音频、字体及素材请分别查看原项目的授权说明。</p>
+    </section>
+    <section id="shots" class="video-section"><div class="section-title"><div><span>03 / SHOT RECIPES</span><h2>镜头与叙事</h2></div><p>从镜头用途出发，查找产品视频灵感。</p></div>
+      <div class="shot-list"><div><b>01</b><span><strong>开场与品牌</strong><small>用标题与品牌建立第一印象</small></span></div><div><b>02</b><span><strong>镜头与转场</strong><small>连接画面，让内容顺畅推进</small></span></div><div><b>03</b><span><strong>界面与交互</strong><small>展示真实产品界面和操作</small></span></div><div><b>04</b><span><strong>数据与强调</strong><small>将关键数字和信息变成视觉焦点</small></span></div></div>
+      <a class="shot-cta" href="https://vincentwei1021.github.io/video-shotcraft/library.html" target="_blank" rel="noopener noreferrer">打开官方镜头库，查看全部分类和原始配方 ↗</a>
+    </section>
+    <footer class="video-footer">代码视频库 · 原项目及作者信息见各资源链接</footer>
+  </main>
+</div>
+<script type="module" src="src/video.js"></script>
+</body></html>

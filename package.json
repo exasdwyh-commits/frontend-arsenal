@@ -1,0 +1,14 @@
+{
+  "name": "frontend-arsenal",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WebUI 效果图鉴：按意图分组的可运行 UI 机制库",
+  "type": "module",
+  "scripts": {
+    "start": "python -m http.server 8080",
+    "serve": "npx serve -l 8080 .",
+    "agent:build": "node scripts/agent-catalog.mjs build",
+    "agent:check": "node scripts/agent-catalog.mjs check",
+    "agent:test": "node --test scripts/agent-catalog.test.mjs scripts/recipe.test.mjs"
+  }
+}

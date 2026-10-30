@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>技能库 · WebUI 图鉴</title>
+  <link rel="stylesheet" href="src/style.css"><link rel="stylesheet" href="src/skills.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
+</head>
+<body>
+<div class="skill-layout">
+  <aside class="skill-side">
+    <a class="library-link" href="library.html">← 综合搜索</a>
+    <a class="back-link" href="index.html">← 返回 UI 图鉴</a>
+    <div class="skill-brand">WebUI <span>技能库</span></div>
+    <p class="sub">前端可用的 Skill 文档<br>设计方法、原型流程、视频影像。</p>
+    <input id="skillSearch" class="skill-search" type="search" placeholder="搜索技能 / 关键词…">
+    <nav class="skill-nav" id="skillNav" aria-label="技能分类"></nav>
+    <div class="foot">
+      文档原样存于 <code>skills/</code><br>
+      来自 baoyu-design · chaojifeng · lemo-opuscar · impeccable · elayadesign · huashu-design
+    </div>
+  </aside>
+
+  <main class="skill-main">
+    <div class="skill-intro">
+      <div class="eyebrow">SKILL LIBRARY / 技能库</div>
+      <h1>把方法，而不只是效果，收进库。</h1>
+      <p>效果库管"长什么样"，技能库管"怎么做出来"。这里收录前端真正用得上的 Skill 文档——设计方向、原型流程、设计系统、数据图表、印刷导出，以及视频主线、分镜、声画节奏与交付验收。点开即读，可复制成自己的提示词。</p>
+    </div>
+    <div class="skill-count" id="skillCount"></div>
+    <div class="skill-grid" id="skillGrid"></div>
+    <p class="skill-empty" id="skillEmpty" hidden>没有匹配的技能，换个关键词试试。</p>
+  </main>
+</div>
+
+<div class="skill-modal" id="skillModal">
+  <div class="skill-sheet">
+    <header>
+      <div class="h-title"><b id="smTitle"></b><small id="smSub"></small></div>
+      <button class="x" id="smClose" aria-label="关闭">×</button>
+    </header>
+    <div class="actions">
+      <a id="smRaw" href="#" target="_blank" rel="noopener noreferrer">查看原始 .md ↗</a>
+      <button id="smCopy" type="button">复制全文</button>
+      <span class="spacer">Esc 关闭 · 文档来自 baoyu-design（MIT）、chaojifeng（MIT）、lemo-opuscar（MIT + CC BY 4.0）、impeccable（Apache-2.0）、ai-design-skills（MIT）、huashu-design（MIT）</span>
+    </div>
+    <div class="skill-body" id="smBody"></div>
+  </div>
+</div>
+
+<script type="module" src="src/skills.js"></script>
+</body>
+</html>

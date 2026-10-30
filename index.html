@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WebUI 图鉴</title>
+<link rel="stylesheet" href="src/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
+</head>
+<body>
+<div id="localFileWarning" class="local-file-warning" hidden role="alert">
+  <strong>请通过本地服务打开图鉴</strong>
+  <p>浏览器无法直接从文件加载图鉴模块。请双击项目目录中的 <code>serve.bat</code>，然后在浏览器访问 <code>http://localhost:8080</code>。</p>
+</div>
+<script>if (location.protocol === 'file:') document.getElementById('localFileWarning').hidden = false;</script>
+<div class="shell">
+  <aside>
+    <div class="brand">WebUI <span>图鉴</span></div>
+    <div class="sub" id="subCount">按效果意图选型</div>
+    <a class="library-link" href="library.html">← 综合搜索</a>
+    <a class="library-link" href="video.html">代码视频库 <span>↗</span></a>
+    <a class="library-link" href="skills.html">技能库 <span>↗</span></a>
+    <nav id="nav"></nav>
+    <div class="aside-foot">
+      加效果 → <code>src/registry.js</code><br>
+      规范 → <code>README.md</code>
+    </div>
+  </aside>
+
+  <main>
+    <header class="top">
+      <div>
+        <h1>找到适合场景的动效</h1>
+        <p class="lede">从界面位置、使用目的和触发方式出发，找到适合项目的效果。点击舞台预览，收藏并导出选型清单。</p>
+      </div>
+      <div class="tools">
+        <input type="search" id="q" placeholder="搜索效果 / 库名 / 依赖…">
+        <span class="pill" id="cnt"></span>
+      </div>
+    </header>
+    <section class="filters" aria-label="场景筛选">
+      <div class="filter-heading"><div><b>场景筛选</b><p>组合条件缩小范围；未标注的效果仍可通过搜索和分类浏览。</p></div><button id="resetFilters" type="button">清除筛选</button></div>
+      <div id="filters" class="filter-grid"></div>
+      <div class="filter-status" id="filterStatus" aria-live="polite"></div>
+    </section>
+    <div id="empty" class="empty" hidden>没有找到匹配的效果，试试减少筛选条件。<button id="emptyReset" type="button">清除筛选</button></div>
+    <div id="app"></div>
+  </main>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <header>
+      <div><b id="mTitle"></b><small id="mSub"></small></div>
+      <button class="x" id="mClose">×</button>
+    </header>
+    <div class="body">
+      <div class="stage big" id="mStage"></div>
+      <div id="scenePanel" class="scene-panel" hidden></div>
+      <div class="codebar"><span id="mDeps"></span><button id="mCopy">复制代码</button></div>
+      <pre id="mCode"></pre>
+      <div class="note" id="mNote"></div>
+    </div>
+  </div>
+</div>
+
+<div class="drawer" id="drawer">
+  <span style="color:var(--dim)">已选 <b id="dCount" style="color:var(--fg)">0</b></span>
+  <div class="chips" id="dChips"></div>
+  <button class="cta" id="dCopy">导出选型清单</button>
+  <button class="cta ghost" id="dClear">清空</button>
+</div>
+
+<script type="module" src="src/engine.js"></script>
+</body>
+</html>

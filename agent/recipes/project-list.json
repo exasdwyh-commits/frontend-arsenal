@@ -1,0 +1,105 @@
+{
+  "id": "recipe:project-list",
+  "title": "项目列表：加载占位与内容入场",
+  "description": "适合内部工具中的项目列表；加载时展示骨架，加载完成后展示内容。",
+  "category": "列表与加载",
+  "source": "agent/recipes/project-list.json",
+  "preview": "recipes/project-list/index.html",
+  "implementation": "runnable-example",
+  "scenes": {
+    "places": [
+      "列表"
+    ],
+    "goals": [
+      "加载状态",
+      "内容呈现"
+    ],
+    "projects": [
+      "管理后台"
+    ]
+  },
+  "sceneEvidence": "agent/recipes/project-list.json",
+  "slots": [
+    {
+      "id": "loading",
+      "effects": [
+        {
+          "id": "effect:skeleton-shimmer",
+          "controls": [
+            "transform"
+          ],
+          "reducedMotion": "静态骨架"
+        }
+      ]
+    },
+    {
+      "id": "list",
+      "effects": [
+        {
+          "id": "effect:stagger-in",
+          "controls": [
+            "opacity",
+            "transform"
+          ],
+          "reducedMotion": "内容立即可见"
+        }
+      ]
+    }
+  ],
+  "integration": {
+    "readBeforeUse": [
+      "recipes/project-list/index.html",
+      "recipes/project-list/style.css",
+      "recipes/project-list/app.js",
+      "src/effects/data.skeleton-shimmer.js",
+      "src/effects/entrance.stagger-in.js"
+    ],
+    "caveat": "示例借鉴原效果机制并以原生 CSS 重写；演示使用本地模拟数据，接入业务时需替换加载逻辑。"
+  },
+  "verification": {
+    "runtime": "chrome-file-smoke-passed",
+    "composition": "schema-checked",
+    "mobile": "chrome-390px-smoke-passed",
+    "accessibility": "unverified",
+    "license": "review-source",
+    "evidence": {
+      "environment": "Chrome headless，通过 file:// 与 --allow-file-access-from-files 加载；HTTP 环境未验证",
+      "checks": [
+        "1280×800 页面加载并显示三条模拟项目",
+        "重新加载显示占位后恢复列表",
+        "390×844 无横向溢出",
+        "减少动态效果时列表动画关闭",
+        "测试过程无页面与控制台错误"
+      ],
+      "limitations": [
+        "未验证实际接口、空结果及失败状态",
+        "未覆盖完整键盘操作、屏幕阅读器与其他浏览器"
+      ]
+    }
+  },
+  "parameters": {
+    "--list-enter-duration": {
+      "type": "time",
+      "default": "450ms",
+      "recommended": "200ms–700ms",
+      "purpose": "列表入场时长"
+    },
+    "--list-enter-delay": {
+      "type": "time",
+      "default": "70ms",
+      "recommended": "0ms–120ms",
+      "purpose": "相邻项目延迟"
+    },
+    "--skeleton-duration": {
+      "type": "time",
+      "default": "1.6s",
+      "recommended": "1s–3s",
+      "purpose": "加载扫光周期"
+    }
+  },
+  "dataContract": {
+    "example": "本地数组，每项含 title 和 description 字符串",
+    "integration": "以实际异步请求替换 app.js 中 setTimeout 和模拟数据；分别处理加载、成功、空结果与失败状态。",
+    "cleanup": "卸载或再次加载时取消待执行任务；真实请求应防止旧响应覆盖新结果。"
+  }
+}
