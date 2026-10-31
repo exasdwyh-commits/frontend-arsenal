@@ -866,6 +866,46 @@ export const SKILLS = [
     "bytes": 1160
   },
   {
+    "id": "overflow-agents",
+    "name": "Overflow Design drawings",
+    "desc": "This project can use Overflow Design's icons, illustrations and isometric drawings through the Overflow MCP server at https://www.overflow.design/api/",
+    "cat": "import",
+    "zh": "Overflow 图标 MCP 协议",
+    "bytes": 2064
+  },
+  {
+    "id": "overflow-notion-cover-size",
+    "name": "Notion Cover Size",
+    "desc": "If you need one safe starting point, use a wide 1500x600 px cover image. It works for the banner slot, the header dimensions and safe desktop and mobi",
+    "cat": "doc",
+    "zh": "Notion 封面尺寸",
+    "bytes": 3528
+  },
+  {
+    "id": "overflow-notion-icon-size",
+    "name": "Notion Icon Size",
+    "desc": "If you need one safe answer, use a square transparent PNG around 280x280 px for direct Notion uploads, and keep a 24x24 SVG or Figma master for editin",
+    "cat": "doc",
+    "zh": "Notion 图标尺寸",
+    "bytes": 3346
+  },
+  {
+    "id": "overflow-notion-icons-figma",
+    "name": "Notion Icons for Figma",
+    "desc": "If your icon workflow starts in Figma, keep the library editable there first, then export the PNG or SVG you need. That gives you cleaner design-syste",
+    "cat": "doc",
+    "zh": "Notion 图标 Figma 流",
+    "bytes": 4631
+  },
+  {
+    "id": "overflow-notion-icons-upload",
+    "name": "How to Add Icons to Notion",
+    "desc": "The quick version: click the page icon above your Notion page title, choose upload, and add a transparent PNG. If you want the upload file to look cle",
+    "cat": "doc",
+    "zh": "Notion 图标上传流程",
+    "bytes": 4366
+  },
+  {
     "id": "save-as-pdf",
     "name": "save-as-pdf",
     "desc": "Save as PDF Print-ready PDF export",

@@ -4,7 +4,8 @@
    ============================================================ */
 import { GROUP_MAP } from './groups.js';
 
-/* ---- 入场与转场 (41) ---- */
+/* ---- 入场与转场 (42) ---- */
+import entranceAgentChatDemo from './effects/entrance.agent-chat-demo.js';
 import entranceBentoLightup from './effects/entrance.bento-lightup.js';
 import entranceBlindsFlip from './effects/entrance.blinds-flip.js';
 import entranceDrawPath from './effects/entrance.draw-path.js';
@@ -60,6 +61,7 @@ import feedbackDockMagnify from './effects/feedback.dock-magnify.js';
 import feedbackGridReflow from './effects/feedback.grid-reflow.js';
 import feedbackIntentFill from './effects/feedback.intent-fill.js';
 import feedbackIslandMorph from './effects/feedback.island-morph.js';
+import feedbackIsoParametric from './effects/feedback.iso-parametric.js';
 import feedbackKnobGesture from './effects/feedback.knob-gesture.js';
 import feedbackMagneticBtn from './effects/feedback.magnetic-btn.js';
 import feedbackNeumorphBtn from './effects/feedback.neumorph-btn.js';
@@ -162,6 +164,7 @@ import audioWaveform from './effects/audio.waveform.js';
 
 export const EFFECTS = [
   // 入场与转场
+  entranceAgentChatDemo,
   entranceBentoLightup, entranceBlindsFlip, entranceDrawPath, entranceEaseShelf, entranceGlTransition,
   entranceGradientHeading, entranceGradientWordSweep, entranceGridStagger, entranceHeightMorph,
   entranceInkBleedReveal, entranceLetterDrop, entranceLightBoard,
@@ -176,7 +179,7 @@ export const EFFECTS = [
   // 交互反馈
   feedbackAnimeMorph, feedbackBgAnimateBtn, feedbackButtonMorph, feedbackContactShadow, feedbackCosmicBtn,
   feedbackCursorFollow, feedbackDirectionTabs, feedbackDisclosureSummary, feedbackDockMagnify, feedbackGridReflow,
-  feedbackIntentFill, feedbackIslandMorph, feedbackKnobGesture, feedbackMagneticBtn, feedbackNeumorphBtn,
+  feedbackIntentFill, feedbackIslandMorph, feedbackIsoParametric, feedbackKnobGesture, feedbackMagneticBtn, feedbackNeumorphBtn,
   feedbackP5LerpEase, feedbackProMaterial, feedbackReleaseNoFlash, feedbackRipple, feedbackRsDecayScroll,
   feedbackRsSpringPresets, feedbackRsTrailChain, feedbackScrubNumber, feedbackSegmentedThumb, feedbackShiftCard,
   feedbackSliderInset, feedbackSpringCard, feedbackTabInk, feedbackTextureBtn, feedbackTilt3d, feedbackTriggerWidest,

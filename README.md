@@ -19,7 +19,7 @@
 
 ## 技能库
 
-从主页侧栏进入 `skills.html`，收录 **119 个前端真正用得上的 Skill 文档**（设计与美学、设计系统、原型与交互、数据与地图、文档与印刷、媒体与导出、视频与影像、导入与研究 8 类）。这些是 Markdown 方法文档而非代码，原样存于 `skills/`：45 个来自 [baoyu-design](https://github.com/jimliu/baoyu-design)（MIT），30 个来自 [chaojifeng-video-design](https://github.com/mileson/chaojifeng-video-design)（MIT，超级峰的视频设计方法论：主线、分镜、声画节奏、制作与交付验收，含 29 个独立方法文档），1 个来自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（MIT + CC BY 4.0，纯代码做片的导演 skill），1 个来自 [impeccable](https://github.com/pbakaus/impeccable)（Apache-2.0，设计总控 skill：18 个命令覆盖 shape/critique/audit/polish/harden 全链路，上游为 SKILL.md + 45 篇 reference 剧本的多文件包，此处收录主文件），1 个来自 [ai-design-skills](https://github.com/elayadesign/ai-design-skills)（MIT，12k★，落地页设计系统：Part A 转化策略（intake 问题清单/页面结构/文案公式/SEO）+ Part B 视觉系统（字体间距圆角动效全部定死具体值），尾部设计值段落可整段改写驱动全篇），41 个来自 [huashu-design](https://github.com/alchaincyf/huashu-design)（MIT，28k★，花叔Design 3.0：HTML-native 设计 skill，主文件 + 40 篇 reference——84 种带样张风格库、三方向选稿流程、动画最佳实践与避坑清单、GSAP 配方集、排版规范、幻灯片/PPTX、分镜与镜头语言、配音与视频导出管线，是本库最大的单源）。页面自带零依赖迷你 Markdown 渲染器（不引 CDN），支持分类/搜索/全文复制/查看原始 `.md`，并可用 `skills.html?skill=<id>` 深链直达单个技能。
+从主页侧栏进入 `skills.html`，收录 **124 个前端真正用得上的 Skill 文档**（设计与美学、设计系统、原型与交互、数据与地图、文档与印刷、媒体与导出、视频与影像、导入与研究 8 类）。这些是 Markdown 方法文档而非代码，原样存于 `skills/`：45 个来自 [baoyu-design](https://github.com/jimliu/baoyu-design)（MIT），30 个来自 [chaojifeng-video-design](https://github.com/mileson/chaojifeng-video-design)（MIT，超级峰的视频设计方法论：主线、分镜、声画节奏、制作与交付验收，含 29 个独立方法文档），1 个来自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（MIT + CC BY 4.0，纯代码做片的导演 skill），1 个来自 [impeccable](https://github.com/pbakaus/impeccable)（Apache-2.0，设计总控 skill：18 个命令覆盖 shape/critique/audit/polish/harden 全链路，上游为 SKILL.md + 45 篇 reference 剧本的多文件包，此处收录主文件），1 个来自 [ai-design-skills](https://github.com/elayadesign/ai-design-skills)（MIT，12k★，落地页设计系统：Part A 转化策略（intake 问题清单/页面结构/文案公式/SEO）+ Part B 视觉系统（字体间距圆角动效全部定死具体值），尾部设计值段落可整段改写驱动全篇），41 个来自 [huashu-design](https://github.com/alchaincyf/huashu-design)（MIT，28k★，花叔Design 3.0：HTML-native 设计 skill，主文件 + 40 篇 reference——84 种带样张风格库、三方向选稿流程、动画最佳实践与避坑清单、GSAP 配方集、排版规范、幻灯片/PPTX、分镜与镜头语言、配音与视频导出管线，是本库最大的单源），5 篇来自 [overflow.design](https://www.overflow.design)（站内公开文档：图标 MCP 协议 + 4 篇 Notion 尺寸/上传指南）。页面自带零依赖迷你 Markdown 渲染器（不引 CDN），支持分类/搜索/全文复制/查看原始 `.md`，并可用 `skills.html?skill=<id>` 深链直达单个技能。
 
 效果库管"长什么样"，技能库管"怎么做出来"——两者互补，都归这个仓库收藏。原仓库 53 个 skill 中排除了 8 个非前端项（read-pdf、web-research 等非前端用途，gemini-image、sound-effects 依赖外部 AI 服务，send-to-figma、send-to-canva 是外部导出，另有一对 pptx 导出为重复项）。
 
@@ -29,8 +29,8 @@
 WebUI/
 ├── index.html              # 图鉴主页：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
-├── skills.html             # 技能库：119 个前端可用 Skill 文档的浏览/阅读页
-├── skills/                 # 技能文档原样存放（119 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT）
+├── skills.html             # 技能库：124 个前端可用 Skill 文档的浏览/阅读页
+├── skills/                 # 技能文档原样存放（124 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档）
 ├── serve.bat               # 双击起本地服务（端口 8080，自动开浏览器）
 ├── package.json            # 仅用于 npm start / npx serve
 └── src/
@@ -120,12 +120,12 @@ export const EFFECTS = [ /* ... */ magneticBtn ];
 
 ---
 
-## 当前收录（142 个 / 7 组）
+## 当前收录（144 个 / 7 组）
 
 | 组 | 数量 | 代表效果 |
 |---|---:|---|
-| 入场与转场 | 41 | 12 个 GLSL 转场（涟漪/故障/水滴/噪声溶解/漩涡/像素化/虚化/燃烧/边缘发光/交叉缩放/置换扭曲/马赛克巡览）、形状遮罩转场族（一个注册变量驱动 20 种 PowerPoint 风格遮罩）、百叶窗 3D 翻页、角落聚光显影、列表找位+整体漂移、词槽老虎机、缓动货架、网格错峰、SVG 描边自绘、马克笔下划线、空心字硬切点亮、字重脉冲、霓虹框先行、字符坠落堆积、Bento 逐格点亮、渐变标题、渐变扫光充能词（波前推进+排期闪电）、墨渗揭示（湍流位移水墨转场）、灯板跑马字、逐字换字体标题 |
-| 交互反馈 | 31 | 分段控件滑块特写（橡皮筋拉伸）、磁吸按钮、状态岛形变、Dock 距离衰减、弹簧预设库、拖尾链、衰减滚动、3D 倾斜、标签滑动底板、按钮四态形变、意图填空、网格重排、接触阴影抬升、纹理按钮、新拟态按钮、宇宙环按钮、整面渐变按钮、内容错位卡、方向感知标签、ProUI 材质配方、像素计步拖拽数值、旋钮读手势、滑轨减宽度滑块、松手不闪按压态、触发器预留最宽标签、折叠区摘要汇报 |
+| 入场与转场 | 42 | 12 个 GLSL 转场（涟漪/故障/水滴/噪声溶解/漩涡/像素化/虚化/燃烧/边缘发光/交叉缩放/置换扭曲/马赛克巡览）、形状遮罩转场族（一个注册变量驱动 20 种 PowerPoint 风格遮罩）、百叶窗 3D 翻页、角落聚光显影、列表找位+整体漂移、词槽老虎机、缓动货架、网格错峰、SVG 描边自绘、马克笔下划线、空心字硬切点亮、字重脉冲、霓虹框先行、字符坠落堆积、Bento 逐格点亮、渐变标题、渐变扫光充能词（波前推进+排期闪电）、墨渗揭示（湍流位移水墨转场）、灯板跑马字、逐字换字体标题、假 AI 对话演示（工具卡+流式回复循环） |
+| 交互反馈 | 32 | 分段控件滑块特写（橡皮筋拉伸）、磁吸按钮、状态岛形变、Dock 距离衰减、弹簧预设库、拖尾链、衰减滚动、3D 倾斜、标签滑动底板、按钮四态形变、意图填空、网格重排、接触阴影抬升、纹理按钮、新拟态按钮、宇宙环按钮、整面渐变按钮、内容错位卡、方向感知标签、ProUI 材质配方、像素计步拖拽数值、旋钮读手势、滑轨减宽度滑块、松手不闪按压态、触发器预留最宽标签、折叠区摘要汇报、等距图参数面板（线重/主题/朝向实时改参） |
 | 空间与 3D | 16 | 手写矩阵 3D 旋转（OrbitControls 阻尼）、射线拾取、Shader 波动曲面、实例化网格、CSS3D 卡片环、分步停靠卡环、克隆纵队、折页展开、路径匀速运动、极简卡片、缺角卡 |
 | 粒子与氛围 | 20 | 程序化水彩晕染（fbm 毛边+颜料深边堆积）、CRT 录像带后期（YCbCr 只糊色度保亮度 + 开机亮线 + 磁头切换撕裂）、柏林噪声漂移、高斯爆发、GPU 粒子云、边框光束、条纹玻璃、星轨螺旋、引力场轨道、实例化点云、分层景深、点阵涟漪、纹理叠层、边缘渐进模糊、栏位导引光、有序抖动图像 |
 | 物理与拟真 | 12 | 刚体堆叠+休眠、绳索链、布娃娃、CCD 穿模对比、马达关节、弹簧约束链、复合刚体 |
@@ -172,6 +172,12 @@ video-shotcraft 的 `demos/` 还有大量 typography / transitions 机制尚未�
 - **折叠区摘要汇报（disclosure-summary）**：检查器折叠分区收起后标题行仍汇报内部状态（关键值/改动数/异常点），摘要与控件同源更新（同一函数写两处，绝不维护两份）。
 
 Electron 的 pro-drag/pro-no-drag 拖拽区机制因浏览器无法演示未收；ProUI 本身是付费产品的安装说明，也未进技能库。
+
+已从 [Overflow Design](https://www.overflow.design)（素材商店，$99 Pro，手绘图标/插画/等距图）提炼 2 个机制 + 收录 5 篇文档。边界：付费 SVG/插画素材本身**未收录**，只取公开页面上的交互机制与免费公开的方法文档：
+
+- **等距图参数面板（iso-parametric）**：同一张等距 SVG 被控制面板实时改参——线重直改 `stroke-width` 属性（transform 缩放会连描边一起放大，观感是"大图"不是"粗线"）、主题翻转靠全部描边 `currentColor` + 面的明暗用相对透明度、朝向是 `scaleX(-1)` 镜像、悬停画面时四层板按光标做层间视差（位移系数按层递增，全层同距就成了平移）。提炼自其公开目录页的 Appearance/Theme/Weight/Facing 面板与"指上去它就动"的描述。
+- **假 AI 对话演示（agent-chat-demo）**：落地页的"AI 正在干活"循环动画——用户提示逐字打入 → 工具调用卡（`search_drawings` 查询、3 个结果带 FREE/PRO 标签、246ms 耗时）→ 文件卡（`get_drawings` 拉回两个 SVG）→ 助手回复流式吐出 → 停留 → 清空循环。核心是帧时钟分段驱动（每段 start/end 算进度，可暂停可跳帧），流式文本用 `textContent` 逐字追加防 XSS。提炼自其首页的 MCP 演示；所有数字与结果均为表演数据。
+- 技能库另收 5 篇：`mcp/agents.md`（Overflow 图标 MCP 协议：When/How/Licence 结构的 agent 使用协议）+ 4 篇 Notion 指南（图标 280×280 上传规格、封面 1500×600 与留边规则、上传流程、Figma 库管理），规格数字是实料。
 
 ## 三个效率功能
 

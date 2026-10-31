@@ -124,6 +124,12 @@ const META = {
   'huashu-voiceover-pipeline':           ['video', '配音流水线'],
   'huashu-video-export':                 ['video', '视频导出'],
   'huashu-hyperframes-backend':          ['video', 'HyperFrames 渲染后端'],
+  // ---- Overflow Design（overflow.design，公开文档，5 个） ----
+  'overflow-agents':              ['import', 'Overflow 图标 MCP 协议'],
+  'overflow-notion-icon-size':    ['doc', 'Notion 图标尺寸'],
+  'overflow-notion-cover-size':   ['doc', 'Notion 封面尺寸'],
+  'overflow-notion-icons-upload': ['doc', 'Notion 图标上传流程'],
+  'overflow-notion-icons-figma':  ['doc', 'Notion 图标 Figma 流'],
 };
 const CATS = {
   design: '设计与美学',
