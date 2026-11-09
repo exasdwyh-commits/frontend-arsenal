@@ -4,12 +4,13 @@
    ============================================================ */
 import { GROUP_MAP } from './groups.js';
 
-/* ---- 入场与转场 (42) ---- */
+/* ---- 入场与转场 (44) ---- */
 import entranceAgentChatDemo from './effects/entrance.agent-chat-demo.js';
 import entranceBentoLightup from './effects/entrance.bento-lightup.js';
 import entranceBlindsFlip from './effects/entrance.blinds-flip.js';
 import entranceDrawPath from './effects/entrance.draw-path.js';
 import entranceEaseShelf from './effects/entrance.ease-shelf.js';
+import entranceExitMotion from './effects/entrance.exit-motion.js';
 import entranceGlTransition from './effects/entrance.gl-transition.js';
 import entranceGradientHeading from './effects/entrance.gradient-heading.js';
 import entranceGradientWordSweep from './effects/entrance.gradient-word-sweep.js';
@@ -27,6 +28,7 @@ import entranceOutlineFill from './effects/entrance.outline-fill.js';
 import entrancePillSlotCycle from './effects/entrance.pill-slot-cycle.js';
 import entrancePixelHeading from './effects/entrance.pixel-heading.js';
 import entrancePopupRise from './effects/entrance.popup-rise.js';
+import entranceReducedMotionTiers from './effects/entrance.reduced-motion-tiers.js';
 import entranceRsTransitionList from './effects/entrance.rs-transition-list.js';
 import entranceSpringEnter from './effects/entrance.spring-enter.js';
 import entranceSpringModal from './effects/entrance.spring-modal.js';
@@ -48,17 +50,19 @@ import entranceTypewriterCaret from './effects/entrance.typewriter-caret.js';
 import entranceWeightPump from './effects/entrance.weight-pump.js';
 import entranceWipeReveal from './effects/entrance.wipe-reveal.js';
 
-/* ---- 交互反馈 (31) ---- */
+/* ---- 交互反馈 (34) ---- */
 import feedbackAnimeMorph from './effects/feedback.anime-morph.js';
 import feedbackBgAnimateBtn from './effects/feedback.bg-animate-btn.js';
 import feedbackButtonMorph from './effects/feedback.button-morph.js';
 import feedbackContactShadow from './effects/feedback.contact-shadow.js';
+import feedbackControlRhythm from './effects/feedback.control-rhythm.js';
 import feedbackCosmicBtn from './effects/feedback.cosmic-btn.js';
 import feedbackCursorFollow from './effects/feedback.cursor-follow.js';
 import feedbackDirectionTabs from './effects/feedback.direction-tabs.js';
 import feedbackDisclosureSummary from './effects/feedback.disclosure-summary.js';
 import feedbackDockMagnify from './effects/feedback.dock-magnify.js';
 import feedbackGridReflow from './effects/feedback.grid-reflow.js';
+import feedbackImeGuard from './effects/feedback.ime-guard.js';
 import feedbackIntentFill from './effects/feedback.intent-fill.js';
 import feedbackIslandMorph from './effects/feedback.island-morph.js';
 import feedbackIsoParametric from './effects/feedback.iso-parametric.js';
@@ -82,7 +86,7 @@ import feedbackTextureBtn from './effects/feedback.texture-btn.js';
 import feedbackTilt3d from './effects/feedback.tilt-3d.js';
 import feedbackTriggerWidest from './effects/feedback.trigger-widest.js';
 
-/* ---- 空间与 3D (16) ---- */
+/* ---- 空间与 3D (17) ---- */
 import spaceCardStack from './effects/space.card-stack.js';
 import spaceCarouselStep from './effects/space.carousel-step.js';
 import spaceCss3dCardRing from './effects/space.css3d-card-ring.js';
@@ -98,6 +102,7 @@ import spaceMinimalCard from './effects/space.minimal-card.js';
 import spaceP5StackSpace from './effects/space.p5-stack-space.js';
 import spaceParallaxDepth from './effects/space.parallax-depth.js';
 import spacePathArcLength from './effects/space.path-arc-length.js';
+import spaceRtlLogical from './effects/space.rtl-logical.js';
 import spaceThreeCube from './effects/space.three-cube.js';
 
 /* ---- 粒子与氛围 (20) ---- */
@@ -165,20 +170,23 @@ import audioWaveform from './effects/audio.waveform.js';
 export const EFFECTS = [
   // 入场与转场
   entranceAgentChatDemo,
-  entranceBentoLightup, entranceBlindsFlip, entranceDrawPath, entranceEaseShelf, entranceGlTransition,
+  entranceBentoLightup, entranceBlindsFlip, entranceDrawPath, entranceEaseShelf, entranceExitMotion,
+  entranceGlTransition,
   entranceGradientHeading, entranceGradientWordSweep, entranceGridStagger, entranceHeightMorph,
   entranceInkBleedReveal, entranceLetterDrop, entranceLightBoard,
   entranceCornerSpotlight, entranceListReveal, entranceMarkerUnderline, entranceMaskShapeCycles, entranceNeonFrame,
   entranceOutlineFill,
   entrancePillSlotCycle, entrancePixelHeading,
-  entrancePopupRise, entranceRsTransitionList, entranceSpringEnter, entranceSpringModal,
+  entrancePopupRise, entranceReducedMotionTiers, entranceRsTransitionList, entranceSpringEnter, entranceSpringModal,
   entranceStaggerIn, entranceTextScramble, entranceTrBlurFade, entranceTrBurn,
   entranceTrCrossWarp, entranceTrDisplaceWarp, entranceTrEdgeGlow, entranceTrGlitch,
   entranceTrMosaic, entranceTrNoiseDissolve, entranceTrPixelize, entranceTrRipple,
   entranceTrSwirl, entranceTrWaterdrop, entranceTypewriterCaret, entranceWeightPump, entranceWipeReveal,
   // 交互反馈
-  feedbackAnimeMorph, feedbackBgAnimateBtn, feedbackButtonMorph, feedbackContactShadow, feedbackCosmicBtn,
+  feedbackAnimeMorph, feedbackBgAnimateBtn, feedbackButtonMorph, feedbackContactShadow, feedbackControlRhythm,
+  feedbackCosmicBtn,
   feedbackCursorFollow, feedbackDirectionTabs, feedbackDisclosureSummary, feedbackDockMagnify, feedbackGridReflow,
+  feedbackImeGuard,
   feedbackIntentFill, feedbackIslandMorph, feedbackIsoParametric, feedbackKnobGesture, feedbackMagneticBtn, feedbackNeumorphBtn,
   feedbackP5LerpEase, feedbackProMaterial, feedbackReleaseNoFlash, feedbackRipple, feedbackRsDecayScroll,
   feedbackRsSpringPresets, feedbackRsTrailChain, feedbackScrubNumber, feedbackSegmentedThumb, feedbackShiftCard,
@@ -186,7 +194,7 @@ export const EFFECTS = [
   // 空间与 3D
   spaceCardStack, spaceCarouselStep, spaceCss3dCardRing, spaceCutoutCard, spaceDepthEcho, spaceFlipResize, spaceFoldCard,
   spaceGlInstancedGrid, spaceGlRaycastHover, spaceGlRotatingBox, spaceGlWaveSurface,
-  spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceThreeCube,
+  spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceRtlLogical, spaceThreeCube,
   // 粒子与氛围
   particleAurora, particleBorderBeam, particleCrtTape, particleDitherImage, particleDofBlur, particleEdgeBlur,
   particleFlutedGlass, particleGlParticleVortex, particleGlParticlesCloud, particleGlowOrb,

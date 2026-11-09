@@ -26,6 +26,2006 @@ export const SKILLS = [
     "bytes": 16801
   },
   {
+    "id": "astryx-a11y-spec",
+    "name": "@astryxdesign/a11y-spec",
+    "desc": "Reusable accessibility spec tests: one standards-traceable contract per adopted",
+    "cat": "ds",
+    "zh": "无障碍测试契约",
+    "bytes": 38365
+  },
+  {
+    "id": "astryx-agentic-states",
+    "name": "Agentic states design specification",
+    "desc": "People working with an agent should understand whether it is progressing,",
+    "cat": "design",
+    "zh": "Agent 状态设计",
+    "bytes": 4544
+  },
+  {
+    "id": "astryx-agents",
+    "name": "Astryx repository guidance",
+    "desc": "Astryx is a public design-system repository. Never commit internal links,",
+    "cat": "import",
+    "zh": "Astryx Agent 协议",
+    "bytes": 15443
+  },
+  {
+    "id": "astryx-api-conventions",
+    "name": "API conventions for contributors",
+    "desc": "Use this guide to shape a public component API before review. This page is a",
+    "cat": "ds",
+    "zh": "API 约定",
+    "bytes": 25780
+  },
+  {
+    "id": "astryx-arch-component-theming",
+    "name": "Component theming surface",
+    "desc": "This record defines how component anatomy relates to the public theming API.",
+    "cat": "ds",
+    "zh": "组件主题面",
+    "bytes": 50466
+  },
+  {
+    "id": "astryx-arch-i18n",
+    "name": "Internationalization architecture",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "国际化架构",
+    "bytes": 44993
+  },
+  {
+    "id": "astryx-arch-icon-slots",
+    "name": "Icon resolution and component slots",
+    "desc": "This record defines how shared icons and component-owned icon roles fit together.",
+    "cat": "ds",
+    "zh": "图标解析与插槽",
+    "bytes": 17854
+  },
+  {
+    "id": "astryx-arch-knowledge-contracts",
+    "name": "Knowledge contracts and decisions",
+    "desc": "A reviewer should be able to answer two questions without rereading old pull",
+    "cat": "ds",
+    "zh": "知识契约",
+    "bytes": 100128
+  },
+  {
+    "id": "astryx-arch-public-api",
+    "name": "Public component API",
+    "desc": "This record defines the shared public API contract for stable Astryx components.",
+    "cat": "ds",
+    "zh": "公共组件 API",
+    "bytes": 44689
+  },
+  {
+    "id": "astryx-arch-readme",
+    "name": "Architecture records",
+    "desc": "Architecture documents describe the shipped system in present tense. They are",
+    "cat": "ds",
+    "zh": "架构文档导览",
+    "bytes": 380
+  },
+  {
+    "id": "astryx-arch-rtl-audit",
+    "name": "RTL audit evidence architecture",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "RTL 审计证据",
+    "bytes": 29628
+  },
+  {
+    "id": "astryx-arch-template-authoring",
+    "name": "Template authoring architecture",
+    "desc": "Astryx templates are copyable starting points. Page templates scaffold complete",
+    "cat": "ds",
+    "zh": "模板编写",
+    "bytes": 23939
+  },
+  {
+    "id": "astryx-arch-test-sufficiency",
+    "name": "Component test sufficiency architecture",
+    "desc": "Astryx component tests should give maintainers confidence that current promised",
+    "cat": "ds",
+    "zh": "组件测试充分性",
+    "bytes": 26396
+  },
+  {
+    "id": "astryx-arch-theme-application",
+    "name": "Theme application",
+    "desc": "This record defines how a compiled theme becomes active for a React tree and the",
+    "cat": "ds",
+    "zh": "主题应用",
+    "bytes": 14054
+  },
+  {
+    "id": "astryx-arch-theme-authoring",
+    "name": "Theme authoring contract",
+    "desc": "This record defines what a theme author may express and how defineTheme",
+    "cat": "ds",
+    "zh": "主题编写契约",
+    "bytes": 20393
+  },
+  {
+    "id": "astryx-arch-theme-compilation",
+    "name": "Theme compilation",
+    "desc": "This record defines how one theme definition becomes usable styles.",
+    "cat": "ds",
+    "zh": "主题编译",
+    "bytes": 32103
+  },
+  {
+    "id": "astryx-ast-001",
+    "name": "Async option-source states",
+    "desc": "People using Selector or MultiSelector should be able to use every option the",
+    "cat": "ds",
+    "zh": "系统规格 异步选项源状态",
+    "bytes": 8726
+  },
+  {
+    "id": "astryx-ast-003",
+    "name": "Layer coordination and global hosting system spe",
+    "desc": "Make every layered interaction close the intended owner or interaction branch,",
+    "cat": "ds",
+    "zh": "系统规格 图层协调全局宿主",
+    "bytes": 19634
+  },
+  {
+    "id": "astryx-ast-004",
+    "name": "Selector empty indicator-space collapse system s",
+    "desc": "Give unselected options the width currently consumed by an empty selection-mark",
+    "cat": "ds",
+    "zh": "系统规格 空态指示位收起",
+    "bytes": 8242
+  },
+  {
+    "id": "astryx-ast-005",
+    "name": "Safe navigation destinations",
+    "desc": "A person activating an Astryx link should get the same destination safety no",
+    "cat": "ds",
+    "zh": "系统规格 安全导航目标",
+    "bytes": 13152
+  },
+  {
+    "id": "astryx-ast-006",
+    "name": "Theme-local tokens system spec",
+    "desc": "Let a maintained theme reuse one of its own semantic decisions across component",
+    "cat": "ds",
+    "zh": "系统规格 主题局部令牌",
+    "bytes": 24021
+  },
+  {
+    "id": "astryx-ast-008",
+    "name": "Authoring-time tonal palette generation system s",
+    "desc": "Theme authors need a repeatable way to make complete tonal palette candidates.",
+    "cat": "ds",
+    "zh": "系统规格 色调调色板生成",
+    "bytes": 35330
+  },
+  {
+    "id": "astryx-ast-009",
+    "name": "Assistive-technology verification system spec",
+    "desc": "People who depend on assistive technology should get the focus and announcement",
+    "cat": "ds",
+    "zh": "系统规格 辅助技术验证",
+    "bytes": 30996
+  },
+  {
+    "id": "astryx-ast-010",
+    "name": "Structured percentage useResizable configuration",
+    "desc": "A person resizing a panel should get the same panel size that the handle presents",
+    "cat": "ds",
+    "zh": "系统规格 百分比可调配置",
+    "bytes": 32753
+  },
+  {
+    "id": "astryx-ast-011",
+    "name": "Read-only selection inputs",
+    "desc": "People should be able to review and submit a selected value that policy or",
+    "cat": "ds",
+    "zh": "系统规格 只读选择输入",
+    "bytes": 8249
+  },
+  {
+    "id": "astryx-ast-012",
+    "name": "Theme adaptations",
+    "desc": "Themes should express opt-in token and component adaptations for environmental",
+    "cat": "ds",
+    "zh": "系统规格 主题适配",
+    "bytes": 21696
+  },
+  {
+    "id": "astryx-ast-013",
+    "name": "Browser and platform support system spec",
+    "desc": "Give stable Astryx web components one owner for browser support, native-feature",
+    "cat": "ds",
+    "zh": "系统规格 浏览器与平台支持",
+    "bytes": 14123
+  },
+  {
+    "id": "astryx-ast-018",
+    "name": "Approved palette authoring contract",
+    "desc": "Give maintained themes a consistent, reviewable color reference without making",
+    "cat": "ds",
+    "zh": "系统规格 调色板编写契约",
+    "bytes": 15896
+  },
+  {
+    "id": "astryx-ast-020",
+    "name": "Accessibility spec-test authoring system spec",
+    "desc": "People using Astryx components should get the keyboard, focus, meaning, and state",
+    "cat": "ds",
+    "zh": "系统规格 无障碍规格测试",
+    "bytes": 23374
+  },
+  {
+    "id": "astryx-ast-022",
+    "name": "Theme ownership, inheritance, and materializatio",
+    "desc": "Theme authors need to know whether a theme follows another theme or merely uses",
+    "cat": "ds",
+    "zh": "系统规格 主题继承与物化",
+    "bytes": 29136
+  },
+  {
+    "id": "astryx-ast-024",
+    "name": "Theme-extensible Heading visual roles system spe",
+    "desc": "Product themes sometimes need named heading treatments beyond Astryx's three",
+    "cat": "ds",
+    "zh": "系统规格 标题视觉角色扩展",
+    "bytes": 15794
+  },
+  {
+    "id": "astryx-ast-025",
+    "name": "Scrollable container behavior system spec",
+    "desc": "People should be able to reach and scroll overflowing content, continue scrolling",
+    "cat": "ds",
+    "zh": "系统规格 滚动容器行为",
+    "bytes": 37133
+  },
+  {
+    "id": "astryx-ast-026",
+    "name": "shadcn Registry compatibility system spec",
+    "desc": "Let builders install Astryx components, component showcases, example blocks, and",
+    "cat": "ds",
+    "zh": "系统规格 shadcn 注册兼容",
+    "bytes": 14680
+  },
+  {
+    "id": "astryx-ast-027",
+    "name": "Local stacking and browser top-layer routing sys",
+    "desc": "An Astryx component should be able to order its own painted parts without",
+    "cat": "ds",
+    "zh": "系统规格 本地堆叠与顶层路由",
+    "bytes": 27506
+  },
+  {
+    "id": "astryx-ast-032",
+    "name": "Upload and send icon theming",
+    "desc": "Let themes choose the artwork for FileInput's upload affordance and",
+    "cat": "ds",
+    "zh": "系统规格 上传发送图标主题化",
+    "bytes": 13376
+  },
+  {
+    "id": "astryx-ast-037-timer",
+    "name": "Non-rendering elapsed Timer system spec",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "系统规格 计时器",
+    "bytes": 22695
+  },
+  {
+    "id": "astryx-ast-038-layer-text-boundary",
+    "name": "Layer inherited-text and grouping boundary syste",
+    "desc": "People opening a dialog, menu, tooltip, or other floating reading surface must",
+    "cat": "ds",
+    "zh": "系统规格 图层文本继承边界",
+    "bytes": 51832
+  },
+  {
+    "id": "astryx-ast-043-input-presentation",
+    "name": "Date and time input presentation system spec",
+    "desc": "One prop question — which surface collects the value — currently has two",
+    "cat": "ds",
+    "zh": "系统规格 日期时间输入呈现",
+    "bytes": 11547
+  },
+  {
+    "id": "astryx-ast-050-app-themes",
+    "name": "App themes system spec",
+    "desc": "A builder, a person or a coding agent, wants an app that uses one or more themes:",
+    "cat": "ds",
+    "zh": "系统规格 应用主题",
+    "bytes": 37598
+  },
+  {
+    "id": "astryx-ast-053-multi-selector-lookups",
+    "name": "Complete multi-selector lookup receipts system s",
+    "desc": "An agent sometimes knows several exact subjects it must inspect. Repeating one CLI",
+    "cat": "ds",
+    "zh": "系统规格 多选查找回执",
+    "bytes": 18696
+  },
+  {
+    "id": "astryx-ast-055-caller-rendered-trigger",
+    "name": "Caller-rendered overlay trigger system spec",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "系统规格 调用方渲染触发器",
+    "bytes": 32108
+  },
+  {
+    "id": "astryx-ast-056-search-prop-shape",
+    "name": "Search state vocabulary system spec",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "系统规格 搜索状态词汇",
+    "bytes": 47339
+  },
+  {
+    "id": "astryx-ast-057-row-actions",
+    "name": "Swipe actions on `Item` system spec",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "系统规格 行滑动操作",
+    "bytes": 135115
+  },
+  {
+    "id": "astryx-ast-058-option-actions",
+    "name": "Secondary action beside a picker option system s",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "系统规格 选项副操作",
+    "bytes": 45551
+  },
+  {
+    "id": "astryx-ast-059-layer-viewport-inset",
+    "name": "Layer viewport inset system spec",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "系统规格 图层视口内缩",
+    "bytes": 66880
+  },
+  {
+    "id": "astryx-ast-066-theme-data-boundary",
+    "name": "StyleX data-token ownership system spec",
+    "desc": "The public dataVars entry in prebuilt mode contains compiled var() references,",
+    "cat": "ds",
+    "zh": "系统规格 StyleX 令牌所有权",
+    "bytes": 40432
+  },
+  {
+    "id": "astryx-ast-067-wall-time-resolution",
+    "name": "Wall-clock time resolution system spec",
+    "desc": "People who see dates and times in a chosen time zone, such as a Schedule week or",
+    "cat": "ds",
+    "zh": "系统规格 墙钟时间分辨率",
+    "bytes": 6319
+  },
+  {
+    "id": "astryx-ast-071-styling-library-compat",
+    "name": "Styling-library compatibility system spec",
+    "desc": "A product styles Astryx components with whatever its codebase already uses:",
+    "cat": "ds",
+    "zh": "系统规格 样式库兼容",
+    "bytes": 4682
+  },
+  {
+    "id": "astryx-ast-075-owned-field-combobox",
+    "name": "Combobox over a caller-rendered field system spe",
+    "desc": "A person picks from a filtered list while focus stays in a text field the",
+    "cat": "ds",
+    "zh": "系统规格 自绘字段组合框",
+    "bytes": 12063
+  },
+  {
+    "id": "astryx-ast-079-selector-trigger-hierarchy",
+    "name": "Shared selector trigger hierarchy system spec",
+    "desc": "A builder can place Selector, MultiSelector, or ComplexSelector beside",
+    "cat": "ds",
+    "zh": "系统规格 选择器触发层级",
+    "bytes": 12256
+  },
+  {
+    "id": "astryx-ast-081-global-mode",
+    "name": "Global mode system spec",
+    "desc": "proposals, history, pull requests, or research in the record; see",
+    "cat": "ds",
+    "zh": "系统规格 全局模式",
+    "bytes": 123331
+  },
+  {
+    "id": "astryx-ast-084-icon-sets",
+    "name": "Icon set integrations system spec",
+    "desc": "An icon set is an experimental integration item: icon components a package",
+    "cat": "ds",
+    "zh": "系统规格 图标集集成",
+    "bytes": 48121
+  },
+  {
+    "id": "astryx-ast-085-focusable-disabled",
+    "name": "Focusable disabled controls system spec",
+    "desc": "Keyboard and screen-reader users can always reach a disabled control. They can",
+    "cat": "ds",
+    "zh": "系统规格 可聚焦禁用控件",
+    "bytes": 9002
+  },
+  {
+    "id": "astryx-ast-086-status-announcements",
+    "name": "Status announcement delivery system spec",
+    "desc": "A screen-reader user hears each status change once, when it happens, at the",
+    "cat": "ds",
+    "zh": "系统规格 状态通告投递",
+    "bytes": 58840
+  },
+  {
+    "id": "astryx-ast-087-icon-variants",
+    "name": "Icon variants, theme sizes, and component icon s",
+    "desc": "A theme decides how icons look:",
+    "cat": "ds",
+    "zh": "系统规格 图标变体与插槽",
+    "bytes": 20398
+  },
+  {
+    "id": "astryx-ast-089-styling-target",
+    "name": "Ref-first DOM styling target",
+    "desc": "A consumer uses style, className, and xstyle on the same element they can",
+    "cat": "ds",
+    "zh": "系统规格 ref 样式目标",
+    "bytes": 34027
+  },
+  {
+    "id": "astryx-ast-090-exit-motion",
+    "name": "Exit motion system spec",
+    "desc": "A surface that animates in can animate out, so a person sees where it went and",
+    "cat": "ds",
+    "zh": "系统规格 退出动效",
+    "bytes": 27944
+  },
+  {
+    "id": "astryx-ast-092-incremental-search-results",
+    "name": "Incremental search results system spec",
+    "desc": "A person typing into a typeahead sees matches for what they typed right away,",
+    "cat": "ds",
+    "zh": "系统规格 增量搜索结果",
+    "bytes": 15065
+  },
+  {
+    "id": "astryx-ast-094-touch-presentations",
+    "name": "Touch presentations feel native system spec",
+    "desc": "A person using an Astryx product on a phone or tablet gets controls, sheets,",
+    "cat": "ds",
+    "zh": "系统规格 触控呈现原生感",
+    "bytes": 182645
+  },
+  {
+    "id": "astryx-ast-099-mobile-keyboard",
+    "name": "On-screen keyboard system spec",
+    "desc": "A person typing on a phone sees the field they are typing in, and the surface",
+    "cat": "ds",
+    "zh": "系统规格 软键盘",
+    "bytes": 82565
+  },
+  {
+    "id": "astryx-ast-102-typography-theme-owned",
+    "name": "Typography stays theme-owned system spec",
+    "desc": "People who set their own text size see it in every Core and Lab web",
+    "cat": "ds",
+    "zh": "系统规格 排版归属主题",
+    "bytes": 18852
+  },
+  {
+    "id": "astryx-ast-103-reorderable",
+    "name": "Reorderable collections system spec",
+    "desc": "createReorderable applies to a whole collection: its object is passed as",
+    "cat": "ds",
+    "zh": "系统规格 可重排集合",
+    "bytes": 45080
+  },
+  {
+    "id": "astryx-ast-105-animated-layout",
+    "name": "Animated layout system spec",
+    "desc": "When something inside an area changes size, the changed element and the",
+    "cat": "ds",
+    "zh": "系统规格 动画布局",
+    "bytes": 37150
+  },
+  {
+    "id": "astryx-ast-107-public-gesture-hooks",
+    "name": "Public gesture hooks system spec",
+    "desc": "A product can follow a drag, settle an element on snap points, and animate one",
+    "cat": "ds",
+    "zh": "系统规格 公开手势钩子",
+    "bytes": 18439
+  },
+  {
+    "id": "astryx-ast-108-theme-motion",
+    "name": "Theme motion system spec",
+    "desc": "A theme sets how fast and how lively its motion feels, and whether motion is",
+    "cat": "ds",
+    "zh": "系统规格 主题动效",
+    "bytes": 15768
+  },
+  {
+    "id": "astryx-ast-109-clear-value",
+    "name": "Clear value system spec",
+    "desc": "Clearing a Selector returns it to its starting point, and the caller says",
+    "cat": "ds",
+    "zh": "系统规格 清除值",
+    "bytes": 11356
+  },
+  {
+    "id": "astryx-ast-111-calendar-systems",
+    "name": "Calendar systems system spec",
+    "desc": "People who use a calendar other than the Gregorian calendar see, type, and",
+    "cat": "ds",
+    "zh": "系统规格 日历系统",
+    "bytes": 34968
+  },
+  {
+    "id": "astryx-bidirectionality",
+    "name": "Bidirectionality design specification",
+    "desc": "People should understand and operate the same Astryx interface whether their",
+    "cat": "design",
+    "zh": "双向文字与 RTL",
+    "bytes": 15304
+  },
+  {
+    "id": "astryx-blog-astryx-cli-build-command",
+    "name": "AI is a copycat so we gave it good examples to copy",
+    "desc": "We created a single entry point in the CLI that exposes the high quality templates our designers crafted so your agent can copy them and produce high ",
+    "cat": "import",
+    "zh": "CLI 构建命令",
+    "bytes": 6530
+  },
+  {
+    "id": "astryx-blog-building-for-people-and-agents",
+    "name": "Building for people and agents at Meta San Francisco",
+    "desc": "Join us November 12 at Meta San Francisco for an evening with the team behind Astryx, Meta",
+    "cat": "design",
+    "zh": "人与 Agent 双受众",
+    "bytes": 1350
+  },
+  {
+    "id": "astryx-blog-how-astryx-works",
+    "name": "How Astryx works",
+    "desc": "A look under the hood of Astryx: the problem it was built to solve, the systems it",
+    "cat": "import",
+    "zh": "Astryx 架构解析",
+    "bytes": 9761
+  },
+  {
+    "id": "astryx-blog-internationalizing-astryx",
+    "name": "Astryx now speaks multiple languages!",
+    "desc": "How internationalization and RTL came to Astryx: surveying the modern i18n landscape and using automation to catch RTL bugs a linter can",
+    "cat": "design",
+    "zh": "国际化实践",
+    "bytes": 10843
+  },
+  {
+    "id": "astryx-blog-meet-astryx-from-shadcn",
+    "name": "Meet people where they already build",
+    "desc": "A compatibility path for shadcn users to install Astryx components, examples, blocks, and pages without giving up the Astryx package or CLI.",
+    "cat": "import",
+    "zh": "从 shadcn 到 Astryx",
+    "bytes": 4578
+  },
+  {
+    "id": "astryx-blog-vibe-tests",
+    "name": "Vibe Test",
+    "desc": "How we make decisions in Astryx",
+    "cat": "import",
+    "zh": "Vibe 测试实践",
+    "bytes": 8320
+  },
+  {
+    "id": "astryx-blog-who-needs-a-figma-library",
+    "name": "Who needs a Figma Library?",
+    "desc": "Introducing the Astryx Figma Library, built and self-maintained by a Night Watch that keeps it in sync with code on every dot release.",
+    "cat": "design",
+    "zh": "设计工具之辩",
+    "bytes": 2758
+  },
+  {
+    "id": "astryx-charts-readme",
+    "name": "Charts planning and verification",
+    "desc": "These package-local records track the canary-only Charts package while its API,",
+    "cat": "data",
+    "zh": "图表库导览",
+    "bytes": 733
+  },
+  {
+    "id": "astryx-charts-stage1",
+    "name": "ChartV2 Stage 1 — Design & Correctness Research",
+    "desc": "Deep design work for the \"make it correct + a genuinely good API\" stage. This is the",
+    "cat": "data",
+    "zh": "图表 V2 阶段设计",
+    "bytes": 21699
+  },
+  {
+    "id": "astryx-charts-verification",
+    "name": "ChartV2 — Verification Checklist",
+    "desc": "Exhaustive, specific things to verify before we call the chart library \"correct.\" This",
+    "cat": "data",
+    "zh": "图表验证清单",
+    "bytes": 15181
+  },
+  {
+    "id": "astryx-collection-reordering",
+    "name": "Ordered collection reordering design specificati",
+    "desc": "A person reordering a list or row collection should understand what is moving,",
+    "cat": "design",
+    "zh": "集合重排交互",
+    "bytes": 7553
+  },
+  {
+    "id": "astryx-color-emphasis",
+    "name": "Color emphasis design specification",
+    "desc": "People should find the primary action and understand surface and status roles",
+    "cat": "design",
+    "zh": "颜色强调层级",
+    "bytes": 4511
+  },
+  {
+    "id": "astryx-component-docs",
+    "name": "Component Documentation Guide",
+    "desc": "Every component directory has a {Name}.doc.mjs file with structured documentation. The Astryx CLI reads these files to generate agent-friendly docs, s",
+    "cat": "import",
+    "zh": "组件文档写作",
+    "bytes": 6025
+  },
+  {
+    "id": "astryx-container-padding",
+    "name": "Container padding architecture",
+    "desc": "Padded containers and their descendants need one shared account of the inset at",
+    "cat": "ds",
+    "zh": "容器内距规则",
+    "bytes": 36259
+  },
+  {
+    "id": "astryx-contrib-readme",
+    "name": "Contributing guides",
+    "desc": "These guides turn current Astryx owner records into practical contribution steps.",
+    "cat": "ds",
+    "zh": "贡献指南",
+    "bytes": 927
+  },
+  {
+    "id": "astryx-control-rhythm",
+    "name": "Control rhythm design specification",
+    "desc": "Mixed controls should feel intentionally composed rather than assembled from",
+    "cat": "design",
+    "zh": "控件节奏",
+    "bytes": 3975
+  },
+  {
+    "id": "astryx-core-gestures",
+    "name": "Gestures",
+    "desc": "A gesture recognizer system with UIKit's semantics, for the touch",
+    "cat": "design",
+    "zh": "手势系统源码文档",
+    "bytes": 47555
+  },
+  {
+    "id": "astryx-core-keyboard",
+    "name": "On-screen keyboard",
+    "desc": "Core's one source for the on-screen keyboard (spec:AST-099,",
+    "cat": "design",
+    "zh": "键盘交互源码文档",
+    "bytes": 19878
+  },
+  {
+    "id": "astryx-core-measurements",
+    "name": "Motion measurements",
+    "desc": "The one list of UIKit reference captures the touch presentations need. Every",
+    "cat": "design",
+    "zh": "动效实测数据",
+    "bytes": 81981
+  },
+  {
+    "id": "astryx-core-motion",
+    "name": "Motion",
+    "desc": "Internal motion foundation for the touch presentations of core components: the",
+    "cat": "design",
+    "zh": "动效系统源码文档",
+    "bytes": 23815
+  },
+  {
+    "id": "astryx-create-component",
+    "name": "Create Astryx Component",
+    "desc": "Create a new Astryx component following the established protocols.",
+    "cat": "import",
+    "zh": "创建组件命令",
+    "bytes": 1852
+  },
+  {
+    "id": "astryx-create-theme",
+    "name": "Create Astryx Theme",
+    "desc": "Create a new Astryx theme using defineTheme.",
+    "cat": "import",
+    "zh": "创建主题命令",
+    "bytes": 5299
+  },
+  {
+    "id": "astryx-dense-compression",
+    "name": "Astryx Translation Protocol",
+    "desc": "Apply this protocol to create a dense translation for an Astryx component .doc.mjs file. The dense translation lives in the same file as a docsDense e",
+    "cat": "import",
+    "zh": "压缩协议技能",
+    "bytes": 6878
+  },
+  {
+    "id": "astryx-design-readme",
+    "name": "Design specifications",
+    "desc": "Design specs record human-owned visual and interaction intent: hierarchy,",
+    "cat": "design",
+    "zh": "Astryx 设计文档导览",
+    "bytes": 4780
+  },
+  {
+    "id": "astryx-docs-readme",
+    "name": "Astryx knowledge map",
+    "desc": "This directory holds maintainer knowledge that must be reviewable with the code",
+    "cat": "ds",
+    "zh": "知识文档体系",
+    "bytes": 9983
+  },
+  {
+    "id": "astryx-elevation-hierarchy",
+    "name": "Elevation hierarchy design specification",
+    "desc": "People should understand which surface is above another without noticing an",
+    "cat": "design",
+    "zh": "海拔层级",
+    "bytes": 3986
+  },
+  {
+    "id": "astryx-families-readme",
+    "name": "Component family contracts",
+    "desc": "Family contracts own behavior shared by sibling components, such as input",
+    "cat": "ds",
+    "zh": "组件族导览",
+    "bytes": 452
+  },
+  {
+    "id": "astryx-family-action-groups",
+    "name": "Action groups contract",
+    "desc": "A person can press one action in a group of sibling actions, slide across the",
+    "cat": "ds",
+    "zh": "动作组规格",
+    "bytes": 11378
+  },
+  {
+    "id": "astryx-family-buttons",
+    "name": "Button family contract",
+    "desc": "People should encounter one coherent button system whether an action is labeled,",
+    "cat": "ds",
+    "zh": "按钮族规格",
+    "bytes": 20898
+  },
+  {
+    "id": "astryx-family-input-fields",
+    "name": "Input field family contract",
+    "desc": "A person should encounter one coherent input system: state display, behavior,",
+    "cat": "ds",
+    "zh": "输入字段规格",
+    "bytes": 55110
+  },
+  {
+    "id": "astryx-family-layout-primitives",
+    "name": "Layout primitives contract",
+    "desc": "Builders should be able to arrange arbitrary content in one or two dimensions,",
+    "cat": "ds",
+    "zh": "布局原语规格",
+    "bytes": 16509
+  },
+  {
+    "id": "astryx-family-layout-regions",
+    "name": "Layout regions contract",
+    "desc": "A page or bounded work area should have predictable structural regions before",
+    "cat": "ds",
+    "zh": "布局区域规格",
+    "bytes": 27189
+  },
+  {
+    "id": "astryx-family-navigation",
+    "name": "Navigation destinations contract",
+    "desc": "People should receive the same safe navigation behavior from every Astryx",
+    "cat": "ds",
+    "zh": "导航目的地规格",
+    "bytes": 17162
+  },
+  {
+    "id": "astryx-family-overlay-dismissal",
+    "name": "Overlay dismissal family contract",
+    "desc": "A person dismissing layered UI should affect only the topmost relevant surface.",
+    "cat": "ds",
+    "zh": "覆盖层关闭规格",
+    "bytes": 43346
+  },
+  {
+    "id": "astryx-iconography",
+    "name": "Iconography design specification",
+    "desc": "Icons are simple graphic interface elements that represent common actions,",
+    "cat": "design",
+    "zh": "图标体系",
+    "bytes": 20685
+  },
+  {
+    "id": "astryx-ime-guard",
+    "name": "IME Composition Guard — Shared Base Design",
+    "desc": "1. Keep isImeKeyEvent as the single low-level predicate. It is the right",
+    "cat": "design",
+    "zh": "IME 组合守卫",
+    "bytes": 6525
+  },
+  {
+    "id": "astryx-interaction-harness",
+    "name": "@astryxdesign/interaction-harness",
+    "desc": "Playwright instruments for touch interaction and animation proofs: real touch",
+    "cat": "ds",
+    "zh": "交互取证测试",
+    "bytes": 59421
+  },
+  {
+    "id": "astryx-interaction-modality",
+    "name": "Interaction modality architecture",
+    "desc": "Astryx components behave predictably when people move between keyboard, pointer,",
+    "cat": "ds",
+    "zh": "交互方式适配",
+    "bytes": 27537
+  },
+  {
+    "id": "astryx-layer-runtime",
+    "name": "Layer runtime",
+    "desc": "This record describes the layer runtime shipped on current main, except",
+    "cat": "ds",
+    "zh": "层级运行时",
+    "bytes": 67688
+  },
+  {
+    "id": "astryx-list-windowing",
+    "name": "List windowing architecture",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "列表窗口化架构",
+    "bytes": 6465
+  },
+  {
+    "id": "astryx-mobile-typography",
+    "name": "Mobile typography design specification",
+    "desc": "Balance the rest of the text styles with inputs' automatic 16px-reference",
+    "cat": "design",
+    "zh": "移动端排版",
+    "bytes": 4370
+  },
+  {
+    "id": "astryx-motion",
+    "name": "Motion design specification",
+    "desc": "Movement should clarify what changed and where content came from without making a",
+    "cat": "design",
+    "zh": "动效规格",
+    "bytes": 12397
+  },
+  {
+    "id": "astryx-pull-requests",
+    "name": "Pull requests: one primary intent",
+    "desc": "A pull request should make one reviewable change for one reason. Choose the template that matches its primary intent; supporting tests and docs belong",
+    "cat": "ds",
+    "zh": "拉取请求规范",
+    "bytes": 17704
+  },
+  {
+    "id": "astryx-reduced-motion",
+    "name": "Reduced motion design specification",
+    "desc": "A person who asks their device to reduce motion still sees every change Astryx",
+    "cat": "design",
+    "zh": "减少动效适配",
+    "bytes": 12634
+  },
+  {
+    "id": "astryx-shape-relationships",
+    "name": "Shape relationships design specification",
+    "desc": "Nested surfaces should read as parts of one intentional shape. Inner corners",
+    "cat": "design",
+    "zh": "形状关系",
+    "bytes": 3914
+  },
+  {
+    "id": "astryx-size-cascade",
+    "name": "Component size cascade architecture",
+    "desc": "A person should encounter coherent control sizing inside a component-owned group",
+    "cat": "ds",
+    "zh": "组件尺寸级联",
+    "bytes": 8906
+  },
+  {
+    "id": "astryx-spatial-hierarchy",
+    "name": "Spatial hierarchy design specification",
+    "desc": "People should understand what belongs together before reading individual labels.",
+    "cat": "design",
+    "zh": "空间层级",
+    "bytes": 4097
+  },
+  {
+    "id": "astryx-spec-alertdialog",
+    "name": "AlertDialog component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 AlertDialog",
+    "bytes": 40524
+  },
+  {
+    "id": "astryx-spec-appshell",
+    "name": "AppShell component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 AppShell",
+    "bytes": 72109
+  },
+  {
+    "id": "astryx-spec-aspectratio",
+    "name": "AspectRatio component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 AspectRatio",
+    "bytes": 17983
+  },
+  {
+    "id": "astryx-spec-avatar",
+    "name": "Avatar component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Avatar",
+    "bytes": 97031
+  },
+  {
+    "id": "astryx-spec-avatargroup",
+    "name": "AvatarGroup component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 AvatarGroup",
+    "bytes": 41954
+  },
+  {
+    "id": "astryx-spec-badge",
+    "name": "Badge component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Badge",
+    "bytes": 19853
+  },
+  {
+    "id": "astryx-spec-banner",
+    "name": "Banner component contract",
+    "desc": "Banner presents a persistent status message at the top of a page or section.",
+    "cat": "ds",
+    "zh": "组件规格 Banner",
+    "bytes": 33830
+  },
+  {
+    "id": "astryx-spec-blockquote",
+    "name": "Blockquote component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Blockquote",
+    "bytes": 13783
+  },
+  {
+    "id": "astryx-spec-bottomsheet",
+    "name": "BottomSheet component contract",
+    "desc": "BottomSheet presents caller-provided content in a panel that rises from the",
+    "cat": "ds",
+    "zh": "组件规格 BottomSheet",
+    "bytes": 207766
+  },
+  {
+    "id": "astryx-spec-breadcrumbs",
+    "name": "BreadcrumbItem component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Breadcrumbs",
+    "bytes": 44069
+  },
+  {
+    "id": "astryx-spec-button",
+    "name": "Button component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Button",
+    "bytes": 107370
+  },
+  {
+    "id": "astryx-spec-buttongroup",
+    "name": "ButtonGroup component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ButtonGroup",
+    "bytes": 38419
+  },
+  {
+    "id": "astryx-spec-calendar",
+    "name": "Calendar component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Calendar",
+    "bytes": 81305
+  },
+  {
+    "id": "astryx-spec-card",
+    "name": "Card component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Card",
+    "bytes": 23093
+  },
+  {
+    "id": "astryx-spec-carousel",
+    "name": "Carousel component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Carousel",
+    "bytes": 42071
+  },
+  {
+    "id": "astryx-spec-center",
+    "name": "Center component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Center",
+    "bytes": 19933
+  },
+  {
+    "id": "astryx-spec-chart",
+    "name": "Chart component contract",
+    "desc": "Chart coordinates one responsive Cartesian plot. It derives shared scales,",
+    "cat": "ds",
+    "zh": "组件规格 Chart",
+    "bytes": 19014
+  },
+  {
+    "id": "astryx-spec-chartaxis",
+    "name": "ChartAxis component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ChartAxis",
+    "bytes": 20595
+  },
+  {
+    "id": "astryx-spec-chartgrid",
+    "name": "ChartGrid component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ChartGrid",
+    "bytes": 14930
+  },
+  {
+    "id": "astryx-spec-chartlegend",
+    "name": "ChartLegend component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ChartLegend",
+    "bytes": 17477
+  },
+  {
+    "id": "astryx-spec-chartswatch",
+    "name": "ChartSwatch component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ChartSwatch",
+    "bytes": 15075
+  },
+  {
+    "id": "astryx-spec-charttooltip",
+    "name": "ChartTooltip component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ChartTooltip",
+    "bytes": 28913
+  },
+  {
+    "id": "astryx-spec-chat",
+    "name": "ChatComposer component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Chat",
+    "bytes": 323714
+  },
+  {
+    "id": "astryx-spec-checkboxinput",
+    "name": "CheckboxInput component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 CheckboxInput",
+    "bytes": 39289
+  },
+  {
+    "id": "astryx-spec-checkboxlist",
+    "name": "CheckboxList component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 CheckboxList",
+    "bytes": 77640
+  },
+  {
+    "id": "astryx-spec-citation",
+    "name": "Citation component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Citation",
+    "bytes": 24365
+  },
+  {
+    "id": "astryx-spec-clickablecard",
+    "name": "ClickableCard component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ClickableCard",
+    "bytes": 27520
+  },
+  {
+    "id": "astryx-spec-code",
+    "name": "Code component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Code",
+    "bytes": 16662
+  },
+  {
+    "id": "astryx-spec-codeblock",
+    "name": "CodeBlock component contract",
+    "desc": "This table is a review projection; the body below is authoritative only after owner approval.",
+    "cat": "ds",
+    "zh": "组件规格 CodeBlock",
+    "bytes": 157786
+  },
+  {
+    "id": "astryx-spec-collapsible",
+    "name": "Collapsible component contract",
+    "desc": "Collapsible reveals and hides one content region from one disclosure trigger. Its",
+    "cat": "ds",
+    "zh": "组件规格 Collapsible",
+    "bytes": 51685
+  },
+  {
+    "id": "astryx-spec-commandpalette",
+    "name": "CommandPalette component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 CommandPalette",
+    "bytes": 117478
+  },
+  {
+    "id": "astryx-spec-commentpin",
+    "name": "CommentPin component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 CommentPin",
+    "bytes": 50189
+  },
+  {
+    "id": "astryx-spec-complexselector",
+    "name": "ComplexSelector component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ComplexSelector",
+    "bytes": 50503
+  },
+  {
+    "id": "astryx-spec-contextmenu",
+    "name": "ContextMenu component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ContextMenu",
+    "bytes": 67957
+  },
+  {
+    "id": "astryx-spec-dateinput",
+    "name": "DateInput component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 DateInput",
+    "bytes": 176164
+  },
+  {
+    "id": "astryx-spec-daterangeinput",
+    "name": "DateRangeInput component contract",
+    "desc": "DateRangeInput presents one controlled date range through a labeled field surface.",
+    "cat": "ds",
+    "zh": "组件规格 DateRangeInput",
+    "bytes": 21093
+  },
+  {
+    "id": "astryx-spec-datetimeinput",
+    "name": "DateTimeInput component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 DateTimeInput",
+    "bytes": 60326
+  },
+  {
+    "id": "astryx-spec-dialog",
+    "name": "Dialog component contract",
+    "desc": "Dialog presents one modal task above the current page. It owns the transition into",
+    "cat": "ds",
+    "zh": "组件规格 Dialog",
+    "bytes": 21838
+  },
+  {
+    "id": "astryx-spec-divider",
+    "name": "Divider component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Divider",
+    "bytes": 23755
+  },
+  {
+    "id": "astryx-spec-drawer",
+    "name": "Drawer component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Drawer",
+    "bytes": 71669
+  },
+  {
+    "id": "astryx-spec-dropdownmenu",
+    "name": "DropdownMenu component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 DropdownMenu",
+    "bytes": 222169
+  },
+  {
+    "id": "astryx-spec-emptystate",
+    "name": "EmptyState component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 EmptyState",
+    "bytes": 18126
+  },
+  {
+    "id": "astryx-spec-field",
+    "name": "Field component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Field",
+    "bytes": 65361
+  },
+  {
+    "id": "astryx-spec-fieldstatus",
+    "name": "FieldStatus component contract",
+    "desc": "FieldStatus presents one validation message for a field or field-like control. It",
+    "cat": "ds",
+    "zh": "组件规格 FieldStatus",
+    "bytes": 16641
+  },
+  {
+    "id": "astryx-spec-fileinput",
+    "name": "FileInput component contract",
+    "desc": "FileInput presents a labelled file-selection field in compact input or dropzone",
+    "cat": "ds",
+    "zh": "组件规格 FileInput",
+    "bytes": 13624
+  },
+  {
+    "id": "astryx-spec-formlayout",
+    "name": "FormLayout component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 FormLayout",
+    "bytes": 28218
+  },
+  {
+    "id": "astryx-spec-grid",
+    "name": "Grid component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Grid",
+    "bytes": 32159
+  },
+  {
+    "id": "astryx-spec-heading",
+    "name": "Heading component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Heading",
+    "bytes": 32241
+  },
+  {
+    "id": "astryx-spec-hovercard",
+    "name": "HoverCard component contract",
+    "desc": "Under none, no touch or pen tap opens the card.",
+    "cat": "ds",
+    "zh": "组件规格 HoverCard",
+    "bytes": 32512
+  },
+  {
+    "id": "astryx-spec-i18n",
+    "name": "InternationalizationProvider component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 i18n",
+    "bytes": 31259
+  },
+  {
+    "id": "astryx-spec-icon",
+    "name": "Icon component contract",
+    "desc": "Icon presents one visual symbol with consistent size, color, and accessibility",
+    "cat": "ds",
+    "zh": "组件规格 Icon",
+    "bytes": 40737
+  },
+  {
+    "id": "astryx-spec-iconbutton",
+    "name": "IconButton component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 IconButton",
+    "bytes": 20469
+  },
+  {
+    "id": "astryx-spec-indicator",
+    "name": "CheckboxIndicator component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Indicator",
+    "bytes": 56491
+  },
+  {
+    "id": "astryx-spec-infotip",
+    "name": "InfoTip component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 InfoTip",
+    "bytes": 24984
+  },
+  {
+    "id": "astryx-spec-inputgroup",
+    "name": "InputGroup component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 InputGroup",
+    "bytes": 33384
+  },
+  {
+    "id": "astryx-spec-item",
+    "name": "Item component contract",
+    "desc": "This record governs how Item aligns its start and end content against the",
+    "cat": "ds",
+    "zh": "组件规格 Item",
+    "bytes": 43609
+  },
+  {
+    "id": "astryx-spec-kbd",
+    "name": "Kbd component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Kbd",
+    "bytes": 17634
+  },
+  {
+    "id": "astryx-spec-layer",
+    "name": "LayerProvider component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Layer",
+    "bytes": 9610
+  },
+  {
+    "id": "astryx-spec-layout",
+    "name": "Layout component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Layout",
+    "bytes": 124078
+  },
+  {
+    "id": "astryx-spec-lightbox",
+    "name": "Lightbox component contract",
+    "desc": "Lightbox presents one active image or video in a full-viewport viewer and may",
+    "cat": "ds",
+    "zh": "组件规格 Lightbox",
+    "bytes": 50843
+  },
+  {
+    "id": "astryx-spec-link",
+    "name": "Link component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Link",
+    "bytes": 53613
+  },
+  {
+    "id": "astryx-spec-list",
+    "name": "List component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 List",
+    "bytes": 98801
+  },
+  {
+    "id": "astryx-spec-markdown",
+    "name": "Markdown component contract",
+    "desc": "Markdown renders parsed content in a Document with stable default block parts and",
+    "cat": "ds",
+    "zh": "组件规格 Markdown",
+    "bytes": 73375
+  },
+  {
+    "id": "astryx-spec-metadatalist",
+    "name": "MetadataList component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 MetadataList",
+    "bytes": 36007
+  },
+  {
+    "id": "astryx-spec-mobilenav",
+    "name": "MobileNav component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 MobileNav",
+    "bytes": 34481
+  },
+  {
+    "id": "astryx-spec-moremenu",
+    "name": "MoreMenu component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 MoreMenu",
+    "bytes": 22811
+  },
+  {
+    "id": "astryx-spec-multiselector",
+    "name": "MultiSelector component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 MultiSelector",
+    "bytes": 60994
+  },
+  {
+    "id": "astryx-spec-navicon",
+    "name": "NavIcon component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 NavIcon",
+    "bytes": 8010
+  },
+  {
+    "id": "astryx-spec-navmenu",
+    "name": "NavHeadingMenu component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 NavMenu",
+    "bytes": 24707
+  },
+  {
+    "id": "astryx-spec-numberinput",
+    "name": "NumberInput component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 NumberInput",
+    "bytes": 37246
+  },
+  {
+    "id": "astryx-spec-outline",
+    "name": "Outline component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Outline",
+    "bytes": 39464
+  },
+  {
+    "id": "astryx-spec-overflowlist",
+    "name": "OverflowList component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 OverflowList",
+    "bytes": 34045
+  },
+  {
+    "id": "astryx-spec-overlay",
+    "name": "Overlay component contract",
+    "desc": "This record governs how several pieces of content are placed over an Overlay's",
+    "cat": "ds",
+    "zh": "组件规格 Overlay",
+    "bytes": 31667
+  },
+  {
+    "id": "astryx-spec-pagination",
+    "name": "Pagination component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Pagination",
+    "bytes": 53190
+  },
+  {
+    "id": "astryx-spec-popover",
+    "name": "Popover component contract",
+    "desc": "Popover presents interactive, caller-supplied content in an anchored top-layer",
+    "cat": "ds",
+    "zh": "组件规格 Popover",
+    "bytes": 57932
+  },
+  {
+    "id": "astryx-spec-powersearch",
+    "name": "PowerSearch component contract",
+    "desc": "PowerSearch provides structured filtering through field, operator, and value",
+    "cat": "ds",
+    "zh": "组件规格 PowerSearch",
+    "bytes": 296065
+  },
+  {
+    "id": "astryx-spec-progressbar",
+    "name": "ProgressBar component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ProgressBar",
+    "bytes": 51681
+  },
+  {
+    "id": "astryx-spec-radiolist",
+    "name": "RadioList component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 RadioList",
+    "bytes": 58944
+  },
+  {
+    "id": "astryx-spec-resizable",
+    "name": "Resizable component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Resizable",
+    "bytes": 111160
+  },
+  {
+    "id": "astryx-spec-schedule",
+    "name": "Schedule component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Schedule",
+    "bytes": 101893
+  },
+  {
+    "id": "astryx-spec-scrollablearea",
+    "name": "ScrollableArea component contract",
+    "desc": "ScrollableArea gives builders a complete native scroll viewport and observable",
+    "cat": "ds",
+    "zh": "组件规格 ScrollableArea",
+    "bytes": 14519
+  },
+  {
+    "id": "astryx-spec-section",
+    "name": "Section component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Section",
+    "bytes": 21530
+  },
+  {
+    "id": "astryx-spec-segmentedcontrol",
+    "name": "SegmentedControl component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 SegmentedControl",
+    "bytes": 66856
+  },
+  {
+    "id": "astryx-spec-selectablecard",
+    "name": "SelectableCard component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 SelectableCard",
+    "bytes": 29251
+  },
+  {
+    "id": "astryx-spec-selector",
+    "name": "Selector component contract",
+    "desc": "Selector lets a person choose one value from a moderate list while keeping the",
+    "cat": "ds",
+    "zh": "组件规格 Selector",
+    "bytes": 60555
+  },
+  {
+    "id": "astryx-spec-sidenav",
+    "name": "SideNav component contract",
+    "desc": "This record governs how nested SideNavItem rows are drawn: their width, where",
+    "cat": "ds",
+    "zh": "组件规格 SideNav",
+    "bytes": 122160
+  },
+  {
+    "id": "astryx-spec-skeleton",
+    "name": "Skeleton component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Skeleton",
+    "bytes": 15343
+  },
+  {
+    "id": "astryx-spec-slider",
+    "name": "Slider component contract",
+    "desc": "Slider presents a labeled control for selecting one numeric value or a bounded",
+    "cat": "ds",
+    "zh": "组件规格 Slider",
+    "bytes": 46865
+  },
+  {
+    "id": "astryx-spec-spinner",
+    "name": "Spinner component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Spinner",
+    "bytes": 28524
+  },
+  {
+    "id": "astryx-spec-stack",
+    "name": "Stack component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Stack",
+    "bytes": 29202
+  },
+  {
+    "id": "astryx-spec-statusdot",
+    "name": "StatusDot component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 StatusDot",
+    "bytes": 38070
+  },
+  {
+    "id": "astryx-spec-stepper",
+    "name": "Step component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Stepper",
+    "bytes": 55892
+  },
+  {
+    "id": "astryx-spec-switch",
+    "name": "Switch component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Switch",
+    "bytes": 96815
+  },
+  {
+    "id": "astryx-spec-table",
+    "name": "Table component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Table",
+    "bytes": 178618
+  },
+  {
+    "id": "astryx-spec-tablist",
+    "name": "Tab component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 TabList",
+    "bytes": 52734
+  },
+  {
+    "id": "astryx-spec-text",
+    "name": "Text component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Text",
+    "bytes": 34139
+  },
+  {
+    "id": "astryx-spec-textarea",
+    "name": "TextArea component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 TextArea",
+    "bytes": 39027
+  },
+  {
+    "id": "astryx-spec-textinput",
+    "name": "TextInput component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 TextInput",
+    "bytes": 76662
+  },
+  {
+    "id": "astryx-spec-theme",
+    "name": "MediaTheme component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 theme",
+    "bytes": 29039
+  },
+  {
+    "id": "astryx-spec-thumbnail",
+    "name": "Thumbnail component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Thumbnail",
+    "bytes": 50707
+  },
+  {
+    "id": "astryx-spec-timeinput",
+    "name": "TimeInput component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 TimeInput",
+    "bytes": 57284
+  },
+  {
+    "id": "astryx-spec-timer",
+    "name": "Timer component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Timer",
+    "bytes": 19446
+  },
+  {
+    "id": "astryx-spec-timestamp",
+    "name": "Timestamp component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Timestamp",
+    "bytes": 44258
+  },
+  {
+    "id": "astryx-spec-toast",
+    "name": "Toast component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Toast",
+    "bytes": 39888
+  },
+  {
+    "id": "astryx-spec-togglebutton",
+    "name": "ToggleButton component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 ToggleButton",
+    "bytes": 63923
+  },
+  {
+    "id": "astryx-spec-token",
+    "name": "Token component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Token",
+    "bytes": 31920
+  },
+  {
+    "id": "astryx-spec-tokenizer",
+    "name": "Tokenizer component contract",
+    "desc": "Tokenizer lets a person build and edit a set of searchable values as removable",
+    "cat": "ds",
+    "zh": "组件规格 Tokenizer",
+    "bytes": 179377
+  },
+  {
+    "id": "astryx-spec-toolbar",
+    "name": "Toolbar component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Toolbar",
+    "bytes": 21811
+  },
+  {
+    "id": "astryx-spec-tooltip",
+    "name": "Tooltip component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Tooltip",
+    "bytes": 52368
+  },
+  {
+    "id": "astryx-spec-topnav",
+    "name": "TopNav component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 TopNav",
+    "bytes": 110711
+  },
+  {
+    "id": "astryx-spec-treelist",
+    "name": "TreeList component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 TreeList",
+    "bytes": 57533
+  },
+  {
+    "id": "astryx-spec-typeahead",
+    "name": "BaseTypeahead component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 Typeahead",
+    "bytes": 95300
+  },
+  {
+    "id": "astryx-spec-visuallyhidden",
+    "name": "VisuallyHidden component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "组件规格 VisuallyHidden",
+    "bytes": 16947
+  },
+  {
+    "id": "astryx-spec-writing",
+    "name": "Writing specification records",
+    "desc": "A specification record describes the system as it is meant to be. It is read by",
+    "cat": "ds",
+    "zh": "规格编写指南",
+    "bytes": 12482
+  },
+  {
+    "id": "astryx-style-authoring",
+    "name": "Component style authoring architecture",
+    "desc": "Astryx component styling should lower to valid maintained CSS, compose predictably",
+    "cat": "ds",
+    "zh": "组件样式编写",
+    "bytes": 25380
+  },
+  {
+    "id": "astryx-system-states",
+    "name": "System states design specification",
+    "desc": "A person should distinguish unavailable, waiting, processing, successful,",
+    "cat": "design",
+    "zh": "系统状态设计",
+    "bytes": 6890
+  },
+  {
+    "id": "astryx-template-composition",
+    "name": "Template composition design specification",
+    "desc": "A page template or reusable block should look like an intentional product",
+    "cat": "design",
+    "zh": "模板组合",
+    "bytes": 7177
+  },
+  {
+    "id": "astryx-theme-butter",
+    "name": "Butter theme specification",
+    "desc": "Butter is a warm golden theme with a signature saturated Blue accent, Butter",
+    "cat": "design",
+    "zh": "主题 butter 规格",
+    "bytes": 9259
+  },
+  {
+    "id": "astryx-theme-gothic",
+    "name": "Gothic theme specification",
+    "desc": "Gothic is a dark-only atmospheric theme with deep blue-gray surfaces, restrained",
+    "cat": "design",
+    "zh": "主题 gothic 规格",
+    "bytes": 8104
+  },
+  {
+    "id": "astryx-theme-matcha",
+    "name": "Matcha theme specification",
+    "desc": "Matcha is an earthy botanical theme with tea-green neutrals, warm Tea Gold, and",
+    "cat": "design",
+    "zh": "主题 matcha 规格",
+    "bytes": 9291
+  },
+  {
+    "id": "astryx-theme-neutral",
+    "name": "Neutral theme specification",
+    "desc": "This record is the current approved palette and Neutral token-mapping record.",
+    "cat": "design",
+    "zh": "主题 neutral 规格",
+    "bytes": 18366
+  },
+  {
+    "id": "astryx-theme-stone",
+    "name": "Stone theme specification",
+    "desc": "Stone provides a quiet, handcrafted theme built from warm violet-neutral",
+    "cat": "design",
+    "zh": "主题 stone 规格",
+    "bytes": 8270
+  },
+  {
+    "id": "astryx-theme-tokens",
+    "name": "Theme token architecture",
+    "desc": "This record defines the semantic token vocabulary that components, themes,",
+    "cat": "ds",
+    "zh": "主题令牌",
+    "bytes": 28674
+  },
+  {
+    "id": "astryx-theme-y2k",
+    "name": "Y2K theme specification",
+    "desc": "Y2K is a playful high-chroma theme with signature Periwinkle, Neon Green, airy",
+    "cat": "design",
+    "zh": "主题 y2k 规格",
+    "bytes": 11376
+  },
+  {
+    "id": "astryx-themes-readme",
+    "name": "Theme specifications",
+    "desc": "Theme specifications are the canonical owner for decisions that belong to one",
+    "cat": "ds",
+    "zh": "主题体系导览",
+    "bytes": 2401
+  },
+  {
+    "id": "astryx-tpl-architecture",
+    "name": "<Surface> architecture",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "知识模板 架构记录",
+    "bytes": 3353
+  },
+  {
+    "id": "astryx-tpl-component-spec",
+    "name": "<Name> component contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "知识模板 组件规格",
+    "bytes": 9961
+  },
+  {
+    "id": "astryx-tpl-design-spec",
+    "name": "<Surface> design specification",
+    "desc": "- DR1 — <principle>. <The experience MUST …>",
+    "cat": "ds",
+    "zh": "知识模板 设计规格",
+    "bytes": 2669
+  },
+  {
+    "id": "astryx-tpl-family-contract",
+    "name": "<Family name> contract",
+    "desc": "members is the candidate family's source of proposed membership while this",
+    "cat": "ds",
+    "zh": "知识模板 族契约",
+    "bytes": 3055
+  },
+  {
+    "id": "astryx-tpl-implementation-plan",
+    "name": "<Change> implementation plan",
+    "desc": "- [ ] <step>",
+    "cat": "ds",
+    "zh": "知识模板 实施计划",
+    "bytes": 596
+  },
+  {
+    "id": "astryx-tpl-module-spec",
+    "name": "<PublicName> module contract",
+    "desc": "This table is a review projection; the body below is authoritative.",
+    "cat": "ds",
+    "zh": "知识模板 模块规格",
+    "bytes": 7484
+  },
+  {
+    "id": "astryx-tpl-system-spec",
+    "name": "<Change> system spec",
+    "desc": "- <adjacent behavior this decision does not settle>",
+    "cat": "ds",
+    "zh": "知识模板 系统规格",
+    "bytes": 2992
+  },
+  {
+    "id": "astryx-tpl-theme-spec",
+    "name": "<Theme name> theme specification",
+    "desc": "accessibility methodology. This theme owns only its application: selected",
+    "cat": "ds",
+    "zh": "知识模板 主题规格",
+    "bytes": 2595
+  },
+  {
+    "id": "astryx-typography-hierarchy",
+    "name": "Typography hierarchy design specification",
+    "desc": "People should be able to triage a surface quickly because headings, body copy,",
+    "cat": "design",
+    "zh": "排版层级",
+    "bytes": 4548
+  },
+  {
+    "id": "astryx-user-states",
+    "name": "User states design specification",
+    "desc": "A pointer user holding or dragging an enabled control should receive immediate,",
+    "cat": "design",
+    "zh": "用户状态设计",
+    "bytes": 8692
+  },
+  {
     "id": "chaojifeng-asset-motion-direction",
     "name": "素材表演与调度",
     "desc": "已有图片、界面、图表、标志或媒体片段需要独立移动、装回、接力或跨镜复用时读取。先沿 镜头生产统筹 明确要表达的变化，再判断哪些素材能安全操作；按实际准备结果调整镜头。方法适用于全部场景，不要求每张图片都分层或每镜都做大动作。",
@@ -251,7 +2251,7 @@ export const SKILLS = [
   },
   {
     "id": "chaojifeng-video-design",
-    "name": "chaojifeng-video-design",
+    "name": "超级峰的视频设计方法论",
     "desc": "设计和制作产品演示、知识讲解（含 Rap／说唱）、资讯、图片成片、故事、功能动效、品牌短片与音乐视觉视频。支持选择或扩展视频风格、组合动效、强化前三秒、素材调度、音乐编排、参考片研究和局部修改；从导演意图到可编辑计划、制作、审片及可播放成片，也可只交方案或分镜。模型与引擎中立，按任务加载风格包和技术",
     "cat": "video",
     "zh": "视频设计方法论总纲",
@@ -315,15 +2315,15 @@ export const SKILLS = [
   },
   {
     "id": "design-system-authoring-guide",
-    "name": "design-system-authoring-guide",
-    "desc": "Full authoring flow for setting up or importing a design system — the brand's tokens, components, UI kits, and starting points — and compiling it into",
+    "name": "Authoring a design system",
+    "desc": "Full authoring flow for setting up or importing a design system — the brand",
     "cat": "ds",
     "zh": "设计系统搭建全流程",
     "bytes": 22194
   },
   {
     "id": "design-system-preview",
-    "name": "design-system-preview",
+    "name": "Design system → single-file preview.html",
     "desc": "Compile a design system directory (one with _ds_manifest.json and/or @dsCard-tagged .html cards) into a single self-contained, interactive preview.htm",
     "cat": "ds",
     "zh": "设计系统预览编译",
@@ -339,7 +2339,7 @@ export const SKILLS = [
   },
   {
     "id": "export-as-pptx-editable",
-    "name": "export-as-pptx-editable",
+    "name": "Editable PPTX Export",
     "desc": "Export as PPTX (editable) Native text & shapes — editable in PowerPoint",
     "cat": "media",
     "zh": "导出可编辑 PPTX",
@@ -347,7 +2347,7 @@ export const SKILLS = [
   },
   {
     "id": "export-as-pptx-screenshots",
-    "name": "export-as-pptx-screenshots",
+    "name": "Screenshot PPTX Export",
     "desc": "Export as PPTX (screenshots) Flat images — pixel-perfect but not editable",
     "cat": "media",
     "zh": "导出截图版 PPTX",
@@ -355,7 +2355,7 @@ export const SKILLS = [
   },
   {
     "id": "export-as-video",
-    "name": "export-as-video",
+    "name": "Export to Video",
     "desc": "Export as video Render a timeline animation to a real .mp4",
     "cat": "media",
     "zh": "渲染成 .mp4",
@@ -387,7 +2387,7 @@ export const SKILLS = [
   },
   {
     "id": "generate-images",
-    "name": "generate-images",
+    "name": "Generate images",
     "desc": "Generate images Detect an image backend and generate raster art, icons, illustrations, and infographics",
     "cat": "media",
     "zh": "生成图像素材",
@@ -403,7 +2403,7 @@ export const SKILLS = [
   },
   {
     "id": "handoff-to-claude-code",
-    "name": "handoff-to-claude-code",
+    "name": "Handoff to Claude Code",
     "desc": "Handoff to Claude Code Developer handoff package",
     "cat": "proto",
     "zh": "开发交接包",
@@ -428,7 +2428,7 @@ export const SKILLS = [
   {
     "id": "huashu-ai-video-review",
     "name": "AI看片评审闭环（scripts/cloud/ai-review-video.py）",
-    "desc": "终渲MP4喂给视频理解模型（seed-2.0-lite），按固定checklist出结构化评审报告。",
+    "desc": "- 终渲60fps成片出来后、交付/混音前，跑一遍",
     "cat": "video",
     "zh": "AI 视频评审",
     "bytes": 2056
@@ -436,7 +2436,7 @@ export const SKILLS = [
   {
     "id": "huashu-animation-best-practices",
     "name": "Animation Best Practices · 正向动画设计语法",
-    "desc": "基于 Anthropic 官方三支产品动画（Claude Design / Claude Code Desktop / Claude for Word）",
+    "desc": "你是一个研究过 Anthropic / Apple / Pentagram / Field.io 运动档案的 motion designer。",
     "cat": "design",
     "zh": "动画最佳实践",
     "bytes": 13460
@@ -468,7 +2468,7 @@ export const SKILLS = [
   {
     "id": "huashu-apple-gallery-showcase",
     "name": "Apple Gallery Showcase · 画廊展示墙动画风格",
-    "desc": "灵感来源：Claude Design 官网 hero 视频 + 苹果产品页「作品墙」式陈列",
+    "desc": "- 有10张以上真实产出要同屏展示（PPT、App、网页、信息图）",
     "cat": "design",
     "zh": "苹果风展示页",
     "bytes": 8595
@@ -476,7 +2476,7 @@ export const SKILLS = [
   {
     "id": "huashu-audio-design-rules",
     "name": "音频设计规则 · huashu-design",
-    "desc": "所有动画 demo 的音频应用配方。和 sfx-library.md（资产清单）配套使用。",
+    "desc": "动画音频必须分两层独立设计，不能只做一层：",
     "cat": "video",
     "zh": "音频设计规则",
     "bytes": 6034
@@ -484,7 +2484,7 @@ export const SKILLS = [
   {
     "id": "huashu-brand-asset-protocol",
     "name": "核心资产协议（完整版）",
-    "desc": "SKILL.md「窄桥 1 · 品牌资产协议」的完整版。SKILL.md 留了触发条件 + 5 步标题；这里是 5 步详细操作、下载命令、brand-spec 模板、全流程失败兜底、反例与代价对比。",
+    "desc": "触发条件：任务涉及具体品牌——用户提了产品名/公司名/明确客户（Stripe、Linear、Anthropic、Notion、Lovart、DJI、自家公司等），不论用户是否主动提供了品牌资料。",
     "cat": "design",
     "zh": "品牌资产协议",
     "bytes": 8693
@@ -492,7 +2492,7 @@ export const SKILLS = [
   {
     "id": "huashu-camera-language",
     "name": "Camera Language · 运镜导演体系",
-    "desc": "何时读本文件：画面里出现任何「镜头级」运动之前——zoom / pan / orbit / parallax /",
+    "desc": "大多数 AI 生成动画的运镜是「特效制」思维：哪里能加 zoom 就加 zoom，镜头动得越多越「高级」。",
     "cat": "video",
     "zh": "镜头语言",
     "bytes": 12432
@@ -500,7 +2500,7 @@ export const SKILLS = [
   {
     "id": "huashu-cinematic-patterns",
     "name": "Cinematic Patterns · Workflow Demo 的 Best Practi",
-    "desc": "从「PPT 动画」升级到「发布会级 cinematic」的 5 个关键 pattern。",
+    "desc": "当你需要做「演示一个工作流的 demo 动画」时（典型场景：skill 工作流、产品 onboarding、API 调用流程、agent 任务执行），有两种常见做法：",
     "cat": "video",
     "zh": "电影化手法",
     "bytes": 7326
@@ -516,7 +2516,7 @@ export const SKILLS = [
   {
     "id": "huashu-critique-guide",
     "name": "设计评审深度指南",
-    "desc": "Phase 7 的详细参考。提供评分标准、场景侧重点、常见问题清单。",
+    "desc": "先问「这个设计有没有一个idea」，再看做得好不好。为什么放第0位：执行是放大器，放大一个空洞的概念只会更空洞。",
     "cat": "design",
     "zh": "设计评审指南",
     "bytes": 4165
@@ -532,14 +2532,14 @@ export const SKILLS = [
   {
     "id": "huashu-design-styles",
     "name": "设计风格库：网页 20 + PPT 20 + 信息图 20 + App 12 + 中文与东亚 1",
-    "desc": "2026-06 重构。基于对全球 10 大网站类型 + 10 大演示类型、各 top5 公认最佳设计（共 100 个真实案例）的调研反推。",
+    "desc": "0. 先看样张，再读文字。 每个分区有一张总览 assets/style-specimens/sheet-<web|ppt|info|app|east>.jpg，每条风格末尾的「样张」是单张大图（同名 .html 是源码，可以直接读 CSS 学它的做法）。文字描述告诉你它是什么，样张告诉你做到位是什",
     "cat": "design",
     "zh": "84 种风格库",
     "bytes": 51776
   },
   {
     "id": "huashu-design",
-    "name": "huashu-design",
+    "name": "花叔Design · Huashu-Design",
     "desc": "花叔Design——用HTML做高保真原型、幻灯片、动画、可视化与专家评审。任何新设计100%先出三个方向初稿给用户选（指定风格/品牌也不豁免），选定后才执行。触发词：做原型、PPT、幻灯片、动画、设计风格、评审、做个HTML页面、UI mockup、导出MP4/GIF、做个好看的。生产级Web A",
     "cat": "design",
     "zh": "花叔设计总控 3.0",
@@ -572,7 +2572,7 @@ export const SKILLS = [
   {
     "id": "huashu-gsap-recipes",
     "name": "GSAP Recipes · 设计语言到 GSAP Timeline 的翻译层",
-    "desc": "本文件只做一件事：把 huashu-design 已沉淀的动画设计语言",
+    "desc": "硬约束（违反任何一条，渲染结果不确定）：",
     "cat": "design",
     "zh": "GSAP 配方集",
     "bytes": 24906
@@ -580,7 +2580,7 @@ export const SKILLS = [
   {
     "id": "huashu-hero-animation-case-study",
     "name": "Gallery Ripple + Multi-Focus · 场景编排哲学",
-    "desc": "从 huashu-design hero 动画 v9（25 秒，8 场景）里提炼出的一种可复用的视觉编排结构。",
+    "desc": "通用 SaaS feature 动画、产品发布会、skill 推广、系列作品集展示——只要素材数量够、风格一致，这套结构几乎都能出效果。",
     "cat": "design",
     "zh": "首屏动画案例",
     "bytes": 7181
@@ -588,7 +2588,7 @@ export const SKILLS = [
   {
     "id": "huashu-hyperframes-backend",
     "name": "HyperFrames 渲染后端 · 选型边界与操作手册",
-    "desc": "2026-07-17 实测验证通过后引入（工具链/中文字体/代理环境/迁移/3D 五项全过，关键数据已内嵌本文）。",
+    "desc": "设计语言永远是甲方：叙事结构、easing 体系、SFX/BGM 双轨制照旧全部生效（animation-best-practices.md / audio-design-rules.md），HyperFrames 只是实现和渲染工具。GSAP 实现配方见 references/gsap-recip",
     "cat": "video",
     "zh": "HyperFrames 渲染后端",
     "bytes": 4819
@@ -596,7 +2596,7 @@ export const SKILLS = [
   {
     "id": "huashu-launch-film-director-notes",
     "name": "Launch Film 工作流：先写万字 director's notes，再做动画",
-    "desc": "高规格视觉作品（≥ 20 秒、含品牌叙事、含 slogan reveal、可能上 X / 公众号 / B 站推广）的标准工作流。",
+    "desc": "实战教训（2026-05-11 huashu-md-html v2.0 项目）：",
     "cat": "video",
     "zh": "发布片导演笔记",
     "bytes": 8713
@@ -644,7 +2644,7 @@ export const SKILLS = [
   {
     "id": "huashu-multi-perspective-case-study",
     "name": "多视角并行实验 · Case Study",
-    "desc": "huashu-md-html v2.0 launch film 项目 · 2026-05-11",
+    "desc": "用户要求「为 huashu-md-html v2.0 制作 30 秒升级宣传片」时，主线程先产出了 v5 基线（Anthropic / Penguin Classics 出版社品位）。但用户认为可以做得更好，给了 critical instruction：",
     "cat": "design",
     "zh": "多方向并行案例",
     "bytes": 6779
@@ -668,7 +2668,7 @@ export const SKILLS = [
   {
     "id": "huashu-scene-templates",
     "name": "场景模板库：按输出类型组织",
-    "desc": "与 design-styles.md 的「提示词DNA」组合使用。",
+    "desc": "- 封面图：2.35:1（900×383px 或 1200×510px）",
     "cat": "design",
     "zh": "场景模板",
     "bytes": 5188
@@ -692,7 +2692,7 @@ export const SKILLS = [
   {
     "id": "huashu-storyboard-basics",
     "name": "Storyboard Basics · 轻量分镜与画面构图",
-    "desc": "任何动画开工前的分镜方法，不论 5 秒还是 50 秒。核心一句话：每一镜先是一张会动的封面。",
+    "desc": "本文件是 launch-film-director-notes.md 的日常轻量版。launch film 万字导演稿是重装流程，日常动画不需要那套，但分镜这道工序本身不能省——省掉的结果是时间表思维（第几秒出什么元素），不是画面思维（这一帧长什么样）。",
     "cat": "video",
     "zh": "分镜基础",
     "bytes": 11318
@@ -708,7 +2708,7 @@ export const SKILLS = [
   {
     "id": "huashu-typography",
     "name": "Typography：排印推理系统",
-    "desc": "这不是字体清单，是配对与排版的推理规则。 design-styles.md 已经给了 60 种风格各自的字体名；本文回答的是「为什么这样配」「拿到任意内容怎么推导出字号/行长/字重」。目标：同一个风格标签，落到不同内容上，能推导出不同的排印结果，而不是每次都抄同一套字号。",
+    "desc": "拿到内容后按这个顺序推，每一步都由上一步决定，不许跳到「直接选个好看的字体」：",
     "cat": "design",
     "zh": "排版规范",
     "bytes": 10350
@@ -716,7 +2716,7 @@ export const SKILLS = [
   {
     "id": "huashu-ui-demo-animation",
     "name": "产品UI展示动画 Playbook",
-    "desc": "这是「宣传的产品有UI界面」时的单一入口。 商单、发布动画、功能演示，只要画面主角是一个界面，先读这份文件再动手。",
+    "desc": "这是本文件里最影响工作量的一个决策，两条路差一个量级。默认从最省的路径开始判断：",
     "cat": "design",
     "zh": "UI 演示动画",
     "bytes": 14624
@@ -740,7 +2740,7 @@ export const SKILLS = [
   {
     "id": "huashu-voiceover-pipeline",
     "name": "Voiceover Pipeline · 解说驱动动画",
-    "desc": "把动画从「无声画面 + 后期配音」升级为「先有解说词，再按音频实测时长驱动画面」的工作流。",
+    "desc": "PowerPoint 是 7 张幻灯片。我们做的是 1 段持续 X 分钟的电影。",
     "cat": "video",
     "zh": "配音流水线",
     "bytes": 13417
@@ -763,7 +2763,7 @@ export const SKILLS = [
   },
   {
     "id": "import-from-figma",
-    "name": "import-from-figma",
+    "name": "Import from Figma (.fig)",
     "desc": "Import from Figma (.fig) Decode a local .fig file offline — mount it as a design reference for a project, cherry-pick components/frames as React code,",
     "cat": "import",
     "zh": "导入 .fig 设计稿",
@@ -771,7 +2771,7 @@ export const SKILLS = [
   },
   {
     "id": "import-from-github",
-    "name": "import-from-github",
+    "name": "Import from GitHub",
     "desc": "Import from GitHub Use a GitHub repo as a design source — browse the real tree on demand, sparse-import only the paths you need into a scratch dir out",
     "cat": "import",
     "zh": "用 GitHub 仓库做设计源",
@@ -779,7 +2779,7 @@ export const SKILLS = [
   },
   {
     "id": "import-from-html",
-    "name": "import-from-html",
+    "name": "Import from HTML/CSS",
     "desc": "Import from HTML Use existing HTML/CSS pages as a design reference — loose files, saved/exported pages, or screens in a local codebase. Read the code,",
     "cat": "import",
     "zh": "导入现有 HTML/CSS",
@@ -795,7 +2795,7 @@ export const SKILLS = [
   },
   {
     "id": "landing-page-design",
-    "name": "landing-page-design",
+    "name": "Landing Page Design",
     "desc": "Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversion copywriting, SEO, plus stri",
     "cat": "design",
     "zh": "落地页设计系统",
@@ -803,7 +2803,7 @@ export const SKILLS = [
   },
   {
     "id": "lemo-opuscar",
-    "name": "lemo-opuscar",
+    "name": "Lemo-Opuscar",
     "desc": "Direct and produce a short film made entirely in code, in one of the styles of the Lemo-Opuscar library (e.g. Impasto Oil Painting 油画厚涂, Watercolor Br",
     "cat": "video",
     "zh": "纯代码短片导演",
@@ -819,7 +2819,7 @@ export const SKILLS = [
   },
   {
     "id": "make-a-deck",
-    "name": "make-a-deck",
+    "name": "Slide writing guidelines",
     "desc": "Make a deck Slide presentation in HTML",
     "cat": "doc",
     "zh": "HTML 幻灯片",
@@ -907,7 +2907,7 @@ export const SKILLS = [
   },
   {
     "id": "save-as-pdf",
-    "name": "save-as-pdf",
+    "name": "Save as PDF",
     "desc": "Save as PDF Print-ready PDF export",
     "cat": "doc",
     "zh": "导出打印 PDF",
@@ -963,7 +2963,7 @@ export const SKILLS = [
   },
   {
     "id": "use-design-system",
-    "name": "use-design-system",
+    "name": "Using a design system in a project",
     "desc": "Consume an existing design system from a regular design project — discover available systems, import a compiled copy into _ds/<slug>/, wire it up, see",
     "cat": "ds",
     "zh": "套用设计系统",

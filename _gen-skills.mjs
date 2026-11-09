@@ -130,6 +130,263 @@ const META = {
   'overflow-notion-cover-size':   ['doc', 'Notion 封面尺寸'],
   'overflow-notion-icons-upload': ['doc', 'Notion 图标上传流程'],
   'overflow-notion-icons-figma':  ['doc', 'Notion 图标 Figma 流'],
+  // ---- astryx（meta/astryx，MIT，41 个） ----
+  // docs/design 17 + IME 守卫设计
+  'astryx-design-readme':             ['design', 'Astryx 设计文档导览'],
+  'astryx-agentic-states':            ['design', 'Agent 状态设计'],
+  'astryx-bidirectionality':          ['design', '双向文字与 RTL'],
+  'astryx-color-emphasis':            ['design', '颜色强调层级'],
+  'astryx-control-rhythm':            ['design', '控件节奏'],
+  'astryx-elevation-hierarchy':       ['design', '海拔层级'],
+  'astryx-iconography':               ['design', '图标体系'],
+  'astryx-mobile-typography':         ['design', '移动端排版'],
+  'astryx-motion':                    ['design', '动效规格'],
+  'astryx-collection-reordering':     ['design', '集合重排交互'],
+  'astryx-reduced-motion':            ['design', '减少动效适配'],
+  'astryx-shape-relationships':       ['design', '形状关系'],
+  'astryx-spatial-hierarchy':         ['design', '空间层级'],
+  'astryx-system-states':             ['design', '系统状态设计'],
+  'astryx-template-composition':      ['design', '模板组合'],
+  'astryx-typography-hierarchy':      ['design', '排版层级'],
+  'astryx-user-states':               ['design', '用户状态设计'],
+  'astryx-ime-guard':                 ['design', 'IME 组合守卫'],
+  // docs/families 8 + docs/architecture 8 + 导览
+  'astryx-families-readme':           ['ds', '组件族导览'],
+  'astryx-family-action-groups':      ['ds', '动作组规格'],
+  'astryx-family-buttons':            ['ds', '按钮族规格'],
+  'astryx-family-input-fields':       ['ds', '输入字段规格'],
+  'astryx-family-layout-primitives':  ['ds', '布局原语规格'],
+  'astryx-family-layout-regions':     ['ds', '布局区域规格'],
+  'astryx-family-navigation':         ['ds', '导航目的地规格'],
+  'astryx-family-overlay-dismissal':  ['ds', '覆盖层关闭规格'],
+  'astryx-arch-readme':               ['ds', '架构文档导览'],
+  'astryx-size-cascade':              ['ds', '组件尺寸级联'],
+  'astryx-container-padding':         ['ds', '容器内距规则'],
+  'astryx-list-windowing':            ['ds', '列表窗口化架构'],
+  'astryx-interaction-modality':      ['ds', '交互方式适配'],
+  'astryx-theme-tokens':              ['ds', '主题令牌'],
+  'astryx-style-authoring':           ['ds', '组件样式编写'],
+  'astryx-layer-runtime':             ['ds', '层级运行时'],
+  'astryx-themes-readme':             ['ds', '主题体系导览'],
+  'astryx-docs-readme':               ['ds', '知识文档体系'],
+  // .claude skills / commands + 仓库 Agent 协议
+  'astryx-agents':                    ['import', 'Astryx Agent 协议'],
+  'astryx-dense-compression':         ['import', '压缩协议技能'],
+  'astryx-component-docs':            ['import', '组件文档写作'],
+  'astryx-create-component':          ['import', '创建组件命令'],
+  'astryx-create-theme':              ['import', '创建主题命令'],
+// ==== ASTRYX BATCH BEGIN ====
+  // astryx 批量入库（209 条，脚本生成勿手改）
+  'astryx-spec-alertdialog': ['ds', '组件规格 AlertDialog'],
+  'astryx-spec-appshell': ['ds', '组件规格 AppShell'],
+  'astryx-spec-aspectratio': ['ds', '组件规格 AspectRatio'],
+  'astryx-spec-avatar': ['ds', '组件规格 Avatar'],
+  'astryx-spec-avatargroup': ['ds', '组件规格 AvatarGroup'],
+  'astryx-spec-badge': ['ds', '组件规格 Badge'],
+  'astryx-spec-banner': ['ds', '组件规格 Banner'],
+  'astryx-spec-blockquote': ['ds', '组件规格 Blockquote'],
+  'astryx-spec-bottomsheet': ['ds', '组件规格 BottomSheet'],
+  'astryx-spec-breadcrumbs': ['ds', '组件规格 Breadcrumbs'],
+  'astryx-spec-button': ['ds', '组件规格 Button'],
+  'astryx-spec-buttongroup': ['ds', '组件规格 ButtonGroup'],
+  'astryx-spec-calendar': ['ds', '组件规格 Calendar'],
+  'astryx-spec-card': ['ds', '组件规格 Card'],
+  'astryx-spec-carousel': ['ds', '组件规格 Carousel'],
+  'astryx-spec-center': ['ds', '组件规格 Center'],
+  'astryx-spec-chart': ['ds', '组件规格 Chart'],
+  'astryx-spec-chartaxis': ['ds', '组件规格 ChartAxis'],
+  'astryx-spec-chartgrid': ['ds', '组件规格 ChartGrid'],
+  'astryx-spec-chartlegend': ['ds', '组件规格 ChartLegend'],
+  'astryx-spec-chartswatch': ['ds', '组件规格 ChartSwatch'],
+  'astryx-spec-charttooltip': ['ds', '组件规格 ChartTooltip'],
+  'astryx-spec-chat': ['ds', '组件规格 Chat'],
+  'astryx-spec-checkboxinput': ['ds', '组件规格 CheckboxInput'],
+  'astryx-spec-checkboxlist': ['ds', '组件规格 CheckboxList'],
+  'astryx-spec-citation': ['ds', '组件规格 Citation'],
+  'astryx-spec-clickablecard': ['ds', '组件规格 ClickableCard'],
+  'astryx-spec-code': ['ds', '组件规格 Code'],
+  'astryx-spec-codeblock': ['ds', '组件规格 CodeBlock'],
+  'astryx-spec-collapsible': ['ds', '组件规格 Collapsible'],
+  'astryx-spec-commandpalette': ['ds', '组件规格 CommandPalette'],
+  'astryx-spec-commentpin': ['ds', '组件规格 CommentPin'],
+  'astryx-spec-complexselector': ['ds', '组件规格 ComplexSelector'],
+  'astryx-spec-contextmenu': ['ds', '组件规格 ContextMenu'],
+  'astryx-spec-dateinput': ['ds', '组件规格 DateInput'],
+  'astryx-spec-daterangeinput': ['ds', '组件规格 DateRangeInput'],
+  'astryx-spec-datetimeinput': ['ds', '组件规格 DateTimeInput'],
+  'astryx-spec-dialog': ['ds', '组件规格 Dialog'],
+  'astryx-spec-divider': ['ds', '组件规格 Divider'],
+  'astryx-spec-drawer': ['ds', '组件规格 Drawer'],
+  'astryx-spec-dropdownmenu': ['ds', '组件规格 DropdownMenu'],
+  'astryx-spec-emptystate': ['ds', '组件规格 EmptyState'],
+  'astryx-spec-field': ['ds', '组件规格 Field'],
+  'astryx-spec-fieldstatus': ['ds', '组件规格 FieldStatus'],
+  'astryx-spec-fileinput': ['ds', '组件规格 FileInput'],
+  'astryx-spec-formlayout': ['ds', '组件规格 FormLayout'],
+  'astryx-spec-grid': ['ds', '组件规格 Grid'],
+  'astryx-spec-heading': ['ds', '组件规格 Heading'],
+  'astryx-spec-hovercard': ['ds', '组件规格 HoverCard'],
+  'astryx-spec-i18n': ['ds', '组件规格 i18n'],
+  'astryx-spec-icon': ['ds', '组件规格 Icon'],
+  'astryx-spec-iconbutton': ['ds', '组件规格 IconButton'],
+  'astryx-spec-indicator': ['ds', '组件规格 Indicator'],
+  'astryx-spec-infotip': ['ds', '组件规格 InfoTip'],
+  'astryx-spec-inputgroup': ['ds', '组件规格 InputGroup'],
+  'astryx-spec-item': ['ds', '组件规格 Item'],
+  'astryx-spec-kbd': ['ds', '组件规格 Kbd'],
+  'astryx-spec-layer': ['ds', '组件规格 Layer'],
+  'astryx-spec-layout': ['ds', '组件规格 Layout'],
+  'astryx-spec-lightbox': ['ds', '组件规格 Lightbox'],
+  'astryx-spec-link': ['ds', '组件规格 Link'],
+  'astryx-spec-list': ['ds', '组件规格 List'],
+  'astryx-spec-markdown': ['ds', '组件规格 Markdown'],
+  'astryx-spec-metadatalist': ['ds', '组件规格 MetadataList'],
+  'astryx-spec-mobilenav': ['ds', '组件规格 MobileNav'],
+  'astryx-spec-moremenu': ['ds', '组件规格 MoreMenu'],
+  'astryx-spec-multiselector': ['ds', '组件规格 MultiSelector'],
+  'astryx-spec-navicon': ['ds', '组件规格 NavIcon'],
+  'astryx-spec-navmenu': ['ds', '组件规格 NavMenu'],
+  'astryx-spec-numberinput': ['ds', '组件规格 NumberInput'],
+  'astryx-spec-outline': ['ds', '组件规格 Outline'],
+  'astryx-spec-overflowlist': ['ds', '组件规格 OverflowList'],
+  'astryx-spec-overlay': ['ds', '组件规格 Overlay'],
+  'astryx-spec-pagination': ['ds', '组件规格 Pagination'],
+  'astryx-spec-popover': ['ds', '组件规格 Popover'],
+  'astryx-spec-powersearch': ['ds', '组件规格 PowerSearch'],
+  'astryx-spec-progressbar': ['ds', '组件规格 ProgressBar'],
+  'astryx-spec-radiolist': ['ds', '组件规格 RadioList'],
+  'astryx-spec-resizable': ['ds', '组件规格 Resizable'],
+  'astryx-spec-schedule': ['ds', '组件规格 Schedule'],
+  'astryx-spec-scrollablearea': ['ds', '组件规格 ScrollableArea'],
+  'astryx-spec-section': ['ds', '组件规格 Section'],
+  'astryx-spec-segmentedcontrol': ['ds', '组件规格 SegmentedControl'],
+  'astryx-spec-selectablecard': ['ds', '组件规格 SelectableCard'],
+  'astryx-spec-selector': ['ds', '组件规格 Selector'],
+  'astryx-spec-sidenav': ['ds', '组件规格 SideNav'],
+  'astryx-spec-skeleton': ['ds', '组件规格 Skeleton'],
+  'astryx-spec-slider': ['ds', '组件规格 Slider'],
+  'astryx-spec-spinner': ['ds', '组件规格 Spinner'],
+  'astryx-spec-stack': ['ds', '组件规格 Stack'],
+  'astryx-spec-statusdot': ['ds', '组件规格 StatusDot'],
+  'astryx-spec-stepper': ['ds', '组件规格 Stepper'],
+  'astryx-spec-switch': ['ds', '组件规格 Switch'],
+  'astryx-spec-table': ['ds', '组件规格 Table'],
+  'astryx-spec-tablist': ['ds', '组件规格 TabList'],
+  'astryx-spec-text': ['ds', '组件规格 Text'],
+  'astryx-spec-textarea': ['ds', '组件规格 TextArea'],
+  'astryx-spec-textinput': ['ds', '组件规格 TextInput'],
+  'astryx-spec-theme': ['ds', '组件规格 theme'],
+  'astryx-spec-thumbnail': ['ds', '组件规格 Thumbnail'],
+  'astryx-spec-timeinput': ['ds', '组件规格 TimeInput'],
+  'astryx-spec-timer': ['ds', '组件规格 Timer'],
+  'astryx-spec-timestamp': ['ds', '组件规格 Timestamp'],
+  'astryx-spec-toast': ['ds', '组件规格 Toast'],
+  'astryx-spec-togglebutton': ['ds', '组件规格 ToggleButton'],
+  'astryx-spec-token': ['ds', '组件规格 Token'],
+  'astryx-spec-tokenizer': ['ds', '组件规格 Tokenizer'],
+  'astryx-spec-toolbar': ['ds', '组件规格 Toolbar'],
+  'astryx-spec-tooltip': ['ds', '组件规格 Tooltip'],
+  'astryx-spec-topnav': ['ds', '组件规格 TopNav'],
+  'astryx-spec-treelist': ['ds', '组件规格 TreeList'],
+  'astryx-spec-typeahead': ['ds', '组件规格 Typeahead'],
+  'astryx-spec-visuallyhidden': ['ds', '组件规格 VisuallyHidden'],
+  'astryx-ast-001': ['ds', '系统规格 异步选项源状态'],
+  'astryx-ast-003': ['ds', '系统规格 图层协调全局宿主'],
+  'astryx-ast-004': ['ds', '系统规格 空态指示位收起'],
+  'astryx-ast-005': ['ds', '系统规格 安全导航目标'],
+  'astryx-ast-006': ['ds', '系统规格 主题局部令牌'],
+  'astryx-ast-008': ['ds', '系统规格 色调调色板生成'],
+  'astryx-ast-009': ['ds', '系统规格 辅助技术验证'],
+  'astryx-ast-010': ['ds', '系统规格 百分比可调配置'],
+  'astryx-ast-011': ['ds', '系统规格 只读选择输入'],
+  'astryx-ast-012': ['ds', '系统规格 主题适配'],
+  'astryx-ast-013': ['ds', '系统规格 浏览器与平台支持'],
+  'astryx-ast-018': ['ds', '系统规格 调色板编写契约'],
+  'astryx-ast-020': ['ds', '系统规格 无障碍规格测试'],
+  'astryx-ast-022': ['ds', '系统规格 主题继承与物化'],
+  'astryx-ast-024': ['ds', '系统规格 标题视觉角色扩展'],
+  'astryx-ast-025': ['ds', '系统规格 滚动容器行为'],
+  'astryx-ast-026': ['ds', '系统规格 shadcn 注册兼容'],
+  'astryx-ast-027': ['ds', '系统规格 本地堆叠与顶层路由'],
+  'astryx-ast-032': ['ds', '系统规格 上传发送图标主题化'],
+  'astryx-ast-037-timer': ['ds', '系统规格 计时器'],
+  'astryx-ast-038-layer-text-boundary': ['ds', '系统规格 图层文本继承边界'],
+  'astryx-ast-043-input-presentation': ['ds', '系统规格 日期时间输入呈现'],
+  'astryx-ast-050-app-themes': ['ds', '系统规格 应用主题'],
+  'astryx-ast-053-multi-selector-lookups': ['ds', '系统规格 多选查找回执'],
+  'astryx-ast-055-caller-rendered-trigger': ['ds', '系统规格 调用方渲染触发器'],
+  'astryx-ast-056-search-prop-shape': ['ds', '系统规格 搜索状态词汇'],
+  'astryx-ast-057-row-actions': ['ds', '系统规格 行滑动操作'],
+  'astryx-ast-058-option-actions': ['ds', '系统规格 选项副操作'],
+  'astryx-ast-059-layer-viewport-inset': ['ds', '系统规格 图层视口内缩'],
+  'astryx-ast-066-theme-data-boundary': ['ds', '系统规格 StyleX 令牌所有权'],
+  'astryx-ast-067-wall-time-resolution': ['ds', '系统规格 墙钟时间分辨率'],
+  'astryx-ast-071-styling-library-compat': ['ds', '系统规格 样式库兼容'],
+  'astryx-ast-075-owned-field-combobox': ['ds', '系统规格 自绘字段组合框'],
+  'astryx-ast-079-selector-trigger-hierarchy': ['ds', '系统规格 选择器触发层级'],
+  'astryx-ast-081-global-mode': ['ds', '系统规格 全局模式'],
+  'astryx-ast-084-icon-sets': ['ds', '系统规格 图标集集成'],
+  'astryx-ast-085-focusable-disabled': ['ds', '系统规格 可聚焦禁用控件'],
+  'astryx-ast-086-status-announcements': ['ds', '系统规格 状态通告投递'],
+  'astryx-ast-087-icon-variants': ['ds', '系统规格 图标变体与插槽'],
+  'astryx-ast-089-styling-target': ['ds', '系统规格 ref 样式目标'],
+  'astryx-ast-090-exit-motion': ['ds', '系统规格 退出动效'],
+  'astryx-ast-092-incremental-search-results': ['ds', '系统规格 增量搜索结果'],
+  'astryx-ast-094-touch-presentations': ['ds', '系统规格 触控呈现原生感'],
+  'astryx-ast-099-mobile-keyboard': ['ds', '系统规格 软键盘'],
+  'astryx-ast-102-typography-theme-owned': ['ds', '系统规格 排版归属主题'],
+  'astryx-ast-103-reorderable': ['ds', '系统规格 可重排集合'],
+  'astryx-ast-105-animated-layout': ['ds', '系统规格 动画布局'],
+  'astryx-ast-107-public-gesture-hooks': ['ds', '系统规格 公开手势钩子'],
+  'astryx-ast-108-theme-motion': ['ds', '系统规格 主题动效'],
+  'astryx-ast-109-clear-value': ['ds', '系统规格 清除值'],
+  'astryx-ast-111-calendar-systems': ['ds', '系统规格 日历系统'],
+  'astryx-arch-test-sufficiency': ['ds', '组件测试充分性'],
+  'astryx-arch-component-theming': ['ds', '组件主题面'],
+  'astryx-arch-icon-slots': ['ds', '图标解析与插槽'],
+  'astryx-arch-i18n': ['ds', '国际化架构'],
+  'astryx-arch-knowledge-contracts': ['ds', '知识契约'],
+  'astryx-arch-public-api': ['ds', '公共组件 API'],
+  'astryx-arch-rtl-audit': ['ds', 'RTL 审计证据'],
+  'astryx-arch-template-authoring': ['ds', '模板编写'],
+  'astryx-arch-theme-application': ['ds', '主题应用'],
+  'astryx-arch-theme-authoring': ['ds', '主题编写契约'],
+  'astryx-arch-theme-compilation': ['ds', '主题编译'],
+  'astryx-contrib-readme': ['ds', '贡献指南'],
+  'astryx-api-conventions': ['ds', 'API 约定'],
+  'astryx-pull-requests': ['ds', '拉取请求规范'],
+  'astryx-spec-writing': ['ds', '规格编写指南'],
+  'astryx-tpl-architecture': ['ds', '知识模板 架构记录'],
+  'astryx-tpl-component-spec': ['ds', '知识模板 组件规格'],
+  'astryx-tpl-design-spec': ['ds', '知识模板 设计规格'],
+  'astryx-tpl-family-contract': ['ds', '知识模板 族契约'],
+  'astryx-tpl-implementation-plan': ['ds', '知识模板 实施计划'],
+  'astryx-tpl-module-spec': ['ds', '知识模板 模块规格'],
+  'astryx-tpl-system-spec': ['ds', '知识模板 系统规格'],
+  'astryx-tpl-theme-spec': ['ds', '知识模板 主题规格'],
+  'astryx-core-gestures': ['design', '手势系统源码文档'],
+  'astryx-core-keyboard': ['design', '键盘交互源码文档'],
+  'astryx-core-motion': ['design', '动效系统源码文档'],
+  'astryx-core-measurements': ['design', '动效实测数据'],
+  'astryx-charts-readme': ['data', '图表库导览'],
+  'astryx-charts-stage1': ['data', '图表 V2 阶段设计'],
+  'astryx-charts-verification': ['data', '图表验证清单'],
+  'astryx-a11y-spec': ['ds', '无障碍测试契约'],
+  'astryx-interaction-harness': ['ds', '交互取证测试'],
+  'astryx-theme-butter': ['design', '主题 butter 规格'],
+  'astryx-theme-gothic': ['design', '主题 gothic 规格'],
+  'astryx-theme-matcha': ['design', '主题 matcha 规格'],
+  'astryx-theme-neutral': ['design', '主题 neutral 规格'],
+  'astryx-theme-stone': ['design', '主题 stone 规格'],
+  'astryx-theme-y2k': ['design', '主题 y2k 规格'],
+  'astryx-blog-how-astryx-works': ['import', 'Astryx 架构解析'],
+  'astryx-blog-who-needs-a-figma-library': ['design', '设计工具之辩'],
+  'astryx-blog-building-for-people-and-agents': ['design', '人与 Agent 双受众'],
+  'astryx-blog-vibe-tests': ['import', 'Vibe 测试实践'],
+  'astryx-blog-astryx-cli-build-command': ['import', 'CLI 构建命令'],
+  'astryx-blog-internationalizing-astryx': ['design', '国际化实践'],
+  'astryx-blog-meet-astryx-from-shadcn': ['import', '从 shadcn 到 Astryx'],
+// ==== ASTRYX BATCH END ====
 };
 const CATS = {
   design: '设计与美学',
@@ -149,38 +406,42 @@ for (const f of files.sort()) {
   const raw = fs.readFileSync(path.join(DIR, f), 'utf8');
   let name = id, desc = '';
   const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  // 正文起点：跳过 frontmatter，desc 扫描不能读到 schema_version 这类元数据行
+  const body = fm ? raw.slice(fm[0].length) : raw;
   if (fm) {
     const grab = (key) => {
-      const q = fm[1].match(new RegExp(key + ':\\s*"([^"]+)'));
+      const q = fm[1].match(new RegExp(key + ':\\s*["\']([^"\']+)["\']'));
       if (q) return q[1];
       const u = fm[1].match(new RegExp(key + ':\\s*([^\\r\\n]+)'));
       return u ? u[1] : null;
     };
-    const n = grab('name');
+    const n = grab('name') || grab('title');          // 博客等用 title 当标题
     const d = grab('description');
-    if (n) name = n.replace(/^"|"$/g, '');
-    if (d) desc = d.replace(/^"|"$/g, '').replace(/\\n/g, ' ');
+    if (n) name = n.replace(/^["']|["']$/g, '');
+    if (d) desc = d.replace(/^["']|["']$/g, '').replace(/\\n/g, ' ');
   }
-  // 无 frontmatter 的方法文档：取首个一级标题当 name，首个正文段落当 desc
-  if (!fm) {
-    const h = raw.match(/^#\s+(.+)$/m);
-    if (h) name = h[1].trim().slice(0, 48);
+  // name/desc 兜底：无 frontmatter，或 frontmatter 只有 kind/id（astryx 等）——取首个一级标题当 name、首个正文段落当 desc
+  if (name === id || !desc) {
+    if (name === id) {
+      const h = body.match(/^#\s+(.+)$/m);
+      if (h) name = h[1].trim().slice(0, 48);
+    }
     if (!desc) {
-      const lines = raw.split(/\r?\n/);
-      let seenH = false, quote = '';
+      const lines = body.split(/\r?\n/);
+      let inFence = false, quote = '', best = '';
+      const clean = (s) => s.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*`]/g, '');
       for (const line of lines) {
         const t = line.trim();
-        if (!t) continue;
-        if (t.startsWith('#')) { if (seenH) break; seenH = true; continue; }
-        if (t.startsWith('```')) continue;
-        // 横线/表格跳过继续扫；引言块记为备选（huashu 等文档开头是 --- 与 >）
-        if (t.startsWith('---') || t.startsWith('|')) continue;
-        const clean = (s) => s.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/[*`]/g, '');
+        if (t.startsWith('```')) { inFence = !inFence; continue; }   // 栅栏状态跟踪
+        if (inFence || !t) continue;
+        if (t.startsWith('#') || t.startsWith('<!--') || t.startsWith('---')) continue;
+        if (t.startsWith('|')) continue;                             // 表格
         if (t.startsWith('>')) { if (!quote) quote = clean(t.replace(/^>\s?/, '')); continue; }
-        desc = clean(t);
-        break;
+        const c = clean(t);
+        if (c.length >= 12) { best = c; break; }                     // 太短的行（{、标签）继续找
+        if (!best) best = c;
       }
-      if (!desc) desc = quote;
+      desc = best || quote;
     }
   }
   const meta = META[id];

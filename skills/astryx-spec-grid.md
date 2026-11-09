@@ -1,0 +1,331 @@
+---
+schema_version: 3
+template_version: 7
+kind: component
+id: component:Grid
+authority: current
+archive_reason: null
+superseded_by: null
+approved_by: cixzhang
+approved_at: 2026-10-28
+owners: [cixzhang]
+review_triggers: [public-api, behavior, layout, theming, accessibility]
+verified_by:
+  [
+    scripts/check-knowledge.mjs,
+    packages/core/src/serverSafeComponents.test.ts,
+    packages/core/src/Grid/Grid.test.tsx,
+    apps/storybook/stories/Grid.stories.tsx,
+    .github/scripts/story-play-guard.js,
+    packages/core/src/theme/themingTargets.test.ts,
+    apps/storybook/rtl-audit/targets.json,
+  ]
+modules: []
+families: [family:layout-primitives]
+design_specs: []
+architecture:
+  [
+    architecture:component-theming-surface,
+    architecture:public-component-api,
+    architecture:component-test-sufficiency,
+  ]
+contributing: []
+system_specs: []
+---
+
+# Grid component contract
+
+## Contract at a glance
+
+| Area                    | Contract                                                                                                                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Public contract         | Grid arranges children in two-dimensional tracks with `columns` (a fixed count or a responsive object), gaps, item alignment, `rowHeight`, and box sizing.                            |
+| Behavior                | A positive number creates exactly N `1fr` tracks without reflow; an object creates fill/fit tracks from a pixel minimum and optional count cap; axis gaps override uniform gap.       |
+| End-user impact         | Content keeps DOM order and logical direction while responsive object-form grids reduce their count to fit. Fixed tracks may narrow or overflow when their content cannot shrink.     |
+| Builder impact          | None; the record describes shipped behavior. Builders choose fixed numeric tracks or responsive object tracks explicitly.                                                             |
+| Compatibility/readiness | Released behavior recorded as current; no API, default, target, or runtime changes.                                                                                                   |
+| Review checks           | Reject automatic reflow for numeric columns, equal-width promises that ignore minimum content, lost gap precedence, raw inline track templates, or caller-overridable owned metadata. |
+| Governing rules         | `family:layout-primitives/FR1–FR7`; `architecture:public-component-api/INV5–INV9`; `architecture:component-theming-surface/INV2–INV6`.                                                |
+
+This table is a review projection; the body below is authoritative.
+
+## Intent
+
+Grid arranges caller-supplied items in two-dimensional tracks. It owns track construction, gaps, item alignment, and its box size; it owns no content, surface, or structural page semantics.
+
+## Compatibility and migration
+
+- Released default preserved: yes; omitted, zero, or negative numeric `columns` resolves to one track.
+- Compatibility class: records shipped behavior; no runtime, DOM, styling, target, or public API changes.
+- Controlled/uncontrolled behavior: not applicable.
+- Migration decision: none.
+
+Consumer migration instructions belong in consumer docs and release notes.
+
+## Ownership boundary
+
+**Owns**
+
+- Grid's root container, `grid` target, track construction, axis gaps, item alignment, and explicit box dimensions.
+- The `grid-span` target that GridSpan's wrapper carries, which `Grid.doc.mjs` declares and the anatomy map below lists.
+- Root prop and style composition on the Grid root.
+
+**Does not own / non-goals**
+
+- Caller content, item semantics, surfaces, or interaction — owned by the product callsite or rendered child component.
+- A shared breakpoint or automatic reflow for numeric columns — responsiveness is selected by Grid's object form.
+- The GridSpan wrapper's behavior and one item's row and column participation —
+  owned by `component:GridSpan`, which has its own consumer doc and record.
+
+## Public concepts
+
+| Concept              | Closed values or states                    | Meaning                                                                 | Availability by variant/orientation/state | Default                     | Owner                      | Stability | Invalid-value behavior                       |
+| -------------------- | ------------------------------------------ | ----------------------------------------------------------------------- | ----------------------------------------- | --------------------------- | -------------------------- | --------- | -------------------------------------------- |
+| column shape         | fixed number; responsive object; omitted   | Selects fixed `1fr` tracks or intrinsic fill/fit tracks.                | Every Grid                                | one track                   | `component:Grid`           | Stable    | zero/negative number falls back to one track |
+| responsive repeat    | `fill`; `fit`                              | Keeps empty tracks or collapses them so present items stretch.          | Object-form columns                       | `fill`                      | `component:Grid`           | Stable    | Type-constrained                             |
+| responsive count cap | absent; positive `max`; non-positive `max` | Caps the number of intrinsic tracks while allowing present tracks fill. | Object-form columns                       | absent                      | `component:Grid`           | Stable    | non-positive behaves as uncapped             |
+| spacing              | shared `SpacingStep` values                | Separates rows/columns; axis values override uniform gap.               | Every Grid                                | browser grid gap default    | `family:layout-primitives` | Stable    | Type-constrained                             |
+| item alignment       | `start`; `center`; `end`; `stretch`        | Sets `align-items` and `justify-items`.                                 | Every Grid                                | browser `normal`            | `component:Grid`           | Stable    | Type-constrained                             |
+| box size             | number; CSS value string; absent           | Sizes the Grid box; numbers become pixels.                              | Every Grid                                | caller/container-determined | `family:layout-primitives` | Stable    | Browser validates strings                    |
+| implicit row height  | number; absent                             | Sets pixel height for implicit rows used by row spans.                  | Every Grid                                | browser `auto`              | `component:Grid`           | Stable    | Browser validates the resulting CSS          |
+
+## Behavioral and layout contract
+
+| ID  | Invariant                                                                                                                                                                                                                                                                    | Basis                                                           |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| FR1 | A positive numeric `columns={N}` creates exactly N `1fr` tracks at every width and never reflows; minimum content may widen one track and overflow a narrow container. Omitted, zero, or negative `columns` gives one `1fr` track.                                           | DEC-1; released docs, source, and tests                         |
+| FR2 | Object-form columns use auto-fill by default or auto-fit for `repeat: 'fit'`; `minWidth` is the track floor, while a positive `max` caps the count and lets a lone track shrink to the container.                                                                            | Released docs, source, and tests                                |
+| FR3 | `rowGap` overrides `gap` only for rows, and `columnGap` overrides `gap` only for columns; the effective column gap participates in capped-track math. `rowHeight` sets the implicit row height in pixels.                                                                    | `family:layout-primitives/FR4`; source and tests                |
+| FR4 | The track template is a class-level declaration, so caller `xstyle` and class rules, including media rules, can replace it. Caller `style` wins other inline declarations, and explicit `width`, `height`, `maxWidth`, and `minHeight` props override matching `style` keys. | `architecture:public-component-api/INV5–INV8`; source and tests |
+| FR5 | `align` and `justify` set `align-items` and `justify-items` to `start`, `center`, `end`, or `stretch`; unset leaves the browser default (`normal`, which stretches items without a natural size or aspect ratio).                                                            | Source and tests                                                |
+| FR6 | `ref`, DOM, data, ARIA, and event props, `xstyle`, class name, and inline style reach or compose on the root without replacing the `grid` target or its reflected `columns` (numeric form only), `gap`, `align`, and `justify`.                                              | `architecture:public-component-api/INV5–INV8`; source and tests |
+| FR7 | Grid preserves caller DOM order and uses the document's logical inline direction; it creates no separate keyboard order.                                                                                                                                                     | Platform layout behavior                                        |
+
+### Allowed variation
+
+- **AV1 — Caller content.** Any caller-owned element may participate directly or inside GridSpan; Grid does not inspect or rewrite it.
+- **AV2 — Track count.** Container width, minimum content, gaps, and object-form options may change the rendered responsive count within FR1–FR3.
+- **AV3 — Root styling.** Caller styles may replace track templates or box presentation while preserving the component-owned target and metadata.
+
+### Representative states
+
+| State              | Required invariant                                                       | Allowed variation                                     |
+| ------------------ | ------------------------------------------------------------------------ | ----------------------------------------------------- |
+| fixed Grid         | Exactly N explicit `1fr` tracks; no component-owned reflow.              | N, content minimums, gaps, and caller styling.        |
+| responsive fill    | Empty tracks remain allocated while count responds to available width.   | Minimum width, cap, content count, and effective gap. |
+| responsive fit     | Empty tracks collapse and present items stretch.                         | Minimum width, cap, content count, and effective gap. |
+| capped narrow Grid | Count drops and one present track can fill a container below `minWidth`. | Container width and caller content.                   |
+| direct item        | Caller content participates without a Grid-owned wrapper.                | Any caller-owned element and semantics.               |
+
+### Transformation and precedence order
+
+- **ORD1 — Track shape.** Responsive object with positive `max` → capped fill/fit template; responsive object without positive `max` → uncapped fill/fit template; positive number → fixed `repeat(N, 1fr)`; otherwise → one `1fr` track.
+- **ORD2 — Gap.** Axis gap → uniform gap → no gap term in capped-track arithmetic.
+- **ORD3 — Root composition.** Caller props apply first; the component-owned target, reflection, and StyleX compose next; `xstyle`, class name, and caller inline style keep their styling precedence; sizing props win over matching inline keys.
+
+### Performance and resources
+
+- **PR1 — CSS-owned layout.** Grid owns no state, effect, observer, listener, timer, or JavaScript measurement; layout and reflow are CSS-owned.
+
+## Accessibility contract
+
+- **AR1 — Layout remains nonsemantic.** Grid renders a `<div>` without grid, list, group, or landmark semantics of its own; callers provide semantics when their composition needs them.
+- **AR2 — Order remains perceivable.** DOM order remains the reading and keyboard order in LTR and RTL; visual tracks do not create a second sequence.
+
+## Design relationships
+
+| Anatomy or state | Design requirement                                      | Representation authority | Hierarchy role | Component contract |
+| ---------------- | ------------------------------------------------------- | ------------------------ | -------------- | ------------------ |
+| Grid container   | Two-dimensional tracks for caller items; geometry only. | Current source and docs  | Supporting     | FR1–FR6            |
+| Spanning item    | An optional wrapper documented beside Grid.             | `component:GridSpan`     | Supporting     | —                  |
+
+Theming: the root is the `grid` target, reflecting `align`, numeric `columns`,
+`gap`, and `justify`. `Grid.doc.mjs` documents the Spanning item part and its
+`grid-span` target, so the map below lists both; `component:GridSpan` owns the
+wrapper's behavior.
+
+### Theming anatomy
+
+<!-- anatomy-theming:v1 -->
+
+```json
+{
+  "Grid container": {"target": "grid"},
+  "Spanning item": {"target": "grid-span"}
+}
+```
+
+## Family and system relationships
+
+- `family:layout-primitives` owns shared spacing, sizing, alignment, and item-participation vocabulary; Grid owns the two-dimensional realization, and `component:GridSpan` the participation modifier.
+- `architecture:public-component-api` owns root prop, styling, event, ref, and released-type composition.
+- `architecture:component-theming-surface` sets the rules the `grid` target and its reflected axes follow.
+- `architecture:component-test-sufficiency` owns bounded, mutation-sensitive evidence selection.
+
+## Verification map
+
+| Contract            | Verification                                                                                                      | Representative states                                                         | Mutation or failure expectation                                                                                                                                                                                                                                                                                         | Audit section         |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| FR1–FR3, ORD1, ORD2 | `Grid.test.tsx` track-template, row-height, and capped-gap tests; `Grid.stories.tsx` AuditMatrix play guard       | Fixed; zero and negative; fill; fit; capped with and without gaps; row height | A changed track template (count, fill or fit, floor, cap, or the gap in the cap) or row height fails exact assertions; a grid that overflows its host fails the play guard. Gap: the gap and axis-gap tests assert only that the grid renders, so `rowGap` and `columnGap` overriding `gap` on their axis has no check. | `audit:Grid/behavior` |
+| FR4, FR6, ORD3      | `Grid.test.tsx` raw-inline-template, sizing, ref, passthrough, and owned-metadata tests; `themingTargets.test.ts` | DOM, data, ARIA, events; class, style, xstyle; reflected axes                 | A dropped `aria-label`, replaced owned metadata, a raw inline track, or a wrong width or height fails. Gap: the ref test accepts any element, and the `xstyle`, `className`, `style` merge order and size props winning over `style` have no check.                                                                     | `audit:Grid/api`      |
+| FR5                 | `Grid.test.tsx` alignment and owned-metadata tests                                                                | `align` and `justify`                                                         | A lost `data-align` or `data-justify` reflection fails. Gap: the alignment test asserts only that the grid renders, so the `align-items` and `justify-items` values have no check.                                                                                                                                      | `audit:Grid/behavior` |
+| FR7, AR1, AR2       | `Grid.stories.tsx` AuditMatrix play guard in LTR and RTL                                                          | Fixed tracks in both directions                                               | Items that do not run start to end in the document direction fail the play guard. Gap: no automated check asserts that Grid adds no role or keeps DOM order.                                                                                                                                                            | `audit:Grid/a11y-rtl` |
+| PR1                 | `serverSafeComponents.test.ts`; source review                                                                     | Every state                                                                   | A client API (state, an effect) added without a client directive fails `serverSafeComponents.test.ts`. Gap: a client API added together with a client directive passes, and no automated check fails if Grid adds layout measurement.                                                                                   | `audit:Grid/behavior` |
+| Theming anatomy map | `scripts/check-knowledge.mjs`                                                                                     | Consumer anatomy and current targets                                          | Missing, extra, or stale mappings fail repository validation.                                                                                                                                                                                                                                                           | `audit:Grid/theming`  |
+| RTL relation        | RTL audit curated D2 target (`apps/storybook/rtl-audit/targets.json`) on `Grid / With grid span`                  | Spanning and single-track items; LTR and RTL                                  | A first grid item that is not at the inline start of the next fails D2.                                                                                                                                                                                                                                                 | `audit:Grid/i18n-rtl` |
+
+## Decision log
+
+### DEC-1 — Numeric `columns` stays fixed; reflow uses the existing object form
+
+**Reference:** `component:Grid/DEC-1`
+**Decider:** `cixzhang`, `2026-10-11`
+
+`columns={N}` means exactly N `1fr` tracks at every width, and a grid that reflows on small screens uses `{minWidth, max?, repeat?}`. The number is the fixed contract; the object form is the responsive contract.
+
+Rejected: redefining the number as "at most N" would break released numeric grids; a `{count, isFixed}` shape would duplicate the number and the `max` cap.
+
+## Open questions
+
+None.
+
+## Content boundary
+
+This file does not duplicate consumer prop tables/examples, current audit
+results, implementation steps, or family/system rules. It links to their owners.
+
+---
+
+<!-- source: docs/specs/components/Grid/GridSpan.spec.md -->
+
+
+# GridSpan component contract
+
+## Contract at a glance
+
+| Area                    | Contract                                                                                                                                               |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Public contract         | An optional wrapper for one Grid item with `columns` (a count or `'full'`) and `rows`.                                                                 |
+| Behavior                | A count spans that many tracks; `'full'` spans every explicit column; the wrapper keeps a zero minimum width so shrinkable content stays in its track. |
+| End-user impact         | Readers see featured or tall items occupy several tracks without breaking the grid's order.                                                            |
+| Builder impact          | None; the record describes shipped behavior.                                                                                                           |
+| Compatibility/readiness | Released behavior recorded as current; no API, default, or output changes.                                                                             |
+| Review checks           | Reject `'full'` described as covering implicit tracks, a lost zero minimum width, or a wrapper that adds semantics.                                    |
+| Governing rules         | `family:layout-primitives/FR6`; `architecture:public-component-api/INV5,INV6,INV8`; `architecture:component-theming-surface/INV2`.                     |
+
+This table is a review projection; the body below is authoritative.
+
+## Intent
+
+GridSpan changes how one item participates in a Grid: how many columns or rows
+it covers. It owns that wrapper and nothing about the content inside it.
+
+## Compatibility and migration
+
+- Released default preserved: `yes`
+- Compatibility class: records shipped behavior; no public prop, default, DOM,
+  or styling output changes
+- Controlled/uncontrolled behavior: not applicable
+- Migration decision: none
+
+Consumer migration instructions belong in consumer docs and release notes.
+
+## Ownership boundary
+
+**Owns**
+
+- The wrapper `div`, which carries the `grid-span` target that
+  `component:Grid` publishes and maps, and its column and row spans.
+- The wrapper's single-track inner grid and zero minimum width.
+
+**Does not own / non-goals**
+
+- Track construction, gaps, and alignment — owned by `component:Grid`.
+- Implicit tracks the browser creates when a numeric span exceeds the explicit
+  grid.
+- Caller content and its semantics.
+
+## Public concepts
+
+| Concept | Closed values or states        | Meaning                                    | Availability by variant/orientation/state | Default             | Owner                | Stability | Invalid-value behavior                                         |
+| ------- | ------------------------------ | ------------------------------------------ | ----------------------------------------- | ------------------- | -------------------- | --------- | -------------------------------------------------------------- |
+| Columns | positive number; `full`; unset | Spans N columns, or every explicit column. | Inside a Grid                             | intrinsic placement | `component:GridSpan` | Stable    | The browser resolves numeric spans, including implicit tracks. |
+| Rows    | positive number; unset         | Spans N rows.                              | Inside a Grid                             | intrinsic placement | `component:GridSpan` | Stable    | The browser validates the resulting CSS.                       |
+
+## Behavioral and layout contract
+
+| ID  | Invariant                                                                                                                                                                                                        | Basis                    |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| FR1 | GridSpan renders one `div` carrying the `grid-span` target, displayed as a grid with one `minmax(0, 1fr)` column, zero minimum width, and full height, holding its children.                                     | Current source and tests |
+| FR2 | `columns={N}` sets `grid-column: span N`; `columns="full"` sets `grid-column: 1 / -1`, covering the explicit columns only; `rows={N}` sets `grid-row: span N`. Unset spans leave browser placement intrinsic.    | Current source and tests |
+| FR3 | The span declarations are inline styles applied after the caller's `style`. `ref` reaches the `div`; supported DOM, ARIA, data, and event props reach it; `xstyle` and `className` merge after component styles. | Current source and tests |
+
+### Allowed variation
+
+- **AV1 — Caller content.** Any content may fill the wrapper.
+
+### Representative states
+
+| State        | Required invariant                            | Allowed variation |
+| ------------ | --------------------------------------------- | ----------------- |
+| Numeric span | Spans N tracks; may create implicit tracks.   | N.                |
+| Full span    | Covers explicit columns from line 1 to -1.    | Column count.     |
+| Row span     | Spans N rows, often with Grid's `rowHeight`.  | N.                |
+| Long content | Shrinkable descendants stay inside the track. | Content.          |
+
+### Transformation and precedence order
+
+- **ORD1 — Span.** `'full'` → `1 / -1`; a number → `span N`; unset → intrinsic.
+- **ORD2 — Inline style.** Caller `style` → span declarations.
+
+### Performance and resources
+
+- **PR1 — Static render.** GridSpan holds no state and uses no hooks.
+
+## Accessibility contract
+
+- **AR1 — Nonsemantic wrapper.** GridSpan adds no role, name, or tab stop of
+  its own and keeps DOM order.
+- **AR2 — Content stays reachable.** The zero minimum width lets shrinkable
+  descendants stay inside their track; content that cannot shrink may still
+  overflow under `component:Grid` FR1.
+
+## Design relationships
+
+| Anatomy or state | Design requirement                               | Representation authority | Hierarchy role | Component contract |
+| ---------------- | ------------------------------------------------ | ------------------------ | -------------- | ------------------ |
+| Spanning item    | One item covering several tracks; geometry only. | Current source and docs  | Supporting     | FR1, FR2, AR2      |
+
+Theming: the wrapper carries the `grid-span` target, which `Grid.doc.mjs`
+declares and `component:Grid` maps. `GridSpan.doc.mjs` declares no anatomy of
+its own, so no anatomy-theming block is declared here.
+
+## Family and system relationships
+
+- `family:layout-primitives` FR6 names GridSpan the participation modifier for
+  Grid; its behavior outside a Grid is this record's.
+- `component:Grid` owns the tracks GridSpan spans.
+- `architecture:public-component-api` owns ref, passthrough, and styling-input
+  rules; FR3 applies them.
+
+## Verification map
+
+| Contract | Verification                                                                                                                                           | Representative states                                    | Mutation or failure expectation                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Audit section             |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| FR1, FR2 | `Grid.test.tsx` GridSpan suite; `GridSpanAudit.a11y.chromium.spec.ts` on `GridSpan.stories.tsx`; the GridSpan order target in `rtl-audit/targets.json` | Numeric, full, row, combined, none; LTR and RTL          | A wrong inline `grid-column` or `grid-row`, a span set when none is given, or a lost `grid-span` target fails the unit suite. A lost one-track inner grid or zero minimum width, or a span that does not cover two tracks and a gap, every explicit column, or two rows and a gap from the inline start, fails the browser spec; a row span that stops taking effect or mirroring fails the RTL order target. Gap: the full height has no check distinct from the grid's default stretch. | `audit:GridSpan/layout`   |
+| FR3      | `Grid.test.tsx` GridSpan ref, passthrough, style-precedence, and styling-input tests                                                                   | Ref; extra props; caller style; `className` and `xstyle` | A ref that resolves to anything but the span element, a dropped `aria-label`, a caller `style` that replaces a span, a lost caller placement when no span is set, or a `className` or `xstyle` that is dropped or merges before the component styles fails.                                                                                                                                                                                                                               | `audit:GridSpan/api`      |
+| AR2      | `Grid.stories.tsx` long-content play and AuditMatrix full-span check; `GridSpanAudit.a11y.chromium.spec.ts` long-content case                          | Long shrinkable child; full span                         | Content escaping its track or a full span missing explicit columns fails the play; a span or truncating child escaping its 240px host fails the browser spec.                                                                                                                                                                                                                                                                                                                             | `audit:GridSpan/layout`   |
+| AR1, PR1 | `serverSafeComponents.test.ts`; `Grid.test.tsx` no-role test; `GridSpanAudit.a11y.chromium.spec.ts`                                                    | Every state                                              | A client API added without a client directive fails `serverSafeComponents.test.ts`; a role, accessible name, or tab stop on the span fails the unit test and the browser spec. Gap: a client API added together with a client directive passes.                                                                                                                                                                                                                                           | `audit:GridSpan/behavior` |
+
+## Decision log
+
+None recorded. The record describes shipped behavior.
+
+## Open questions
+
+None.
+
+## Content boundary
+
+This file does not duplicate consumer prop tables/examples, current audit
+results, implementation steps, or family/system rules. It links to their owners.
