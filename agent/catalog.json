@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "protocol": "agent/README.md",
   "coverage": {
-    "effects": 149,
-    "skills": 374,
+    "effects": 154,
+    "skills": 420,
     "videos": 15,
-    "effectsWithScenes": 58,
+    "effectsWithScenes": 63,
     "recipes": 1,
     "verifiedTemplates": 0
   },
@@ -313,6 +313,52 @@
     "skills/export-as-video.md": "7df8820c33a37e5e770f37b0fe13bcf30da9082cd98348bc27c69795fd9cbdf6",
     "skills/exportable-video.md": "9b8427a4329d094ed1f069dde26ca1179d997ec6e0f45e654de2f462de958b7b",
     "skills/flier.md": "8a53212fc1511d04fab1c5f80617b84b77037d426c89c3318fb6e1cc86b89d8d",
+    "skills/floatingui-arrow.md": "bc61753f840fcb8ebae3c61e43ccecc9b4a0cc8d3a700d6a85266a05d6363a8e",
+    "skills/floatingui-auto-placement.md": "5bb0fdb69438aa807697e60c50ca9ab62afa439b143552012121240c69a64da4",
+    "skills/floatingui-auto-update.md": "473c45c15f3641de7a53cca80362127e4617d5e8b201377d9ac734b8cf3981d0",
+    "skills/floatingui-composite.md": "efcb400b8d0dcf2c7f7e480833c55ac6290b7ea9c8417fed0c78427ba1a0ea67",
+    "skills/floatingui-compute-position.md": "f774c40f294147ba58a9b35bd0836e2a5747cad1cd9141c0f7be39dd5c016261",
+    "skills/floatingui-custom-hooks.md": "1102d12e9a58a21db6b1ebfbd1108518811ef152b6469af5af32c0611186dc56",
+    "skills/floatingui-detect-overflow.md": "caaf8c7ac6e1abd21a3df171496db2a21fd9fb698bc5361c3b8e6c3008b8fdd0",
+    "skills/floatingui-dialog.md": "c4baac2afbd8044df0156b6040c18498fe56313852ed54c46af1858fb9e4c2df",
+    "skills/floatingui-flip.md": "8ec36fb63c1e3899a55cf0b18bffd30ed8e94abd7e05653cd857941ea07dfae4",
+    "skills/floatingui-floating-arrow.md": "f597a10d8e69e098437ade87bf955a14e0bb3cc634cf5332ee906b9989bf790c",
+    "skills/floatingui-floating-delay-group.md": "74f3595d103bad6b3721164650c912be5e97d8cd9a694557739357fc1448ffbf",
+    "skills/floatingui-floating-focus-manager.md": "e94b2e0a1fc9706347ce03626890853183c956c32ecb53ab43d45839e17f9e7a",
+    "skills/floatingui-floating-list.md": "1f55d756e6c8a90e74f78fa8839b93886f8566d7f8578a92f1b52e50c8b62e64",
+    "skills/floatingui-floating-overlay.md": "07a259c01ca3bf736c1d4192068d5de8db3a18cd9cbf5870a86a048e1326e997",
+    "skills/floatingui-floating-portal.md": "1408ac0abb44d4bc5ec155ba6e3b6892b4c9c1e9f2c58d155c70ea6db1484152",
+    "skills/floatingui-floating-tree.md": "1fbd6ed81bf9f347389f8e1b2acca60c3118483d7ddbd625eaa004ae3f2dbc02",
+    "skills/floatingui-getting-started.md": "e7d7d5083798f6ff182454d00483cb4262a15bd2c8616f178edd05a6610a408c",
+    "skills/floatingui-hide.md": "7745ef0961ac80f005ca19d7f5bcde4e49ab513b03b9c03312be7fbc5858d18a",
+    "skills/floatingui-inline.md": "0bd2909e340127bcb5294792b0ee1edafa51729cb2a71e9108c0ed559862baad",
+    "skills/floatingui-inner.md": "7bf41f3469dd981ae47f0c93a94dadb52dddc5357c11397f84a3b2d121950854",
+    "skills/floatingui-middleware.md": "025b421f13a9d36174f13f086da11c2fba6a9afcd573fb6eb7481918acda5ec0",
+    "skills/floatingui-misc.md": "c99727e1fcaa42529fda2b43a56f073752fb9e932366dddbc99b741194bafa42",
+    "skills/floatingui-motivation.md": "1fd317829ebf67da6a9309e771496605cadead53152d7e3303b72887f40add8f",
+    "skills/floatingui-offset.md": "efda7186a3f9b6c1d6e76edce7790e9ad936b600b967d1ee647be12f3adc1cbc",
+    "skills/floatingui-platform.md": "7531c84d12d2ea5e397bccfa3dbf85953fcb6d6aee6b2e96395a080e2724f055",
+    "skills/floatingui-popover.md": "5cb153f8cd2f5c5420f9d38d9f5d6f51f98ed140a58c4d9b71cae5cd1af236d4",
+    "skills/floatingui-react-examples.md": "f34aa7c11d91af64e96d91720156bdb7ba6644d4bc90b238cc2442432f52e04d",
+    "skills/floatingui-react-utils.md": "2d2996d229edffa5136348936d2d93a3f670cb9b4961623bcf9a0bebfc2665f8",
+    "skills/floatingui-react.md": "3c86eebdc61f1535e98dd6a2a1dfe67c1f23e2e5d98c225a9fba950d2c92654a",
+    "skills/floatingui-shift.md": "e2bf285ee5d168a4bc0454455492fa04f9270ec68bdbc9b5f37c4cb564413088",
+    "skills/floatingui-size.md": "878f52ddeb9015abd3f02132c1735ad722b5379eacad83e2a652c34b9ce7d313",
+    "skills/floatingui-tooltip.md": "5c5570122e0fd37a5c7ed1faa72f7d2d92d6c9d0958d880277f84558134130a0",
+    "skills/floatingui-tutorial.md": "af031560bfb8c3d0ea9ab32b929e45a0248b5d36a1161c705bf65a341b2f6ffa",
+    "skills/floatingui-use-click.md": "00afacdf0bb88191808b2fc82d65c1624697f3df360e37191a3d142d990829f5",
+    "skills/floatingui-use-client-point.md": "91b80e38fa701a30aa0f89f2fa863e6f3813600aee6035046b3e8cfaa752c7c2",
+    "skills/floatingui-use-dismiss.md": "4e095323be79bafe7ac6ff5612fbec3d1eb31082202d68f344c55d13da4051b5",
+    "skills/floatingui-use-floating.md": "1058117eb674f7bf03c61730f957f9b78eb6251e264eb263cd89f8935661ca8b",
+    "skills/floatingui-use-focus.md": "ca96c5434f9871d29e699978f64af6b4030c4a8c66bde8b43baf4ccfdc8f0186",
+    "skills/floatingui-use-hover.md": "c20eba7981667ffc61c7741068f1e4f3c2fee269c4c2defc298cfbe2b05ea7e3",
+    "skills/floatingui-use-interactions.md": "ed9eb7810bb44242a2929d5d9036789f2537e90eb937ff32dfc007921e1e1a86",
+    "skills/floatingui-use-list-navigation.md": "b08cead8f12f2ad98f0b96a30df586c34cd012b9cd4b2ddce082cba34edf0846",
+    "skills/floatingui-use-role.md": "3c539d1e589759864bcbd0db39b295576410181dbda4192f21478a71b7847494",
+    "skills/floatingui-use-transition.md": "dcbaca3714d72122a39fa3b63600dc5f46638f36a5a380576969f2149e4c0623",
+    "skills/floatingui-use-typeahead.md": "68ad5e87342766a1bd16d6b78b99345c2314a38f9431d29e6015302bb77de805",
+    "skills/floatingui-virtual-elements.md": "ec881b88ad8529553d24149018ed14e687fa1504f17ca7890402a81ec69c14b6",
+    "skills/floatingui-vue.md": "a8a986a82adb5fa51a763b4ae8ba08fa130157098bb399cf90ef409961f437c7",
     "skills/frontend-design.md": "68bab3311d450436260e308a2b46083b0550790cf2cd4c024ed39db7586244fb",
     "skills/generate-images.md": "acbbbad683996f4b86e431e65a8fa5e693686b02499f4f5ed8d2aa03a84a77b9",
     "skills/google-slides-safe.md": "7187fcf47bd7e991cf3869c1899fd961a74d8f526928dc0aad90c5c2341d5f01",
@@ -441,6 +487,7 @@
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
     "src/effects/entrance.stagger-in.js": "d8403226181b85bc73f79ea203740de153e31d667e4280c4dd038c93a5d1086d",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
+    "src/effects/entrance.tooltip-delay-group.js": "0c5ec34a924fe23fecfd59aa17e73430002ad3aae94fffca23eaba5ac0e1cc9d",
     "src/effects/entrance.tr-blur-fade.js": "e5c2623da60226d83e82b89a0eaf13415c2b6cc2f71435cb11e31411e9766a06",
     "src/effects/entrance.tr-burn.js": "3e35dc81680554368b5963695ecd52632976b59472f0d350eed0357d3a39d04e",
     "src/effects/entrance.tr-cross-warp.js": "7e5f53f46bf03f18884fa58c7968baa33423e2c22335e447623312fdd4865768",
@@ -466,14 +513,17 @@
     "src/effects/feedback.direction-tabs.js": "1cf3bff00c7e13b0a2126d795c815db9fed37e39fa4308b948e5eb283bd167b7",
     "src/effects/feedback.disclosure-summary.js": "dd7063d8f91e1b0ae1c026869e7b81aa1195f8e50dc505294e9014d3084eae61",
     "src/effects/feedback.dock-magnify.js": "93caff37f1e1ebb7aa967cda80cf4b051df50f07f1152a51a74c5c2d763d1a13",
+    "src/effects/feedback.focus-trap.js": "3536d950eaf31d036d3d8320c5eaa0b292eb4e120e3cb33beccfaa77c7990f44",
     "src/effects/feedback.grid-reflow.js": "ef6aeec030062fe297e667dfce1b04d9fc0dce9977bdb330a63a5aaddd0a17b0",
     "src/effects/feedback.ime-guard.js": "df89c8c857320454e57ecd3889a63c74e265bd21ae095923b57b06aaea0ec3ae",
     "src/effects/feedback.intent-fill.js": "cd51a5b701fdbe3be1d407d77434508fa1cda488b38a76201bd4f76c41070237",
     "src/effects/feedback.island-morph.js": "45d58951abbc5c69eaaecc00f3495c047359ac32bd0703543b57d2bd8a0dcd99",
     "src/effects/feedback.iso-parametric.js": "55d026234b7fd5d04c9967cab8463ae50a809aa7c174c0aec277ef7ee461f1d9",
     "src/effects/feedback.knob-gesture.js": "6502c86e6b74b44da0323a8a3f2e8e41c76d333d0b5fd0b0ab24c57ecc7c9569",
+    "src/effects/feedback.list-nav.js": "e8b9271bd7d68cd782a77fcf9200c7233800ceecd4f54282f04603f19530cc8a",
     "src/effects/feedback.magnetic-btn.js": "f66f593548cdf1fe10f483ad4f2568168adba9e6e5e3547e10e4e7540be89d45",
     "src/effects/feedback.neumorph-btn.js": "6ed4c65258f49da5dff94e6e544b011a2b84757c7d9492da83514dc0c24583d7",
+    "src/effects/feedback.overlay-dismiss.js": "3321e30621e271a0ccb56908d122141329a95a5f482625897aefbc523de9210c",
     "src/effects/feedback.p5-lerp-ease.js": "cfd1a432cfb557e23d86423c04cebd6b2dcec293b08cd074ca804b82f0e18aa4",
     "src/effects/feedback.pro-material.js": "867dc0fca193cc6eb8358faf79e9e926b7b3d0480a44fa03c4d0710b5de97757",
     "src/effects/feedback.release-no-flash.js": "fc631b713f4d0dea9d89c3654b39b3861732943531faeb2bca1463ea80e92335",
@@ -538,12 +588,13 @@
     "src/effects/space.parallax-depth.js": "ce09464d5768f774114d067021f13825fe388eded4a35fe13b1c56e244938a16",
     "src/effects/space.path-arc-length.js": "a41c89515f89c256d6a8157f1ec66af59b22930523db6d03c210a924da7efc17",
     "src/effects/space.rtl-logical.js": "99a484f932ab8d86c52f54a6849d9819bd8c3e2990507317070e197fcf8261b1",
+    "src/effects/space.smart-anchor.js": "2764e9cc18825df197cfd73c2e3f1cb0beea4b56a57bca219efb0cadd9e9f680",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
     "src/engine.js": "8c6b8b9027231d7aefcbe0a01b825ab012aed4afb2d386341666cb682504cb7e",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
-    "src/registry.js": "fe4655aa13e1692a1c65199c4c82733cfb88280663afc44445046d7133071b80",
+    "src/registry.js": "672fa9a19a2e873e98eb1bdb63d6e45b37d060fb5d9edbf8b86ea24281abcd26",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
-    "src/skills-data.js": "1ccb8c5b5b7c478513b97b4b9d41fecc150995926dc335090e2bb7be26756ea5",
+    "src/skills-data.js": "2372171d69fb1522238d4c029f8836b95c99080b4efd525d6683cae8bf122667",
     "src/video-data.js": "f2558c655308b385979208a55be574dec8447534b4faa5a96fd63d54b3140d2e"
   },
   "resources": [
@@ -1615,6 +1666,53 @@
       }
     },
     {
+      "id": "effect:tooltip-delay-group",
+      "kind": "effect",
+      "title": "延迟组防抖浮层",
+      "description": "一组浮层共享一个延迟状态机：首次悬停等 1000ms 才开（不打扰），组内第二个浮层若在延迟期内或已打开期间被触发则进\"即时相位\"——1ms 开、0 关，鼠标在同组按钮间滑动零等待；任一浮层关闭后起 250ms 复位窗，窗内再触发仍即时，出窗才回到 1000ms 首开延迟。机制提炼自 floating-ui（MIT）公开文档 FloatingDelayGroup/useTransition，原生 JS 独立实现，带状态机日志与复位窗倒计时。",
+      "category": "入场与转场",
+      "source": "src/effects/entrance.tooltip-delay-group.js",
+      "preview": "index.html#tooltip-delay-group",
+      "implementation": "demo-module",
+      "technology": "Floating UI",
+      "notes": "六个坑：① 即时相位只在\"组内已有浮层处于打开或延迟中\"时生效——组的成员资格要显式共享（同一个 context），各自为政的 tooltip 永远走 1000ms 首开，划过一排图标就是一串卡顿；② 复位窗（250ms）必须在\"最后一个浮层真关闭\"时才起算——组内还有任何一个开着都不能复位，否则快速横穿一排按钮时状态机反复在即时/延迟间抖动；横穿切换是同一事件里先关后开、瞬时计数会短暂归零，必须区分\"真关闭\"与\"同帧将要打开的切换\"，否则每次横穿都误进复位窗；③ 状态循环是 unmounted→initial→open→closing→unmounted 四态，closing 期间浮层仍在 DOM 里做退场动画——若在 closing 直接 display:none，250ms 复位窗和退场动画会被一起截断；④ 用 transform 包一层做位移动画，浮层本体只改 opacity/transform，避免定位元素动画触发祖先滚动监听的重算风暴；⑤ 延迟期内鼠标移出必须取消计时（clearTimeout），否则人已走开浮层还弹出来；⑥ 延迟是组级单时钟，不是每个浮层各持一个 timer——各持 timer 的实现会在横穿时叠加出多个未取消的首开计时器。",
+      "scenes": {
+        "places": [
+          "面板",
+          "官网",
+          "专业工具"
+        ],
+        "goals": [
+          "操作反馈",
+          "风格统一"
+        ],
+        "triggers": [
+          "悬停"
+        ],
+        "projects": [
+          "通用",
+          "设计系统",
+          "专业工具"
+        ]
+      },
+      "sceneEvidence": "src/effects/entrance.tooltip-delay-group.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/entrance.tooltip-delay-group.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:tr-blur-fade",
       "kind": "effect",
       "title": "虚化交叉",
@@ -2481,6 +2579,53 @@
       }
     },
     {
+      "id": "effect:focus-trap",
+      "kind": "effect",
+      "title": "浮层焦点管理",
+      "description": "模态浮层里的焦点只进不出：打开时焦点进浮层（guards 用 contains 自己判断而不是捕获标记，避免嵌套浮层互相打架），Tab 在浮层内循环（首尾哨兵接住越界），关闭时 returnFocus 归还给打开前的元素；浮层没有可聚焦项时焦点落容器本身，配合 visuallyHiddenDismiss 让读屏器能走到关闭按钮。机制提炼自 floating-ui（MIT）公开文档 FloatingFocusManager，原生 JS 独立实现，带哨兵循环与归还演示。",
+      "category": "交互反馈",
+      "source": "src/effects/feedback.focus-trap.js",
+      "preview": "index.html#focus-trap",
+      "implementation": "demo-module",
+      "technology": "Floating UI",
+      "notes": "七个坑：① guards 判定\"焦点是否在浮层内\"要用 contains(浮层) 而不是布尔标记位——嵌套两个浮层时，外层的标记会被内层的开合重置，焦点在内层却被外层判成\"跑到外面去了\"而错误归还；② returnFocus 必须存\"打开前真正持有焦点的元素\"而不是随手存触发按钮；但它为 body/已卸载时不能去 focus 已 display:none 的浮层容器——隐藏后再 focus 会静默失败、焦点掉回 body，要回退到永远可见的触发按钮（对齐 FloatingUI 默认归还 reference）；③ 首个可聚焦项的默认聚焦是 afterNextPaint（下一帧）而非同步——同步 focus 会让浏览器把滚动位置一起拽过去，浮层刚出现就被 scrollIntoView 顶一截；④ 浮层内没有任何可聚焦项时焦点必须落浮层容器（tabindex=-1），否则焦点留在背后页面，Tab 第一下就穿帮；⑤ 禁止用 inert/aria-hidden 之外的方式\"藏\"背景——但 inert 会连带把浮层也 inert 掉（浮层常挂在 body 下），背景和浮层必须分开标记；⑥ VisuallyHidden 的关闭按钮要留在 DOM 里：读屏器靠它退出，display:none 会让读屏器认为这个对话框没有出口；⑦ 兄弟浮层各自的 Escape 处理器不能 stopPropagation——同节点后续监听器会被整段挡掉，同一页面的其他浮层就收不到关闭信号。",
+      "scenes": {
+        "places": [
+          "面板",
+          "对话框",
+          "专业工具"
+        ],
+        "goals": [
+          "操作反馈",
+          "风格统一"
+        ],
+        "triggers": [
+          "键盘"
+        ],
+        "projects": [
+          "通用",
+          "设计系统",
+          "专业工具"
+        ]
+      },
+      "sceneEvidence": "src/effects/feedback.focus-trap.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/feedback.focus-trap.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:grid-reflow",
       "kind": "effect",
       "title": "网格重排动画",
@@ -2732,6 +2877,53 @@
       }
     },
     {
+      "id": "effect:list-nav",
+      "kind": "effect",
+      "title": "组合导航与首字母跳转",
+      "description": "一个 Tab 停靠点管整组控件：roving tabindex 让只有 active 项 tabIndex=0、其余 -1，方向键在组内移动（可循环/横竖/网格多列），Home/End 跳首尾；连敲字母走 typeahead——750ms 内累积匹配串、前缀命中跳转、超时清空，disabled 项按 null 跳过。机制提炼自 floating-ui（MIT）公开文档 useListNavigation/Composite/useTypeahead，原生 JS 独立实现，带虚拟焦点与网格演示。",
+      "category": "交互反馈",
+      "source": "src/effects/feedback.list-nav.js",
+      "preview": "index.html#list-nav",
+      "implementation": "demo-module",
+      "technology": "Floating UI",
+      "notes": "六个坑：① 真实焦点模型下列表项必须自身可 focus（tabindex）且带 role，否则方向键移过去焦点落在容器上；虚拟焦点模型用 aria-activedescendant，此时每个项必须有唯一 id——两种模型不能混；② roving 的规则是 active 项 tabIndex=0、其余 -1，activeIndex 为 null 时不得留下任何 tabbable 项；③ typeahead 有 750ms 复位窗口，且只该用于 menu/select——可输入的 combobox 里打字是搜索，不是跳转，两套逻辑会打架；④ 匹配从 activeIndex 之后开始找（带环绕），null 项 = disabled 跳过，所以 disabled 项要给 null 而不是省略，否则索引错位；⑤ allowEscape（越界后取消选中）必须配 loop:true，否则无处可去；⑥ 键盘打开菜单时默认聚焦首个 tabbable（不是 focusable）项，鼠标打开则不抢焦点——focusItemOnOpen 的 auto 推断就靠这个区分，写反了鼠标点开会丢焦点。",
+      "scenes": {
+        "places": [
+          "菜单",
+          "面板",
+          "专业工具"
+        ],
+        "goals": [
+          "操作反馈",
+          "风格统一"
+        ],
+        "triggers": [
+          "键盘"
+        ],
+        "projects": [
+          "通用",
+          "设计系统",
+          "专业工具"
+        ]
+      },
+      "sceneEvidence": "src/effects/feedback.list-nav.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/feedback.list-nav.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:magnetic-btn",
       "kind": "effect",
       "title": "磁吸按钮",
@@ -2807,6 +2999,54 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/feedback.neumorph-btn.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:overlay-dismiss",
+      "kind": "effect",
+      "title": "浮层关闭与滚动锁定",
+      "description": "关闭要说出理由：Esc → escape-key（IME 合成中不关）、浮层外按下 → outside-press（pointerdown 是 eager、click 是 lazy，lazy 要用\"起点或终点在浮层内就不关\"护住拖拽选择）、点触发器 → reference-press。滚动锁定用模块级 lockCount——第一个浮层装锁（body overflow:hidden + 滚动条宽度补 padding、RTL 选左侧、iOS 用 position:fixed 负偏移回锚），最后一个才解锁，嵌套浮层绝不提前放锁。机制提炼自 floating-ui（MIT）公开文档 FloatingOverlay/useDismiss，原生 JS 独立实现。",
+      "category": "交互反馈",
+      "source": "src/effects/feedback.overlay-dismiss.js",
+      "preview": "index.html#overlay-dismiss",
+      "implementation": "demo-module",
+      "technology": "Floating UI",
+      "notes": "七个坑：① lockCount 必须是模块级共享计数，不是每个浮层自查 body——嵌套两个浮层时内层关闭若直接解锁，背景立刻可滚，外层还开着；② 锁的第一瞬间滚动条消失会让布局横跳，必须用 innerWidth - documentElement.clientWidth 量出滚动条宽度补到 body 的 padding 上；RTL 下要补 paddingLeft——判定看 documentElement.getBoundingClientRect().left + scrollLeft 是否为 0；③ 只有 iOS 不认 body 的 overflow:hidden——技法是 body position:fixed + top/left 设为负的滚动偏移（再减 visualViewport 偏移避开工具栏），解锁时必须 window.scrollTo({behavior:'instant'}) 回位，用默认平滑滚动会看到页面滑回去；④ eager（pointerdown）对鼠标和触摸都立即关，会打断\"从浮层内起手的拖拽选择\"；lazy（click）虽然等抬手，但必须同时检查起点和终点——只查终点时，从外面按下拖进浮层内松手仍会被误关；⑤ Esc 关闭前要查 isComposing，中文输入法组词中按 Esc 是取消组词不是关浮层；⑥ 点在滚动条上不算\"点了外面\"——要按 target 的 overflow 样式和 client/scrollWidth 判定；⑦ 点触发器关闭的 reason 是 reference-press 而不是 outside-press，日志/埋点里两者混用会让\"用户主动收起\"和\"误触外部\"分不开。",
+      "scenes": {
+        "places": [
+          "菜单",
+          "面板",
+          "专业工具"
+        ],
+        "goals": [
+          "操作反馈",
+          "风格统一"
+        ],
+        "triggers": [
+          "点击",
+          "键盘"
+        ],
+        "projects": [
+          "通用",
+          "设计系统",
+          "专业工具"
+        ]
+      },
+      "sceneEvidence": "src/effects/feedback.overlay-dismiss.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/feedback.overlay-dismiss.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
@@ -4022,6 +4262,54 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/space.rtl-logical.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:smart-anchor",
+      "kind": "effect",
+      "title": "智能锚点定位",
+      "description": "浮层贴着锚点但绝不越界：中间件管线按 offset→flip→shift→arrow 顺序执行——主轴溢出翻到对侧、对齐轴夹回边界内、箭头按最终 placement 落静态边并把动态轴夹进浮层；autoUpdate 只在挂载期监听祖先滚动/窗口缩放/ResizeObserver，锚点用 transform 动画时这些全都不触发，只有 animationFrame 每帧量矩形才跟得住。机制提炼自 floating-ui（MIT，32.8k★）公开文档 computePosition/middleware/flip/shift/arrow/autoUpdate，原生 JS 独立实现，带边界内滚动与锚点动画开关演示。",
+      "category": "空间与 3D",
+      "source": "src/effects/space.smart-anchor.js",
+      "preview": "index.html#smart-anchor",
+      "implementation": "demo-module",
+      "technology": "Floating UI",
+      "notes": "七个坑：① 浮层定位前必须先铺好初始布局——position:absolute + width:max-content + top:0 left:0，否则量到的是被容器撑坏的宽高，且溢出会触发重排造成测量抖动；② 浮层必须处于可见状态才能测量，display:none 下调 computePosition 得到 0×0；③ 中间件顺序即语义：offset 永远在最前、arrow/hide 在最后，flip 改变 placement 会让后续中间件整轮重跑（reset lifecycle），带 -start/-end 对齐时 flip 必须排在 shift 之前，否则对齐翻转会被平移抢先；④ arrow 的 middlewareData 只有一维有值，判断必须用 != null——0 是合法坐标，用 !x 会把贴边箭头判成缺失；⑤ limitShift 的停止条件是\"浮层对边与锚点对边对齐\"，不是简单 clamp 到边界，否则锚点会脱离浮层（detached）；⑥ rootBoundary 默认 viewport 用的是视觉视口（visualViewport），双指缩放/键盘弹出会变，右键菜单这类要锚死布局视口得显式传 layoutViewport/document；⑦ ResizeObserver 只报尺寸变化不报 transform 位移，IntersectionObserver 的 layoutShift 同理，纯位移动画必须开 animationFrame（代价是每帧 ~1ms 的全量重算）。",
+      "scenes": {
+        "places": [
+          "面板",
+          "菜单",
+          "官网"
+        ],
+        "goals": [
+          "操作反馈",
+          "风格统一"
+        ],
+        "triggers": [
+          "悬停",
+          "点击"
+        ],
+        "projects": [
+          "通用",
+          "设计系统",
+          "专业工具"
+        ]
+      },
+      "sceneEvidence": "src/effects/space.smart-anchor.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/space.smart-anchor.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
@@ -13658,6 +13946,1202 @@
       "integration": {
         "readBeforeUse": [
           "skills/flier.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-arrow",
+      "kind": "skill",
+      "title": "箭头指向",
+      "description": "Provides positioning data for an arrow element (triangle or caret) inside the floating element, such that it appears to be pointing toward the center ",
+      "category": "原型与交互",
+      "aliases": [
+        "arrow",
+        "floatingui-arrow"
+      ],
+      "source": "skills/floatingui-arrow.md",
+      "preview": "skills.html?skill=floatingui-arrow",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-arrow.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-auto-placement",
+      "kind": "skill",
+      "title": "自动选位",
+      "description": "Chooses the placement that has the most space available automatically.",
+      "category": "原型与交互",
+      "aliases": [
+        "autoPlacement",
+        "floatingui-auto-placement"
+      ],
+      "source": "skills/floatingui-auto-placement.md",
+      "preview": "skills.html?skill=floatingui-auto-placement",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-auto-placement.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-auto-update",
+      "kind": "skill",
+      "title": "跟随重定位",
+      "description": "Automatically updates the position of the floating element when necessary to ensure it stays anchored.",
+      "category": "原型与交互",
+      "aliases": [
+        "autoUpdate",
+        "floatingui-auto-update"
+      ],
+      "source": "skills/floatingui-auto-update.md",
+      "preview": "skills.html?skill=floatingui-auto-update",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-auto-update.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-composite",
+      "kind": "skill",
+      "title": "组合导航容器",
+      "description": "Creates a single tab stop whose items are navigated by arrow keys, which provides list navigation outside of floating element contexts.",
+      "category": "原型与交互",
+      "aliases": [
+        "Composite",
+        "floatingui-composite"
+      ],
+      "source": "skills/floatingui-composite.md",
+      "preview": "skills.html?skill=floatingui-composite",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-composite.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-compute-position",
+      "kind": "skill",
+      "title": "定位计算",
+      "description": "Computes coordinates to position a floating element next to another element.",
+      "category": "原型与交互",
+      "aliases": [
+        "computePosition",
+        "floatingui-compute-position"
+      ],
+      "source": "skills/floatingui-compute-position.md",
+      "preview": "skills.html?skill=floatingui-compute-position",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-compute-position.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-custom-hooks",
+      "kind": "skill",
+      "title": "自定义 Hook",
+      "description": "You can build your own custom Hook to perform unique logic that is not currently exported by the library.",
+      "category": "原型与交互",
+      "aliases": [
+        "Custom Hooks",
+        "floatingui-custom-hooks"
+      ],
+      "source": "skills/floatingui-custom-hooks.md",
+      "preview": "skills.html?skill=floatingui-custom-hooks",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-custom-hooks.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-detect-overflow",
+      "kind": "skill",
+      "title": "溢出检测",
+      "description": "Detects when the floating or reference element is overflowing a clipping container or custom boundary.",
+      "category": "原型与交互",
+      "aliases": [
+        "detectOverflow",
+        "floatingui-detect-overflow"
+      ],
+      "source": "skills/floatingui-detect-overflow.md",
+      "preview": "skills.html?skill=floatingui-detect-overflow",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-detect-overflow.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-dialog",
+      "kind": "skill",
+      "title": "对话框指南",
+      "description": "A dialog is a floating element that displays information that requires immediate attention, appearing over the page content and blocking interactions ",
+      "category": "原型与交互",
+      "aliases": [
+        "dialog",
+        "floatingui-dialog"
+      ],
+      "source": "skills/floatingui-dialog.md",
+      "preview": "skills.html?skill=floatingui-dialog",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-dialog.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-flip",
+      "kind": "skill",
+      "title": "定位翻转",
+      "description": "Changes the placement of the floating element to keep it in view.",
+      "category": "原型与交互",
+      "aliases": [
+        "flip",
+        "floatingui-flip"
+      ],
+      "source": "skills/floatingui-flip.md",
+      "preview": "skills.html?skill=floatingui-flip",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-flip.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-arrow",
+      "kind": "skill",
+      "title": "浮层箭头",
+      "description": "import {Demo} from '../../lib/components/FloatingArrow';",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingArrow",
+        "floatingui-floating-arrow"
+      ],
+      "source": "skills/floatingui-floating-arrow.md",
+      "preview": "skills.html?skill=floatingui-floating-arrow",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-arrow.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-delay-group",
+      "kind": "skill",
+      "title": "延迟组",
+      "description": "Provides context for a group of floating elements that should share a delay which temporarily becomes 1 ms after the first floating element of the gro",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingDelayGroup",
+        "floatingui-floating-delay-group"
+      ],
+      "source": "skills/floatingui-floating-delay-group.md",
+      "preview": "skills.html?skill=floatingui-floating-delay-group",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-delay-group.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-focus-manager",
+      "kind": "skill",
+      "title": "浮层焦点管理",
+      "description": "Provides flexible modal or non-modal focus management for a floating element. Modal behavior is the default — focus is fully trapped inside the floati",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingFocusManager",
+        "floatingui-floating-focus-manager"
+      ],
+      "source": "skills/floatingui-floating-focus-manager.md",
+      "preview": "skills.html?skill=floatingui-floating-focus-manager",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-focus-manager.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-list",
+      "kind": "skill",
+      "title": "浮层列表",
+      "description": "Provides the ability to create composable children APIs for list components",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingList",
+        "floatingui-floating-list"
+      ],
+      "source": "skills/floatingui-floating-list.md",
+      "preview": "skills.html?skill=floatingui-floating-list",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-list.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-overlay",
+      "kind": "skill",
+      "title": "浮层遮罩",
+      "description": "Provides base styling for a fixed overlay element.",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingOverlay",
+        "floatingui-floating-overlay"
+      ],
+      "source": "skills/floatingui-floating-overlay.md",
+      "preview": "skills.html?skill=floatingui-floating-overlay",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-overlay.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-portal",
+      "kind": "skill",
+      "title": "浮层传送",
+      "description": "Portals the floating element into a given container element — by default, outside of the app root and into the body.",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingPortal",
+        "floatingui-floating-portal"
+      ],
+      "source": "skills/floatingui-floating-portal.md",
+      "preview": "skills.html?skill=floatingui-floating-portal",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-portal.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-floating-tree",
+      "kind": "skill",
+      "title": "浮层层级树",
+      "description": "Provides context for nested floating elements when they are not children of each other on the DOM.",
+      "category": "原型与交互",
+      "aliases": [
+        "FloatingTree",
+        "floatingui-floating-tree"
+      ],
+      "source": "skills/floatingui-floating-tree.md",
+      "preview": "skills.html?skill=floatingui-floating-tree",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-floating-tree.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-getting-started",
+      "kind": "skill",
+      "title": "快速上手",
+      "description": "Floating UI is a library that helps you create \"floating\" elements such as tooltips, popovers, dropdowns, and more.",
+      "category": "原型与交互",
+      "aliases": [
+        "Getting Started",
+        "floatingui-getting-started"
+      ],
+      "source": "skills/floatingui-getting-started.md",
+      "preview": "skills.html?skill=floatingui-getting-started",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-getting-started.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-hide",
+      "kind": "skill",
+      "title": "锚点隐藏检测",
+      "description": "A data provider that allows you to hide the floating element in applicable situations.",
+      "category": "原型与交互",
+      "aliases": [
+        "hide",
+        "floatingui-hide"
+      ],
+      "source": "skills/floatingui-hide.md",
+      "preview": "skills.html?skill=floatingui-hide",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-hide.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-inline",
+      "kind": "skill",
+      "title": "行内定位",
+      "description": "Improves positioning for inline reference elements that span over multiple lines.",
+      "category": "原型与交互",
+      "aliases": [
+        "inline",
+        "floatingui-inline"
+      ],
+      "source": "skills/floatingui-inline.md",
+      "preview": "skills.html?skill=floatingui-inline",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-inline.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-inner",
+      "kind": "skill",
+      "title": "内部定位",
+      "description": "Positions the floating element such that an inner element inside of it is anchored to the reference element, while handling scroll and overflow behavi",
+      "category": "原型与交互",
+      "aliases": [
+        "Inner",
+        "floatingui-inner"
+      ],
+      "source": "skills/floatingui-inner.md",
+      "preview": "skills.html?skill=floatingui-inner",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-inner.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-middleware",
+      "kind": "skill",
+      "title": "中间件机制",
+      "description": "Objects that change the positioning of the floating element, executed in order as a queue.",
+      "category": "原型与交互",
+      "aliases": [
+        "Middleware",
+        "floatingui-middleware"
+      ],
+      "source": "skills/floatingui-middleware.md",
+      "preview": "skills.html?skill=floatingui-middleware",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-middleware.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-misc",
+      "kind": "skill",
+      "title": "杂项技巧",
+      "description": "Information, tips, and guidelines to help you use Floating UI.",
+      "category": "原型与交互",
+      "aliases": [
+        "Misc",
+        "floatingui-misc"
+      ],
+      "source": "skills/floatingui-misc.md",
+      "preview": "skills.html?skill=floatingui-misc",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-misc.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-motivation",
+      "kind": "skill",
+      "title": "设计动机",
+      "description": "This page aims to explain why this new package was created.",
+      "category": "原型与交互",
+      "aliases": [
+        "Motivation",
+        "floatingui-motivation"
+      ],
+      "source": "skills/floatingui-motivation.md",
+      "preview": "skills.html?skill=floatingui-motivation",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-motivation.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-offset",
+      "kind": "skill",
+      "title": "间距偏移",
+      "description": "Translates the floating element along the specified axes.",
+      "category": "原型与交互",
+      "aliases": [
+        "offset",
+        "floatingui-offset"
+      ],
+      "source": "skills/floatingui-offset.md",
+      "preview": "skills.html?skill=floatingui-offset",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-offset.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-platform",
+      "kind": "skill",
+      "title": "平台适配层",
+      "description": "import {Canvas} from '../../lib/components/Canvas';",
+      "category": "原型与交互",
+      "aliases": [
+        "Platform",
+        "floatingui-platform"
+      ],
+      "source": "skills/floatingui-platform.md",
+      "preview": "skills.html?skill=floatingui-platform",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-platform.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-popover",
+      "kind": "skill",
+      "title": "气泡卡片指南",
+      "description": "A popover is an interactive mini-dialog floating element that displays information related to an anchor element when the element is clicked.",
+      "category": "原型与交互",
+      "aliases": [
+        "popover",
+        "floatingui-popover"
+      ],
+      "source": "skills/floatingui-popover.md",
+      "preview": "skills.html?skill=floatingui-popover",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-popover.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-react-examples",
+      "kind": "skill",
+      "title": "React 示例集",
+      "description": "Learn how to build floating UI components.",
+      "category": "原型与交互",
+      "aliases": [
+        "React Examples",
+        "floatingui-react-examples"
+      ],
+      "source": "skills/floatingui-react-examples.md",
+      "preview": "skills.html?skill=floatingui-react-examples",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-react-examples.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-react-utils",
+      "kind": "skill",
+      "title": "React 工具集",
+      "description": "Merges an array of refs, returning a memoized callback ref or null.",
+      "category": "原型与交互",
+      "aliases": [
+        "React Utils",
+        "floatingui-react-utils"
+      ],
+      "source": "skills/floatingui-react-utils.md",
+      "preview": "skills.html?skill=floatingui-react-utils",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-react-utils.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-react",
+      "kind": "skill",
+      "title": "React 集成",
+      "description": "import {ReactSelect} from '../../lib/components/PackageSelect';",
+      "category": "原型与交互",
+      "aliases": [
+        "React",
+        "floatingui-react"
+      ],
+      "source": "skills/floatingui-react.md",
+      "preview": "skills.html?skill=floatingui-react",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-react.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-shift",
+      "kind": "skill",
+      "title": "定位平移",
+      "description": "Shifts the floating element to keep it in view.",
+      "category": "原型与交互",
+      "aliases": [
+        "shift",
+        "floatingui-shift"
+      ],
+      "source": "skills/floatingui-shift.md",
+      "preview": "skills.html?skill=floatingui-shift",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-shift.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-size",
+      "kind": "skill",
+      "title": "尺寸自适应",
+      "description": "Provides data to change the size of a floating element.",
+      "category": "原型与交互",
+      "aliases": [
+        "size",
+        "floatingui-size"
+      ],
+      "source": "skills/floatingui-size.md",
+      "preview": "skills.html?skill=floatingui-size",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-size.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-tooltip",
+      "kind": "skill",
+      "title": "工具提示指南",
+      "description": "A tooltip is a floating element that displays information related to an anchor element when it receives keyboard focus or the mouse hovers over it.",
+      "category": "原型与交互",
+      "aliases": [
+        "tooltip",
+        "floatingui-tooltip"
+      ],
+      "source": "skills/floatingui-tooltip.md",
+      "preview": "skills.html?skill=floatingui-tooltip",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-tooltip.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-tutorial",
+      "kind": "skill",
+      "title": "上手教程",
+      "description": "import  as T from '../../lib/components/Tutorial';",
+      "category": "原型与交互",
+      "aliases": [
+        "Tutorial",
+        "floatingui-tutorial"
+      ],
+      "source": "skills/floatingui-tutorial.md",
+      "preview": "skills.html?skill=floatingui-tutorial",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-tutorial.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-click",
+      "kind": "skill",
+      "title": "点击开合",
+      "description": "Opens or closes the floating element when clicking the reference element.",
+      "category": "原型与交互",
+      "aliases": [
+        "useClick",
+        "floatingui-use-click"
+      ],
+      "source": "skills/floatingui-use-click.md",
+      "preview": "skills.html?skill=floatingui-use-click",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-click.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-client-point",
+      "kind": "skill",
+      "title": "光标跟随",
+      "description": "Positions the floating element at a given client point (x, y), usually generated by a mouse event. By default, the client's mouse position is automati",
+      "category": "原型与交互",
+      "aliases": [
+        "useClientPoint",
+        "floatingui-use-client-point"
+      ],
+      "source": "skills/floatingui-use-client-point.md",
+      "preview": "skills.html?skill=floatingui-use-client-point",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-client-point.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-dismiss",
+      "kind": "skill",
+      "title": "外部关闭语义",
+      "description": "Closes the floating element when a dismissal is requested — by default, when the user presses the escape key or outside of the floating element with t",
+      "category": "原型与交互",
+      "aliases": [
+        "useDismiss",
+        "floatingui-use-dismiss"
+      ],
+      "source": "skills/floatingui-use-dismiss.md",
+      "preview": "skills.html?skill=floatingui-use-dismiss",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-dismiss.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-floating",
+      "kind": "skill",
+      "title": "定位 Hook",
+      "description": "The main Hook of the library that acts as a controller for all other Hooks and components.",
+      "category": "原型与交互",
+      "aliases": [
+        "useFloating",
+        "floatingui-use-floating"
+      ],
+      "source": "skills/floatingui-use-floating.md",
+      "preview": "skills.html?skill=floatingui-use-floating",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-floating.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-focus",
+      "kind": "skill",
+      "title": "焦点开合",
+      "description": "Opens the floating element while the reference element has focus, like CSS :focus.",
+      "category": "原型与交互",
+      "aliases": [
+        "useFocus",
+        "floatingui-use-focus"
+      ],
+      "source": "skills/floatingui-use-focus.md",
+      "preview": "skills.html?skill=floatingui-use-focus",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-focus.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-hover",
+      "kind": "skill",
+      "title": "悬停开合",
+      "description": "Opens the floating element while hovering over the reference element, like CSS :hover.",
+      "category": "原型与交互",
+      "aliases": [
+        "useHover",
+        "floatingui-use-hover"
+      ],
+      "source": "skills/floatingui-use-hover.md",
+      "preview": "skills.html?skill=floatingui-use-hover",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-hover.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-interactions",
+      "kind": "skill",
+      "title": "事件合并",
+      "description": "A hook to merge or compose interaction event handlers together, preserving memoization.",
+      "category": "原型与交互",
+      "aliases": [
+        "useInteractions",
+        "floatingui-use-interactions"
+      ],
+      "source": "skills/floatingui-use-interactions.md",
+      "preview": "skills.html?skill=floatingui-use-interactions",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-interactions.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-list-navigation",
+      "kind": "skill",
+      "title": "列表键盘导航",
+      "description": "Adds arrow key-based navigation of a list of items, either using real DOM focus or virtual focus.",
+      "category": "原型与交互",
+      "aliases": [
+        "useListNavigation",
+        "floatingui-use-list-navigation"
+      ],
+      "source": "skills/floatingui-use-list-navigation.md",
+      "preview": "skills.html?skill=floatingui-use-list-navigation",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-list-navigation.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-role",
+      "kind": "skill",
+      "title": "角色语义映射",
+      "description": "Adds base screen reader props to the reference and floating elements for a given role.",
+      "category": "原型与交互",
+      "aliases": [
+        "useRole",
+        "floatingui-use-role"
+      ],
+      "source": "skills/floatingui-use-role.md",
+      "preview": "skills.html?skill=floatingui-use-role",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-role.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-transition",
+      "kind": "skill",
+      "title": "浮层过渡",
+      "description": "Provides the ability to apply CSS transitions to a floating element, including correct handling of \"placement-aware\" transitions.",
+      "category": "原型与交互",
+      "aliases": [
+        "useTransition",
+        "floatingui-use-transition"
+      ],
+      "source": "skills/floatingui-use-transition.md",
+      "preview": "skills.html?skill=floatingui-use-transition",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-transition.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-use-typeahead",
+      "kind": "skill",
+      "title": "首字母跳转",
+      "description": "Provides a matching callback that can be used to focus an item as the user types, used in tandem with useListNavigation().",
+      "category": "原型与交互",
+      "aliases": [
+        "useTypeahead",
+        "floatingui-use-typeahead"
+      ],
+      "source": "skills/floatingui-use-typeahead.md",
+      "preview": "skills.html?skill=floatingui-use-typeahead",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-use-typeahead.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-virtual-elements",
+      "kind": "skill",
+      "title": "虚拟锚点",
+      "description": "Position a floating element relative to a custom reference area, useful for context menus, range selections, following the cursor, and more.",
+      "category": "原型与交互",
+      "aliases": [
+        "Virtual Elements",
+        "floatingui-virtual-elements"
+      ],
+      "source": "skills/floatingui-virtual-elements.md",
+      "preview": "skills.html?skill=floatingui-virtual-elements",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-virtual-elements.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:floatingui-vue",
+      "kind": "skill",
+      "title": "Vue 集成",
+      "description": "This package provides Vue bindings for @floating-ui/dom — a library that provides anchor positioning for a floating element to position it next to a g",
+      "category": "原型与交互",
+      "aliases": [
+        "Vue",
+        "floatingui-vue"
+      ],
+      "source": "skills/floatingui-vue.md",
+      "preview": "skills.html?skill=floatingui-vue",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/floatingui-vue.md"
         ],
         "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
       },

@@ -1,0 +1,26 @@
+# React Utils
+
+## `useMergeRefs()`
+
+Merges an array of refs, returning a memoized callback ref or `null`.
+
+```js
+import {useMergeRefs} from '@floating-ui/react';
+
+function App() {
+  const ref = useMergeRefs([ref1, ref2, ref3]);
+  return <div ref={ref} />;
+}
+```
+
+## `useId()`
+
+Uses React 18's built-in `useId()` when available, or falls back to a slightly less performant (requiring a double render) implementation for earlier React versions.
+
+```js
+import {useId} from '@floating-ui/react';
+
+function App() {
+  const id = useId();
+}
+```

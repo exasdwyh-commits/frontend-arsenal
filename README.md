@@ -19,7 +19,7 @@
 
 ## 技能库
 
-从主页侧栏进入 `skills.html`，收录 **374 个前端真正用得上的 Skill 文档**（设计与美学、设计系统、原型与交互、数据与地图、文档与印刷、媒体与导出、视频与影像、导入与研究 8 类）。这些是 Markdown 方法文档而非代码，原样存于 `skills/`：45 个来自 [baoyu-design](https://github.com/jimliu/baoyu-design)（MIT），30 个来自 [chaojifeng-video-design](https://github.com/mileson/chaojifeng-video-design)（MIT，超级峰的视频设计方法论：主线、分镜、声画节奏、制作与交付验收，含 29 个独立方法文档），1 个来自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（MIT + CC BY 4.0，纯代码做片的导演 skill），1 个来自 [impeccable](https://github.com/pbakaus/impeccable)（Apache-2.0，设计总控 skill：18 个命令覆盖 shape/critique/audit/polish/harden 全链路，上游为 SKILL.md + 45 篇 reference 剧本的多文件包，此处收录主文件），1 个来自 [ai-design-skills](https://github.com/elayadesign/ai-design-skills)（MIT，12k★，落地页设计系统：Part A 转化策略（intake 问题清单/页面结构/文案公式/SEO）+ Part B 视觉系统（字体间距圆角动效全部定死具体值），尾部设计值段落可整段改写驱动全篇），41 个来自 [huashu-design](https://github.com/alchaincyf/huashu-design)（MIT，28k★，花叔Design 3.0：HTML-native 设计 skill，主文件 + 40 篇 reference——84 种带样张风格库、三方向选稿流程、动画最佳实践与避坑清单、GSAP 配方集、排版规范、幻灯片/PPTX、分镜与镜头语言、配音与视频导出管线），5 篇来自 [overflow.design](https://www.overflow.design)（站内公开文档：图标 MCP 协议 + 4 篇 Notion 尺寸/上传指南），**250 篇来自 [meta/astryx](https://github.com/meta/astryx)（MIT，Meta 官方开源设计系统，17.8k★，"agent ready"）**——17 篇设计规格（动效/减少动效/双向文字/控件节奏/状态语言等）+ 8 篇组件族契约 + 113 个组件规格（212 个规格文件按组件合并为 113 篇）+ 51 篇 AST 系统规格（退出动效/动画布局/触控呈现/软键盘/重排/图层等）+ 11 篇架构文档 + 8 个知识文档模板 + 4 篇贡献指南 + 6 套主题规格 + 4 篇 core 源码文档（motion/gestures/keyboard 实测常量与手势状态机）+ 3 篇图表库文档 + 2 篇测试方法论 + 7 篇工程博客。页面自带零依赖迷你 Markdown 渲染器（不引 CDN），支持分类/搜索/全文复制/查看原始 `.md`，并可用 `skills.html?skill=<id>` 深链直达单个技能。
+从主页侧栏进入 `skills.html`，收录 **420 个前端真正用得上的 Skill 文档**（设计与美学、设计系统、原型与交互、数据与地图、文档与印刷、媒体与导出、视频与影像、导入与研究 8 类）。这些是 Markdown 方法文档而非代码，原样存于 `skills/`：45 个来自 [baoyu-design](https://github.com/jimliu/baoyu-design)（MIT），30 个来自 [chaojifeng-video-design](https://github.com/mileson/chaojifeng-video-design)（MIT，超级峰的视频设计方法论：主线、分镜、声画节奏、制作与交付验收，含 29 个独立方法文档），1 个来自 [lemo-opuscar](https://github.com/lemomo-ai/lemo-opuscar)（MIT + CC BY 4.0，纯代码做片的导演 skill），1 个来自 [impeccable](https://github.com/pbakaus/impeccable)（Apache-2.0，设计总控 skill：18 个命令覆盖 shape/critique/audit/polish/harden 全链路，上游为 SKILL.md + 45 篇 reference 剧本的多文件包，此处收录主文件），1 个来自 [ai-design-skills](https://github.com/elayadesign/ai-design-skills)（MIT，12k★，落地页设计系统：Part A 转化策略（intake 问题清单/页面结构/文案公式/SEO）+ Part B 视觉系统（字体间距圆角动效全部定死具体值），尾部设计值段落可整段改写驱动全篇），41 个来自 [huashu-design](https://github.com/alchaincyf/huashu-design)（MIT，28k★，花叔Design 3.0：HTML-native 设计 skill，主文件 + 40 篇 reference——84 种带样张风格库、三方向选稿流程、动画最佳实践与避坑清单、GSAP 配方集、排版规范、幻灯片/PPTX、分镜与镜头语言、配音与视频导出管线），5 篇来自 [overflow.design](https://www.overflow.design)（站内公开文档：图标 MCP 协议 + 4 篇 Notion 尺寸/上传指南），**250 篇来自 [meta/astryx](https://github.com/meta/astryx)（MIT，Meta 官方开源设计系统，17.8k★，"agent ready"）**——17 篇设计规格（动效/减少动效/双向文字/控件节奏/状态语言等）+ 8 篇组件族契约 + 113 个组件规格（212 个规格文件按组件合并为 113 篇）+ 51 篇 AST 系统规格（退出动效/动画布局/触控呈现/软键盘/重排/图层等）+ 11 篇架构文档 + 8 个知识文档模板 + 4 篇贡献指南 + 6 套主题规格 + 4 篇 core 源码文档（motion/gestures/keyboard 实测常量与手势状态机）+ 3 篇图表库文档 + 2 篇测试方法论 + 7 篇工程博客，**46 篇来自 [floating-ui/floating-ui](https://github.com/floating-ui/floating-ui)（MIT，32.8★，定位与浮层基建库）**——48 篇文档剔除 react-native 与 migration 2 篇后全收：定位/翻转/shift/内移的算法文档、`useDismiss`/`FloatingFocusManager`/`FloatingDelayGroup` 等 hook 的行为契约、AutoUpdate 滚动监听、平台检测与 CSS 逻辑属性，外加 FAQ 与架构决策记录。页面自带零依赖迷你 Markdown 渲染器（不引 CDN），支持分类/搜索/全文复制/查看原始 `.md`，并可用 `skills.html?skill=<id>` 深链直达单个技能。
 
 效果库管"长什么样"，技能库管"怎么做出来"——两者互补，都归这个仓库收藏。原仓库 53 个 skill 中排除了 8 个非前端项（read-pdf、web-research 等非前端用途，gemini-image、sound-effects 依赖外部 AI 服务，send-to-figma、send-to-canva 是外部导出，另有一对 pptx 导出为重复项）。
 
@@ -29,8 +29,8 @@
 WebUI/
 ├── index.html              # 图鉴主页：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
-├── skills.html             # 技能库：374 个前端可用 Skill 文档的浏览/阅读页
-├── skills/                 # 技能文档原样存放（374 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档、meta/astryx · MIT）
+├── skills.html             # 技能库：420 个前端可用 Skill 文档的浏览/阅读页
+├── skills/                 # 技能文档原样存放（420 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档、meta/astryx · MIT、floating-ui · MIT）
 ├── serve.bat               # 双击起本地服务（端口 8080，自动开浏览器）
 ├── package.json            # 仅用于 npm start / npx serve
 └── src/
@@ -120,13 +120,13 @@ export const EFFECTS = [ /* ... */ magneticBtn ];
 
 ---
 
-## 当前收录（149 个 / 7 组）
+## 当前收录（154 个 / 7 组）
 
 | 组 | 数量 | 代表效果 |
 |---|---:|---|
-| 入场与转场 | 44 | 12 个 GLSL 转场（涟漪/故障/水滴/噪声溶解/漩涡/像素化/虚化/燃烧/边缘发光/交叉缩放/置换扭曲/马赛克巡览）、形状遮罩转场族（一个注册变量驱动 20 种 PowerPoint 风格遮罩）、百叶窗 3D 翻页、角落聚光显影、列表找位+整体漂移、词槽老虎机、缓动货架、网格错峰、SVG 描边自绘、马克笔下划线、空心字硬切点亮、字重脉冲、霓虹框先行、字符坠落堆积、Bento 逐格点亮、渐变标题、渐变扫光充能词（波前推进+排期闪电）、墨渗揭示（湍流位移水墨转场）、灯板跑马字、逐字换字体标题、假 AI 对话演示（工具卡+流式回复循环）、表面退场动效系统（Astryx 退场规格：逆行收缩+兜底隐藏+中断恢复）、减少动效分档（Astryx：触屏淡变/细指针立即两档） |
-| 交互反馈 | 34 | 分段控件滑块特写（橡皮筋拉伸）、磁吸按钮、状态岛形变、Dock 距离衰减、弹簧预设库、拖尾链、衰减滚动、3D 倾斜、标签滑动底板、按钮四态形变、意图填空、网格重排、接触阴影抬升、纹理按钮、新拟态按钮、宇宙环按钮、整面渐变按钮、内容错位卡、方向感知标签、ProUI 材质配方、像素计步拖拽数值、旋钮读手势、滑轨减宽度滑块、松手不闪按压态、触发器预留最宽标签、折叠区摘要汇报、等距图参数面板（线重/主题/朝向实时改参）、IME 组合守卫（Astryx：组合期按键让给输入法）、控件节奏与扩区点击（Astryx：基线+伪元素扩区） |
-| 空间与 3D | 17 | 手写矩阵 3D 旋转（OrbitControls 阻尼）、射线拾取、Shader 波动曲面、实例化网格、CSS3D 卡片环、分步停靠卡环、克隆纵队、折页展开、路径匀速运动、极简卡片、缺角卡、RTL 逻辑镜像（Astryx：逻辑属性一键翻转） |
+| 入场与转场 | 45 | 12 个 GLSL 转场（涟漪/故障/水滴/噪声溶解/漩涡/像素化/虚化/燃烧/边缘发光/交叉缩放/置换扭曲/马赛克巡览）、形状遮罩转场族（一个注册变量驱动 20 种 PowerPoint 风格遮罩）、百叶窗 3D 翻页、角落聚光显影、列表找位+整体漂移、词槽老虎机、缓动货架、网格错峰、SVG 描边自绘、马克笔下划线、空心字硬切点亮、字重脉冲、霓虹框先行、字符坠落堆积、Bento 逐格点亮、渐变标题、渐变扫光充能词（波前推进+排期闪电）、墨渗揭示（湍流位移水墨转场）、灯板跑马字、逐字换字体标题、假 AI 对话演示（工具卡+流式回复循环）、表面退场动效系统（Astryx 退场规格：逆行收缩+兜底隐藏+中断恢复）、减少动效分档（Astryx：触屏淡变/细指针立即两档）、延迟组防抖浮层（Floating UI 组级单时钟：1000ms 首开 + 1ms 即时相位 + 250ms 复位窗） |
+| 交互反馈 | 37 | 分段控件滑块特写（橡皮筋拉伸）、磁吸按钮、状态岛形变、Dock 距离衰减、弹簧预设库、拖尾链、衰减滚动、3D 倾斜、标签滑动底板、按钮四态形变、意图填空、网格重排、接触阴影抬升、纹理按钮、新拟态按钮、宇宙环按钮、整面渐变按钮、内容错位卡、方向感知标签、ProUI 材质配方、像素计步拖拽数值、旋钮读手势、滑轨减宽度滑块、松手不闪按压态、触发器预留最宽标签、折叠区摘要汇报、等距图参数面板（线重/主题/朝向实时改参）、IME 组合守卫（Astryx：组合期按键让给输入法）、控件节奏与扩区点击（Astryx：基线+伪元素扩区）、列表导航（roving tabindex + 750ms typeahead）、浮层关闭与滚动锁定（reason 三分 + lockCount 计数）、浮层焦点管理（哨兵循环 + returnFocus 归还） |
+| 空间与 3D | 18 | 手写矩阵 3D 旋转（OrbitControls 阻尼）、射线拾取、Shader 波动曲面、实例化网格、CSS3D 卡片环、分步停靠卡环、克隆纵队、折页展开、路径匀速运动、极简卡片、缺角卡、RTL 逻辑镜像（Astryx：逻辑属性一键翻转）、智能锚点定位（Floating UI flip/shift/middleware 链） |
 | 粒子与氛围 | 20 | 程序化水彩晕染（fbm 毛边+颜料深边堆积）、CRT 录像带后期（YCbCr 只糊色度保亮度 + 开机亮线 + 磁头切换撕裂）、柏林噪声漂移、高斯爆发、GPU 粒子云、边框光束、条纹玻璃、星轨螺旋、引力场轨道、实例化点云、分层景深、点阵涟漪、纹理叠层、边缘渐进模糊、栏位导引光、有序抖动图像 |
 | 物理与拟真 | 12 | 刚体堆叠+休眠、绳索链、布娃娃、CCD 穿模对比、马达关节、弹簧约束链、复合刚体 |
 | 数据动效 | 19 | 满弧扫针自检（甩满全弧阻尼回落）、前后对比拉杆（快甩+慢扫速度对比）、时间轴吸附、逐词字幕、数字滚轮、LOD 量化、滚动驱动进度、环形进度、数字滚动、建议卡堆栈、卡拉OK逐词填色、竖向词条滚轮 |
@@ -187,6 +187,15 @@ Electron 的 pro-drag/pro-no-drag 拖拽区机制因浏览器无法演示未收�
 - **控件节奏与扩区点击（control-rhythm）**：混排控件共享基线与表观高度；紧凑控件点击区用伪元素 `inset:-10px` 外扩到 44px 而不加 padding（padding 改表观高度破坏节奏），相邻扩区重叠按 DOM 顺序归属。出自 `control-rhythm.md` DR1–DR4。
 - **表面退场动效系统（exit-motion）**：关闭请求一发出同帧进离场态（不接指针按键、内容驻留、焦点按规则交还），沿进场路线朝打开者缩回 + 独立退场曲线 `cubic-bezier(.3,0,.6,.6)`；不信任 `animationend`（挂"时长+100ms"兜底强制隐藏），退场中重开原地恢复绝不"隐藏再显示"，旧回调按代际计数作废。出自 `AST-090 exit-motion` FR1–FR12。
 - 技能库另收 **250 篇**（占技能库三分之二）：17 篇设计规格、8 篇组件族契约、113 个组件规格（Chat/Table/DropdownMenu 等 212 个规格文件按组件合并，单组件最多 15 篇合成一档）、51 篇 AST 系统规格（触控呈现、动画布局、可重排集合、软键盘、图层堆叠、主题令牌等）、11 篇架构文档、8 个知识文档模板、4 篇贡献指南、6 套主题规格（butter/gothic/matcha/neutral/stone/y2k）、core 源码文档（`motion/README` 弹簧/衰减/橡皮筋常量表、`MEASUREMENTS` 80KB 实测数据、`gestures/README` 手势状态机、`keyboard/README`）、3 篇图表库文档、2 篇测试方法论（无障碍契约/触控动画取证）、7 篇工程博客。CLI/CI/发布流程、`.changeset`、native Swift、CHANGELOG/api-report 等非前端内容已剔除。
+
+已从 [Floating UI](https://github.com/floating-ui/floating-ui)（MIT，32.8k★，定位与浮层基建库，DOM 核心 + React 包装）提炼 5 个机制 + 收录 46 篇文档。边界：包代码不搬，只从公开文档抽"可 vanilla 复刻的定位/浮层机制"，每个用原生 JS/CSS 独立重写，`desc` 注明出处：
+
+- **智能锚点定位（smart-anchor）**：middleware 链模型——`offset`（间隙/箭头位移）→ `flip`（越界翻边，翻不了回退 `shift`）→ `shift`（视口推挤，只动 cross 轴）→ `arrow`（箭头避让）各司其职、按序执行，前一个改坐标后一个才测量；定位用 `top/left + transform: translate(px)` 而非 `margin`（不触发祖先重排），平台检测 `visualViewport` 修 iOS 工具栏偏移。
+- **列表导航（list-nav）**：roving tabindex——整组只占一个 Tab 停靠点（active 项 tabIndex=0 其余 -1），方向键组内移动 + disabled 按 null 跳过 + loop 环绕 + 网格换行；typeahead 是 750ms 滑动窗口累积匹配串、前缀命中即跳、超时清空；可切 aria-activedescendant 虚拟焦点模型（DOM 焦点留容器）。
+- **延迟组防抖浮层（tooltip-delay-group）**：组级单时钟——组内无浮层走 1000ms 首开，有浮层处于 open/延迟中则进 1ms 即时相位（横穿整排零等待）；最后一个真关闭起 250ms 复位窗，窗内仍即时；同帧切换（先关后开）不算真关闭不进复位窗，否则状态机抖动。
+- **浮层关闭与滚动锁定（overlay-dismiss）**：关闭必带 reason（escape-key 前查 `isComposing`、outside-press 区分 eager `pointerdown` 与 lazy `click`、点触发器是 reference-press）；lazy 要护"起点或终点在浮层内"防拖拽误关；滚动锁定是模块级 lockCount——第一个浮层装锁（`body overflow:hidden` + 滚动条宽度补 padding 防横跳、RTL 补左侧、iOS 用 `position:fixed` 负偏移回锚），最后一个才解锁。
+- **浮层焦点管理（focus-trap）**：guards 用 `contains(浮层)` 判定焦点是否在内（布尔标记在嵌套浮层下会互相打架）；Tab 首尾哨兵循环；打开存"真正持有焦点的元素"、关闭同步归还，归还目标为 body 时回退到永远可见的触发按钮（先 hide 再 focus 不可见元素会静默失败）；空焦点项落容器 tabindex=-1，visuallyHidden 关闭按钮留在 DOM 作读屏器出口。
+- 技能库另收 **46 篇**（48 篇 MDX 剔除 react-native 与 migration 2 篇）：定位算法（offset/flip/shift/arrow/inset/size/autoUpdate 各一篇 + middlewares 架构）、行为契约（useDismiss/FloatingFocusManager/FloatingDelayGroup/useHover/useClick/useRole/useDismiss/useInteractions/useFloating 等 hook 文档）、平台与主题（detectPlatform/CSS 逻辑属性/react 指南）、FAQ 与 ADR 决策记录。
 
 ## 三个效率功能
 

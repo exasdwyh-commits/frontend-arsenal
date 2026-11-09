@@ -2378,6 +2378,374 @@ export const SKILLS = [
     "bytes": 2091
   },
   {
+    "id": "floatingui-arrow",
+    "name": "arrow",
+    "desc": "Provides positioning data for an arrow element (triangle or caret) inside the floating element, such that it appears to be pointing toward the center ",
+    "cat": "proto",
+    "zh": "箭头指向",
+    "bytes": 7550
+  },
+  {
+    "id": "floatingui-auto-placement",
+    "name": "autoPlacement",
+    "desc": "Chooses the placement that has the most space available automatically.",
+    "cat": "proto",
+    "zh": "自动选位",
+    "bytes": 4114
+  },
+  {
+    "id": "floatingui-auto-update",
+    "name": "autoUpdate",
+    "desc": "Automatically updates the position of the floating element when necessary to ensure it stays anchored.",
+    "cat": "proto",
+    "zh": "跟随重定位",
+    "bytes": 8000
+  },
+  {
+    "id": "floatingui-composite",
+    "name": "Composite",
+    "desc": "Creates a single tab stop whose items are navigated by arrow keys, which provides list navigation outside of floating element contexts.",
+    "cat": "proto",
+    "zh": "组合导航容器",
+    "bytes": 3569
+  },
+  {
+    "id": "floatingui-compute-position",
+    "name": "computePosition",
+    "desc": "Computes coordinates to position a floating element next to another element.",
+    "cat": "proto",
+    "zh": "定位计算",
+    "bytes": 10067
+  },
+  {
+    "id": "floatingui-custom-hooks",
+    "name": "Custom Hooks",
+    "desc": "You can build your own custom Hook to perform unique logic that is not currently exported by the library.",
+    "cat": "proto",
+    "zh": "自定义 Hook",
+    "bytes": 1907
+  },
+  {
+    "id": "floatingui-detect-overflow",
+    "name": "detectOverflow",
+    "desc": "Detects when the floating or reference element is overflowing a clipping container or custom boundary.",
+    "cat": "proto",
+    "zh": "溢出检测",
+    "bytes": 4546
+  },
+  {
+    "id": "floatingui-dialog",
+    "name": "dialog",
+    "desc": "A dialog is a floating element that displays information that requires immediate attention, appearing over the page content and blocking interactions ",
+    "cat": "proto",
+    "zh": "对话框指南",
+    "bytes": 7627
+  },
+  {
+    "id": "floatingui-flip",
+    "name": "flip",
+    "desc": "Changes the placement of the floating element to keep it in view.",
+    "cat": "proto",
+    "zh": "定位翻转",
+    "bytes": 7269
+  },
+  {
+    "id": "floatingui-floating-arrow",
+    "name": "FloatingArrow",
+    "desc": "import {Demo} from '../../lib/components/FloatingArrow';",
+    "cat": "proto",
+    "zh": "浮层箭头",
+    "bytes": 6416
+  },
+  {
+    "id": "floatingui-floating-delay-group",
+    "name": "FloatingDelayGroup",
+    "desc": "Provides context for a group of floating elements that should share a delay which temporarily becomes 1 ms after the first floating element of the gro",
+    "cat": "proto",
+    "zh": "延迟组",
+    "bytes": 3212
+  },
+  {
+    "id": "floatingui-floating-focus-manager",
+    "name": "FloatingFocusManager",
+    "desc": "Provides flexible modal or non-modal focus management for a floating element. Modal behavior is the default — focus is fully trapped inside the floati",
+    "cat": "proto",
+    "zh": "浮层焦点管理",
+    "bytes": 8766
+  },
+  {
+    "id": "floatingui-floating-list",
+    "name": "FloatingList",
+    "desc": "Provides the ability to create composable children APIs for list components",
+    "cat": "proto",
+    "zh": "浮层列表",
+    "bytes": 2351
+  },
+  {
+    "id": "floatingui-floating-overlay",
+    "name": "FloatingOverlay",
+    "desc": "Provides base styling for a fixed overlay element.",
+    "cat": "proto",
+    "zh": "浮层遮罩",
+    "bytes": 1387
+  },
+  {
+    "id": "floatingui-floating-portal",
+    "name": "FloatingPortal",
+    "desc": "Portals the floating element into a given container element — by default, outside of the app root and into the body.",
+    "cat": "proto",
+    "zh": "浮层传送",
+    "bytes": 2256
+  },
+  {
+    "id": "floatingui-floating-tree",
+    "name": "FloatingTree",
+    "desc": "Provides context for nested floating elements when they are not children of each other on the DOM.",
+    "cat": "proto",
+    "zh": "浮层层级树",
+    "bytes": 3544
+  },
+  {
+    "id": "floatingui-getting-started",
+    "name": "Getting Started",
+    "desc": "Floating UI is a library that helps you create \"floating\" elements such as tooltips, popovers, dropdowns, and more.",
+    "cat": "proto",
+    "zh": "快速上手",
+    "bytes": 3516
+  },
+  {
+    "id": "floatingui-hide",
+    "name": "hide",
+    "desc": "A data provider that allows you to hide the floating element in applicable situations.",
+    "cat": "proto",
+    "zh": "锚点隐藏检测",
+    "bytes": 3649
+  },
+  {
+    "id": "floatingui-inline",
+    "name": "inline",
+    "desc": "Improves positioning for inline reference elements that span over multiple lines.",
+    "cat": "proto",
+    "zh": "行内定位",
+    "bytes": 2425
+  },
+  {
+    "id": "floatingui-inner",
+    "name": "Inner",
+    "desc": "Positions the floating element such that an inner element inside of it is anchored to the reference element, while handling scroll and overflow behavi",
+    "cat": "proto",
+    "zh": "内部定位",
+    "bytes": 5200
+  },
+  {
+    "id": "floatingui-middleware",
+    "name": "Middleware",
+    "desc": "Objects that change the positioning of the floating element, executed in order as a queue.",
+    "cat": "proto",
+    "zh": "中间件机制",
+    "bytes": 7671
+  },
+  {
+    "id": "floatingui-misc",
+    "name": "Misc",
+    "desc": "Information, tips, and guidelines to help you use Floating UI.",
+    "cat": "proto",
+    "zh": "杂项技巧",
+    "bytes": 4883
+  },
+  {
+    "id": "floatingui-motivation",
+    "name": "Motivation",
+    "desc": "This page aims to explain why this new package was created.",
+    "cat": "proto",
+    "zh": "设计动机",
+    "bytes": 3140
+  },
+  {
+    "id": "floatingui-offset",
+    "name": "offset",
+    "desc": "Translates the floating element along the specified axes.",
+    "cat": "proto",
+    "zh": "间距偏移",
+    "bytes": 5599
+  },
+  {
+    "id": "floatingui-platform",
+    "name": "Platform",
+    "desc": "import {Canvas} from '../../lib/components/Canvas';",
+    "cat": "proto",
+    "zh": "平台适配层",
+    "bytes": 6625
+  },
+  {
+    "id": "floatingui-popover",
+    "name": "popover",
+    "desc": "A popover is an interactive mini-dialog floating element that displays information related to an anchor element when the element is clicked.",
+    "cat": "proto",
+    "zh": "气泡卡片指南",
+    "bytes": 8105
+  },
+  {
+    "id": "floatingui-react-examples",
+    "name": "React Examples",
+    "desc": "Learn how to build floating UI components.",
+    "cat": "proto",
+    "zh": "React 示例集",
+    "bytes": 2651
+  },
+  {
+    "id": "floatingui-react-utils",
+    "name": "React Utils",
+    "desc": "Merges an array of refs, returning a memoized callback ref or null.",
+    "cat": "proto",
+    "zh": "React 工具集",
+    "bytes": 538
+  },
+  {
+    "id": "floatingui-react",
+    "name": "React",
+    "desc": "import {ReactSelect} from '../../lib/components/PackageSelect';",
+    "cat": "proto",
+    "zh": "React 集成",
+    "bytes": 8708
+  },
+  {
+    "id": "floatingui-shift",
+    "name": "shift",
+    "desc": "Shifts the floating element to keep it in view.",
+    "cat": "proto",
+    "zh": "定位平移",
+    "bytes": 4305
+  },
+  {
+    "id": "floatingui-size",
+    "name": "size",
+    "desc": "Provides data to change the size of a floating element.",
+    "cat": "proto",
+    "zh": "尺寸自适应",
+    "bytes": 6010
+  },
+  {
+    "id": "floatingui-tooltip",
+    "name": "tooltip",
+    "desc": "A tooltip is a floating element that displays information related to an anchor element when it receives keyboard focus or the mouse hovers over it.",
+    "cat": "proto",
+    "zh": "工具提示指南",
+    "bytes": 8276
+  },
+  {
+    "id": "floatingui-tutorial",
+    "name": "Tutorial",
+    "desc": "import  as T from '../../lib/components/Tutorial';",
+    "cat": "proto",
+    "zh": "上手教程",
+    "bytes": 13531
+  },
+  {
+    "id": "floatingui-use-click",
+    "name": "useClick",
+    "desc": "Opens or closes the floating element when clicking the reference element.",
+    "cat": "proto",
+    "zh": "点击开合",
+    "bytes": 2518
+  },
+  {
+    "id": "floatingui-use-client-point",
+    "name": "useClientPoint",
+    "desc": "Positions the floating element at a given client point (x, y), usually generated by a mouse event. By default, the client's mouse position is automati",
+    "cat": "proto",
+    "zh": "光标跟随",
+    "bytes": 2482
+  },
+  {
+    "id": "floatingui-use-dismiss",
+    "name": "useDismiss",
+    "desc": "Closes the floating element when a dismissal is requested — by default, when the user presses the escape key or outside of the floating element with t",
+    "cat": "proto",
+    "zh": "外部关闭语义",
+    "bytes": 6516
+  },
+  {
+    "id": "floatingui-use-floating",
+    "name": "useFloating",
+    "desc": "The main Hook of the library that acts as a controller for all other Hooks and components.",
+    "cat": "proto",
+    "zh": "定位 Hook",
+    "bytes": 14691
+  },
+  {
+    "id": "floatingui-use-focus",
+    "name": "useFocus",
+    "desc": "Opens the floating element while the reference element has focus, like CSS :focus.",
+    "cat": "proto",
+    "zh": "焦点开合",
+    "bytes": 1715
+  },
+  {
+    "id": "floatingui-use-hover",
+    "name": "useHover",
+    "desc": "Opens the floating element while hovering over the reference element, like CSS :hover.",
+    "cat": "proto",
+    "zh": "悬停开合",
+    "bytes": 7234
+  },
+  {
+    "id": "floatingui-use-interactions",
+    "name": "useInteractions",
+    "desc": "A hook to merge or compose interaction event handlers together, preserving memoization.",
+    "cat": "proto",
+    "zh": "事件合并",
+    "bytes": 4895
+  },
+  {
+    "id": "floatingui-use-list-navigation",
+    "name": "useListNavigation",
+    "desc": "Adds arrow key-based navigation of a list of items, either using real DOM focus or virtual focus.",
+    "cat": "proto",
+    "zh": "列表键盘导航",
+    "bytes": 10480
+  },
+  {
+    "id": "floatingui-use-role",
+    "name": "useRole",
+    "desc": "Adds base screen reader props to the reference and floating elements for a given role.",
+    "cat": "proto",
+    "zh": "角色语义映射",
+    "bytes": 5096
+  },
+  {
+    "id": "floatingui-use-transition",
+    "name": "useTransition",
+    "desc": "Provides the ability to apply CSS transitions to a floating element, including correct handling of \"placement-aware\" transitions.",
+    "cat": "proto",
+    "zh": "浮层过渡",
+    "bytes": 9345
+  },
+  {
+    "id": "floatingui-use-typeahead",
+    "name": "useTypeahead",
+    "desc": "Provides a matching callback that can be used to focus an item as the user types, used in tandem with useListNavigation().",
+    "cat": "proto",
+    "zh": "首字母跳转",
+    "bytes": 5071
+  },
+  {
+    "id": "floatingui-virtual-elements",
+    "name": "Virtual Elements",
+    "desc": "Position a floating element relative to a custom reference area, useful for context menus, range selections, following the cursor, and more.",
+    "cat": "proto",
+    "zh": "虚拟锚点",
+    "bytes": 3748
+  },
+  {
+    "id": "floatingui-vue",
+    "name": "Vue",
+    "desc": "This package provides Vue bindings for @floating-ui/dom — a library that provides anchor positioning for a floating element to position it next to a g",
+    "cat": "proto",
+    "zh": "Vue 集成",
+    "bytes": 8121
+  },
+  {
     "id": "frontend-design",
     "name": "frontend-design",
     "desc": "Frontend design Aesthetic direction for designs outside an existing brand system",

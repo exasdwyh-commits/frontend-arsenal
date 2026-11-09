@@ -4,7 +4,7 @@
    ============================================================ */
 import { GROUP_MAP } from './groups.js';
 
-/* ---- 入场与转场 (44) ---- */
+/* ---- 入场与转场 (45) ---- */
 import entranceAgentChatDemo from './effects/entrance.agent-chat-demo.js';
 import entranceBentoLightup from './effects/entrance.bento-lightup.js';
 import entranceBlindsFlip from './effects/entrance.blinds-flip.js';
@@ -34,6 +34,7 @@ import entranceSpringEnter from './effects/entrance.spring-enter.js';
 import entranceSpringModal from './effects/entrance.spring-modal.js';
 import entranceStaggerIn from './effects/entrance.stagger-in.js';
 import entranceTextScramble from './effects/entrance.text-scramble.js';
+import entranceTooltipDelayGroup from './effects/entrance.tooltip-delay-group.js';
 import entranceTrBlurFade from './effects/entrance.tr-blur-fade.js';
 import entranceTrBurn from './effects/entrance.tr-burn.js';
 import entranceTrCrossWarp from './effects/entrance.tr-cross-warp.js';
@@ -50,7 +51,7 @@ import entranceTypewriterCaret from './effects/entrance.typewriter-caret.js';
 import entranceWeightPump from './effects/entrance.weight-pump.js';
 import entranceWipeReveal from './effects/entrance.wipe-reveal.js';
 
-/* ---- 交互反馈 (34) ---- */
+/* ---- 交互反馈 (37) ---- */
 import feedbackAnimeMorph from './effects/feedback.anime-morph.js';
 import feedbackBgAnimateBtn from './effects/feedback.bg-animate-btn.js';
 import feedbackButtonMorph from './effects/feedback.button-morph.js';
@@ -61,14 +62,17 @@ import feedbackCursorFollow from './effects/feedback.cursor-follow.js';
 import feedbackDirectionTabs from './effects/feedback.direction-tabs.js';
 import feedbackDisclosureSummary from './effects/feedback.disclosure-summary.js';
 import feedbackDockMagnify from './effects/feedback.dock-magnify.js';
+import feedbackFocusTrap from './effects/feedback.focus-trap.js';
 import feedbackGridReflow from './effects/feedback.grid-reflow.js';
 import feedbackImeGuard from './effects/feedback.ime-guard.js';
 import feedbackIntentFill from './effects/feedback.intent-fill.js';
 import feedbackIslandMorph from './effects/feedback.island-morph.js';
 import feedbackIsoParametric from './effects/feedback.iso-parametric.js';
 import feedbackKnobGesture from './effects/feedback.knob-gesture.js';
+import feedbackListNav from './effects/feedback.list-nav.js';
 import feedbackMagneticBtn from './effects/feedback.magnetic-btn.js';
 import feedbackNeumorphBtn from './effects/feedback.neumorph-btn.js';
+import feedbackOverlayDismiss from './effects/feedback.overlay-dismiss.js';
 import feedbackP5LerpEase from './effects/feedback.p5-lerp-ease.js';
 import feedbackProMaterial from './effects/feedback.pro-material.js';
 import feedbackReleaseNoFlash from './effects/feedback.release-no-flash.js';
@@ -86,7 +90,7 @@ import feedbackTextureBtn from './effects/feedback.texture-btn.js';
 import feedbackTilt3d from './effects/feedback.tilt-3d.js';
 import feedbackTriggerWidest from './effects/feedback.trigger-widest.js';
 
-/* ---- 空间与 3D (17) ---- */
+/* ---- 空间与 3D (18) ---- */
 import spaceCardStack from './effects/space.card-stack.js';
 import spaceCarouselStep from './effects/space.carousel-step.js';
 import spaceCss3dCardRing from './effects/space.css3d-card-ring.js';
@@ -103,6 +107,7 @@ import spaceP5StackSpace from './effects/space.p5-stack-space.js';
 import spaceParallaxDepth from './effects/space.parallax-depth.js';
 import spacePathArcLength from './effects/space.path-arc-length.js';
 import spaceRtlLogical from './effects/space.rtl-logical.js';
+import spaceSmartAnchor from './effects/space.smart-anchor.js';
 import spaceThreeCube from './effects/space.three-cube.js';
 
 /* ---- 粒子与氛围 (20) ---- */
@@ -178,23 +183,25 @@ export const EFFECTS = [
   entranceOutlineFill,
   entrancePillSlotCycle, entrancePixelHeading,
   entrancePopupRise, entranceReducedMotionTiers, entranceRsTransitionList, entranceSpringEnter, entranceSpringModal,
-  entranceStaggerIn, entranceTextScramble, entranceTrBlurFade, entranceTrBurn,
+  entranceStaggerIn, entranceTextScramble, entranceTooltipDelayGroup, entranceTrBlurFade, entranceTrBurn,
   entranceTrCrossWarp, entranceTrDisplaceWarp, entranceTrEdgeGlow, entranceTrGlitch,
   entranceTrMosaic, entranceTrNoiseDissolve, entranceTrPixelize, entranceTrRipple,
   entranceTrSwirl, entranceTrWaterdrop, entranceTypewriterCaret, entranceWeightPump, entranceWipeReveal,
   // 交互反馈
   feedbackAnimeMorph, feedbackBgAnimateBtn, feedbackButtonMorph, feedbackContactShadow, feedbackControlRhythm,
   feedbackCosmicBtn,
-  feedbackCursorFollow, feedbackDirectionTabs, feedbackDisclosureSummary, feedbackDockMagnify, feedbackGridReflow,
-  feedbackImeGuard,
-  feedbackIntentFill, feedbackIslandMorph, feedbackIsoParametric, feedbackKnobGesture, feedbackMagneticBtn, feedbackNeumorphBtn,
+  feedbackCursorFollow, feedbackDirectionTabs, feedbackDisclosureSummary, feedbackDockMagnify, feedbackFocusTrap,
+  feedbackGridReflow, feedbackImeGuard,
+  feedbackIntentFill, feedbackIslandMorph, feedbackIsoParametric, feedbackKnobGesture, feedbackListNav,
+  feedbackMagneticBtn, feedbackNeumorphBtn, feedbackOverlayDismiss,
   feedbackP5LerpEase, feedbackProMaterial, feedbackReleaseNoFlash, feedbackRipple, feedbackRsDecayScroll,
   feedbackRsSpringPresets, feedbackRsTrailChain, feedbackScrubNumber, feedbackSegmentedThumb, feedbackShiftCard,
   feedbackSliderInset, feedbackSpringCard, feedbackTabInk, feedbackTextureBtn, feedbackTilt3d, feedbackTriggerWidest,
   // 空间与 3D
   spaceCardStack, spaceCarouselStep, spaceCss3dCardRing, spaceCutoutCard, spaceDepthEcho, spaceFlipResize, spaceFoldCard,
   spaceGlInstancedGrid, spaceGlRaycastHover, spaceGlRotatingBox, spaceGlWaveSurface,
-  spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceRtlLogical, spaceThreeCube,
+  spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceRtlLogical, spaceSmartAnchor,
+  spaceThreeCube,
   // 粒子与氛围
   particleAurora, particleBorderBeam, particleCrtTape, particleDitherImage, particleDofBlur, particleEdgeBlur,
   particleFlutedGlass, particleGlParticleVortex, particleGlParticlesCloud, particleGlowOrb,
