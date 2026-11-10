@@ -1,4 +1,5 @@
 import { films, opus } from './video-data.js';
+import { SHOTS, SHOT_CATS, SHOT_BASE } from './shot-data.js';
 const MG = { base: 'https://vincentwei1021.github.io/mg-styles-15/', repo: 'https://github.com/Vincentwei1021/mg-styles-15' };
 const OPUS = { base: 'https://lemomo-ai.github.io/lemo-opuscar/', repo: 'https://github.com/lemomo-ai/lemo-opuscar' };
 const grid = document.getElementById('filmGrid');
@@ -19,21 +20,19 @@ const opusCards = opus.map(([slug, cn, en, film, dur, tags, line], i) => `
 
 grid.innerHTML = mgCards + opusCards;
 
-grid.addEventListener('click', event => {
-  const button = event.target.closest('[data-video]');
-  if (!button) return;
+function loadSample(button, src, label, boxClass) {
   const box = document.createElement('div');
-  box.className = 'film-box';
+  box.className = boxClass;
   const video = document.createElement('video');
   video.controls = true;
   video.playsInline = true;
   video.preload = 'metadata';
-  video.poster = button.dataset.poster;
-  video.src = button.dataset.video;
-  video.setAttribute('aria-label', button.getAttribute('aria-label'));
+  if (button.dataset.poster) video.poster = button.dataset.poster;
+  video.src = src;
+  video.setAttribute('aria-label', label || '加载样片');
   const overlay = document.createElement('div');
   overlay.className = 'film-overlay';
-  overlay.innerHTML = '<span class="spin" aria-hidden="true"></span><b>正在从原项目加载样片…</b><i>视频托管在外部 GitHub Pages，网络慢时请挂代理</i>';
+  overlay.innerHTML = '<span class="spin" aria-hidden="true"></span><b>正在从原项目加载样片…</b><i>样片托管在外部 GitHub Pages，网络慢时请挂代理</i>';
   box.append(video, overlay);
   button.replaceWith(box);
 
@@ -41,8 +40,8 @@ grid.addEventListener('click', event => {
   const buffered = () => {
     if (!video.duration || !video.buffered.length) return;
     const pct = Math.min(100, Math.round(video.buffered.end(video.buffered.length - 1) / video.duration * 100));
-    const label = overlay.querySelector('b');
-    if (label) label.textContent = pct >= 100 ? '缓冲完成' : `正在加载… 已缓冲 ${pct}%`;
+    const labelEl = overlay.querySelector('b');
+    if (labelEl) labelEl.textContent = pct >= 100 ? '缓冲完成' : `正在加载… 已缓冲 ${pct}%`;
   };
   video.addEventListener('canplay', hideOverlay);
   video.addEventListener('progress', buffered);
@@ -51,7 +50,72 @@ grid.addEventListener('click', event => {
     overlay.innerHTML = '<b>样片加载失败</b><i>无法访问外部 GitHub Pages，挂代理刷新后重试</i>';
   }, { once: true });
   video.play().catch(() => {});
+}
+
+grid.addEventListener('click', event => {
+  const button = event.target.closest('[data-video]');
+  if (!button) return;
+  loadSample(button, button.dataset.video, button.getAttribute('aria-label'), 'film-box');
 });
+
+/* ---- 镜头配方（video-shotcraft 124 卡） ---- */
+const escAttr = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const shortEnergy = e => e.split(/[（(：:]/)[0].trim();
+const shotGrid = document.getElementById('shotGrid');
+const shotCats = document.getElementById('shotCats');
+const catCount = {};
+SHOTS.forEach(([, cat]) => { catCount[cat] = (catCount[cat] || 0) + 1; });
+let shotCat = 'all';
+
+shotCats.innerHTML = `<button type="button" class="on" data-cat="all">全部 <b>${SHOTS.length}</b></button>` +
+  Object.entries(SHOT_CATS).map(([key, zh]) => `<button type="button" data-cat="${key}">${zh} <b>${catCount[key] || 0}</b></button>`).join('');
+
+shotGrid.innerHTML = SHOTS.map(([name, cat, summary, use, duration, energy, intention, media], i) => `
+  <article class="shot-item" data-cat="${cat}" data-search="${escAttr([name, cat, SHOT_CATS[cat], summary, use, duration, energy].join(' ').toLowerCase())}">
+    <div class="shot-head"><span class="shot-no">${String(i + 1).padStart(2, '0')}</span><h3>${name}</h3><span class="shot-tag">${SHOT_CATS[cat]}</span></div>
+    <p class="shot-sum">${summary}</p>
+    <p class="shot-use"><b>用途</b>${use}</p>
+    <div class="shot-meta"><span>${duration}</span><span>${shortEnergy(energy)}</span></div>
+    <details class="shot-more"><summary>为什么这样设计</summary><p>${intention}</p></details>
+    <div class="shot-links"><button type="button" class="shot-play" data-video="${SHOT_BASE}${media}">▶ 样片</button><a href="${SHOT_BASE}#${name}" target="_blank" rel="noopener noreferrer">官方配方 ↗</a><a href="https://github.com/Vincentwei1021/video-shotcraft/blob/main/references/shots/${cat}/${name}.md" target="_blank" rel="noopener noreferrer">源文档 ↗</a></div>
+  </article>`).join('');
+
+shotGrid.addEventListener('click', event => {
+  const button = event.target.closest('.shot-play');
+  if (!button) return;
+  loadSample(button, button.dataset.video, '加载镜头样片', 'shot-player');
+});
+
+function filterShots() {
+  const query = document.getElementById('shotSearch').value.trim().toLowerCase();
+  let visible = 0;
+  shotGrid.querySelectorAll('.shot-item').forEach(card => {
+    const match = (shotCat === 'all' || card.dataset.cat === shotCat) && (!query || card.dataset.search.includes(query));
+    card.hidden = !match;
+    if (match) visible++;
+  });
+  document.getElementById('shotCount').textContent = `${visible} / ${SHOTS.length} 个配方`;
+  const clear = document.getElementById('shotClear');
+  clear.hidden = !query && shotCat === 'all';
+  clear.textContent = `显示全部 ${SHOTS.length} 个`;
+  document.getElementById('shotEmpty').hidden = visible > 0;
+}
+document.getElementById('shotSearch').addEventListener('input', filterShots);
+document.getElementById('shotClear').addEventListener('click', () => {
+  document.getElementById('shotSearch').value = '';
+  shotCat = 'all';
+  shotCats.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.cat === 'all'));
+  filterShots();
+  document.getElementById('shotSearch').focus();
+});
+shotCats.addEventListener('click', event => {
+  const button = event.target.closest('button[data-cat]');
+  if (!button) return;
+  shotCat = button.dataset.cat;
+  shotCats.querySelectorAll('button').forEach(b => b.classList.toggle('on', b === button));
+  filterShots();
+});
+filterShots();
 
 function filterFilms() {
   const query = document.getElementById('filmSearch').value.trim().toLowerCase();

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>创作资源汇总 · WebUI 图鉴</title>
+  <link rel="stylesheet" href="src/style.css"><link rel="stylesheet" href="src/video.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
+</head>
+<body>
+<div class="video-layout">
+  <aside class="video-sidebar">
+    <a class="library-link" href="index.html">← 首页</a>
+    <a class="back-link" href="effects.html">← 效果图鉴</a>
+    <a class="back-link" href="skills.html">技能库 ↗</a>
+    <div class="video-brand">WebUI <span>图鉴</span></div><p>代码视频 / 创作参考</p>
+    <nav class="video-nav" aria-label="资源导航">
+      <a href="#cab">角色动画</a><a href="#mg">MG 风格</a><a href="#shotcraft">镜头配方</a><a href="#opuscar">电影风格</a>
+    </nav>
+    <div class="side-note">先把四个项目的精华读完<br>再决定要不要跳出去。</div>
+  </aside>
+  <main class="video-main">
+    <header class="video-intro"><div><div class="eyebrow">SOURCES / 创作资源汇总</div><h1>四个项目，一页读完。</h1><p>把 ClaudeAnimationBase、mg-styles-15、video-shotcraft、lemo-opuscar 的核心方法论提炼在站内；外部链接均已验证可达，作为深入阅读的出口。</p></div><a href="#cab" class="video-primary">从角色动画开始 <span>↘</span></a></header>
+
+    <section id="cab" class="video-section">
+      <div class="section-title"><div><span>01 / CHARACTER ANIMATION</span><h2>ClaudeAnimationBase</h2></div><p>p5.js + p5.brush · MIT · 手绘卡通角色动画起步套件</p></div>
+      <div class="src-body">
+        <div class="src-col">
+          <h4>它解决什么</h4>
+          <ul>
+            <li>给 AI 助手一套"怎么画手绘卡通"的完整规则：角色 Clawd（31 种表情、5 个视角、道具与舞蹈）+ 引擎 + 无头渲染器，一句话就能开工。</li>
+            <li>核心产出是 <b>ANIMATION_GUIDE.md</b>——不是 API 文档，而是一份"生成动画为什么丑"的解法集。</li>
+          </ul>
+          <h4>核心方法（三目标 · 七规则）</h4>
+          <ul>
+            <li><b>三目标</b>：Handmade（笔触+线条沸腾，逐帧手绘感）、Alive（永远有东西在动，脸是"演"出来的不是瞬切）、One piece（先有整片构思，再写任何代码）。</li>
+            <li><b>规则 1-2 媒介与文字</b>：全部走 p5.brush 平涂+墨线，禁用原生形状（"看起来像 2000 年代 Flash"）；线条每秒抖 12 次（boil）就是风格本身；<b>绝不写字</b>——用画面表达，"举着'我迷路了'的牌子"是经典失败案例。</li>
+            <li><b>规则 3-4 每场有事件 + Timing</b>：每个镜头首尾之间必须有变化；把观众要理解的内容列成 <b>read</b>，一次只给一个 read，<b>快动作、慢含义</b>——动作可以快，含义要留够停留时间。这是模型最常犯错的一条。</li>
+            <li><b>规则 5-7</b>：一切随 BPM 节拍动、表情用预备-眯眼-惊吓-回弹；<b>每个接缝都要转场</b>（笔刷擦除等），不硬开不硬停。</li>
+            <li><b>工作流</b>：分镜 contact sheet → 逐镜头搭建 → 三种自查（contact sheet 看全片形状 / strip 看单动作每一帧 / crop 看全分辨率细节）→ 无头 Chrome 逐帧渲染合成 MP4。</li>
+            <li><b>引擎思想</b>：帧是时间的纯函数（<code>renderAt(t)</code>），任何时刻可确定性重绘——这是所有"代码做片"项目的共同地基。</li>
+          </ul>
+        </div>
+        <div class="src-col">
+          <h4>上手</h4>
+          <ol>
+            <li>克隆仓库，用 Claude Code（或任意 coding agent）打开。</li>
+            <li>先读 ANIMATION_GUIDE.md，再下需求：<i>"读 ANIMATION_GUIDE.md，做一段 15 秒 Clawd 抓蝴蝶的视频"</i>。</li>
+            <li>本机需 Node + Chrome + ffmpeg；无独显时让模型避开水彩填充（每帧数秒）。</li>
+            <li>渲染：<code>node render.mjs --clip --out=out/video.mp4</code>；Chrome 打开 studio.html 可逐帧刮擦预览。</li>
+          </ol>
+          <h4>精选文档</h4>
+          <div class="src-links">
+            <a href="https://github.com/JohnHeibel/ClaudeAnimationBase/blob/main/ANIMATION_GUIDE.md" target="_blank" rel="noopener noreferrer">ANIMATION_GUIDE ↗</a>
+            <a href="https://github.com/JohnHeibel/ClaudeAnimationBase" target="_blank" rel="noopener noreferrer">仓库 README ↗</a>
+            <a href="https://github.com/JohnHeibel/ClaudeAnimationBase/blob/main/docs/emotions.webp" target="_blank" rel="noopener noreferrer">31 表情模型表 ↗</a>
+            <a href="https://github.com/JohnHeibel/ClaudeAnimationBase/blob/main/src/scenes/demo.js" target="_blank" rel="noopener noreferrer">示例分镜源码 ↗</a>
+          </div>
+          <h4>站内相关</h4>
+          <div class="src-links"><a href="effects.html#gravity-drop">物理与拟真动效 ↗</a><a href="video.html#films">代码视频样片 ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mg" class="video-section">
+      <div class="section-title"><div><span>02 / MOTION GRAPHIC STYLES</span><h2>mg-styles-15</h2></div><p>Canvas · WebGL · Three.js · MIT · 15 种 MG 风格全开源</p></div>
+      <div class="src-body">
+        <div class="src-col">
+          <h4>它解决什么</h4>
+          <ul>
+            <li>15 支 10 秒成片，每支 = <b>风格说明 + 完整提示词 + 全部源码</b>。画面和声音都是代码：SVG/Canvas/WebGL 画图，<code>audio.py</code> 合成配乐（103 个实录采样），无任何图像/视频生成模型。</li>
+            <li>更值钱的是它的<b>生产管线与评审方法</b>——终评 7.57–8.21/10 是怎么磨出来的。</li>
+          </ul>
+          <h4>核心方法</h4>
+          <ul>
+            <li><b>管线</b>：一个风格提示词 → 网页实现 <code>renderAt(t)</code> → 无头 Chrome 逐帧截图 → ffmpeg 合成精确 10.000s + 同步音轨 → <b>另一个 AI 按 rubric.md 评审两轮</b>。</li>
+            <li><b>评审 rubric 七维度</b>：风格忠实 / 概念惊艳 / 动效工艺（缓动、预备、跟随、弧线）/ 设计排版 / 完成质感 / 声音同步 / 技术规格。5 分=合格学生作业、8 分=高端代理商、9 分=入围——<b>首渲染大多只值 5-7 分，不许放水</b>。</li>
+            <li><b>修复清单格式</b>：按时码列出 5-10 条，每条写清"错在哪（可观测）+ 为什么重要 + 具体怎么改（曲线、帧数、px、色值）"，至少一条必须提升 wow 值而非只抛光。</li>
+            <li><b>改自己的内容</b>：只换 <code>Creative seed</code>（故事/品牌/文案/配色）和 <code>Output</code>（可改竖屏 1080×1920）；<b>Signature features 段一个字不动</b>——那是风格被一眼认出的依据。</li>
+          </ul>
+        </div>
+        <div class="src-col">
+          <h4>上手</h4>
+          <ol>
+            <li>空文件夹打开能写码、能跑命令的 AI 助手（如 Claude Code）；本机需 Node 22.12+、Chrome、ffmpeg、Python 3.11+。</li>
+            <li>把 <code>prompts/*.md</code> 整段提示词发给它，等成片。</li>
+            <li>要提升：另开一个 AI 会话贴 rubric.md 评审提示词，把评审意见贴回制作会话再改一轮（原片就是这么迭代的）。</li>
+            <li>偷懒路径：直接让它用仓库的 <code>harness/render.mjs</code> 渲染、<code>lib/audio</code> 出配乐。</li>
+          </ol>
+          <h4>精选文档</h4>
+          <div class="src-links">
+            <a href="https://vincentwei1021.github.io/mg-styles-15/" target="_blank" rel="noopener noreferrer">官方图鉴（15 支成片）↗</a>
+            <a href="https://github.com/Vincentwei1021/mg-styles-15/blob/main/rubric.md" target="_blank" rel="noopener noreferrer">评审 rubric（两段可复用提示词）↗</a>
+            <a href="https://github.com/Vincentwei1021/mg-styles-15" target="_blank" rel="noopener noreferrer">仓库（prompts/ + demos/）↗</a>
+          </div>
+          <h4>站内相关</h4>
+          <div class="src-links"><a href="video.html#films">15 支风格样片 ↗</a><a href="video.html#shots">镜头配方 124 个 ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="shotcraft" class="video-section">
+      <div class="section-title"><div><span>03 / PRODUCT VIDEO</span><h2>video-shotcraft</h2></div><p>Remotion · Apache-2.0 · 电影感产品宣传片制作技能</p></div>
+      <div class="src-body">
+        <div class="src-col">
+          <h4>它解决什么</h4>
+          <ul>
+            <li>从前端项目/网页直接产出电影感产品宣传片：124 张<b>镜头配方卡</b>（本站已收录）、Ink Press 36.2s 验收模板、可复用 Remotion 组件、Freesound 音效选材工具、八阶段流水线。</li>
+            <li>镜头卡是<b>通用动效词汇</b>——可整片用，也可单独抽一张卡做任意视频里的一个镜头。</li>
+          </ul>
+          <h4>核心方法</h4>
+          <ul>
+            <li><b>三种互不合并的模式</b>：① 模板复刻（读 TEMPLATE.md 换素材）② 自主自由创作（读 pipeline.md，Agent 全程自主）③ 共同创作（产品简报→视觉方向→镜头映射→分镜逐段确认）。开工前先做一次<b>只读产品检查</b>再推荐模式。</li>
+            <li><b>八阶段流水线</b>：产品理解 → styleframe 视觉方向 → 功能到镜头映射 → 分镜与素材清单 → 最终素材采集 → Remotion 镜头实现（30fps / 1920×1080）→ 声音（BGM 全片骨架 + SFX 钉在效果关键帧）→ 终检（逐帧/胶片全片回看）。</li>
+            <li><b>硬规则</b>：复刻页面必须<b>真实截图</b>（dev server + 无头 2x 全页 + 元素抠图 + layout.json 坐标），不许手搓 UI；视觉语言必须从产品自身设计系统<b>提取 tokens 生长</b>（字体/栅格/配色），不另造"宣传片皮肤"；每个镜头<b>只有一个动效关键信息</b>；确定性渲染（禁 <code>Date.now()</code>/<code>Math.random()</code>）。</li>
+            <li><b>声音先行</b>：librosa 测 BGM 拍点定 BPM，转场/字卡/命中全部对拍；一镜一重点，重复即删。</li>
+          </ul>
+        </div>
+        <div class="src-col">
+          <h4>上手</h4>
+          <ol>
+            <li>装成 agent skill，或 clone 仓库后在项目里对 Claude Code / Codex 说需求。</li>
+            <li>提供项目路径/网址/录屏 → 它做只读产品检查 → 给你三种模式的推荐 → 你选定后开工。</li>
+            <li>只要单个镜头：从镜头卡挑名字（如 <code>spotlight-hero-card</code>）直接点名，它读卡+demo 源码适配。</li>
+            <li>浏览动态样片并挑镜头：官方 Gallery（本页"镜头与叙事"区已收录全部 124 卡的中文数据）。</li>
+          </ol>
+          <h4>精选文档</h4>
+          <div class="src-links">
+            <a href="https://github.com/Vincentwei1021/video-shotcraft/blob/main/SKILL.md" target="_blank" rel="noopener noreferrer">SKILL.md（技能入口）↗</a>
+            <a href="https://github.com/Vincentwei1021/video-shotcraft/blob/main/references/pipeline.md" target="_blank" rel="noopener noreferrer">八阶段流水线 ↗</a>
+            <a href="https://vincentwei1021.github.io/video-shotcraft/" target="_blank" rel="noopener noreferrer">镜头库 Gallery ↗</a>
+            <a href="https://github.com/Vincentwei1021/video-shotcraft" target="_blank" rel="noopener noreferrer">仓库 ↗</a>
+          </div>
+          <h4>站内相关</h4>
+          <div class="src-links"><a href="video.html#shots">镜头与叙事（124 配方）↗</a><a href="video.html#films">风格样片 ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="opuscar" class="video-section">
+      <div class="section-title"><div><span>04 / CINEMA IN CODE</span><h2>lemo-opuscar</h2></div><p>Canvas · WebGL · three.js · MIT 代码 + CC BY 4.0 样片 · 66 种电影风格</p></div>
+      <div class="src-body">
+        <div class="src-col">
+          <h4>它解决什么</h4>
+          <ul>
+            <li>66 种"代码做片"电影风格，每种 = <b>STYLE.md 提示词 + 一支代码成片</b>；配套两份方法论文档：<b>DIRECTOR.md</b>（怎么导）和 <b>TECHNIQUE.md</b>（怎么建）。</li>
+            <li>它回答的是"给 AI 一个风格后，如何像小工作室一样把片子做完"。</li>
+          </ul>
+          <h4>DIRECTOR.md 十三条导演法（精华）</h4>
+          <ul>
+            <li><b>先找标杆再动笔</b>：写任何东西前，先定 1-2 部把标准拉满的参考作（片子/片头/广告）。</li>
+            <li><b>故事</b>：一个主体、一个目标、一次转折；先写 <code>TREATMENT.md</code> 再画任何帧。</li>
+            <li><b>验证 look</b>：角色先出模型表（转面+表情+关键姿势+色板）+ 两张风格帧。</li>
+            <li><b>声音是半部片</b>：每个可见动作都有声（落地、翻页、剪切）；<b>音乐网格先定</b>——先写 cue map 再动画，脚本检查每个 cue 对拍。</li>
+            <li><b>运镜</b>：每个镜头要有理由，全片至少 4 种运镜 + 真实的景别变化；2D 也有推拉/视差/焦移。</li>
+            <li><b>表演</b>：有意义的动作必须有预备-动作-跟随；常见失败：主体太小、太远、贴画面边缘。</li>
+            <li><b>交片前</b>：评审循环——contact sheet、关键动作 0.2s 条带、带声全速看一遍；<b>版权红线</b>：参考只学语法，不抄角色/设计/旋律/logo。</li>
+          </ul>
+          <h4>TECHNIQUE.md 十二条制作法（精华）</h4>
+          <ul>
+            <li>画面是时间的函数；<b>单一 timeline 驱动一切</b>——配乐、混音、字幕、检查全从同一份时间线导出。</li>
+            <li>TTS 只是默认（有录音用录音）；配乐按 cue map 原创（禁通用钢琴弦乐）；<code>sfx.py</code> 程序化合成 foley。</li>
+            <li>字幕 <code>cues.json → srt.py → .srt</code> 并把样式烧进页面；three.js r170 无头 WebGL2、2× 超采降采样。</li>
+            <li>素材只用 CC0 / CC BY / OFL，逐条记入 CREDITS；<b>评审循环</b>：每 1-2s 一张 contact sheet，至少两轮全片。</li>
+          </ul>
+        </div>
+        <div class="src-col">
+          <h4>上手</h4>
+          <ol>
+            <li>装 skill：<code>claude plugin marketplace add lemomo-ai/lemo-opuscar</code> + <code>claude plugin install</code>；或直接 clone。</li>
+            <li>直接说需求，点名中英文风格：<i>"用 watercolor 风格做 45 秒，讲我家的咖啡农场，女声旁白"</i>。</li>
+            <li>没想好就输 <code>/lemo-opuscar:lemo-opuscar</code>，它会问：题材待定项、有没有自己的素材、要不要先看分镜。</li>
+            <li>它一次读三份指南开工：DIRECTOR.md（导）→ TECHNIQUE.md（建）→ styles/&lt;风格&gt;/STYLE.md（长什么样）。</li>
+          </ol>
+          <h4>精选文档</h4>
+          <div class="src-links">
+            <a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/DIRECTOR.md" target="_blank" rel="noopener noreferrer">DIRECTOR.md（导演法）↗</a>
+            <a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/TECHNIQUE.md" target="_blank" rel="noopener noreferrer">TECHNIQUE.md（制作法）↗</a>
+            <a href="https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/README.md" target="_blank" rel="noopener noreferrer">66 风格索引 ↗</a>
+            <a href="https://lemomo-ai.github.io/lemo-opuscar/" target="_blank" rel="noopener noreferrer">官方画廊 ↗</a>
+          </div>
+          <h4>站内相关</h4>
+          <div class="src-links"><a href="video.html#films">66 支风格样片 ↗</a><a href="video.html#shots">镜头配方 ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="video-footnote">以上内容提炼自四个项目的开源文档（MIT / Apache-2.0 / CC BY 4.0，以各仓库 LICENSE 为准），供站内速览；深入使用请以原仓库为准。外部链接于 2026-11-10 逐一验证可达，若你所在网络打不开，请挂代理后重试。</p>
+    <footer class="video-footer">创作资源汇总 · 回 <a href="video.html#sources" style="color:#cbbaff">项目资源</a> 或 <a href="video.html" style="color:#cbbaff">代码视频库</a></footer>
+  </main>
+</div>
+</body>
+</html>
