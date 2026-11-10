@@ -8,7 +8,7 @@
 
 ## 综合搜索
 
-通过 `library.html` 进入前端参考库，统一搜索动效、技能和视频风格。支持空格分隔多个关键词、类型筛选和 `/` 快捷聚焦。搜索索引直接读取现有清单；新增视频样片请维护 `src/video-data.js`。视频搜索目前覆盖风格样片，项目资源和镜头配方请进入视频库浏览。启动本地服务后访问 `http://localhost:8080/library.html`。
+通过首页 `index.html`（前端武器库）进入：全库统一搜索动效、技能和视频风格。支持空格分隔多个关键词、类型筛选和 `/` 快捷聚焦。搜索索引直接读取现有清单；新增视频样片请维护 `src/video-data.js`。视频搜索覆盖 81 支风格样片（mg-styles-15 ×15、lemo-opuscar ×66），项目资源和镜头配方请进入视频库浏览。启动本地服务后访问 `http://localhost:8080/`。
 
 
 这是一个**可增长的 UI 效果图鉴**。目标不是做出漂亮的演示页，而是：**看到一个好机制 → 5 分钟内能扒进自己的项目**。
@@ -27,7 +27,8 @@
 
 ```
 WebUI/
-├── index.html              # 图鉴主页：从 registry.js 渲染，不用手改
+├── index.html              # 门户首页：搜索 + 两库入口 + 最新/热门（手动精选）
+├── effects.html            # 效果图鉴：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
 ├── skills.html             # 技能库：420 个前端可用 Skill 文档的浏览/阅读页
 ├── skills/                 # 技能文档原样存放（420 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档、meta/astryx · MIT、floating-ui · MIT）
@@ -94,7 +95,7 @@ export const EFFECTS = [ /* ... */ magneticBtn ];
 
 ## 启动方式
 
-- **不要直接双击 `index.html`** — 浏览器会限制 `file://` 下的 ES Module 加载，图鉴无法正常渲染。
+- **不要直接双击 `index.html` / `effects.html`** — 浏览器会限制 `file://` 下的 ES Module 加载，图鉴无法正常渲染。
 - **双击 `serve.bat`** — 推荐，走 `http://localhost:8080`，所有能力完整
 
 ## 分组原则
@@ -199,7 +200,7 @@ Electron 的 pro-drag/pro-no-drag 拖拽区机制因浏览器无法演示未收�
 
 ## 三个效率功能
 
-1. **深链** — `index.html#sparkline` 直接打开该效果，甩链接给同事
+1. **深链** — `effects.html#sparkline` 直接打开该效果，甩链接给同事
 2. **选型清单导出** — 底部抽屉一键生成带分组/依赖/实战提醒的 Markdown 表格
 3. **选择记忆** — `localStorage` 记住，刷新不丢
 

@@ -2,6 +2,7 @@ export default {
   id: 'reduced-motion-tiers', group: 'entrance', name: '减少动效分档',
   lib: 'Astryx',
   desc: '系统要求"减少动效"时不是删动画，而是分三档处理：正常档全量动效；减少档下粗指针（触屏）只做 ≤200ms 纯淡入淡出、细指针（鼠标/键盘）立即变化；在位数值与悬停/选中颜色任何档都立即生效。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 reduced-motion.md 的 DR1–DR3 规则，原生 JS/CSS 独立实现，带档位模拟开关。',
+  deps: '无',
   note: '三个坑：① 只写 @media (prefers-reduced-motion: reduce) 不够——产品常要求页内也有"减少动效"开关，两份来源叠加时要取最严档（页内开关能开也能关系统档，判定必须合并成一个状态）；② JS 驱动的动画（rAF/WAAPI/弹簧库）CSS 媒体查询管不到，必须用 matchMedia 监听同一偏好再改 JS 参数，两套动画驱动共用一个开关，漏一边就出现"CSS 静了 JS 还在弹"；③ 减少 ≠ 删除：位移/缩放/弹簧全部去掉，但状态变化必须保留可见反馈——触屏 ≤200ms 淡变、细指针立即变、在位数值直接改，全砍成瞬变用户会以为没点上。',
 
   scenes: { places: ['官网', '设置页', '面板'], goals: ['风格统一', '操作反馈'], triggers: ['点击', '滚动'], projects: ['通用', '设计系统', '移动端'] },

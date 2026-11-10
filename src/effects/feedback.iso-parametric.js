@@ -2,6 +2,7 @@ export default {
   id: 'iso-parametric', group: 'feedback', name: '等距图参数面板',
   lib: 'Overflow Design',
   desc: '同一个等距 SVG 被控制面板实时改参：线重滑杆直改 stroke-width、主题一键翻转（全部描边走 currentColor）、朝向左右镜像、尺寸伸缩；悬停画面时三层板子按光标做层间视差。机制提炼自 Overflow Design（overflow.design）公开目录页的参数面板（Appearance/Theme/Weight/Facing）与"指上去它就动"的描述，原生 JS/CSS/SVG 独立实现。',
+  deps: '无',
   note: '三个坑：① 线重滑杆必须改 stroke-width 属性而不是缩放 SVG——transform 缩放会把描边一起放大，"粗线"就成了"大图"，两者观感完全不同；② 镜像朝向用 scaleX(-1) 会把高光和文字也翻过去，纯线条等距图没事，带标签或固定光源的图要只镜像图形层；③ 主题翻转的前提是所有描边写 currentColor、所有面的明暗用相对透明度（rgba 白/黑）——写死任何一个颜色，翻主题时它就是一块补丁。层间视差给每层不同的位移系数（近层大远层小），全层同距就成了平移。',
   scenes: { places: ['面板', '官网', '文档'], goals: ['操作反馈', '风格统一', '内容呈现'], triggers: ['悬停', '拖拽'], projects: ['素材站', '设计系统', '开发者工具'] },
   code: `/* 等距图参数面板（提炼自 overflow.design 公开页面，vanilla 复刻） */

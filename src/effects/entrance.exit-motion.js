@@ -2,6 +2,7 @@ export default {
   id: 'exit-motion', group: 'entrance', name: '表面退场动效系统',
   lib: 'Astryx',
   desc: '对话框/浮层关闭时沿进场路线退回并淡出，而不是瞬间消失：关闭请求一发出就同帧进入"离场态"（不接指针与按键、焦点按规则交还、内容驻留到最后一帧），退场中途重开可无闪恢复，动画事件缺席也有"时长+100ms"兜底强制隐藏。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开规格 AST-090 Exit motion（FR1–FR12），原生 JS/CSS 独立实现，带主题开关与 animationend 阻断模拟。',
+  deps: '无',
   note: '四个坑：① 别信 animationend——动画被取消、标签页转后台、系统禁用动画时它根本不报到，必须无条件挂"时长+100ms"兜底定时器且隐藏逻辑幂等（FR9，演示可勾"阻断"验证）；② 退场中重新打开绝不能"先隐藏再显示"（会闪一下），要取消动画+清兜底+摘 leaving 类，且退场时挂的 animationend/定时器回调必须按代际计数作废——否则过期回调会把刚重开的界面又藏回去，这是本效果最经典的 bug（FR8）；③ pointer-events:none 只挡鼠标，FR4 还要求按键不激活，得用 inert 或捕获阶段 keydown 拦截；aria-hidden 要等焦点离开后再设，焦点困在 aria-hidden 子树里是无效焦点（FR6）；④ 退场曲线是独立令牌 --ease-exit=cubic-bezier(.3,0,.6,.6)（慢出快走），不是把入场曲线倒放；"朝打开者收缩"的位移要在关闭瞬间按打开按钮当前坐标算——按钮可能早已滚动/移动。',
 
   scenes: { places: ['面板', '表单', '官网'], goals: ['操作反馈', '风格统一'], triggers: ['点击'], projects: ['通用', '设计系统', '专业工具'] },

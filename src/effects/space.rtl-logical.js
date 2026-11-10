@@ -2,6 +2,7 @@ export default {
   id: 'rtl-logical', group: 'space', name: 'RTL 逻辑镜像',
   lib: 'Astryx',
   desc: '同一套布局在 LTR/RTL 之间一键翻转，不写两份样式：所有物理方向属性换成逻辑属性（margin-inline-start、inset-inline-end、text-align:start、圆角 border-start-start-radius），dir 属性一切换整行镜像；方向性图标只镜像一次，物理内容（头像/图表/时钟）保持不动。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 bidirectionality.md 的 DR1–DR6 规则，原生 CSS/JS 独立实现。',
+  deps: '无',
   note: '三个坑：① 物理属性不跟 dir 翻——margin-left/right、left/right、text-align:left、border-top-left-radius 全要换成 margin-inline-start、inset-inline-end、text-align:start、border-start-start-radius，漏一个那一处就"翻到一半"；② 镜像只做一次——成对符号（()<>「」）Unicode bidi 算法已经翻了，手动再 scaleX(-1) 就是双重镜像，而箭头/进度条这类方向图标 bidi 不管，才需要按语义翻（DR4）；③ transform:translateX 不会随 dir 翻转，位移动画方向必须按当前方向算或改用逻辑位移，键盘/滚动方向也要跟视觉走（RTL 下"下一项"在左边，方向键逻辑要反转，DR6）。',
 
   scenes: { places: ['面板', '列表', '官网'], goals: ['风格统一', '内容呈现'], triggers: ['点击'], projects: ['通用', '设计系统', '国际化应用'] },

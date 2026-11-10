@@ -2,6 +2,7 @@ export default {
   id: 'ime-guard', group: 'feedback', name: 'IME 组合守卫',
   lib: 'Astryx',
   desc: '输入框的键盘处理器在输入法组合期间必须"让路"：中文候选词还没上屏时，Enter 是"提交候选"不是"确认选择"，Esc 是"取消候选"不是"清空输入"，方向键是"选候选"不是"移列表"。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 IME_GUARD_DESIGN.md 描述的 isImeKeyEvent 判定，原生 JS 独立实现，含裸奔版对照。',
+  deps: '无',
   note: '三个坑：① 判定必须两个条件都查——`e.isComposing || e.keyCode === 229`，229 是老版 Chrome/WebKit 在组合期间给所有键发的键码，只查 isComposing 在这些浏览器上会漏；② Esc 的语义冲突最隐蔽——组合中按 Esc 是"删掉正在打的候选"，守卫不 return 掉的话你的"清空输入"处理器会把用户整段输入一起删了；③ 选中项不能绑在 input 事件上——组合期间每敲一个字母都触发 input，要么等 compositionend 后再处理，要么由放行后的 keydown 处理；另外组合中触发 blur（点别处）会丢候选，onBlur 里也要查 isComposing 再决定是否提交。',
 
   scenes: { places: ['表单', '搜索', '面板'], goals: ['操作反馈', '效率'], triggers: ['键盘'], projects: ['专业工具', '编辑器', '设置页'] },

@@ -2,6 +2,7 @@ export default {
   id: 'tooltip-delay-group', group: 'entrance', name: '延迟组防抖浮层',
   lib: 'Floating UI',
   desc: '一组浮层共享一个延迟状态机：首次悬停等 1000ms 才开（不打扰），组内第二个浮层若在延迟期内或已打开期间被触发则进"即时相位"——1ms 开、0 关，鼠标在同组按钮间滑动零等待；任一浮层关闭后起 250ms 复位窗，窗内再触发仍即时，出窗才回到 1000ms 首开延迟。机制提炼自 floating-ui（MIT）公开文档 FloatingDelayGroup/useTransition，原生 JS 独立实现，带状态机日志与复位窗倒计时。',
+  deps: '无',
   note: '六个坑：① 即时相位只在"组内已有浮层处于打开或延迟中"时生效——组的成员资格要显式共享（同一个 context），各自为政的 tooltip 永远走 1000ms 首开，划过一排图标就是一串卡顿；② 复位窗（250ms）必须在"最后一个浮层真关闭"时才起算——组内还有任何一个开着都不能复位，否则快速横穿一排按钮时状态机反复在即时/延迟间抖动；横穿切换是同一事件里先关后开、瞬时计数会短暂归零，必须区分"真关闭"与"同帧将要打开的切换"，否则每次横穿都误进复位窗；③ 状态循环是 unmounted→initial→open→closing→unmounted 四态，closing 期间浮层仍在 DOM 里做退场动画——若在 closing 直接 display:none，250ms 复位窗和退场动画会被一起截断；④ 用 transform 包一层做位移动画，浮层本体只改 opacity/transform，避免定位元素动画触发祖先滚动监听的重算风暴；⑤ 延迟期内鼠标移出必须取消计时（clearTimeout），否则人已走开浮层还弹出来；⑥ 延迟是组级单时钟，不是每个浮层各持一个 timer——各持 timer 的实现会在横穿时叠加出多个未取消的首开计时器。',
 
   scenes: { places: ['面板', '官网', '专业工具'], goals: ['操作反馈', '风格统一'], triggers: ['悬停'], projects: ['通用', '设计系统', '专业工具'] },

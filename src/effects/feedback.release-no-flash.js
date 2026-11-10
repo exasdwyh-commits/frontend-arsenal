@@ -2,6 +2,7 @@ export default {
   id: 'release-no-flash', group: 'feedback', name: '松手不闪按压态',
   lib: 'ProUI',
   desc: '切换按钮按下后松手会闪一下——浏览器在提交点击状态前提前一帧丢掉 :active，按压填充和"已激活"填充之间露出一帧底色。解法是松手后把按压填充再按住一帧，跨过那个空窗再交给新状态。机制提炼自 ProUI（pro-ui.dev）公开文档描述的切换按钮无闪烁处理，原生 JS/CSS 独立实现。',
+  deps: '无',
   note: '根源不是动画问题而是浏览器时序问题：pointerup 先于 click 触发，:active 在 pointerup 那一刻就没了，而 aria-pressed/class 要等 click 才翻转——中间必空一帧，加 transition 只会把这个空窗拉长成可见的"闪"。解法是在 pointerup 时手动给元素挂 held 类（把按压填充留住），等 click 提交状态后再摘。第二个坑：不要用 setTimeout(0) 摘 held——0ms 回调仍在同一帧内，必须等至少一个 rAF（或 requestPostAnimationFrame）确保新状态已经绘制。第三个坑：pointercancel 和鼠标移出控件再松手（lostpointercapture）也要摘 held，否则按钮会卡在按压态。',
   scenes: { places: ['工具栏', '面板', '表单'], goals: ['操作反馈', '风格统一'], triggers: ['点击'], projects: ['专业工具', '桌面应用', '编辑器'] },
   code: `/* 松手不闪按压态（提炼自 pro-ui.dev 公开文档，vanilla 复刻） */

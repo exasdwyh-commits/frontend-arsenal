@@ -2,6 +2,7 @@ export default {
   id: 'trigger-widest', group: 'feedback', name: '触发器预留最宽标签',
   lib: 'ProUI',
   desc: '下拉菜单的触发按钮按所有选项里最宽的那个定宽：当前选中"中"时按钮也不会缩成一小截，切换选项时布局纹丝不动。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-select/菜单触发器宽度策略，原生 CSS/JS 独立实现。',
+  deps: '无',
   note: '核心是用一个隐藏的测量哨兵（每个选项复制一份）把容器撑到最宽项的宽度——哨兵容器用 inline-grid，所有选项叠在同一格（grid-area:1/1），容器自动取最宽项撑宽，比 JS 量宽度再写回稳，字体重排、用户缩放它都自动跟。第二个坑：哨兵写成 position:absolute 或并排 inline 都不行——前者脱离布局撑不开容器，后者宽度是所有选项加总；visibility:hidden 也不能换成 display:none（完全不参与布局）。第三个坑：当前值标签要绝对定位叠在哨兵上（在流内就会和哨兵宽度相加），容器用 inline-flex/fit-content，写死 width:100% 的话哨兵白放。',
   scenes: { places: ['工具栏', '表单', '检查器'], goals: ['风格统一', '操作反馈'], triggers: ['点击'], projects: ['专业工具', '桌面应用', '设置页'] },
   code: `/* 触发器预留最宽标签（提炼自 pro-ui.dev 公开文档，vanilla 复刻） */

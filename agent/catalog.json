@@ -4,7 +4,7 @@
   "coverage": {
     "effects": 154,
     "skills": 420,
-    "videos": 15,
+    "videos": 81,
     "effectsWithScenes": 63,
     "recipes": 1,
     "verifiedTemplates": 0
@@ -14,7 +14,7 @@
     "recipes/project-list/app.js": "9572f8621d11adcc49f942d884bc512316361c256613c4f72c0b7f51cd2af7ff",
     "recipes/project-list/index.html": "a77f283c5dc9f76a23770f7eef1e54f6fbbc54852262d5d96c0e1e9f10b736fd",
     "recipes/project-list/style.css": "16900aa7b8dc583ebab71f990599fe52720dbb907224d468285cd298154e4754",
-    "scripts/agent-catalog.mjs": "1ce67f7b0469da530677824c2570d4db8ffc7880f3674fa81a7e9e30a90cc946",
+    "scripts/agent-catalog.mjs": "88090a672a84cf9fd5b0208d0874aaccd2c150a829e60a65a886320f7c9633bc",
     "scripts/recipe-validator.mjs": "a586e260d5f1490c3defda0902eae12c9f28633e55ab4515dbda060e72fd0ec4",
     "skills/3d-object.md": "12953200adda97bd6c41d74d57fd3395832b440e9b70520676e3d59cfccb7d43",
     "skills/animated-video.md": "dbcd3fb0fb48cc55dc375a03d02dc4f4036ec4cef2ac79548b036c1dff9c123a",
@@ -450,7 +450,7 @@
     "src/effects/data.p5-dpr-sharp.js": "631303f5303f6b6ae297f3973f3fbbc11ca3d9e76e7e8c7c12b293fa3796e5f6",
     "src/effects/data.p5-noiseline-stack.js": "4ca373d343121642acd7cde3ae8599ab040cf730add676c63690e224059bb757",
     "src/effects/data.rolling-number.js": "7b00ab225352310ab0451e35f7d328d00d2a7d997f65a61880bb980068a1628b",
-    "src/effects/data.scroll-scrub.js": "4ef195b03125f8a531cd3b87c78da411b32397875d0b00a44a3e92e71104cbfd",
+    "src/effects/data.scroll-scrub.js": "8e7f98f2bab08f697e8725440257b12e3bb97df9f637aec97188eddb2d3f237b",
     "src/effects/data.skeleton-shimmer.js": "f9d90ad34e1b78b989b22cd7b817efc113ed31bbb743ee951ca45209773fe620",
     "src/effects/data.sparkline.js": "67f364732b115d319331a6abaaa92e6b8883b901e71c02ff1271179eb90e0ef5",
     "src/effects/data.thinking-dots.js": "803a2bceaa421e24e5d07713d118297f2e19b24eca8e6f581040e6f829d14c57",
@@ -458,13 +458,13 @@
     "src/effects/data.timeline-tracks.js": "3e5fc1f956490c52239e2c3ca03d306dca2d1c0c5af0b448239eef16d4e4872e",
     "src/effects/data.word-captions.js": "bec9a6fd7761894ae2925fa84a9bf650c3f48ceb3ac5b89fa715c2943490533d",
     "src/effects/data.word-reel.js": "0edbfbcfe779b384e09826ae9367a23e8a17dbe6fd0f33c644c8ca0dea76a14b",
-    "src/effects/entrance.agent-chat-demo.js": "cc216f4530dab247512bd3549c5730b2e98fbabdf56823d464bf8ce7a75c947b",
+    "src/effects/entrance.agent-chat-demo.js": "9648d6499f53b5a36944c218d6707c711a18ebe0966d1578f41905fc5e46b431",
     "src/effects/entrance.bento-lightup.js": "7541fa82319d9721eb1673f1d8bbe31fb67556a3660d4bae900271f912b8a420",
     "src/effects/entrance.blinds-flip.js": "266119672ece85143191abda9e92f7532f3feb5653a84724ad8885ce737ccc5a",
     "src/effects/entrance.corner-spotlight.js": "679a4078a06231b319dd3da93106567198aa10af115e6f75de1eff44e995a0d4",
     "src/effects/entrance.draw-path.js": "b810c6209892e20f98b0130360d9119810f75bf27432d4e8448d81c65848a73a",
     "src/effects/entrance.ease-shelf.js": "25319e3e00065f46ed319ea38a18bbc7ed2e23a587584370cec192e775bfb853",
-    "src/effects/entrance.exit-motion.js": "45a64145e722baf0d55d44f8a9dcee5f832657ae5621949494da9de9fc90b441",
+    "src/effects/entrance.exit-motion.js": "10d82eb8870813c646e0ce028564615d9c1cc97739c47e90728edfc4b4ba0f04",
     "src/effects/entrance.gl-transition.js": "9b8228f8db69f3ec91c374e1c47dfba6738bd4dc1c5f62535761c4951a34746d",
     "src/effects/entrance.gradient-heading.js": "61c7c616cd91beda99759cfe005023856fc3598f49afc35a8591c688a748a4f0",
     "src/effects/entrance.gradient-word-sweep.js": "f3662aef1be619755622cfa25d448fd413d1905c076dd0825470a664703ad866",
@@ -481,13 +481,13 @@
     "src/effects/entrance.pill-slot-cycle.js": "eaa6944195e5d4e1202e445afec4427811d97a324a331b534cec343d075989f6",
     "src/effects/entrance.pixel-heading.js": "48b85056b2e33091d8181169cbaa8cd32554028c24353661838528b20c088d5d",
     "src/effects/entrance.popup-rise.js": "d1567ccd5d7ff3d2f5cfcc76e6f4b8efd14fdaef9b93cdfcfebe0650020ca702",
-    "src/effects/entrance.reduced-motion-tiers.js": "74f6f0eee4c5458e4c0c199861ec35758e35150d2bf4ba5a889a6e480846b464",
+    "src/effects/entrance.reduced-motion-tiers.js": "5bcb90997177fca40f72a1fffa91dd65d7ea6f5313c34fece84aa0ded4f88ce5",
     "src/effects/entrance.rs-transition-list.js": "7f72514cf1cb0adbe8f7b32457868c1ad41ef111b7f22a5b7dccd1891c1fb791",
     "src/effects/entrance.spring-enter.js": "c2451999f4dcd446c911103272c917902837a5f607a615a38162fbbe6d959d14",
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
     "src/effects/entrance.stagger-in.js": "d8403226181b85bc73f79ea203740de153e31d667e4280c4dd038c93a5d1086d",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
-    "src/effects/entrance.tooltip-delay-group.js": "0c5ec34a924fe23fecfd59aa17e73430002ad3aae94fffca23eaba5ac0e1cc9d",
+    "src/effects/entrance.tooltip-delay-group.js": "904af6cf88f1b13848cb998a4f3d5e223f88f48322dbbaacd135030b3c69b755",
     "src/effects/entrance.tr-blur-fade.js": "e5c2623da60226d83e82b89a0eaf13415c2b6cc2f71435cb11e31411e9766a06",
     "src/effects/entrance.tr-burn.js": "3e35dc81680554368b5963695ecd52632976b59472f0d350eed0357d3a39d04e",
     "src/effects/entrance.tr-cross-warp.js": "7e5f53f46bf03f18884fa58c7968baa33423e2c22335e447623312fdd4865768",
@@ -507,39 +507,39 @@
     "src/effects/feedback.bg-animate-btn.js": "41570507fd73109664a1f25e80697f724daf11bcf322812a72e771a94f47068d",
     "src/effects/feedback.button-morph.js": "2c339934aaafd208790d3c37df2a330a86a781ca432d0d8859e6513eeb4f96d5",
     "src/effects/feedback.contact-shadow.js": "fd319bfc20227b085295da981aa9af774d9e5a757f6d6d64b4bb66f4b26c73b4",
-    "src/effects/feedback.control-rhythm.js": "20b0f5fa88b0be408d8de073aee3ffaaf569afa9338a601fa9e315179014e951",
+    "src/effects/feedback.control-rhythm.js": "d5406635950a8fb799e72f4d20df9802f4a7278f68497a8a6b794dc95d6e31e4",
     "src/effects/feedback.cosmic-btn.js": "3824e3cfd0ed68438070ba6d85fe458086011f5d34a9dcf012d8c0d362117c66",
     "src/effects/feedback.cursor-follow.js": "1bcb8797c54e3f0471e5ee56c17746e20e067f97cee1db73eeb99f66f35ba679",
     "src/effects/feedback.direction-tabs.js": "1cf3bff00c7e13b0a2126d795c815db9fed37e39fa4308b948e5eb283bd167b7",
-    "src/effects/feedback.disclosure-summary.js": "dd7063d8f91e1b0ae1c026869e7b81aa1195f8e50dc505294e9014d3084eae61",
+    "src/effects/feedback.disclosure-summary.js": "bb440a562009699272ff89428b936c6c0312a3980c3d813c4b1901b75dd935db",
     "src/effects/feedback.dock-magnify.js": "93caff37f1e1ebb7aa967cda80cf4b051df50f07f1152a51a74c5c2d763d1a13",
-    "src/effects/feedback.focus-trap.js": "3536d950eaf31d036d3d8320c5eaa0b292eb4e120e3cb33beccfaa77c7990f44",
-    "src/effects/feedback.grid-reflow.js": "ef6aeec030062fe297e667dfce1b04d9fc0dce9977bdb330a63a5aaddd0a17b0",
-    "src/effects/feedback.ime-guard.js": "df89c8c857320454e57ecd3889a63c74e265bd21ae095923b57b06aaea0ec3ae",
+    "src/effects/feedback.focus-trap.js": "9f37ba85f8c7dcd166f6168bff53bb25dacc62fea9b04d9210f2346ab1e13e78",
+    "src/effects/feedback.grid-reflow.js": "34c9210aca911dc5cc2bcd48ed5bb9bc3324da4653c47ce7efbea775e22b1882",
+    "src/effects/feedback.ime-guard.js": "d577b8cfef70dc4dfc25cae2287ed71b41c2008c85ae9c378747619ffb067e61",
     "src/effects/feedback.intent-fill.js": "cd51a5b701fdbe3be1d407d77434508fa1cda488b38a76201bd4f76c41070237",
     "src/effects/feedback.island-morph.js": "45d58951abbc5c69eaaecc00f3495c047359ac32bd0703543b57d2bd8a0dcd99",
-    "src/effects/feedback.iso-parametric.js": "55d026234b7fd5d04c9967cab8463ae50a809aa7c174c0aec277ef7ee461f1d9",
-    "src/effects/feedback.knob-gesture.js": "6502c86e6b74b44da0323a8a3f2e8e41c76d333d0b5fd0b0ab24c57ecc7c9569",
-    "src/effects/feedback.list-nav.js": "e8b9271bd7d68cd782a77fcf9200c7233800ceecd4f54282f04603f19530cc8a",
+    "src/effects/feedback.iso-parametric.js": "acfad7853b9722b04b15ff070e1bf90cc062fe446c6cf5390ac4734e7e4c8e76",
+    "src/effects/feedback.knob-gesture.js": "2f04ad1ccc2ac9b82c62b59693a063299516ab4d700064d6a83d9ba31f1bb5a4",
+    "src/effects/feedback.list-nav.js": "a65382256d0383f642899dbdb45cb52685ab5b005e6fe68d19f05705fdecba75",
     "src/effects/feedback.magnetic-btn.js": "f66f593548cdf1fe10f483ad4f2568168adba9e6e5e3547e10e4e7540be89d45",
     "src/effects/feedback.neumorph-btn.js": "6ed4c65258f49da5dff94e6e544b011a2b84757c7d9492da83514dc0c24583d7",
-    "src/effects/feedback.overlay-dismiss.js": "3321e30621e271a0ccb56908d122141329a95a5f482625897aefbc523de9210c",
+    "src/effects/feedback.overlay-dismiss.js": "6fe69172ad607ba1ec7d377cf94f5b54e06c71da7848bd08e47d8454c161b942",
     "src/effects/feedback.p5-lerp-ease.js": "cfd1a432cfb557e23d86423c04cebd6b2dcec293b08cd074ca804b82f0e18aa4",
-    "src/effects/feedback.pro-material.js": "867dc0fca193cc6eb8358faf79e9e926b7b3d0480a44fa03c4d0710b5de97757",
-    "src/effects/feedback.release-no-flash.js": "fc631b713f4d0dea9d89c3654b39b3861732943531faeb2bca1463ea80e92335",
+    "src/effects/feedback.pro-material.js": "cd551a71eb72ca063b20e6fe7c37d6f27150daa30a417d78d6bf086f681c2a02",
+    "src/effects/feedback.release-no-flash.js": "d031178b132371b832fb223fd92b939d2063cb2ac05747c1b51d2d89a570593b",
     "src/effects/feedback.ripple.js": "12ef5b981d5cda55ebd769f189400504f79a46244cdbf57577fc82c4092d6f73",
     "src/effects/feedback.rs-decay-scroll.js": "d44ca0c35950050125c14666ef9387476cbc5d7994611152bdf9ac9a41188840",
     "src/effects/feedback.rs-spring-presets.js": "dd7a45d1002fae26a38ec8f4a810df2c9274008951f8aad76e2599074ad1ca42",
     "src/effects/feedback.rs-trail-chain.js": "017b7dbab23fce4d3f2bbc93c6dde94df5a0586226a164492f8572c0282fdb03",
-    "src/effects/feedback.scrub-number.js": "14e37862817e2b9df520c275db7c253938eb6d72cce56a1eecf9d1809fed7064",
+    "src/effects/feedback.scrub-number.js": "4771045630cf768cf5654e58d8178a3df94d5c7b13e7ab6cad78c4ee714c1afe",
     "src/effects/feedback.segmented-thumb.js": "7683763bbe5f7f7d6b1f05213b4d0c1257d264b8bf22c4879d81b2c20db9e7b5",
     "src/effects/feedback.shift-card.js": "daf7f7c918a70b88d3675c8fe9c84e11a3e3af8bb305115308a05fc92b1339eb",
-    "src/effects/feedback.slider-inset.js": "a506ac508010c95f7118dc107a5474ead843343e747b3b0219f2f0301b30b525",
+    "src/effects/feedback.slider-inset.js": "2cefd2ef171b82a371493ca14a6a3b3629f8d7fd1eb85e566ae3a1b26ac6061a",
     "src/effects/feedback.spring-card.js": "720279eae46a14e4b89f73298882402205ce4d0fb008211f0fe0e9933823869c",
     "src/effects/feedback.tab-ink.js": "9073df4fc99db72cea0392bc59aabe5630a18eaff16c2eb552b22c4c88e2eb50",
     "src/effects/feedback.texture-btn.js": "b93acf06cb7d7e9ad8c7d28853f1bbbed04832ba54ec602c0bb91f518f979f78",
     "src/effects/feedback.tilt-3d.js": "215ce4eafe6b643ecc598e29b0fce5450ebf5323c85664cdf106fd7005d32ea8",
-    "src/effects/feedback.trigger-widest.js": "c449959aa375ae17fa840449365a204eb649ae62e56890d54395a66267721d25",
+    "src/effects/feedback.trigger-widest.js": "a0cb882446a9c08035182d65afa78d58801bd4876c905728d874fd5245d77656",
     "src/effects/particle.aurora.js": "c865ce19e5a5b77c2b9bb6c932332cde4e93bac667bed5ca3323712add5d6535",
     "src/effects/particle.border-beam.js": "20cd96f59a019533c7b53c521a3b7078d3835abd18e8fd8932af12e10c9d50c1",
     "src/effects/particle.crt-tape.js": "636eff7313a72eeb52654bceb37c7408e4bc9458a6cbc26ee39bc0421014fa32",
@@ -586,16 +586,16 @@
     "src/effects/space.minimal-card.js": "8fb2d2774963878c7c23b7ead46cf5478394cd997904f4a6721ac86b67737e73",
     "src/effects/space.p5-stack-space.js": "66103d33a71057daf3a6317b7c95957ad315efd862828d3362f1d88a1805186c",
     "src/effects/space.parallax-depth.js": "ce09464d5768f774114d067021f13825fe388eded4a35fe13b1c56e244938a16",
-    "src/effects/space.path-arc-length.js": "a41c89515f89c256d6a8157f1ec66af59b22930523db6d03c210a924da7efc17",
-    "src/effects/space.rtl-logical.js": "99a484f932ab8d86c52f54a6849d9819bd8c3e2990507317070e197fcf8261b1",
-    "src/effects/space.smart-anchor.js": "2764e9cc18825df197cfd73c2e3f1cb0beea4b56a57bca219efb0cadd9e9f680",
+    "src/effects/space.path-arc-length.js": "52ab4e0715fe04fe84b895579ad645c029c2329b7d141fbf8f19e206c31ad328",
+    "src/effects/space.rtl-logical.js": "d8445f269b1da33069e9a3a861d910ca9835c7774eb52dc35838fdab3679255a",
+    "src/effects/space.smart-anchor.js": "87ecfdd33f579e3b3085f20db3076a019f5b467db8b474d904cc35fbc43a893c",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
-    "src/engine.js": "8c6b8b9027231d7aefcbe0a01b825ab012aed4afb2d386341666cb682504cb7e",
+    "src/engine.js": "9428a3628e8c4839749a78c697e1df82f228ed7daae71fd89d2169a49d6c5bec",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
     "src/registry.js": "672fa9a19a2e873e98eb1bdb63d6e45b37d060fb5d9edbf8b86ea24281abcd26",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
     "src/skills-data.js": "2372171d69fb1522238d4c029f8836b95c99080b4efd525d6683cae8bf122667",
-    "src/video-data.js": "f2558c655308b385979208a55be574dec8447534b4faa5a96fd63d54b3140d2e"
+    "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
   },
   "resources": [
     {
@@ -605,9 +605,10 @@
       "description": "落地页上的\"AI 正在干活\"对话演示：用户提示逐字打入 → 工具调用卡（search_drawings 查询、返回 3 个结果、246ms 耗时）→ 文件卡（get_drawings 拉回 SVG）→ 助手回复流式吐出 → 停留 → 整段清空循环。机制提炼自 Overflow Design（overflow.design）首页的 MCP 演示（\"agent 用它的 MCP 服务器找图标\"的对话动画），原生 JS/CSS 独立实现；所有数字与结果均为表演数据，非真实调用。",
       "category": "入场与转场",
       "source": "src/effects/entrance.agent-chat-demo.js",
-      "preview": "index.html#agent-chat-demo",
+      "preview": "effects.html#agent-chat-demo",
       "implementation": "demo-module",
       "technology": "Overflow Design",
+      "declaredDependencies": "无",
       "notes": "核心是用一个帧时钟（rAF 累计时间）驱动分段进度：每个段有 start/end，进度 = (t-start)/(end-start)，比 setTimeout 链可暂停可跳帧。第二个坑：流式文本必须用 textContent 逐字追加，绝不能把已输出内容拼回 innerHTML 重写——一旦文本里含 < 或 & 就是自造的 XSS，而且每帧重建节点会把光标动画打断。第三个坑：循环重启要重置光标位置和滚动容器 scrollTop，只清文本不清状态的话第二轮会接着上一轮的时钟走。表演数据（246ms、结果数）要写死常量别假装真实计时。",
       "scenes": {
         "places": [
@@ -652,7 +653,7 @@
       "description": "暗场里一墙 bento 卡随节拍逐格通电：一道「彗星」流光先描一圈边，格内内容随后提亮上浮弹出。移植自 video-shotcraft 的 Bento Light Up（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.bento-lightup.js",
-      "preview": "index.html#bento-lightup",
+      "preview": "effects.html#bento-lightup",
       "implementation": "demo-module",
       "technology": "SVG + 原生 JS",
       "declaredDependencies": "无",
@@ -682,7 +683,7 @@
       "description": "一排竖条各自绕自身竖轴翻面，正面是 A 页、背面是 B 页，波从左扫过就把整页换掉。移植自 video-shotcraft 的 Blinds Slice（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.blinds-flip.js",
-      "preview": "index.html#blinds-flip",
+      "preview": "effects.html#blinds-flip",
       "implementation": "demo-module",
       "technology": "纯 CSS 3D + 原生 JS",
       "declaredDependencies": "无",
@@ -712,7 +713,7 @@
       "description": "一笔一笔把图标\"写\"出来：先画主描边，再顺手把箭头点亮。",
       "category": "入场与转场",
       "source": "src/effects/entrance.draw-path.js",
-      "preview": "index.html#draw-path",
+      "preview": "effects.html#draw-path",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选)",
@@ -742,7 +743,7 @@
       "description": "同一段位移并排跑 9 条缓动曲线，一屏对比出\"廉价感\"和\"高级感\"的差别。",
       "category": "入场与转场",
       "source": "src/effects/entrance.ease-shelf.js",
-      "preview": "index.html#ease-shelf",
+      "preview": "effects.html#ease-shelf",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选，无库自动降级到内置实现)",
@@ -772,9 +773,10 @@
       "description": "对话框/浮层关闭时沿进场路线退回并淡出，而不是瞬间消失：关闭请求一发出就同帧进入\"离场态\"（不接指针与按键、焦点按规则交还、内容驻留到最后一帧），退场中途重开可无闪恢复，动画事件缺席也有\"时长+100ms\"兜底强制隐藏。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开规格 AST-090 Exit motion（FR1–FR12），原生 JS/CSS 独立实现，带主题开关与 animationend 阻断模拟。",
       "category": "入场与转场",
       "source": "src/effects/entrance.exit-motion.js",
-      "preview": "index.html#exit-motion",
+      "preview": "effects.html#exit-motion",
       "implementation": "demo-module",
       "technology": "Astryx",
+      "declaredDependencies": "无",
       "notes": "四个坑：① 别信 animationend——动画被取消、标签页转后台、系统禁用动画时它根本不报到，必须无条件挂\"时长+100ms\"兜底定时器且隐藏逻辑幂等（FR9，演示可勾\"阻断\"验证）；② 退场中重新打开绝不能\"先隐藏再显示\"（会闪一下），要取消动画+清兜底+摘 leaving 类，且退场时挂的 animationend/定时器回调必须按代际计数作废——否则过期回调会把刚重开的界面又藏回去，这是本效果最经典的 bug（FR8）；③ pointer-events:none 只挡鼠标，FR4 还要求按键不激活，得用 inert 或捕获阶段 keydown 拦截；aria-hidden 要等焦点离开后再设，焦点困在 aria-hidden 子树里是无效焦点（FR6）；④ 退场曲线是独立令牌 --ease-exit=cubic-bezier(.3,0,.6,.6)（慢出快走），不是把入场曲线倒放；\"朝打开者收缩\"的位移要在关闭瞬间按打开按钮当前坐标算——按钮可能早已滚动/移动。",
       "scenes": {
         "places": [
@@ -819,7 +821,7 @@
       "description": "WebGL 像素级过渡（溶解/波纹），用于章节切换和画面交接。",
       "category": "入场与转场",
       "source": "src/effects/entrance.gl-transition.js",
-      "preview": "index.html#gl-transition",
+      "preview": "effects.html#gl-transition",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -849,7 +851,7 @@
       "description": "标题文字本身被一条竖向渐变填满，底部沉、顶部亮，像被光从下面打上来。移植自 Cult UI 的 Gradient Heading，它全站大标题都是这个底子。看起来最简单，但 background-clip: text 有三个必踩的坑。",
       "category": "入场与转场",
       "source": "src/effects/entrance.gradient-heading.js",
-      "preview": "index.html#gradient-heading",
+      "preview": "effects.html#gradient-heading",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -896,7 +898,7 @@
       "description": "标题词被一道渐变从左到右\"充能\"点亮：三层模糊辉光随波前推进，刚扫过的字符过曝发白、向后衰减到稳态呼吸，词上方按排期劈下勾连闪电。移植自 video-shotcraft 的 GradientWordSweep（Apache-2.0），原文档是 Remotion 逐帧合成，这里用帧时钟 + clipPath/mask 原生复刻。",
       "category": "入场与转场",
       "source": "src/effects/entrance.gradient-word-sweep.js",
-      "preview": "index.html#gradient-word-sweep",
+      "preview": "effects.html#gradient-word-sweep",
       "implementation": "demo-module",
       "technology": "video-shotcraft",
       "declaredDependencies": "无",
@@ -945,7 +947,7 @@
       "description": "36 个瓦片按二维距离从中心向外错开，不是普通的从左到右依次淡入。",
       "category": "入场与转场",
       "source": "src/effects/entrance.grid-stagger.js",
-      "preview": "index.html#grid-stagger",
+      "preview": "effects.html#grid-stagger",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选)",
@@ -989,7 +991,7 @@
       "description": "折叠面板展开/收起时高度连续过渡，不是瞬间跳变。",
       "category": "入场与转场",
       "source": "src/effects/entrance.height-morph.js",
-      "preview": "index.html#height-morph",
+      "preview": "effects.html#height-morph",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -1019,7 +1021,7 @@
       "description": "水墨转场：一点墨落在旧画面上，须状墨边带着新画面\"洇\"出来——湿晕、墨边、墨芯三层同心圆共用一套湍流位移滤镜，滤镜只揉遮罩形状不揉内容，新景在墨边后面显影。移植自 video-shotcraft 的 InkBleedReveal（Apache-2.0），SVG mask + foreignObject 原生复刻。",
       "category": "入场与转场",
       "source": "src/effects/entrance.ink-bleed-reveal.js",
-      "preview": "index.html#ink-bleed-reveal",
+      "preview": "effects.html#ink-bleed-reveal",
       "implementation": "demo-module",
       "technology": "video-shotcraft",
       "declaredDependencies": "无",
@@ -1068,7 +1070,7 @@
       "description": "标题字符按错峰间隔坠落，落地衰减弹跳、触地挤压，最后齐整回正，像一排字砸在地上。移植自 video-shotcraft 的 Letter Drop Physics（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.letter-drop.js",
-      "preview": "index.html#letter-drop",
+      "preview": "effects.html#letter-drop",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -1098,7 +1100,7 @@
       "description": "文字被点阵化成一颗颗灯珠，在画布上循环滚动，像机场航显牌/老式翻页钟。移植自 Cult UI 的 Lightboard，它把整句话变成 canvas 上滚动的灯点图案。",
       "category": "入场与转场",
       "source": "src/effects/entrance.light-board.js",
-      "preview": "index.html#light-board",
+      "preview": "effects.html#light-board",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无",
@@ -1146,7 +1148,7 @@
       "description": "黑场里左上角径向聚光从小到大匀速扩张，照到的区域显影、照不到的沉黑，光本身就是转场。移植自 video-shotcraft 的 Corner Spotlight Reveal（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.corner-spotlight.js",
-      "preview": "index.html#corner-spotlight",
+      "preview": "effects.html#corner-spotlight",
       "implementation": "demo-module",
       "technology": "原生 JS + CSS mask",
       "declaredDependencies": "无",
@@ -1176,7 +1178,7 @@
       "description": "菜单逐项「找位」（放大+上移+对焦模糊消除，错峰 10 帧），同时整个列表容器全程匀速上移——两层完全解耦的运动，读作「画面在呼吸」而不是一起飘。移植自 video-shotcraft 的 List Reveal（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.list-reveal.js",
-      "preview": "index.html#list-reveal",
+      "preview": "effects.html#list-reveal",
       "implementation": "demo-module",
       "technology": "纯 CSS + 原生 JS",
       "declaredDependencies": "无",
@@ -1206,7 +1208,7 @@
       "description": "一道带粗细变化、干笔毛糙的马克笔从左到右划过重点词。移植自 video-shotcraft 的 Marker Underline Title（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.marker-underline.js",
-      "preview": "index.html#marker-underline",
+      "preview": "effects.html#marker-underline",
       "implementation": "demo-module",
       "technology": "SVG + 原生 JS",
       "declaredDependencies": "无",
@@ -1236,7 +1238,7 @@
       "description": "注册一个数字变量 --t，样式表里 40+ 种 PowerPoint 风格形状遮罩（轮子/楔形/对开/百叶/圆形/棋盘/溶解点阵/十字/斜条/随机条）全部只读 var(--t)，JS 只驱动这一个数就能轮流扫出整族转场。移植自 baoyu-design 的 deck-stage 动画引擎（MIT）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.mask-shape-cycles.js",
-      "preview": "index.html#mask-shape-cycles",
+      "preview": "effects.html#mask-shape-cycles",
       "implementation": "demo-module",
       "technology": "CSS mask + registerProperty",
       "declaredDependencies": "无",
@@ -1266,7 +1268,7 @@
       "description": "两颗白热亮头从框左缘中点上下分头奔画，在右缘相撞闪一下，框出内容位置后内容再由暗转亮。移植自 video-shotcraft 的 Neon Frame Forerun（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.neon-frame.js",
-      "preview": "index.html#neon-frame",
+      "preview": "effects.html#neon-frame",
       "implementation": "demo-module",
       "technology": "SVG + 原生 JS",
       "declaredDependencies": "无",
@@ -1296,7 +1298,7 @@
       "description": "空心描边字急缩落位后一帧硬切成实心白热字，配 HUD 虚线刻度环锁定。移植自 video-shotcraft 的 Outline Word Fill（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.outline-fill.js",
-      "preview": "index.html#outline-fill",
+      "preview": "effects.html#outline-fill",
       "implementation": "demo-module",
       "technology": "SVG + 原生 JS",
       "declaredDependencies": "无",
@@ -1326,7 +1328,7 @@
       "description": "固定句干末尾的词槽像老虎机：旧词上飞淡出、新词从下带纵向运动模糊翻入，连换几拍后句子落定。移植自 video-shotcraft 的 Pill Slot Cycle（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.pill-slot-cycle.js",
-      "preview": "index.html#pill-slot-cycle",
+      "preview": "effects.html#pill-slot-cycle",
       "implementation": "demo-module",
       "technology": "原生 JS + CSS 3D",
       "declaredDependencies": "无",
@@ -1356,7 +1358,7 @@
       "description": "标题里每个字母各用一种字体，随时间一个个换下去，形成从左到右扫过的\"字体波\"。移植自 Cult UI 的 Pixel Heading Character，核心是用黄金比例分配字体索引，让相邻字母几乎不撞款。",
       "category": "入场与转场",
       "source": "src/effects/entrance.pixel-heading.js",
-      "preview": "index.html#pixel-heading",
+      "preview": "effects.html#pixel-heading",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -1403,7 +1405,7 @@
       "description": "输入 / 触发的建议弹窗从输入框上方浮起，同时高度自适应过渡。",
       "category": "入场与转场",
       "source": "src/effects/entrance.popup-rise.js",
-      "preview": "index.html#popup-rise",
+      "preview": "effects.html#popup-rise",
       "implementation": "demo-module",
       "technology": "Web Animations",
       "declaredDependencies": "无",
@@ -1446,9 +1448,10 @@
       "description": "系统要求\"减少动效\"时不是删动画，而是分三档处理：正常档全量动效；减少档下粗指针（触屏）只做 ≤200ms 纯淡入淡出、细指针（鼠标/键盘）立即变化；在位数值与悬停/选中颜色任何档都立即生效。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 reduced-motion.md 的 DR1–DR3 规则，原生 JS/CSS 独立实现，带档位模拟开关。",
       "category": "入场与转场",
       "source": "src/effects/entrance.reduced-motion-tiers.js",
-      "preview": "index.html#reduced-motion-tiers",
+      "preview": "effects.html#reduced-motion-tiers",
       "implementation": "demo-module",
       "technology": "Astryx",
+      "declaredDependencies": "无",
       "notes": "三个坑：① 只写 @media (prefers-reduced-motion: reduce) 不够——产品常要求页内也有\"减少动效\"开关，两份来源叠加时要取最严档（页内开关能开也能关系统档，判定必须合并成一个状态）；② JS 驱动的动画（rAF/WAAPI/弹簧库）CSS 媒体查询管不到，必须用 matchMedia 监听同一偏好再改 JS 参数，两套动画驱动共用一个开关，漏一边就出现\"CSS 静了 JS 还在弹\"；③ 减少 ≠ 删除：位移/缩放/弹簧全部去掉，但状态变化必须保留可见反馈——触屏 ≤200ms 淡变、细指针立即变、在位数值直接改，全砍成瞬变用户会以为没点上。",
       "scenes": {
         "places": [
@@ -1494,7 +1497,7 @@
       "description": "条目自动增删，进场的从上方滑入、出场的向下淡出，且不会因为 key 抖动而闪。",
       "category": "入场与转场",
       "source": "src/effects/entrance.rs-transition-list.js",
-      "preview": "index.html#rs-transition-list",
+      "preview": "effects.html#rs-transition-list",
       "implementation": "demo-module",
       "technology": "react-spring",
       "declaredDependencies": "react-spring (可选)",
@@ -1524,7 +1527,7 @@
       "description": "用 bounce + duration 声明的弹簧（SwiftUI 同款感知时长算法），比 cubic-bezier 更\"有质量\"。",
       "category": "入场与转场",
       "source": "src/effects/entrance.spring-enter.js",
-      "preview": "index.html#spring-enter",
+      "preview": "effects.html#spring-enter",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选)",
@@ -1554,7 +1557,7 @@
       "description": "弹窗带过冲缓动出现，比线性放大更有质感。",
       "category": "入场与转场",
       "source": "src/effects/entrance.spring-modal.js",
-      "preview": "index.html#spring-modal",
+      "preview": "effects.html#spring-modal",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -1597,7 +1600,7 @@
       "description": "文字/卡片逐项错位淡入，最适合首屏标题与列表加载。",
       "category": "入场与转场",
       "source": "src/effects/entrance.stagger-in.js",
-      "preview": "index.html#stagger-in",
+      "preview": "effects.html#stagger-in",
       "implementation": "demo-module",
       "technology": "Anime.js",
       "declaredDependencies": "animejs@3.2.2",
@@ -1642,7 +1645,7 @@
       "description": "字符先随机抖动再逐个落定，科技感标题的标配。",
       "category": "入场与转场",
       "source": "src/effects/entrance.text-scramble.js",
-      "preview": "index.html#text-scramble",
+      "preview": "effects.html#text-scramble",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -1672,9 +1675,10 @@
       "description": "一组浮层共享一个延迟状态机：首次悬停等 1000ms 才开（不打扰），组内第二个浮层若在延迟期内或已打开期间被触发则进\"即时相位\"——1ms 开、0 关，鼠标在同组按钮间滑动零等待；任一浮层关闭后起 250ms 复位窗，窗内再触发仍即时，出窗才回到 1000ms 首开延迟。机制提炼自 floating-ui（MIT）公开文档 FloatingDelayGroup/useTransition，原生 JS 独立实现，带状态机日志与复位窗倒计时。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tooltip-delay-group.js",
-      "preview": "index.html#tooltip-delay-group",
+      "preview": "effects.html#tooltip-delay-group",
       "implementation": "demo-module",
       "technology": "Floating UI",
+      "declaredDependencies": "无",
       "notes": "六个坑：① 即时相位只在\"组内已有浮层处于打开或延迟中\"时生效——组的成员资格要显式共享（同一个 context），各自为政的 tooltip 永远走 1000ms 首开，划过一排图标就是一串卡顿；② 复位窗（250ms）必须在\"最后一个浮层真关闭\"时才起算——组内还有任何一个开着都不能复位，否则快速横穿一排按钮时状态机反复在即时/延迟间抖动；横穿切换是同一事件里先关后开、瞬时计数会短暂归零，必须区分\"真关闭\"与\"同帧将要打开的切换\"，否则每次横穿都误进复位窗；③ 状态循环是 unmounted→initial→open→closing→unmounted 四态，closing 期间浮层仍在 DOM 里做退场动画——若在 closing 直接 display:none，250ms 复位窗和退场动画会被一起截断；④ 用 transform 包一层做位移动画，浮层本体只改 opacity/transform，避免定位元素动画触发祖先滚动监听的重算风暴；⑤ 延迟期内鼠标移出必须取消计时（clearTimeout），否则人已走开浮层还弹出来；⑥ 延迟是组级单时钟，不是每个浮层各持一个 timer——各持 timer 的实现会在横穿时叠加出多个未取消的首开计时器。",
       "scenes": {
         "places": [
@@ -1719,7 +1723,7 @@
       "description": "靠模糊而不是淡化完成切换，信息量过渡最柔和。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-blur-fade.js",
-      "preview": "index.html#tr-blur-fade",
+      "preview": "effects.html#tr-blur-fade",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1749,7 +1753,7 @@
       "description": "旧画面从边缘烧穿，橙色火线向内吞噬，露出新画面。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-burn.js",
-      "preview": "index.html#tr-burn",
+      "preview": "effects.html#tr-burn",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1779,7 +1783,7 @@
       "description": "旧画面放大退场、新画面从缩小状态推入，像镜头穿过一扇门。只有 4 行。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-cross-warp.js",
-      "preview": "index.html#tr-cross-warp",
+      "preview": "effects.html#tr-cross-warp",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1809,7 +1813,7 @@
       "description": "用灰度图当置换贴图，画面顺着明暗拉伸变形，配合淡入最有质感。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-displace-warp.js",
-      "preview": "index.html#tr-displace-warp",
+      "preview": "effects.html#tr-displace-warp",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1839,7 +1843,7 @@
       "description": "两幅画面经黑色过渡，图像轮廓边缘发出辉光，暗场转场的高级做法。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-edge-glow.js",
-      "preview": "index.html#tr-edge-glow",
+      "preview": "effects.html#tr-edge-glow",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1869,7 +1873,7 @@
       "description": "RGB 三通道错位加色块抖动，赛博、断裂、故障感转场。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-glitch.js",
-      "preview": "index.html#tr-glitch",
+      "preview": "effects.html#tr-glitch",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1899,7 +1903,7 @@
       "description": "镜头在由两幅图拼成的旋转马赛克上平移，最后停在新画面那一格。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-mosaic.js",
-      "preview": "index.html#tr-mosaic",
+      "preview": "effects.html#tr-mosaic",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1929,7 +1933,7 @@
       "description": "噪声团块逐步显现新画面，比线性溶解自然，适合内容换页。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-noise-dissolve.js",
-      "preview": "index.html#tr-noise-dissolve",
+      "preview": "effects.html#tr-noise-dissolve",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1959,7 +1963,7 @@
       "description": "两幅画面先马赛克再逐渐清晰，像老电视换台。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-pixelize.js",
-      "preview": "index.html#tr-pixelize",
+      "preview": "effects.html#tr-pixelize",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -1989,7 +1993,7 @@
       "description": "波纹从中心扩散的同时交叉淡入，用于水面、液体、生物题材。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-ripple.js",
-      "preview": "index.html#tr-ripple",
+      "preview": "effects.html#tr-ripple",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -2019,7 +2023,7 @@
       "description": "两幅画面绕中心旋转，中心转得最快，边缘几乎不动。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-swirl.js",
-      "preview": "index.html#tr-swirl",
+      "preview": "effects.html#tr-swirl",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -2049,7 +2053,7 @@
       "description": "像石子入水，圆形波前扩散到哪里，替换才发生到哪里。",
       "category": "入场与转场",
       "source": "src/effects/entrance.tr-waterdrop.js",
-      "preview": "index.html#tr-waterdrop",
+      "preview": "effects.html#tr-waterdrop",
       "implementation": "demo-module",
       "technology": "GL Transitions",
       "declaredDependencies": "无（原生 WebGL）",
@@ -2079,7 +2083,7 @@
       "description": "逐字输出 + 闪烁光标，AI 回复流式输出的视觉母版。",
       "category": "入场与转场",
       "source": "src/effects/entrance.typewriter-caret.js",
-      "preview": "index.html#typewriter-caret",
+      "preview": "effects.html#typewriter-caret",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -2109,7 +2113,7 @@
       "description": "标题笔画随节拍变粗又弹回，像文字跟着低音鼓蹦迪，字不位移只有属性在动。移植自 video-shotcraft 的 Font Weight Pump（Apache-2.0）。",
       "category": "入场与转场",
       "source": "src/effects/entrance.weight-pump.js",
-      "preview": "index.html#weight-pump",
+      "preview": "effects.html#weight-pump",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2139,7 +2143,7 @@
       "description": "用 clip-path 做蒙版擦除，比淡入更有\"揭幕\"的仪式感。",
       "category": "入场与转场",
       "source": "src/effects/entrance.wipe-reveal.js",
-      "preview": "index.html#wipe-reveal",
+      "preview": "effects.html#wipe-reveal",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -2169,7 +2173,7 @@
       "description": "点击后宽度、圆角、配色、内容同时切换，用弹簧收尾做成\"橡皮\"手感。",
       "category": "交互反馈",
       "source": "src/effects/feedback.anime-morph.js",
-      "preview": "index.html#anime-morph",
+      "preview": "effects.html#anime-morph",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选)",
@@ -2199,7 +2203,7 @@
       "description": "按钮的\"颜色\"本身就是一张旋转的 conic 渐变，上面只盖一层透明的塑料高光。移植自 Cult UI 的 BG Animate Button。跟宇宙环按钮同族但逻辑相反：这个整面都是渐变，那个只有描边是渐变。",
       "category": "交互反馈",
       "source": "src/effects/feedback.bg-animate-btn.js",
-      "preview": "index.html#bg-animate-btn",
+      "preview": "effects.html#bg-animate-btn",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -2246,7 +2250,7 @@
       "description": "一个按钮在 idle→busy→done→error 之间自己变形：收起成圆点转圈、打勾、报错弹回。",
       "category": "交互反馈",
       "source": "src/effects/feedback.button-morph.js",
-      "preview": "index.html#button-morph",
+      "preview": "effects.html#button-morph",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -2290,7 +2294,7 @@
       "description": "卡片抬起时，桌面留下一层会「变大变虚变淡并偏移」的接触影——纸片离桌的距离是被影子证明的，不是被缩放暗示的。移植自 video-shotcraft 的 Contact Shadow Lift（Apache-2.0）。",
       "category": "交互反馈",
       "source": "src/effects/feedback.contact-shadow.js",
-      "preview": "index.html#contact-shadow",
+      "preview": "effects.html#contact-shadow",
       "implementation": "demo-module",
       "technology": "纯 CSS + 原生 JS",
       "declaredDependencies": "无",
@@ -2320,9 +2324,10 @@
       "description": "一行里混排固定高度按钮、内容自适应选择器、紧凑图标按钮：共享基线与表观高度形成节奏；紧凑控件视觉只有 24px，但点击区用伪元素向外扩到 44px——视觉尺寸和目标尺寸是两回事。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 control-rhythm.md 的 DR1–DR4 规则，原生 CSS 独立实现，带点击区可视化开关。",
       "category": "交互反馈",
       "source": "src/effects/feedback.control-rhythm.js",
-      "preview": "index.html#control-rhythm",
+      "preview": "effects.html#control-rhythm",
       "implementation": "demo-module",
       "technology": "Astryx",
+      "declaredDependencies": "无",
       "notes": "三个坑：① 扩点击区必须用伪元素 inset 负值外扩（::after{position:absolute;inset:-10px}），不能给按钮加 padding——padding 会改表观高度破坏节奏（DR2 要求尺寸和密度一起调），也别用 outline；② 相邻控件的扩区会互相重叠，重叠区的点击归属由 DOM 顺序决定（后画的盖上面），要么给控件间留出 ≥2×扩量的间隙，要么把整行做成一个带分段热区的容器；③ 基线对齐别用 align-items:center——不同字号的控件行盒底不齐，用 align-items:baseline（或统一高度 + 统一 line-height），图标要跟文字基线对齐得算 descender，垂直居中只是\"看起来差不多\"。焦点环画在视觉轮廓上（focus-visible 贴元素本体），画到扩区边界会看起来错位。",
       "scenes": {
         "places": [
@@ -2368,7 +2373,7 @@
       "description": "一圈 conic 渐变沿按钮描边匀速转，hover 时窗口向外撑开、环从 3px 变 6px。移植自 Cult UI 的 Cosmic Button，它官网主 CTA 就是这个。跟边框光束的区别：这个是\"整环等亮度旋转\"，不是一段追光。",
       "category": "交互反馈",
       "source": "src/effects/feedback.cosmic-btn.js",
-      "preview": "index.html#cosmic-btn",
+      "preview": "effects.html#cosmic-btn",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -2414,7 +2419,7 @@
       "description": "主光标加一个延迟跟随的柔光圈，科技感立现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.cursor-follow.js",
-      "preview": "index.html#cursor-follow",
+      "preview": "effects.html#cursor-follow",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2444,7 +2449,7 @@
       "description": "切标签时内容从\"点的那边\"滑进来、往\"点的那边\"滑出去，底板用 FLIP 跟着跳。移植自 Cult UI 的 Direction Aware Tabs，比无脑淡入多交代了一层空间关系。",
       "category": "交互反馈",
       "source": "src/effects/feedback.direction-tabs.js",
-      "preview": "index.html#direction-tabs",
+      "preview": "effects.html#direction-tabs",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2491,9 +2496,10 @@
       "description": "检查器里的折叠分区收起后，标题行仍然汇报内部状态：显示关键值、已改项数、异常标记——不用展开就知道里面有什么。机制提炼自 ProUI（pro-ui.dev）公开文档描述的折叠面板摘要策略，原生 JS/CSS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.disclosure-summary.js",
-      "preview": "index.html#disclosure-summary",
+      "preview": "effects.html#disclosure-summary",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "要点是摘要必须和内部状态同源更新（同一函数既写控件又写摘要），手写两份必然漂移——某天改了滑块忘了改摘要，用户就被骗进折叠区。第二个坑：摘要内容要用 textContent 注入而非拼进模板字符串，控件值可能含用户输入（文件名等），拼字符串就是 XSS 通道。第三个坑：摘要行要 text-overflow:ellipsis 且 flex:1，分区窄的时候宁可省略号也不能让摘要把标题挤换行——检查器面板经常只有 200px 宽。",
       "scenes": {
         "places": [
@@ -2539,7 +2545,7 @@
       "description": "指针扫过时，只有附近的图标按距离衰减放大上浮，远端纹丝不动。移植自 Cult UI 的 macOS Dock，是\"局部响应\"最省的实现方式。",
       "category": "交互反馈",
       "source": "src/effects/feedback.dock-magnify.js",
-      "preview": "index.html#dock-magnify",
+      "preview": "effects.html#dock-magnify",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2585,9 +2591,10 @@
       "description": "模态浮层里的焦点只进不出：打开时焦点进浮层（guards 用 contains 自己判断而不是捕获标记，避免嵌套浮层互相打架），Tab 在浮层内循环（首尾哨兵接住越界），关闭时 returnFocus 归还给打开前的元素；浮层没有可聚焦项时焦点落容器本身，配合 visuallyHiddenDismiss 让读屏器能走到关闭按钮。机制提炼自 floating-ui（MIT）公开文档 FloatingFocusManager，原生 JS 独立实现，带哨兵循环与归还演示。",
       "category": "交互反馈",
       "source": "src/effects/feedback.focus-trap.js",
-      "preview": "index.html#focus-trap",
+      "preview": "effects.html#focus-trap",
       "implementation": "demo-module",
       "technology": "Floating UI",
+      "declaredDependencies": "无",
       "notes": "七个坑：① guards 判定\"焦点是否在浮层内\"要用 contains(浮层) 而不是布尔标记位——嵌套两个浮层时，外层的标记会被内层的开合重置，焦点在内层却被外层判成\"跑到外面去了\"而错误归还；② returnFocus 必须存\"打开前真正持有焦点的元素\"而不是随手存触发按钮；但它为 body/已卸载时不能去 focus 已 display:none 的浮层容器——隐藏后再 focus 会静默失败、焦点掉回 body，要回退到永远可见的触发按钮（对齐 FloatingUI 默认归还 reference）；③ 首个可聚焦项的默认聚焦是 afterNextPaint（下一帧）而非同步——同步 focus 会让浏览器把滚动位置一起拽过去，浮层刚出现就被 scrollIntoView 顶一截；④ 浮层内没有任何可聚焦项时焦点必须落浮层容器（tabindex=-1），否则焦点留在背后页面，Tab 第一下就穿帮；⑤ 禁止用 inert/aria-hidden 之外的方式\"藏\"背景——但 inert 会连带把浮层也 inert 掉（浮层常挂在 body 下），背景和浮层必须分开标记；⑥ VisuallyHidden 的关闭按钮要留在 DOM 里：读屏器靠它退出，display:none 会让读屏器认为这个对话框没有出口；⑦ 兄弟浮层各自的 Escape 处理器不能 stopPropagation——同节点后续监听器会被整段挡掉，同一页面的其他浮层就收不到关闭信号。",
       "scenes": {
         "places": [
@@ -2632,9 +2639,10 @@
       "description": "筛选后网格重新排列，每个卡片从旧位置滑到新位置，而不是闪一下。",
       "category": "交互反馈",
       "source": "src/effects/feedback.grid-reflow.js",
-      "preview": "index.html#grid-reflow",
+      "preview": "effects.html#grid-reflow",
       "implementation": "demo-module",
       "technology": "FLIP",
+      "declaredDependencies": "无",
       "notes": "筛选后直接重排 DOM 会闪。必须先量所有元素的旧位置（存成 Map），改完 DOM 再量一次，逐个算差值做 transform 动画。被隐藏的项要单独处理——它们从旧位置缩放消失，不能直接删。",
       "scenes": null,
       "sceneEvidence": null,
@@ -2661,9 +2669,10 @@
       "description": "输入框的键盘处理器在输入法组合期间必须\"让路\"：中文候选词还没上屏时，Enter 是\"提交候选\"不是\"确认选择\"，Esc 是\"取消候选\"不是\"清空输入\"，方向键是\"选候选\"不是\"移列表\"。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 IME_GUARD_DESIGN.md 描述的 isImeKeyEvent 判定，原生 JS 独立实现，含裸奔版对照。",
       "category": "交互反馈",
       "source": "src/effects/feedback.ime-guard.js",
-      "preview": "index.html#ime-guard",
+      "preview": "effects.html#ime-guard",
       "implementation": "demo-module",
       "technology": "Astryx",
+      "declaredDependencies": "无",
       "notes": "三个坑：① 判定必须两个条件都查——`e.isComposing || e.keyCode === 229`，229 是老版 Chrome/WebKit 在组合期间给所有键发的键码，只查 isComposing 在这些浏览器上会漏；② Esc 的语义冲突最隐蔽——组合中按 Esc 是\"删掉正在打的候选\"，守卫不 return 掉的话你的\"清空输入\"处理器会把用户整段输入一起删了；③ 选中项不能绑在 input 事件上——组合期间每敲一个字母都触发 input，要么等 compositionend 后再处理，要么由放行后的 keydown 处理；另外组合中触发 blur（点别处）会丢候选，onBlur 里也要查 isComposing 再决定是否提交。",
       "scenes": {
         "places": [
@@ -2708,7 +2717,7 @@
       "description": "点快捷意图只填草稿、不直接发送——把\"误触即执行\"的坑从设计上堵掉。",
       "category": "交互反馈",
       "source": "src/effects/feedback.intent-fill.js",
-      "preview": "index.html#intent-fill",
+      "preview": "effects.html#intent-fill",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2738,7 +2747,7 @@
       "description": "一颗黑色胶囊在 4 组尺寸预设间弹开收拢，内容跟着换。移植自 Cult UI 的 Dynamic Island：通知、播放器、状态提示都能就地展开，不用另开弹窗。",
       "category": "交互反馈",
       "source": "src/effects/feedback.island-morph.js",
-      "preview": "index.html#island-morph",
+      "preview": "effects.html#island-morph",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2787,9 +2796,10 @@
       "description": "同一个等距 SVG 被控制面板实时改参：线重滑杆直改 stroke-width、主题一键翻转（全部描边走 currentColor）、朝向左右镜像、尺寸伸缩；悬停画面时三层板子按光标做层间视差。机制提炼自 Overflow Design（overflow.design）公开目录页的参数面板（Appearance/Theme/Weight/Facing）与\"指上去它就动\"的描述，原生 JS/CSS/SVG 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.iso-parametric.js",
-      "preview": "index.html#iso-parametric",
+      "preview": "effects.html#iso-parametric",
       "implementation": "demo-module",
       "technology": "Overflow Design",
+      "declaredDependencies": "无",
       "notes": "三个坑：① 线重滑杆必须改 stroke-width 属性而不是缩放 SVG——transform 缩放会把描边一起放大，\"粗线\"就成了\"大图\"，两者观感完全不同；② 镜像朝向用 scaleX(-1) 会把高光和文字也翻过去，纯线条等距图没事，带标签或固定光源的图要只镜像图形层；③ 主题翻转的前提是所有描边写 currentColor、所有面的明暗用相对透明度（rgba 白/黑）——写死任何一个颜色，翻主题时它就是一块补丁。层间视差给每层不同的位移系数（近层大远层小），全层同距就成了平移。",
       "scenes": {
         "places": [
@@ -2836,9 +2846,10 @@
       "description": "专业音频软件的旋钮不强迫用户转圈：横向拖是线性增量（精确、可长距离），绕着旋钮拖是方位角跟随（直观、快调）——拖到一半可以自由换法，光标相对旋钮的位置自动选交互模式。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-knob 手势逻辑，原生 JS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.knob-gesture.js",
-      "preview": "index.html#knob-gesture",
+      "preview": "effects.html#knob-gesture",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "两个坑：① 模式判定必须在 pointerdown 当场读光标位置然后锁死，不能每帧重判——绕圈拖的过程中光标会周期性穿过旋钮正下方，每帧重判会让数值在线性/方位之间疯狂抖动；② 方位角读数跨过 -180°/180° 边界时要处理环绕：用累积差值（atan2 差归一化到 ±180 再累加）而不是直接相减，否则过 12 点方向会突然跳一整圈。第三个细节：两种模式的手感增益不同（线性 1px 一步、方位角 2° 一步），混用一套增益会一边灵敏一边迟钝。",
       "scenes": {
         "places": [
@@ -2883,9 +2894,10 @@
       "description": "一个 Tab 停靠点管整组控件：roving tabindex 让只有 active 项 tabIndex=0、其余 -1，方向键在组内移动（可循环/横竖/网格多列），Home/End 跳首尾；连敲字母走 typeahead——750ms 内累积匹配串、前缀命中跳转、超时清空，disabled 项按 null 跳过。机制提炼自 floating-ui（MIT）公开文档 useListNavigation/Composite/useTypeahead，原生 JS 独立实现，带虚拟焦点与网格演示。",
       "category": "交互反馈",
       "source": "src/effects/feedback.list-nav.js",
-      "preview": "index.html#list-nav",
+      "preview": "effects.html#list-nav",
       "implementation": "demo-module",
       "technology": "Floating UI",
+      "declaredDependencies": "无",
       "notes": "六个坑：① 真实焦点模型下列表项必须自身可 focus（tabindex）且带 role，否则方向键移过去焦点落在容器上；虚拟焦点模型用 aria-activedescendant，此时每个项必须有唯一 id——两种模型不能混；② roving 的规则是 active 项 tabIndex=0、其余 -1，activeIndex 为 null 时不得留下任何 tabbable 项；③ typeahead 有 750ms 复位窗口，且只该用于 menu/select——可输入的 combobox 里打字是搜索，不是跳转，两套逻辑会打架；④ 匹配从 activeIndex 之后开始找（带环绕），null 项 = disabled 跳过，所以 disabled 项要给 null 而不是省略，否则索引错位；⑤ allowEscape（越界后取消选中）必须配 loop:true，否则无处可去；⑥ 键盘打开菜单时默认聚焦首个 tabbable（不是 focusable）项，鼠标打开则不抢焦点——focusItemOnOpen 的 auto 推断就靠这个区分，写反了鼠标点开会丢焦点。",
       "scenes": {
         "places": [
@@ -2930,7 +2942,7 @@
       "description": "鼠标靠近时按钮被\"吸\"过去，高端品牌官网标配。",
       "category": "交互反馈",
       "source": "src/effects/feedback.magnetic-btn.js",
-      "preview": "index.html#magnetic-btn",
+      "preview": "effects.html#magnetic-btn",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -2973,7 +2985,7 @@
       "description": "靠\"内凹底边 + 外投影\"一套双色阴影做出凸起实体感，按下时阴影减弱像被按进面板。移植自 Cult UI 的 Neumorph Button。",
       "category": "交互反馈",
       "source": "src/effects/feedback.neumorph-btn.js",
-      "preview": "index.html#neumorph-btn",
+      "preview": "effects.html#neumorph-btn",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -3018,9 +3030,10 @@
       "description": "关闭要说出理由：Esc → escape-key（IME 合成中不关）、浮层外按下 → outside-press（pointerdown 是 eager、click 是 lazy，lazy 要用\"起点或终点在浮层内就不关\"护住拖拽选择）、点触发器 → reference-press。滚动锁定用模块级 lockCount——第一个浮层装锁（body overflow:hidden + 滚动条宽度补 padding、RTL 选左侧、iOS 用 position:fixed 负偏移回锚），最后一个才解锁，嵌套浮层绝不提前放锁。机制提炼自 floating-ui（MIT）公开文档 FloatingOverlay/useDismiss，原生 JS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.overlay-dismiss.js",
-      "preview": "index.html#overlay-dismiss",
+      "preview": "effects.html#overlay-dismiss",
       "implementation": "demo-module",
       "technology": "Floating UI",
+      "declaredDependencies": "无",
       "notes": "七个坑：① lockCount 必须是模块级共享计数，不是每个浮层自查 body——嵌套两个浮层时内层关闭若直接解锁，背景立刻可滚，外层还开着；② 锁的第一瞬间滚动条消失会让布局横跳，必须用 innerWidth - documentElement.clientWidth 量出滚动条宽度补到 body 的 padding 上；RTL 下要补 paddingLeft——判定看 documentElement.getBoundingClientRect().left + scrollLeft 是否为 0；③ 只有 iOS 不认 body 的 overflow:hidden——技法是 body position:fixed + top/left 设为负的滚动偏移（再减 visualViewport 偏移避开工具栏），解锁时必须 window.scrollTo({behavior:'instant'}) 回位，用默认平滑滚动会看到页面滑回去；④ eager（pointerdown）对鼠标和触摸都立即关，会打断\"从浮层内起手的拖拽选择\"；lazy（click）虽然等抬手，但必须同时检查起点和终点——只查终点时，从外面按下拖进浮层内松手仍会被误关；⑤ Esc 关闭前要查 isComposing，中文输入法组词中按 Esc 是取消组词不是关浮层；⑥ 点在滚动条上不算\"点了外面\"——要按 target 的 overflow 样式和 client/scrollWidth 判定；⑦ 点触发器关闭的 reason 是 reference-press 而不是 outside-press，日志/埋点里两者混用会让\"用户主动收起\"和\"误触外部\"分不开。",
       "scenes": {
         "places": [
@@ -3066,7 +3079,7 @@
       "description": "把 lerp 改成 pow(1-k, dt/16.67)：60Hz 和 144Hz 屏幕上同一段动画的快慢完全一致。",
       "category": "交互反馈",
       "source": "src/effects/feedback.p5-lerp-ease.js",
-      "preview": "index.html#p5-lerp-ease",
+      "preview": "effects.html#p5-lerp-ease",
       "implementation": "demo-module",
       "technology": "p5.js",
       "declaredDependencies": "无",
@@ -3096,9 +3109,10 @@
       "description": "专业工具软件的控件材质配方：控件放在中灰面板（约 #414141）上，填充是相对的\"白 15%\"半透明平涂，顶部一道内高光、四边一条发丝暗描边、底下 1px 投影；深色面板上按下变亮，动作条上按下变暗。机制提炼自 ProUI（pro-ui.dev）公开文档的材质配方，原生 CSS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.pro-material.js",
-      "preview": "index.html#pro-material",
+      "preview": "effects.html#pro-material",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "三个坑：① 填充必须是相对值（white 15%）而不是固定灰——换一块更亮或更暗的面板，按钮自动跟着协调，写死 #555 在浅色面板上会像补丁；② 顶内光是\"透过填充自身透明度合成\"的 35% 白，neutral 填充下折算只有 5.25% 有效不透明度，直接画一条 35% 白线会像塑料反光；③ 按压方向不能反：深色面板上的按钮按下要变亮（往光源抬），动作条上的按钮按下要变暗（往面板压），反了就失去\"被按进表面\"的物理感。",
       "scenes": {
         "places": [
@@ -3144,9 +3158,10 @@
       "description": "切换按钮按下后松手会闪一下——浏览器在提交点击状态前提前一帧丢掉 :active，按压填充和\"已激活\"填充之间露出一帧底色。解法是松手后把按压填充再按住一帧，跨过那个空窗再交给新状态。机制提炼自 ProUI（pro-ui.dev）公开文档描述的切换按钮无闪烁处理，原生 JS/CSS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.release-no-flash.js",
-      "preview": "index.html#release-no-flash",
+      "preview": "effects.html#release-no-flash",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "根源不是动画问题而是浏览器时序问题：pointerup 先于 click 触发，:active 在 pointerup 那一刻就没了，而 aria-pressed/class 要等 click 才翻转——中间必空一帧，加 transition 只会把这个空窗拉长成可见的\"闪\"。解法是在 pointerup 时手动给元素挂 held 类（把按压填充留住），等 click 提交状态后再摘。第二个坑：不要用 setTimeout(0) 摘 held——0ms 回调仍在同一帧内，必须等至少一个 rAF（或 requestPostAnimationFrame）确保新状态已经绘制。第三个坑：pointercancel 和鼠标移出控件再松手（lostpointercapture）也要摘 held，否则按钮会卡在按压态。",
       "scenes": {
         "places": [
@@ -3191,7 +3206,7 @@
       "description": "点击位置扩散水波，Material 系最经典的反馈。",
       "category": "交互反馈",
       "source": "src/effects/feedback.ripple.js",
-      "preview": "index.html#ripple",
+      "preview": "effects.html#ripple",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -3234,7 +3249,7 @@
       "description": "松手后按 config.decay 指数衰减继续滑，速度越快滑越远——不用自己算摩擦。",
       "category": "交互反馈",
       "source": "src/effects/feedback.rs-decay-scroll.js",
-      "preview": "index.html#rs-decay-scroll",
+      "preview": "effects.html#rs-decay-scroll",
       "implementation": "demo-module",
       "technology": "react-spring",
       "declaredDependencies": "react-spring (可选)",
@@ -3264,7 +3279,7 @@
       "description": "default / gentle / wobbly / stiff / slow / molasses 六组官方预设同屏震动，直接选出该用哪一档。",
       "category": "交互反馈",
       "source": "src/effects/feedback.rs-spring-presets.js",
-      "preview": "index.html#rs-spring-presets",
+      "preview": "effects.html#rs-spring-presets",
       "implementation": "demo-module",
       "technology": "react-spring",
       "declaredDependencies": "react-spring (可选)",
@@ -3294,7 +3309,7 @@
       "description": "useTrail 的实现原理：第 i 个弹簧把目标值设成第 i-1 个弹簧的当前值，于是每一节都在\"追\"上一节。",
       "category": "交互反馈",
       "source": "src/effects/feedback.rs-trail-chain.js",
-      "preview": "index.html#rs-trail-chain",
+      "preview": "effects.html#rs-trail-chain",
       "implementation": "demo-module",
       "technology": "react-spring",
       "declaredDependencies": "react-spring (可选)",
@@ -3324,9 +3339,10 @@
       "description": "专业软件的数字输入：在数值上横向拖拽改数，每 4px 计一步；关键是\"从按下那一刻的像素统算步数\"，不是逐帧累加——拖回按下处，旧数值精确复原。Shift 五倍速、Alt 五分之一速，双击可直接键入。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-number-input 行为，原生 JS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.scrub-number.js",
-      "preview": "index.html#scrub-number",
+      "preview": "effects.html#scrub-number",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "最大的坑是逐帧累加（value += dx/4）：浮点误差会一路漂移，拖回来数值回不到原点，用户看到的是\"松手后数字自己跳了一下\"。正解是记录按下像素和按下时的值，每帧用 startVal + steps*step 统算，数学上严格可逆。第二个坑：拖拽期间必须 setPointerCapture 并 preventDefault，否则鼠标滑出控件边界事件就断了，数值卡在半路。第三个坑：步长和像素的比值（4px/步）决定手感——太小像搓不动，太大一甩就飞，改之前先想想用户调的量级。",
       "scenes": {
         "places": [
@@ -3372,7 +3388,7 @@
       "description": "超大箭头光标点进胶囊分段控件，白色 thumb 以橡皮筋拉伸滑到另一段、带 1.5% 过冲回弹，到位瞬间新选项前弹出小图标、旧图标收起。移植自 video-shotcraft 的 Segmented Thumb Hero（Apache-2.0）。",
       "category": "交互反馈",
       "source": "src/effects/feedback.segmented-thumb.js",
-      "preview": "index.html#segmented-thumb",
+      "preview": "effects.html#segmented-thumb",
       "implementation": "demo-module",
       "technology": "原生 JS + CSS 3D",
       "declaredDependencies": "无",
@@ -3402,7 +3418,7 @@
       "description": "hover 时卡内三层同时换位：主视觉淡出、抽屉从底部顶起、隐藏的副标题补进标题区。移植自 Cult UI 的 Shift Card，一张卡在不加高度的情况下给出两套信息。",
       "category": "交互反馈",
       "source": "src/effects/feedback.shift-card.js",
-      "preview": "index.html#shift-card",
+      "preview": "effects.html#shift-card",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -3448,9 +3464,10 @@
       "description": "滑块的滑轨宽度减去 thumb 自身宽度：这样 thumb 中心滑到轨道最左端时正好压满最小值，不会有一小截 thumb 露在轨道外面、数值也到不了真正的 min。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-slider 几何处理，原生 CSS/JS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.slider-inset.js",
-      "preview": "index.html#slider-inset",
+      "preview": "effects.html#slider-inset",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "核心坑是坐标系错配：轨道是按 0–100% 填满算位置，thumb 却是有物理宽度的实体，两端各会多出半个 thumb。正解是给轨道容器留出 inset（padding 左右各 thumb/2，或 track 宽度 = 容器宽 − thumb 宽），位置计算再走 inset 内的百分比。第二个坑：拖拽时用 getBoundingClientRect 换算 pointer 位置，容器若带 transform 缩放，rect 是缩放后的布局坐标，必须除以缩放比还原，否则拖起来数值和光标对不上。第三个坑：:active 态给 thumb 放大时要把 transform-origin 钉在中心并接受 overflow，放大态 thumb 越界是正常的物理溢出，不要为了不溢出而缩小可拖区。",
       "scenes": {
         "places": [
@@ -3496,7 +3513,7 @@
       "description": "卡片跟随带惯性，松手后自然回弹，不做线性位移。",
       "category": "交互反馈",
       "source": "src/effects/feedback.spring-card.js",
-      "preview": "index.html#spring-card",
+      "preview": "effects.html#spring-card",
       "implementation": "demo-module",
       "technology": "React Spring 原理",
       "declaredDependencies": "@react-spring/web（生产用）",
@@ -3539,7 +3556,7 @@
       "description": "选中态是一块底板，切换时从旧标签滑到新标签，而不是各标签自己改底色。",
       "category": "交互反馈",
       "source": "src/effects/feedback.tab-ink.js",
-      "preview": "index.html#tab-ink",
+      "preview": "effects.html#tab-ink",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -3582,7 +3599,7 @@
       "description": "外层一圈渐变描边包住内层面，1px 的彩色边靠 padding 造出来，不是 border。移植自 Cult UI 的 Texture Button，是它全站按钮的默认形态。",
       "category": "交互反馈",
       "source": "src/effects/feedback.texture-btn.js",
-      "preview": "index.html#texture-btn",
+      "preview": "effects.html#texture-btn",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -3628,7 +3645,7 @@
       "description": "卡片随鼠标角度做透视倾斜，加高光扫过，产品卡必备。",
       "category": "交互反馈",
       "source": "src/effects/feedback.tilt-3d.js",
-      "preview": "index.html#tilt-3d",
+      "preview": "effects.html#tilt-3d",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -3672,9 +3689,10 @@
       "description": "下拉菜单的触发按钮按所有选项里最宽的那个定宽：当前选中\"中\"时按钮也不会缩成一小截，切换选项时布局纹丝不动。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-select/菜单触发器宽度策略，原生 CSS/JS 独立实现。",
       "category": "交互反馈",
       "source": "src/effects/feedback.trigger-widest.js",
-      "preview": "index.html#trigger-widest",
+      "preview": "effects.html#trigger-widest",
       "implementation": "demo-module",
       "technology": "ProUI",
+      "declaredDependencies": "无",
       "notes": "核心是用一个隐藏的测量哨兵（每个选项复制一份）把容器撑到最宽项的宽度——哨兵容器用 inline-grid，所有选项叠在同一格（grid-area:1/1），容器自动取最宽项撑宽，比 JS 量宽度再写回稳，字体重排、用户缩放它都自动跟。第二个坑：哨兵写成 position:absolute 或并排 inline 都不行——前者脱离布局撑不开容器，后者宽度是所有选项加总；visibility:hidden 也不能换成 display:none（完全不参与布局）。第三个坑：当前值标签要绝对定位叠在哨兵上（在流内就会和哨兵宽度相加），容器用 inline-flex/fit-content，写死 width:100% 的话哨兵白放。",
       "scenes": {
         "places": [
@@ -3719,7 +3737,7 @@
       "description": "卡片层叠如手牌，悬停时整叠散开，适合并列方案展示。",
       "category": "空间与 3D",
       "source": "src/effects/space.card-stack.js",
-      "preview": "index.html#card-stack",
+      "preview": "effects.html#card-stack",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -3749,7 +3767,7 @@
       "description": "八张卡排成 billboard 圆环，不是匀速自转而是「推一把—停靠」分步走，转到正前方那张被点亮前推。移植自 video-shotcraft 的 Carousel 3D（Apache-2.0）。",
       "category": "空间与 3D",
       "source": "src/effects/space.carousel-step.js",
-      "preview": "index.html#carousel-step",
+      "preview": "effects.html#carousel-step",
       "implementation": "demo-module",
       "technology": "纯 CSS + 原生 JS",
       "declaredDependencies": "无",
@@ -3779,7 +3797,7 @@
       "description": "八张卡片围成圆环，整体缓慢旋转，按住可拨动转盘。",
       "category": "空间与 3D",
       "source": "src/effects/space.css3d-card-ring.js",
-      "preview": "index.html#css3d-card-ring",
+      "preview": "effects.html#css3d-card-ring",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -3809,7 +3827,7 @@
       "description": "卡片右上角被一条曲线\"啃\"掉一块，缺角里浮着徽标，hover 时正文带模糊错峰浮现。移植自 Cult UI 的 Cutout Card，用一条 SVG path 就把普通矩形卡做出品牌感。",
       "category": "空间与 3D",
       "source": "src/effects/space.cutout-card.js",
-      "preview": "index.html#cutout-card",
+      "preview": "effects.html#cutout-card",
       "implementation": "demo-module",
       "technology": "原生 JS + SVG mask",
       "declaredDependencies": "无",
@@ -3856,7 +3874,7 @@
       "description": "一张主卡向纵深「复印」出一列克隆体，越远越淡越虚只剩轮廓，停一拍再全体吸回合体。移植自 video-shotcraft 的 Cloner Depth Echo（Apache-2.0）。",
       "category": "空间与 3D",
       "source": "src/effects/space.depth-echo.js",
-      "preview": "index.html#depth-echo",
+      "preview": "effects.html#depth-echo",
       "implementation": "demo-module",
       "technology": "纯 CSS + 原生 JS",
       "declaredDependencies": "无",
@@ -3886,7 +3904,7 @@
       "description": "元素在列表/网格之间换位置时，用 transform 从旧位置滑过去，不做生硬跳转。",
       "category": "空间与 3D",
       "source": "src/effects/space.flip-resize.js",
-      "preview": "index.html#flip-resize",
+      "preview": "effects.html#flip-resize",
       "implementation": "demo-module",
       "technology": "Web Animations",
       "declaredDependencies": "无",
@@ -3916,7 +3934,7 @@
       "description": "一张纸从对折状态一层层摊平，折面自带明暗变化。移植自 Cult UI 的 Folded Card，比 height 过渡更有\"物理感\"，适合展开详情、收据、票券。",
       "category": "空间与 3D",
       "source": "src/effects/space.fold-card.js",
-      "preview": "index.html#fold-card",
+      "preview": "effects.html#fold-card",
       "implementation": "demo-module",
       "technology": "纯 CSS 3D",
       "declaredDependencies": "无",
@@ -3964,7 +3982,7 @@
       "description": "14×9 个小方块用一次 drawArraysInstanced 画出，高度场随距离衰减成涟漪。",
       "category": "空间与 3D",
       "source": "src/effects/space.gl-instanced-grid.js",
-      "preview": "index.html#gl-instanced-grid",
+      "preview": "effects.html#gl-instanced-grid",
       "implementation": "demo-module",
       "technology": "WebGL",
       "declaredDependencies": "无（原生 WebGL2 / ANGLE_instanced_arrays）",
@@ -3994,7 +4012,7 @@
       "description": "一屏 3D 点阵，鼠标射线拾取最近的点并高亮，点按后炸开再回位。",
       "category": "空间与 3D",
       "source": "src/effects/space.gl-raycast-hover.js",
-      "preview": "index.html#gl-raycast-hover",
+      "preview": "effects.html#gl-raycast-hover",
       "implementation": "demo-module",
       "technology": "WebGL",
       "declaredDependencies": "无（原生 WebGL，Raycaster 算法手写）",
@@ -4024,7 +4042,7 @@
       "description": "纯 WebGL 画一个带面法线着色的立方体，拖拽可环绕、松手有惯性滑行。",
       "category": "空间与 3D",
       "source": "src/effects/space.gl-rotating-box.js",
-      "preview": "index.html#gl-rotating-box",
+      "preview": "effects.html#gl-rotating-box",
       "implementation": "demo-module",
       "technology": "WebGL",
       "declaredDependencies": "无（原生 WebGL，无 three.js）",
@@ -4054,7 +4072,7 @@
       "description": "网格曲面用顶点着色器叠加三组正弦，屏幕空间高光让波峰自己亮起来。",
       "category": "空间与 3D",
       "source": "src/effects/space.gl-wave-surface.js",
-      "preview": "index.html#gl-wave-surface",
+      "preview": "effects.html#gl-wave-surface",
       "implementation": "demo-module",
       "technology": "WebGL",
       "declaredDependencies": "无（原生 WebGL + ShaderMaterial 写法）",
@@ -4084,7 +4102,7 @@
       "description": "一张卡片全靠\"多层描边环 + 三段递进投影\"做出实体感，没有任何动画也能站得住。移植自 Cult UI 的 Minimal Card，它是该库所有卡片的底座。跟折页展开是一对：一个靠结构，一个靠光影。",
       "category": "空间与 3D",
       "source": "src/effects/space.minimal-card.js",
-      "preview": "index.html#minimal-card",
+      "preview": "effects.html#minimal-card",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -4131,7 +4149,7 @@
       "description": "用一个中心点做钟摆，同时挂 3 个不同层级的小摆——靠 push/pop 保各自坐标系，互不污染。",
       "category": "空间与 3D",
       "source": "src/effects/space.p5-stack-space.js",
-      "preview": "index.html#p5-stack-space",
+      "preview": "effects.html#p5-stack-space",
       "implementation": "demo-module",
       "technology": "p5.js",
       "declaredDependencies": "无",
@@ -4161,7 +4179,7 @@
       "description": "多层元素按不同速率位移，制造空间纵深。",
       "category": "空间与 3D",
       "source": "src/effects/space.parallax-depth.js",
-      "preview": "index.html#parallax-depth",
+      "preview": "effects.html#parallax-depth",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -4205,9 +4223,10 @@
       "description": "元素沿贝塞尔曲线移动，速度恒定——不是按参数 t 采样那种\"两头快中间慢\"。",
       "category": "空间与 3D",
       "source": "src/effects/space.path-arc-length.js",
-      "preview": "index.html#path-arc-length",
+      "preview": "effects.html#path-arc-length",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
+      "declaredDependencies": "无",
       "notes": "按 t 采样三次贝塞尔必然快慢不均（t=0.5 附近最快）。Lottie 的做法是先用 200 段折线累计弧长建表，再把时间映射回弧长位置。这个方法叫 arc-length reparameterization，是所有\"对路径动画\"的基础，找不到它就只能做出抖动的假匀速。",
       "scenes": null,
       "sceneEvidence": null,
@@ -4234,9 +4253,10 @@
       "description": "同一套布局在 LTR/RTL 之间一键翻转，不写两份样式：所有物理方向属性换成逻辑属性（margin-inline-start、inset-inline-end、text-align:start、圆角 border-start-start-radius），dir 属性一切换整行镜像；方向性图标只镜像一次，物理内容（头像/图表/时钟）保持不动。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 bidirectionality.md 的 DR1–DR6 规则，原生 CSS/JS 独立实现。",
       "category": "空间与 3D",
       "source": "src/effects/space.rtl-logical.js",
-      "preview": "index.html#rtl-logical",
+      "preview": "effects.html#rtl-logical",
       "implementation": "demo-module",
       "technology": "Astryx",
+      "declaredDependencies": "无",
       "notes": "三个坑：① 物理属性不跟 dir 翻——margin-left/right、left/right、text-align:left、border-top-left-radius 全要换成 margin-inline-start、inset-inline-end、text-align:start、border-start-start-radius，漏一个那一处就\"翻到一半\"；② 镜像只做一次——成对符号（()<>「」）Unicode bidi 算法已经翻了，手动再 scaleX(-1) 就是双重镜像，而箭头/进度条这类方向图标 bidi 不管，才需要按语义翻（DR4）；③ transform:translateX 不会随 dir 翻转，位移动画方向必须按当前方向算或改用逻辑位移，键盘/滚动方向也要跟视觉走（RTL 下\"下一项\"在左边，方向键逻辑要反转，DR6）。",
       "scenes": {
         "places": [
@@ -4281,9 +4301,10 @@
       "description": "浮层贴着锚点但绝不越界：中间件管线按 offset→flip→shift→arrow 顺序执行——主轴溢出翻到对侧、对齐轴夹回边界内、箭头按最终 placement 落静态边并把动态轴夹进浮层；autoUpdate 只在挂载期监听祖先滚动/窗口缩放/ResizeObserver，锚点用 transform 动画时这些全都不触发，只有 animationFrame 每帧量矩形才跟得住。机制提炼自 floating-ui（MIT，32.8k★）公开文档 computePosition/middleware/flip/shift/arrow/autoUpdate，原生 JS 独立实现，带边界内滚动与锚点动画开关演示。",
       "category": "空间与 3D",
       "source": "src/effects/space.smart-anchor.js",
-      "preview": "index.html#smart-anchor",
+      "preview": "effects.html#smart-anchor",
       "implementation": "demo-module",
       "technology": "Floating UI",
+      "declaredDependencies": "无",
       "notes": "七个坑：① 浮层定位前必须先铺好初始布局——position:absolute + width:max-content + top:0 left:0，否则量到的是被容器撑坏的宽高，且溢出会触发重排造成测量抖动；② 浮层必须处于可见状态才能测量，display:none 下调 computePosition 得到 0×0；③ 中间件顺序即语义：offset 永远在最前、arrow/hide 在最后，flip 改变 placement 会让后续中间件整轮重跑（reset lifecycle），带 -start/-end 对齐时 flip 必须排在 shift 之前，否则对齐翻转会被平移抢先；④ arrow 的 middlewareData 只有一维有值，判断必须用 != null——0 是合法坐标，用 !x 会把贴边箭头判成缺失；⑤ limitShift 的停止条件是\"浮层对边与锚点对边对齐\"，不是简单 clamp 到边界，否则锚点会脱离浮层（detached）；⑥ rootBoundary 默认 viewport 用的是视觉视口（visualViewport），双指缩放/键盘弹出会变，右键菜单这类要锚死布局视口得显式传 layoutViewport/document；⑦ ResizeObserver 只报尺寸变化不报 transform 位移，IntersectionObserver 的 layoutShift 同理，纯位移动画必须开 animationFrame（代价是每帧 ~1ms 的全量重算）。",
       "scenes": {
         "places": [
@@ -4329,7 +4350,7 @@
       "description": "WebGL 3D 实体旋转，替代静态产品图做 360° 展示。",
       "category": "空间与 3D",
       "source": "src/effects/space.three-cube.js",
-      "preview": "index.html#three-cube",
+      "preview": "effects.html#three-cube",
       "implementation": "demo-module",
       "technology": "Three.js",
       "declaredDependencies": "three@0.160.0",
@@ -4359,7 +4380,7 @@
       "description": "多层正弦曲线叠加出流动丝带，比粒子更轻、比渐变更有形态。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.aurora.js",
-      "preview": "index.html#aurora",
+      "preview": "effects.html#aurora",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无",
@@ -4404,7 +4425,7 @@
       "description": "一段高光沿卡片描边匀速绕圈，静态卡片瞬间\"通着电\"。移植自 Cult UI 的 Border Beam，是所有 AI 产品卡片最省事的氛围层。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.border-beam.js",
-      "preview": "index.html#border-beam",
+      "preview": "effects.html#border-beam",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -4451,7 +4472,7 @@
       "description": "场景先画进离屏 2D 画布，再过一遍 WebGL 单通道 CRT 后期：YCbCr 色度横向渗透（亮度保持锐利）+ 扫描线随亮度收窄暗缝 + RGB 荫罩 + 开机亮点拉线 + 磁头切换逐行撕裂。移植自 lemo-opuscar 的 core/post/crt.js（MIT）。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.crt-tape.js",
-      "preview": "index.html#crt-tape",
+      "preview": "effects.html#crt-tape",
       "implementation": "demo-module",
       "technology": "原生 WebGL + Canvas 2D",
       "declaredDependencies": "无（原生 WebGL）",
@@ -4481,7 +4502,7 @@
       "description": "把一幅平滑渐变图硬阈值化成黑白网点，边缘呈现老式印刷/终端屏的抖动质感，一侧还能保留干净原图做对比。移植自 Cult UI 的 Dither Image，全程无 JS、无 SVG 滤镜，Safari 也能跑。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.dither-image.js",
-      "preview": "index.html#dither-image",
+      "preview": "effects.html#dither-image",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -4528,7 +4549,7 @@
       "description": "前后景不同模糊半径 + 轻微位移，用最小代价做镜头景深。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.dof-blur.js",
-      "preview": "index.html#dof-blur",
+      "preview": "effects.html#dof-blur",
       "implementation": "demo-module",
       "technology": "CSS filter",
       "declaredDependencies": "无（生产用 PixiJS BlurFilter）",
@@ -4558,7 +4579,7 @@
       "description": "页面底部/顶部一条\"越靠边越糊\"的霜化带，滚动内容滑进去就化掉。移植自 Cult UI 的 Edge Blur，用 5 层 backdrop-filter 叠出来，比单层 12px 模糊顺得多。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.edge-blur.js",
-      "preview": "index.html#edge-blur",
+      "preview": "effects.html#edge-blur",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无（backdrop-filter）",
@@ -4604,7 +4625,7 @@
       "description": "竖条纹玻璃把背后的彩色揉成一条条光带，指针扫过条纹还会错位。移植自 Cult UI 的 Fluted Glass，是当下最像\"实体材质\"的一层毛玻璃。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.fluted-glass.js",
-      "preview": "index.html#fluted-glass",
+      "preview": "effects.html#fluted-glass",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无（backdrop-filter）",
@@ -4652,7 +4673,7 @@
       "description": "粒子绕中心螺旋坠落，用半透明清屏留下拖尾，像长曝光的星轨。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.gl-particle-vortex.js",
-      "preview": "index.html#gl-particle-vortex",
+      "preview": "effects.html#gl-particle-vortex",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无",
@@ -4682,7 +4703,7 @@
       "description": "两千个点沿螺旋轨道漂浮，深度写进颜色，加法混合让密度高处自然发光。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.gl-particles-cloud.js",
-      "preview": "index.html#gl-particles-cloud",
+      "preview": "effects.html#gl-particles-cloud",
       "implementation": "demo-module",
       "technology": "WebGL",
       "declaredDependencies": "无（原生 WebGL，gl.POINTS）",
@@ -4712,7 +4733,7 @@
       "description": "模糊 + 缩放做呼吸感，加载态和空状态的最佳填充。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.glow-orb.js",
-      "preview": "index.html#glow-orb",
+      "preview": "effects.html#glow-orb",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -4742,7 +4763,7 @@
       "description": "渐变背景缓慢位移，做产品页 hero 区域的底噪。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.gradient-flow.js",
-      "preview": "index.html#gradient-flow",
+      "preview": "effects.html#gradient-flow",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -4787,7 +4808,7 @@
       "description": "粒子绕中心做椭圆轨道运动，鼠标靠近时被吸引或排斥，做数据核心/能量场。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.gravity-field.js",
-      "preview": "index.html#gravity-field",
+      "preview": "effects.html#gravity-field",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无（tsParticles 用 attract + orbit 模式）",
@@ -4817,7 +4838,7 @@
       "description": "一次 draw call 画上千个点，每个点独立相位，做高密度星场与数据节点。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.instanced-dots.js",
-      "preview": "index.html#instanced-dots",
+      "preview": "effects.html#instanced-dots",
       "implementation": "demo-module",
       "technology": "WebGL instancing",
       "declaredDependencies": "无（生产用 OGL Geometry instanced / PixiJS ParticleContainer）",
@@ -4847,7 +4868,7 @@
       "description": "粒子飞散角度与速度都取高斯分布，中心密、边缘稀，是\"火花感\"和\"雪碧点子\"的分水岭。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.p5-gauss-burst.js",
-      "preview": "index.html#p5-gauss-burst",
+      "preview": "effects.html#p5-gauss-burst",
       "implementation": "demo-module",
       "technology": "p5.js",
       "declaredDependencies": "无（Box-Muller 已内联）",
@@ -4877,7 +4898,7 @@
       "description": "每个光点的方向由 noise(x, y, 时间) 决定，天然形成成团的涡流，而不是乱飞。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.p5-noise-drift.js",
-      "preview": "index.html#p5-noise-drift",
+      "preview": "effects.html#p5-noise-drift",
       "implementation": "demo-module",
       "technology": "p5.js",
       "declaredDependencies": "无（p5 的 noise 算法已内联，只用了 2KB）",
@@ -4907,7 +4928,7 @@
       "description": "高密度粒子随鼠标排斥并就近连线，适合做背景氛围层。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.particles.js",
-      "preview": "index.html#particles",
+      "preview": "effects.html#particles",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无（生产可用 tsParticles）",
@@ -4937,7 +4958,7 @@
       "description": "一片圆点阵列被一道从中心向外的波逐个点亮，波前过后留下常亮，第二道波再反向收拢。移植自 video-shotcraft 的 Radial Wave（Apache-2.0）。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.radial-wave.js",
-      "preview": "index.html#radial-wave",
+      "preview": "effects.html#radial-wave",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -4967,7 +4988,7 @@
       "description": "几根若隐若现的竖向导引线上，随机有一段光沿着线滑下来，像页面骨架在通电。移植自 Cult UI 的 Stripe BG Guides，是它落地页的默认背景层。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.stripe-guides.js",
-      "preview": "index.html#stripe-guides",
+      "preview": "effects.html#stripe-guides",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -5013,7 +5034,7 @@
       "description": "一层数学图案盖在任何元素上，立刻有纸感/网点感/印刷感。移植自 Cult UI 的 Texture Overlay，它一次给了 12 种图案，全是 background 的组合，零图片零 JS。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.texture-overlay.js",
-      "preview": "index.html#texture-overlay",
+      "preview": "effects.html#texture-overlay",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -5059,7 +5080,7 @@
       "description": "色块从中心晕开：fbm 噪声扰动形状边缘做毛边，靠近边界处颜料堆积变深（edge pool），叠颗粒与斑驳，最后墨线从笔尖到笔尾画出 + 溅点。移植自 baoyu-design 的 watercolor-kit 画水彩引擎（MIT）。",
       "category": "粒子与氛围",
       "source": "src/effects/particle.watercolor-wash.js",
-      "preview": "index.html#watercolor-wash",
+      "preview": "effects.html#watercolor-wash",
       "implementation": "demo-module",
       "technology": "Canvas 2D + 原生 JS",
       "declaredDependencies": "无",
@@ -5089,7 +5110,7 @@
       "description": "拖动时跟手，松手后按速度甩出并回弹到原位。",
       "category": "物理与拟真",
       "source": "src/effects/physics.elastic-drag.js",
-      "preview": "index.html#elastic-drag",
+      "preview": "effects.html#elastic-drag",
       "implementation": "demo-module",
       "technology": "Pointer Events",
       "declaredDependencies": "无",
@@ -5119,7 +5140,7 @@
       "description": "一根多节链子追鼠标：每节都追上一节的当前位置，天然产生甩尾和惯性。",
       "category": "物理与拟真",
       "source": "src/effects/physics.fk-wave.js",
-      "preview": "index.html#fk-wave",
+      "preview": "effects.html#fk-wave",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选)",
@@ -5149,7 +5170,7 @@
       "description": "元素受重力下落并弹性回弹，做\"到货/落地\"类提示。",
       "category": "物理与拟真",
       "source": "src/effects/physics.gravity-drop.js",
-      "preview": "index.html#gravity-drop",
+      "preview": "effects.html#gravity-drop",
       "implementation": "demo-module",
       "technology": "原生物理积分",
       "declaredDependencies": "无（复杂场景用 Rapier）",
@@ -5179,7 +5200,7 @@
       "description": "L 形复合刚体被抛出后带着角动量翻滚，落地按惯量弹跳、逐次衰减。",
       "category": "物理与拟真",
       "source": "src/effects/physics.matter-compound-body.js",
-      "preview": "index.html#matter-compound-body",
+      "preview": "effects.html#matter-compound-body",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写刚体 + 旋转惯量 + 接触冲量）",
@@ -5209,7 +5230,7 @@
       "description": "三个滑块用弹簧串起来，拖拽时弹簧拉伸回弹，松手过冲两次才停。",
       "category": "物理与拟真",
       "source": "src/effects/physics.matter-spring-chain.js",
-      "preview": "index.html#matter-spring-chain",
+      "preview": "effects.html#matter-spring-chain",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写弹簧 — 阻尼积分，等价 Matter.Constraint）",
@@ -5239,7 +5260,7 @@
       "description": "圆角半径连续变化，做有机形态的呼吸体。",
       "category": "物理与拟真",
       "source": "src/effects/physics.morph-blob.js",
-      "preview": "index.html#morph-blob",
+      "preview": "effects.html#morph-blob",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -5269,7 +5290,7 @@
       "description": "两颗子弹射向薄墙：关掉 CCD 的那颗整块穿墙飞走，开着的那颗被弹回。",
       "category": "物理与拟真",
       "source": "src/effects/physics.rapier-ccd-bullet.js",
-      "preview": "index.html#rapier-ccd-bullet",
+      "preview": "effects.html#rapier-ccd-bullet",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写射线扫掠 + CCD 判定）",
@@ -5299,7 +5320,7 @@
       "description": "摆臂由速度马达驱动来回摆，到限位处被夹住，摆锤的惯性让整条臂顿一下。",
       "category": "物理与拟真",
       "source": "src/effects/physics.rapier-motor-joint.js",
-      "preview": "index.html#rapier-motor-joint",
+      "preview": "effects.html#rapier-motor-joint",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写铰链马达 + 限位约束）",
@@ -5329,7 +5350,7 @@
       "description": "小人由头、躯干、四肢用关节连起来，鼠标一拽整体瘫软摆动，关节不会折反。",
       "category": "物理与拟真",
       "source": "src/effects/physics.rapier-ragdoll-2d.js",
-      "preview": "index.html#rapier-ragdoll-2d",
+      "preview": "effects.html#rapier-ragdoll-2d",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写 Verlet + 距离/角度双重约束）",
@@ -5359,7 +5380,7 @@
       "description": "五十节链子钉在上方，拖动可甩动，末端配重让链条下垂成弧。",
       "category": "物理与拟真",
       "source": "src/effects/physics.rapier-rope-chain.js",
-      "preview": "index.html#rapier-rope-chain",
+      "preview": "effects.html#rapier-rope-chain",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写 Verlet + 距离约束，等价 Rapier 的 rope joint）",
@@ -5389,7 +5410,7 @@
       "description": "十块盒子叠成塔，点击推倒；静止后整堆变暗进入休眠，被撞才醒。",
       "category": "物理与拟真",
       "source": "src/effects/physics.rapier-stack-collapse.js",
-      "preview": "index.html#rapier-stack-collapse",
+      "preview": "effects.html#rapier-stack-collapse",
       "implementation": "demo-module",
       "technology": "物理积分",
       "declaredDependencies": "无（手写 2D 刚体 + 冲量求解，等价 Rapier 的 solver 循环）",
@@ -5419,7 +5440,7 @@
       "description": "useChain 的思路：卡从左边进 → 到中间放大 → 变亮 → 收缩成点，四段共用一条时间预算。",
       "category": "物理与拟真",
       "source": "src/effects/physics.rs-chain-orch.js",
-      "preview": "index.html#rs-chain-orch",
+      "preview": "effects.html#rs-chain-orch",
       "implementation": "demo-module",
       "technology": "react-spring",
       "declaredDependencies": "react-spring (可选)",
@@ -5449,7 +5470,7 @@
       "description": "两张建议卡前后叠放，前卡的进度条混着成功/失败两段一起长，点提交后前卡飞出、后卡顶上。移植自 Cult UI 的 Agent Suggest Card Stack，是 AI 编码产品里\"agent 给你列改动清单\"的标准形态。",
       "category": "数据动效",
       "source": "src/effects/data.agent-stack.js",
-      "preview": "index.html#agent-stack",
+      "preview": "effects.html#agent-stack",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -5497,7 +5518,7 @@
       "description": "柱状图从基线生长，配合延迟做逐条揭示。",
       "category": "数据动效",
       "source": "src/effects/data.bar-grow.js",
-      "preview": "index.html#bar-grow",
+      "preview": "effects.html#bar-grow",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -5541,7 +5562,7 @@
       "description": "处理前后两版叠放，竖分割杆带手柄：先快甩到 76% 回弹落 70%，再慢速回扫到 40% 停住，杆经过处清晰版被揭出。先快后慢的速度对比是节奏关键。移植自 video-shotcraft 的 Before After Slider Scrub（Apache-2.0）。",
       "category": "数据动效",
       "source": "src/effects/data.before-after-slider.js",
-      "preview": "index.html#before-after-slider",
+      "preview": "effects.html#before-after-slider",
       "implementation": "demo-module",
       "technology": "原生 JS + clip-path",
       "declaredDependencies": "无",
@@ -5571,7 +5592,7 @@
       "description": "关键数据从 0 滚到目标值，提案里讲\"剂量/含量\"必备。",
       "category": "数据动效",
       "source": "src/effects/data.count-up.js",
-      "preview": "index.html#count-up",
+      "preview": "effects.html#count-up",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -5614,7 +5635,7 @@
       "description": "SVG 圆环描边生长，做完成度/达标率最直观。",
       "category": "数据动效",
       "source": "src/effects/data.donut-ring.js",
-      "preview": "index.html#donut-ring",
+      "preview": "effects.html#donut-ring",
       "implementation": "demo-module",
       "technology": "SVG",
       "declaredDependencies": "无",
@@ -5658,7 +5679,7 @@
       "description": "同一个球体在四级 LOD 间来回切换，橙色边线是量化（14bit→10bit）带来的顶点偏移。",
       "category": "数据动效",
       "source": "src/effects/data.glt-quantize-lod.js",
-      "preview": "index.html#glt-quantize-lod",
+      "preview": "effects.html#glt-quantize-lod",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无（手写球面细分 + 顶点量化，等价 gltf-transform 的 simplify/quantize）",
@@ -5688,7 +5709,7 @@
       "description": "旁白读到哪个词，哪个词就被从左到右填亮，读完再退回主墨色，强调色只属于「此刻」。移植自 video-shotcraft 的 Karaoke Fill Sync（Apache-2.0）。",
       "category": "数据动效",
       "source": "src/effects/data.karaoke-fill.js",
-      "preview": "index.html#karaoke-fill",
+      "preview": "effects.html#karaoke-fill",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -5718,7 +5739,7 @@
       "description": "三个仪表指针错峰从 0 甩满全弧，再带阻尼回落到各自真实值、落定同帧数字弹出，像系统上电自检。移植自 video-shotcraft 的 Needle Sweep Selftest（Apache-2.0）。",
       "category": "数据动效",
       "source": "src/effects/data.needle-gauge.js",
-      "preview": "index.html#needle-gauge",
+      "preview": "effects.html#needle-gauge",
       "implementation": "demo-module",
       "technology": "SVG + 原生 JS",
       "declaredDependencies": "无",
@@ -5748,7 +5769,7 @@
       "description": "数据方块网格铺满卡片，DPR 2 下边缘依然锐利——把 pixelDensity 的坑一次讲清。",
       "category": "数据动效",
       "source": "src/effects/data.p5-dpr-sharp.js",
-      "preview": "index.html#p5-dpr-sharp",
+      "preview": "effects.html#p5-dpr-sharp",
       "implementation": "demo-module",
       "technology": "p5.js",
       "declaredDependencies": "无",
@@ -5778,7 +5799,7 @@
       "description": "一层层叠起来的噪声等高线，用极细描边做出\"数据地形\"质感，适合做图表背景。",
       "category": "数据动效",
       "source": "src/effects/data.p5-noiseline-stack.js",
-      "preview": "index.html#p5-noiseline-stack",
+      "preview": "effects.html#p5-noiseline-stack",
       "implementation": "demo-module",
       "technology": "p5.js",
       "declaredDependencies": "无",
@@ -5808,7 +5829,7 @@
       "description": "每一位数字各转各的，低位先到、高位后到，像机械里程表。移植自 Cult UI 的 Rolling Number，比 count-up 更耐看，适合金额、计数、版本号。",
       "category": "数据动效",
       "source": "src/effects/data.rolling-number.js",
-      "preview": "index.html#rolling-number",
+      "preview": "effects.html#rolling-number",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -5855,9 +5876,10 @@
       "description": "滚动位置直接映射为动画进度，滚多少动画走多少，回滚会倒退。",
       "category": "数据动效",
       "source": "src/effects/data.scroll-scrub.js",
-      "preview": "index.html#scroll-scrub",
+      "preview": "effects.html#scroll-scrub",
       "implementation": "demo-module",
       "technology": "原生 JS",
+      "declaredDependencies": "无",
       "notes": "关键在 scrub 而不是 trigger：不是\"滚到就播\"，而是\"滚动量 = 进度\"。实现必须用 getBoundingClientRect 每帧量，不能用 scrollTop 缓存——否则有 sticky 元素的容器里会算错。start/end 用百分比会让不同高度的容器提示点不同，生产要改成像素锚点。",
       "scenes": {
         "places": [
@@ -5897,7 +5919,7 @@
       "description": "加载占位块上有一道高光扫过，告诉用户\"正在等工作\"而不是\"坏了\"。",
       "category": "数据动效",
       "source": "src/effects/data.skeleton-shimmer.js",
-      "preview": "index.html#skeleton-shimmer",
+      "preview": "effects.html#skeleton-shimmer",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -5943,7 +5965,7 @@
       "description": "折线从起点\"画\"出来，走势图出场最省事的做法。",
       "category": "数据动效",
       "source": "src/effects/data.sparkline.js",
-      "preview": "index.html#sparkline",
+      "preview": "effects.html#sparkline",
       "implementation": "demo-module",
       "technology": "SVG",
       "declaredDependencies": "无",
@@ -5987,7 +6009,7 @@
       "description": "三点依次弹起，AI 在思考时最低成本的进度反馈。",
       "category": "数据动效",
       "source": "src/effects/data.thinking-dots.js",
-      "preview": "index.html#thinking-dots",
+      "preview": "effects.html#thinking-dots",
       "implementation": "demo-module",
       "technology": "纯 CSS",
       "declaredDependencies": "无",
@@ -6030,7 +6052,7 @@
       "description": "读数 → 柱条 → 网格线 → 徽标，四段动画用绝对时间点串联，改一处不乱。",
       "category": "数据动效",
       "source": "src/effects/data.timeline-orch.js",
-      "preview": "index.html#timeline-orch",
+      "preview": "effects.html#timeline-orch",
       "implementation": "demo-module",
       "technology": "Anime.js v4",
       "declaredDependencies": "animejs@4 (可选)",
@@ -6060,7 +6082,7 @@
       "description": "多轨道片段吸附对齐，带播放头与刻度，视频/播客/排期的通用母版。",
       "category": "数据动效",
       "source": "src/effects/data.timeline-tracks.js",
-      "preview": "index.html#timeline-tracks",
+      "preview": "effects.html#timeline-tracks",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无（OpenCut / Remotion 同款机制）",
@@ -6090,7 +6112,7 @@
       "description": "按词级时间戳逐个点亮字幕，剪映/短视频字幕的标准形态。",
       "category": "数据动效",
       "source": "src/effects/data.word-captions.js",
-      "preview": "index.html#word-captions",
+      "preview": "effects.html#word-captions",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无（数据源用 faster-whisper word_timestamps）",
@@ -6120,7 +6142,7 @@
       "description": "标语末词用竖向滚轮循环切换，中心词清晰上色、相邻行纵向模糊带景深，像滚筒带曲面。移植自 video-shotcraft 的 Vertical Word Roll（Apache-2.0）。",
       "category": "数据动效",
       "source": "src/effects/data.word-reel.js",
-      "preview": "index.html#word-reel",
+      "preview": "effects.html#word-reel",
       "implementation": "demo-module",
       "technology": "原生 JS",
       "declaredDependencies": "无",
@@ -6150,7 +6172,7 @@
       "description": "从真实音频流取出频谱画柱状图，不是正弦波伪装的假动画。",
       "category": "声音驱动",
       "source": "src/effects/audio.spectrum-bars.js",
-      "preview": "index.html#spectrum-bars",
+      "preview": "effects.html#spectrum-bars",
       "implementation": "demo-module",
       "technology": "Web Audio",
       "declaredDependencies": "无（AnalyserNode + Canvas）",
@@ -6180,7 +6202,7 @@
       "description": "用代码合成短促 UI 音效，不加载任何音频文件。",
       "category": "声音驱动",
       "source": "src/effects/audio.tone-click.js",
-      "preview": "index.html#tone-click",
+      "preview": "effects.html#tone-click",
       "implementation": "demo-module",
       "technology": "Tone.js",
       "declaredDependencies": "tone（Tone.js）",
@@ -6210,7 +6232,7 @@
       "description": "正弦波叠加的视觉律动，可绑定真实音频数据。",
       "category": "声音驱动",
       "source": "src/effects/audio.waveform.js",
-      "preview": "index.html#waveform",
+      "preview": "effects.html#waveform",
       "implementation": "demo-module",
       "technology": "Canvas 2D",
       "declaredDependencies": "无（接真实数据用 AnalyserNode）",
@@ -17567,6 +17589,2080 @@
           "src/video-data.js"
         ],
         "caveat": "本地仅有索引；实现需访问原项目，核对源码与授权。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:caption-news",
+      "kind": "video",
+      "title": "字幕新闻",
+      "description": "美国一年死掉 130 万箱蜜蜂，总数却涨了 6%：静音也能看懂的新闻。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "Social",
+        "news",
+        "Report",
+        "explainers",
+        "Data",
+        "shorts"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%AD%97%E5%B9%95%E6%96%B0%E9%97%BB#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/caption-news/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:newsreel",
+      "kind": "video",
+      "title": "1920s 新闻影片",
+      "description": "1926 年报纸说查尔斯顿会跳坏膝盖，福特工人野餐会上的孩子照跳不误。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "History",
+        "stories",
+        "Fads",
+        "&amp;",
+        "eras",
+        "Anniversaries"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=1920s%20%E6%96%B0%E9%97%BB%E5%BD%B1%E7%89%87#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/newsreel/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:countdown",
+      "kind": "video",
+      "title": "实时倒计时分屏",
+      "description": "阿尔忒弥斯二号发射的最后一分钟，一秒不剪：格子从 1 开到 9，点火合成 1。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "Launches",
+        "Countdowns",
+        "Live",
+        "events"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%AE%9E%E6%97%B6%E5%80%92%E8%AE%A1%E6%97%B6%E5%88%86%E5%B1%8F#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/countdown/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:city-symphony",
+      "kind": "video",
+      "title": "延时交响",
+      "description": "纽约的一天：延时光河、踩着十六分音符的网格，1899 年和今天并排。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "City",
+        "films",
+        "Music",
+        "montages",
+        "Openers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%BB%B6%E6%97%B6%E4%BA%A4%E5%93%8D#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/city-symphony/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:visual-investigation",
+      "kind": "video",
+      "title": "视觉调查",
+      "description": "新闻片、照片、证词和调查报告排上同一条时间轴，五路来源指向一处。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "Reconstructions",
+        "Fact-checks",
+        "Incident",
+        "reports"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E8%A7%86%E8%A7%89%E8%B0%83%E6%9F%A5#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/visual-investigation/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:kino-montage",
+      "kind": "video",
+      "title": "构成主义蒙太奇",
+      "description": "帝国大厦的小册子写着建造者，工地实拍和老照片给出答案：每天 2,500 人。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "Industry",
+        "histories",
+        "Milestones",
+        "Collective",
+        "effort"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%9E%84%E6%88%90%E4%B8%BB%E4%B9%89%E8%92%99%E5%A4%AA%E5%A5%87#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/kino-montage/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:telestrator",
+      "kind": "video",
+      "title": "体育战术板",
+      "description": "半场 0–3，费内巴切 12 分钟连进三球：冻住画面、画线、分屏、射门图。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "Sports",
+        "analysis",
+        "Match",
+        "recaps",
+        "Coaching"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E4%BD%93%E8%82%B2%E6%88%98%E6%9C%AF%E6%9D%BF#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/telestrator/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:news-package",
+      "kind": "video",
+      "title": "电视新闻包装",
+      "description": "一周四条 AI 新闻，一整套电视台包装：串联单、标题条、翻牌价格表、规格卡。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "剪辑与纪实",
+        "News",
+        "round-ups",
+        "Bulletins",
+        "Market",
+        "updates"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%94%B5%E8%A7%86%E6%96%B0%E9%97%BB%E5%8C%85%E8%A3%85#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/news-package/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:satellite-briefing",
+      "kind": "video",
+      "title": "卫星简报",
+      "description": "卫星照着地图去找咸海，找到的是沙漠；只有筑了坝的那一块回来了。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Climate",
+        "News",
+        "explainers",
+        "Geography"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%8D%AB%E6%98%9F%E7%AE%80%E6%8A%A5#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/satellite-briefing/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:briefing-board",
+      "kind": "video",
+      "title": "工程简报板",
+      "description": "一条河要架桥，四种桥型在一面简报墙上逐个受检，拍板的是桥下要过的船。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Engineering",
+        "Option",
+        "comparisons",
+        "Briefings"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%B7%A5%E7%A8%8B%E7%AE%80%E6%8A%A5%E6%9D%BF#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/briefing-board/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:lidar-survey",
+      "kind": "video",
+      "title": "点云测绘",
+      "description": "激光点云剥掉一片森林的树冠，露出当年农田的石墙：3.4 公里。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Heritage",
+        "Environment",
+        "Site",
+        "surveys"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%82%B9%E4%BA%91%E6%B5%8B%E7%BB%98#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/lidar-survey/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:white-model",
+      "kind": "video",
+      "title": "白模投影",
+      "description": "投影机把数据一层层刷上鹿特丹白模：从 1940 年的空洞到今天的塔楼。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Urban",
+        "planning",
+        "Exhibitions",
+        "City",
+        "data"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%99%BD%E6%A8%A1%E6%8A%95%E5%BD%B1#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/white-model/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:data-physical",
+      "kind": "video",
+      "title": "数据实物化",
+      "description": "十二年风电和太阳能装机叠成实物，绕表盘升成两条螺旋，2021 年太阳能反超。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Annual",
+        "reports",
+        "Investor",
+        "decks",
+        "Energy",
+        "data"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%95%B0%E6%8D%AE%E5%AE%9E%E7%89%A9%E5%8C%96#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/data-physical/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:teardown",
+      "kind": "video",
+      "title": "产品拆解",
+      "description": "开源键盘的一半在一次环绕中逐层拆开，看到主控再合拢，标上真实尺寸。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Hardware",
+        "launches",
+        "Product",
+        "pages",
+        "Spec",
+        "explainers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E4%BA%A7%E5%93%81%E6%8B%86%E8%A7%A3#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/teardown/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:microscope",
+      "kind": "video",
+      "title": "显微叙事",
+      "description": "一镜从肝组织玻片推到单个细胞核，两个圆逐像素数出 2.4 倍的蓝。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Biomedicine",
+        "Materials",
+        "science",
+        "Skincare",
+        "science"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%98%BE%E5%BE%AE%E5%8F%99%E4%BA%8B#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/microscope/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:archive-lighttable",
+      "kind": "video",
+      "title": "档案灯台",
+      "description": "电报说最长飞了 57 秒；放大镜下，莱特兄弟的底片和档案说是 59 秒。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "实证影像",
+        "Brand",
+        "history",
+        "Archive",
+        "stories",
+        "Museums"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%A1%A3%E6%A1%88%E7%81%AF%E5%8F%B0#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/archive-lighttable/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:crayon-book",
+      "kind": "video",
+      "title": "蜡笔儿童绘本",
+      "description": "月亮失眠了，小女孩爬上屋顶给它唱摇篮曲。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Picture",
+        "books",
+        "Bedtime",
+        "stories",
+        "Kids&#x27;",
+        "learning"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E8%9C%A1%E7%AC%94%E5%84%BF%E7%AB%A5%E7%BB%98%E6%9C%AC#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/crayon-book/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:watercolor",
+      "kind": "video",
+      "title": "水彩笔刷",
+      "description": "跟着降雨从澳洲红色腹地一路画到绿色海岸，一镜到底。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Nature",
+        "documentary",
+        "Travel",
+        "Science",
+        "explainers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%B0%B4%E5%BD%A9%E7%AC%94%E5%88%B7#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/watercolor/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:ink-wash",
+      "kind": "video",
+      "title": "中国水墨",
+      "description": "侠客踏水过江，一剑断流。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Wuxia",
+        "Cultural",
+        "brands",
+        "Poetry"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E4%B8%AD%E5%9B%BD%E6%B0%B4%E5%A2%A8#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/ink-wash/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:impasto",
+      "kind": "video",
+      "title": "油画厚涂",
+      "description": "灰色雨中广场，第一把红伞撑开，圆舞曲把整个广场刷上颜色。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Music",
+        "videos",
+        "Art",
+        "&amp;",
+        "culture",
+        "Emotional",
+        "ads"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%B2%B9%E7%94%BB%E5%8E%9A%E6%B6%82#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/impasto/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:one-line",
+      "kind": "video",
+      "title": "一笔画",
+      "description": "一根不离纸的线画完一个人的一生，再把笔交给孩子。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Brand",
+        "stories",
+        "Life",
+        "milestones",
+        "Minimal",
+        "ads"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E4%B8%80%E7%AC%94%E7%94%BB#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/one-line/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:whiteboard",
+      "kind": "video",
+      "title": "白板讲解",
+      "description": "手机怎么知道你在哪：GPS、原子钟，和相对论每天多出的 38 微秒。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Explainers",
+        "Online",
+        "courses",
+        "Science"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%99%BD%E6%9D%BF%E8%AE%B2%E8%A7%A3#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/whiteboard/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:urban-sketch",
+      "kind": "video",
+      "title": "钢笔淡彩",
+      "description": "公园只是一张钢笔速写，风把草帽吹到哪里，哪里才有颜色。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "City",
+        "&amp;",
+        "travel",
+        "Architecture",
+        "Lifestyle",
+        "brands"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E9%92%A2%E7%AC%94%E6%B7%A1%E5%BD%A9#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/urban-sketch/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:chalkboard",
+      "kind": "video",
+      "title": "黑板粉笔",
+      "description": "粉笔写下网上的说法，再一擦，把「射」写回三千年前。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "手绘与绘画",
+        "Word",
+        "origins",
+        "Myth-busting",
+        "Lessons"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E9%BB%91%E6%9D%BF%E7%B2%89%E7%AC%94#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/chalkboard/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:shadow-puppet",
+      "kind": "video",
+      "title": "皮影戏",
+      "description": "十日炙烤大地，后羿张弓射日。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "东方传统",
+        "Myths",
+        "&amp;",
+        "folklore",
+        "Heritage",
+        "Festivals"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%9A%AE%E5%BD%B1%E6%88%8F#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/shadow-puppet/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:ukiyoe",
+      "kind": "video",
+      "title": "浮世绘",
+      "description": "旅人走向远山，每个镜头都是一幅版画；巨浪是高潮，结尾是远山与整幅画轴拉远。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "东方传统",
+        "Travel",
+        "Japanese",
+        "culture",
+        "Poetry"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%B5%AE%E4%B8%96%E7%BB%98#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/ukiyoe/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:papercut-red",
+      "kind": "video",
+      "title": "红色窗花剪纸",
+      "description": "除夕年兽进村，小女孩剪出的大窗花照亮全村，把它吓跑。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "东方传统",
+        "Lunar",
+        "New",
+        "Year",
+        "Festive",
+        "greetings",
+        "Folk",
+        "tales"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%BA%A2%E8%89%B2%E7%AA%97%E8%8A%B1%E5%89%AA%E7%BA%B8#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/papercut-red/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:paper-lantern",
+      "kind": "video",
+      "title": "纸雕灯影",
+      "description": "一列老夜车跑最后一趟：从雪山小站穿过长隧道开到海边，到站后车窗一扇扇熄灭。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "东方传统",
+        "Journeys",
+        "and",
+        "travel",
+        "Farewells",
+        "and",
+        "anniversaries",
+        "Places",
+        "and",
+        "their",
+        "stories"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%BA%B8%E9%9B%95%E7%81%AF%E5%BD%B1#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/paper-lantern/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:risograph",
+      "kind": "video",
+      "title": "Risograph 孔版印刷",
+      "description": "周日早晨骑车穿过城市：面包店、公园、河边，每到一处加一版油墨，最后三版套印。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "印刷与版画",
+        "Indie",
+        "brands",
+        "Zines",
+        "Lifestyle"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=Risograph%20%E5%AD%94%E7%89%88%E5%8D%B0%E5%88%B7#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/risograph/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:halftone-dossier",
+      "kind": "video",
+      "title": "复古半调案卷",
+      "description": "橘猫胖橘被立案审查：测试重力、凌晨跑酷，最后无罪释放。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "印刷与版画",
+        "Humour",
+        "Pet",
+        "content",
+        "Social",
+        "shorts"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%A4%8D%E5%8F%A4%E5%8D%8A%E8%B0%83%E6%A1%88%E5%8D%B7#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/halftone-dossier/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:woodcut",
+      "kind": "video",
+      "title": "木刻版画",
+      "description": "村子用一整个冬天铸一口钟，钟声第一次响起，雪停了。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "印刷与版画",
+        "Folk",
+        "tales",
+        "Craft",
+        "brands",
+        "Book",
+        "trailers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%9C%A8%E5%88%BB%E7%89%88%E7%94%BB#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/woodcut/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:engraving",
+      "kind": "video",
+      "title": "铜版画",
+      "description": "一张博物志图版自己刻出来：雕刀推开铜版，蜜蜂一线线成形，最后手工水彩上色。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "印刷与版画",
+        "Museum",
+        "labels",
+        "Science",
+        "explainers",
+        "Brand",
+        "heritage"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E9%93%9C%E7%89%88%E7%94%BB#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/engraving/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:silkscreen-poster",
+      "kind": "video",
+      "title": "丝印旅行海报",
+      "description": "一张满屏丝印海报一座城，票根数着离家的公里数，走到世界的另一头，才发现那是回家的路。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "印刷与版画",
+        "Destination",
+        "guides",
+        "Tourism",
+        "Event",
+        "posters"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E4%B8%9D%E5%8D%B0%E6%97%85%E8%A1%8C%E6%B5%B7%E6%8A%A5#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/silkscreen-poster/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:printed-long-take",
+      "kind": "video",
+      "title": "印刷长镜头",
+      "description": "刮版画的北海道河谷一镜到底，丹顶鹤从 33 只数回到 1,927 只。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "印刷与版画",
+        "Journeys",
+        "Wildlife",
+        "Landscapes"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%8D%B0%E5%88%B7%E9%95%BF%E9%95%9C%E5%A4%B4#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/printed-long-take/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:swiss-motion",
+      "kind": "video",
+      "title": "瑞士动态排版",
+      "description": "一张音乐会海报按瑞士设计的五条规则自己排版，第五条是只打破一条。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Brand",
+        "identity",
+        "Events",
+        "Design",
+        "education"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%91%9E%E5%A3%AB%E5%8A%A8%E6%80%81%E6%8E%92%E7%89%88#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/swiss-motion/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:spy-titles",
+      "kind": "video",
+      "title": "60s 间谍片头",
+      "description": "虚构 1964 年间谍片的片头：追一把被偷的钥匙，几何碎片最后拼成片名。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Title",
+        "sequences",
+        "Event",
+        "openers",
+        "Trailers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=60s%20%E9%97%B4%E8%B0%8D%E7%89%87%E5%A4%B4#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/spy-titles/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:art-deco",
+      "kind": "video",
+      "title": "装饰艺术",
+      "description": "1930 年的大饭店，门童赶在午夜前把一封信送上顶楼。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Luxury",
+        "&amp;",
+        "hospitality",
+        "Galas",
+        "Invitations"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E8%A3%85%E9%A5%B0%E8%89%BA%E6%9C%AF#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/art-deco/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:blueprint",
+      "kind": "video",
+      "title": "蓝图 / 工程制图",
+      "description": "发明家的蓝图自己画出一台接云机器，修订云线变成了真的雨云。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Engineering",
+        "Hardware",
+        "launches",
+        "Tech",
+        "explainers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E8%93%9D%E5%9B%BE%20%2F%20%E5%B7%A5%E7%A8%8B%E5%88%B6%E5%9B%BE#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/blueprint/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:stained-glass",
+      "kind": "video",
+      "title": "彩色玻璃窗",
+      "description": "阳光从清晨移到黄昏，照到哪一格花窗，哪一格的故事就动起来。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Legends",
+        "Heritage",
+        "Holiday",
+        "stories"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%BD%A9%E8%89%B2%E7%8E%BB%E7%92%83%E7%AA%97#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/stained-glass/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:pictogram-motion",
+      "kind": "video",
+      "title": "象形运动图形",
+      "description": "一把被落在公交车上的黄伞，晴天里在失物招领的货架上等了一整天，暴雨回来时和另外 312 把一起撑开：物件、交通、天气和标识，都是卡着节拍的几何象形符号。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Public",
+        "services",
+        "and",
+        "city",
+        "stories",
+        "Brand",
+        "and",
+        "event",
+        "identity",
+        "films",
+        "Explainers",
+        "told",
+        "through",
+        "signs",
+        "and",
+        "objects"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E8%B1%A1%E5%BD%A2%E8%BF%90%E5%8A%A8%E5%9B%BE%E5%BD%A2#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/pictogram-motion/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:ascii-crt",
+      "kind": "video",
+      "title": "ASCII / CRT 终端",
+      "description": "月球基地的 AI 沉睡 40 年后被唤醒，用字符画出“家”来回复。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "图形与排版",
+        "Developer",
+        "tools",
+        "Sci-fi",
+        "Tech",
+        "brands"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=ASCII%20%2F%20CRT%20%E7%BB%88%E7%AB%AF#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/ascii-crt/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:dataviz",
+      "kind": "video",
+      "title": "数据叙事",
+      "description": "一百年的夏季气温，图表本身就是故事。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Data",
+        "journalism",
+        "Reports",
+        "Climate",
+        "&amp;",
+        "science"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%95%B0%E6%8D%AE%E5%8F%99%E4%BA%8B#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/dataviz/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:iso-infographic",
+      "kind": "video",
+      "title": "等距信息图",
+      "description": "一杯咖啡从种植园到你手里的旅程。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Process",
+        "explainers",
+        "Supply",
+        "chains",
+        "Annual",
+        "reports"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%AD%89%E8%B7%9D%E4%BF%A1%E6%81%AF%E5%9B%BE#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/iso-infographic/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:dark-keynote",
+      "kind": "video",
+      "title": "暗色科技发布",
+      "description": "虚构 app Tidy 的发布片：被埋掉的光标一键把几百个窗口归位。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Product",
+        "launches",
+        "SaaS",
+        "Keynotes"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%9A%97%E8%89%B2%E7%A7%91%E6%8A%80%E5%8F%91%E5%B8%83#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/dark-keynote/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:living-screencast",
+      "kind": "video",
+      "title": "活体实机录屏",
+      "description": "像素小人 Clawd 搬进 Claude 应用，一镜到底演示 Plan 模式和自检。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Product",
+        "tutorials",
+        "Feature",
+        "launches",
+        "Onboarding"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%B4%BB%E4%BD%93%E5%AE%9E%E6%9C%BA%E5%BD%95%E5%B1%8F#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/living-screencast/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:hologram-hud",
+      "kind": "video",
+      "title": "科幻全息界面",
+      "description": "电助力车被扫描成全息线框，目标框依次锁定电池、电机、刹车。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Spec",
+        "walkthroughs",
+        "Launch",
+        "videos",
+        "Trade",
+        "shows"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%A7%91%E5%B9%BB%E5%85%A8%E6%81%AF%E7%95%8C%E9%9D%A2#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/hologram-hud/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:transit-map",
+      "kind": "video",
+      "title": "地铁线路图",
+      "description": "一张纸上的线路图，从 1993 年的 6 公里长到 21 条线、906 公里。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Transport",
+        "Growth",
+        "over",
+        "time",
+        "Networks"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%9C%B0%E9%93%81%E7%BA%BF%E8%B7%AF%E5%9B%BE#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/transit-map/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:isometric-picture-book",
+      "kind": "video",
+      "title": "等距绘本",
+      "description": "等距的登机口和机舱里，小人按顺序登机，讲清哪种叫法快将近一半。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Everyday",
+        "rules",
+        "Queues",
+        "Comparisons"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%AD%89%E8%B7%9D%E7%BB%98%E6%9C%AC#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/isometric-picture-book/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:circuit-board",
+      "kind": "video",
+      "title": "电路板",
+      "description": "江河变成电路板上的走线，电流从水坝跑 2,080 公里进手机充电器。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "信息与发布",
+        "Energy",
+        "Supply",
+        "chains",
+        "Devices"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%94%B5%E8%B7%AF%E6%9D%BF#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/circuit-board/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:rubber-hose",
+      "kind": "video",
+      "title": "1930s 橡皮管卡通",
+      "description": "一只咖啡杯满厨房追一块逃跑的方糖。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "卡通与动画",
+        "Food",
+        "&amp;",
+        "drink",
+        "Retro",
+        "ads",
+        "Kids"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=1930s%20%E6%A9%A1%E7%9A%AE%E7%AE%A1%E5%8D%A1%E9%80%9A#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/rubber-hose/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:cel-anime-80s",
+      "kind": "video",
+      "title": "80 年代赛璐璐动画",
+      "description": "快递少女骑车穿过雨后霓虹都市，赶在黎明发射前送到一盘磁带。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "卡通与动画",
+        "Music",
+        "videos",
+        "Game",
+        "trailers",
+        "Nostalgia"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=80%20%E5%B9%B4%E4%BB%A3%E8%B5%9B%E7%92%90%E7%92%90%E5%8A%A8%E7%94%BB#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/cel-anime-80s/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:scifi-toon",
+      "kind": "video",
+      "title": "科幻情景喜剧卡通",
+      "description": "厌世天才开传送门只想买杯咖啡，却穿过越来越离谱的平行宇宙。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "卡通与动画",
+        "Comedy",
+        "Tech",
+        "brands",
+        "Social",
+        "shorts"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%A7%91%E5%B9%BB%E6%83%85%E6%99%AF%E5%96%9C%E5%89%A7%E5%8D%A1%E9%80%9A#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/scifi-toon/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:midcentury-toon",
+      "kind": "video",
+      "title": "50s 扁平卡通",
+      "description": "用 50 年代教育片的口吻，三步教你装好一台扫地机。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "卡通与动画",
+        "Set-up",
+        "guides",
+        "Help",
+        "centres",
+        "How-to"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=50s%20%E6%89%81%E5%B9%B3%E5%8D%A1%E9%80%9A#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/midcentury-toon/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:pixel-rpg",
+      "kind": "video",
+      "title": "16-bit 像素 RPG",
+      "description": "勇士在最终 Boss 门前存档，存档画面闪回一路冒险。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "游戏",
+        "Game",
+        "trailers",
+        "Recaps",
+        "Nostalgia"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=16-bit%20%E5%83%8F%E7%B4%A0%20RPG#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/pixel-rpg/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:hd-2d",
+      "kind": "video",
+      "title": "HD-2D",
+      "description": "灯塔熄灭，孙女提着最后一簇火穿过夜林、爬上风暴悬崖。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "游戏",
+        "Game",
+        "trailers",
+        "Fantasy",
+        "Story",
+        "films"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=HD-2D#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/hd-2d/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:microgame",
+      "kind": "video",
+      "title": "微游戏快闪",
+      "description": "见习宇航员闯五秒训练营，越来越快，Boss 关亲手降落回地球。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "游戏",
+        "Game",
+        "trailers",
+        "Onboarding",
+        "Social",
+        "shorts"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%BE%AE%E6%B8%B8%E6%88%8F%E5%BF%AB%E9%97%AA#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/microgame/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:game-show",
+      "kind": "video",
+      "title": "综艺节奏扁平",
+      "description": "把 AI 发展史做成一局节奏游戏，模型踩着拍登场，最后发成绩单。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "游戏",
+        "Tech",
+        "timelines",
+        "Year",
+        "in",
+        "review",
+        "Variety",
+        "shows"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%BB%BC%E8%89%BA%E8%8A%82%E5%A5%8F%E6%89%81%E5%B9%B3#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/game-show/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:silent-film",
+      "kind": "video",
+      "title": "1920s 默片",
+      "description": "面包店学徒追一个滚走的面包，最后掰成两半分给饿肚子的小女孩。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "电影与时代",
+        "Comedy",
+        "Retro",
+        "brands",
+        "Silent",
+        "storytelling"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=1920s%20%E9%BB%98%E7%89%87#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/silent-film/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:backrooms",
+      "kind": "video",
+      "title": "后室 / 新怪谈",
+      "description": "新夜班员工拍下入职第一晚：无尽的黄色办公空间，和墙上的员工守则。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "电影与时代",
+        "Horror",
+        "Mystery",
+        "&amp;",
+        "ARG",
+        "Game",
+        "teasers"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%90%8E%E5%AE%A4%20%2F%20%E6%96%B0%E6%80%AA%E8%B0%88#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/backrooms/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:brick-toy",
+      "kind": "video",
+      "title": "积木玩具",
+      "description": "积木宇航员用零件拼出火箭，飞向积木月亮。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "Toys",
+        "&amp;",
+        "kids",
+        "Product",
+        "builds",
+        "Space"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%A7%AF%E6%9C%A8%E7%8E%A9%E5%85%B7#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/brick-toy/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:paper-popup",
+      "kind": "video",
+      "title": "纸片立体书",
+      "description": "立体书在书桌上打开，小精灵 Pip 在纸片世界冒险，最后跳出书外。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "Children&#x27;s",
+        "books",
+        "Game",
+        "trailers",
+        "Story",
+        "films"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%BA%B8%E7%89%87%E7%AB%8B%E4%BD%93%E4%B9%A6#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/paper-popup/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:tilt-shift",
+      "kind": "video",
+      "title": "移轴微缩",
+      "description": "玩具城的早高峰，一切都像模型。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "City",
+        "promos",
+        "Real",
+        "estate",
+        "Transport"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%A7%BB%E8%BD%B4%E5%BE%AE%E7%BC%A9#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/tilt-shift/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:lowpoly-island",
+      "kind": "video",
+      "title": "低多边形等距",
+      "description": "空海里一格格长出小岛和村庄，每放一块响一个音符，直到星空。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "Game",
+        "trailers",
+        "World",
+        "building",
+        "Calm",
+        "content"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E4%BD%8E%E5%A4%9A%E8%BE%B9%E5%BD%A2%E7%AD%89%E8%B7%9D#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/lowpoly-island/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:glass-product",
+      "kind": "video",
+      "title": "玻璃质感产品",
+      "description": "虚构玻璃耳机 Aura 的开箱与特写。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "Product",
+        "launches",
+        "Consumer",
+        "tech",
+        "Beauty"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E7%8E%BB%E7%92%83%E8%B4%A8%E6%84%9F%E4%BA%A7%E5%93%81#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/glass-product/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:memphis-diorama",
+      "kind": "video",
+      "title": "孟菲斯微缩景观",
+      "description": "一个河湾一镜过完四季，大树一蹲一弹，就换一季。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "Web",
+        "heroes",
+        "Ambient",
+        "loops",
+        "Seasons"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E5%AD%9F%E8%8F%B2%E6%96%AF%E5%BE%AE%E7%BC%A9%E6%99%AF%E8%A7%82#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/memphis-diorama/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "composition": "unknown",
+        "license": "review-upstream"
+      }
+    },
+    {
+      "id": "video:desktop-flythrough",
+      "kind": "video",
+      "title": "桌面穿梭",
+      "description": "一张猫照片跳过桌上的应用卡片，从一台手机飞到朋友手机里，一镜跟到底。",
+      "category": "视频风格 · lemo-opuscar",
+      "tags": [
+        "材质与",
+        "3D",
+        "App",
+        "explainers",
+        "Workflows",
+        "Products"
+      ],
+      "source": "src/video-data.js",
+      "preview": "video.html?q=%E6%A1%8C%E9%9D%A2%E7%A9%BF%E6%A2%AD#films",
+      "implementation": "remote-reference",
+      "scenes": null,
+      "remoteSource": "https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/desktop-flythrough/STYLE.md",
+      "integration": {
+        "readBeforeUse": [
+          "src/video-data.js"
+        ],
+        "caveat": "样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。"
       },
       "verification": {
         "runtime": "unverified",

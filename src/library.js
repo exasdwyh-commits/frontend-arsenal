@@ -1,12 +1,13 @@
 import { EFFECTS } from './registry.js';
 import { GROUP_MAP } from './groups.js';
 import { SKILLS, CATS } from './skills-data.js';
-import { films } from './video-data.js';
+import { films, opus } from './video-data.js';
 
 const items = [
-  ...EFFECTS.map(e => ({type:'动效代码', title:e.name, category:GROUP_MAP[e.group]?.name || e.group, description:e.desc, extra:[e.lib,e.deps,e.note], href:`index.html#${encodeURIComponent(e.id)}`})),
+  ...EFFECTS.map(e => ({type:'动效代码', title:e.name, category:GROUP_MAP[e.group]?.name || e.group, description:e.desc, extra:[e.lib,e.deps,e.note], href:`effects.html#${encodeURIComponent(e.id)}`})),
   ...SKILLS.map(s => ({type:'技能', title:s.zh || s.name, category:CATS[s.cat] || s.cat, description:s.desc, extra:[s.name,s.id], href:`skills.html?skill=${encodeURIComponent(s.id)}`})),
-  ...films.map(([slug,name,english,tags]) => ({type:'视频样片', title:name, category:'视频风格', description:english, extra:[tags,slug], href:`video.html?q=${encodeURIComponent(name)}#films`}))
+  ...films.map(([slug,name,english,tags]) => ({type:'视频样片', title:name, category:'视频风格', description:english, extra:[tags,slug], href:`video.html?q=${encodeURIComponent(name)}#films`})),
+  ...opus.map(([slug,cn,en,film,dur,tags,line]) => ({type:'视频样片', title:cn, category:'视频风格 · lemo-opuscar', description:line || en, extra:[en,tags,slug], href:`video.html?q=${encodeURIComponent(cn)}#films`}))
 ];
 const search = document.querySelector('#search');
 const filters = document.querySelector('#filters');
@@ -17,6 +18,8 @@ const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp
 function render() {
   const words = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const matched = items.filter(item => (type === '全部' || item.type === type) && words.every(word => [item.title,item.category,item.description,...item.extra].join(' ').toLowerCase().includes(word)));
+  const results = document.querySelector('.results');
+  if (results) results.hidden = !words.length && type === '全部';
   filters.innerHTML = types.map(t => `<button type="button" data-type="${t}" aria-pressed="${t === type}">${t} <span>${t === '全部' ? items.length : items.filter(i => i.type === t).length}</span></button>`).join('');
   document.querySelector('#count').textContent = `找到 ${matched.length} 项`;
   document.querySelector('#empty').hidden = matched.length > 0;

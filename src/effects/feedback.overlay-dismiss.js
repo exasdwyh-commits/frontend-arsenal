@@ -3,6 +3,7 @@ export default {
   lib: 'Floating UI',
   desc: '关闭要说出理由：Esc → escape-key（IME 合成中不关）、浮层外按下 → outside-press（pointerdown 是 eager、click 是 lazy，lazy 要用"起点或终点在浮层内就不关"护住拖拽选择）、点触发器 → reference-press。滚动锁定用模块级 lockCount——第一个浮层装锁（body overflow:hidden + 滚动条宽度补 padding、RTL 选左侧、iOS 用 position:fixed 负偏移回锚），最后一个才解锁，嵌套浮层绝不提前放锁。机制提炼自 floating-ui（MIT）公开文档 FloatingOverlay/useDismiss，原生 JS 独立实现。',
 
+  deps: '无',
   note: '七个坑：① lockCount 必须是模块级共享计数，不是每个浮层自查 body——嵌套两个浮层时内层关闭若直接解锁，背景立刻可滚，外层还开着；② 锁的第一瞬间滚动条消失会让布局横跳，必须用 innerWidth - documentElement.clientWidth 量出滚动条宽度补到 body 的 padding 上；RTL 下要补 paddingLeft——判定看 documentElement.getBoundingClientRect().left + scrollLeft 是否为 0；③ 只有 iOS 不认 body 的 overflow:hidden——技法是 body position:fixed + top/left 设为负的滚动偏移（再减 visualViewport 偏移避开工具栏），解锁时必须 window.scrollTo({behavior:\'instant\'}) 回位，用默认平滑滚动会看到页面滑回去；④ eager（pointerdown）对鼠标和触摸都立即关，会打断"从浮层内起手的拖拽选择"；lazy（click）虽然等抬手，但必须同时检查起点和终点——只查终点时，从外面按下拖进浮层内松手仍会被误关；⑤ Esc 关闭前要查 isComposing，中文输入法组词中按 Esc 是取消组词不是关浮层；⑥ 点在滚动条上不算"点了外面"——要按 target 的 overflow 样式和 client/scrollWidth 判定；⑦ 点触发器关闭的 reason 是 reference-press 而不是 outside-press，日志/埋点里两者混用会让"用户主动收起"和"误触外部"分不开。',
 
   scenes: { places: ['菜单', '面板', '专业工具'], goals: ['操作反馈', '风格统一'], triggers: ['点击', '键盘'], projects: ['通用', '设计系统', '专业工具'] },

@@ -1,6 +1,7 @@
 export default {
   id: 'path-arc-length', group: 'space', name: '路径匀速运动', lib: 'Canvas 2D',
   desc: '元素沿贝塞尔曲线移动，速度恒定——不是按参数 t 采样那种"两头快中间慢"。',
+  deps: '无',
   note: '按 t 采样三次贝塞尔必然快慢不均（t=0.5 附近最快）。Lottie 的做法是先用 200 段折线累计弧长建表，再把时间映射回弧长位置。这个方法叫 arc-length reparameterization，是所有"对路径动画"的基础，找不到它就只能做出抖动的假匀速。',
   code: `// 1. 建弧长表：200 段折线累计长度
 function buildTable(p0, p1, p2, p3, N = 200) {

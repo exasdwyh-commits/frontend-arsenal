@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { EFFECTS } from '../src/registry.js';
 import { SKILLS, CATS } from '../src/skills-data.js';
-import { films } from '../src/video-data.js';
+import { films, opus } from '../src/video-data.js';
 import { GROUP_MAP } from '../src/groups.js';
 import { sceneFor } from '../src/scenes.js';
 import { validateRecipe } from './recipe-validator.mjs';
@@ -38,7 +38,7 @@ export async function buildCatalog() {
     ...EFFECTS.map(effect => ({
       id: `effect:${effect.id}`, kind: 'effect', title: effect.name,
       description: effect.desc, category: GROUP_MAP[effect.group].name,
-      source: sources.get(effect.id), preview: `index.html#${encodeURIComponent(effect.id)}`,
+      source: sources.get(effect.id), preview: `effects.html#${encodeURIComponent(effect.id)}`,
       implementation: 'demo-module', technology: effect.lib,
       declaredDependencies: effect.deps, notes: effect.note || '',
       scenes: sceneFor(effect), sceneEvidence: sceneFor(effect) ? (effect.scenes ? sources.get(effect.id) : 'src/scenes.js') : null,
@@ -64,6 +64,15 @@ export async function buildCatalog() {
       integration: { readBeforeUse: ['src/video-data.js'], caveat: '本地仅有索引；实现需访问原项目，核对源码与授权。' },
       verification: { runtime: 'unverified', composition: 'unknown', license: 'review-upstream' }
     })),
+    ...opus.map(([slug, title, english, , dur, tags, line]) => ({
+      id: `video:${slug}`, kind: 'video', title, description: line || english,
+      category: '视频风格 · lemo-opuscar', tags: tags.split(' '), source: 'src/video-data.js',
+      preview: `video.html?q=${encodeURIComponent(title)}#films`,
+      implementation: 'remote-reference', scenes: null,
+      remoteSource: `https://github.com/lemomo-ai/lemo-opuscar/blob/main/styles/${slug}/STYLE.md`,
+      integration: { readBeforeUse: ['src/video-data.js'], caveat: '样片 CC BY 4.0（credit LemoLab）、代码 MIT；本地仅有索引，实现需访问原项目。' },
+      verification: { runtime: 'unverified', composition: 'unknown', license: 'review-upstream' }
+    })),
     ...recipes
   ];
   const ids = new Set();
@@ -76,7 +85,7 @@ export async function buildCatalog() {
   const fingerprints = {};
   for (const file of inputs) fingerprints[file] = hash(await read(file));
   return { schemaVersion: 1, protocol: 'agent/README.md',
-    coverage: { effects: EFFECTS.length, skills: SKILLS.length, videos: films.length,
+    coverage: { effects: EFFECTS.length, skills: SKILLS.length, videos: films.length + opus.length,
       effectsWithScenes: resources.filter(r => r.kind === 'effect' && r.scenes).length,
       recipes: recipes.length, verifiedTemplates: 0 },
     fingerprints, resources };

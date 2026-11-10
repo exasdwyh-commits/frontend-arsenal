@@ -2,6 +2,7 @@ export default {
   id: 'list-nav', group: 'feedback', name: '组合导航与首字母跳转',
   lib: 'Floating UI',
   desc: '一个 Tab 停靠点管整组控件：roving tabindex 让只有 active 项 tabIndex=0、其余 -1，方向键在组内移动（可循环/横竖/网格多列），Home/End 跳首尾；连敲字母走 typeahead——750ms 内累积匹配串、前缀命中跳转、超时清空，disabled 项按 null 跳过。机制提炼自 floating-ui（MIT）公开文档 useListNavigation/Composite/useTypeahead，原生 JS 独立实现，带虚拟焦点与网格演示。',
+  deps: '无',
   note: '六个坑：① 真实焦点模型下列表项必须自身可 focus（tabindex）且带 role，否则方向键移过去焦点落在容器上；虚拟焦点模型用 aria-activedescendant，此时每个项必须有唯一 id——两种模型不能混；② roving 的规则是 active 项 tabIndex=0、其余 -1，activeIndex 为 null 时不得留下任何 tabbable 项；③ typeahead 有 750ms 复位窗口，且只该用于 menu/select——可输入的 combobox 里打字是搜索，不是跳转，两套逻辑会打架；④ 匹配从 activeIndex 之后开始找（带环绕），null 项 = disabled 跳过，所以 disabled 项要给 null 而不是省略，否则索引错位；⑤ allowEscape（越界后取消选中）必须配 loop:true，否则无处可去；⑥ 键盘打开菜单时默认聚焦首个 tabbable（不是 focusable）项，鼠标打开则不抢焦点——focusItemOnOpen 的 auto 推断就靠这个区分，写反了鼠标点开会丢焦点。',
 
   scenes: { places: ['菜单', '面板', '专业工具'], goals: ['操作反馈', '风格统一'], triggers: ['键盘'], projects: ['通用', '设计系统', '专业工具'] },

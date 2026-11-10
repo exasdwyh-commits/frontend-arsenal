@@ -2,6 +2,7 @@ export default {
   id: 'smart-anchor', group: 'space', name: '智能锚点定位',
   lib: 'Floating UI',
   desc: '浮层贴着锚点但绝不越界：中间件管线按 offset→flip→shift→arrow 顺序执行——主轴溢出翻到对侧、对齐轴夹回边界内、箭头按最终 placement 落静态边并把动态轴夹进浮层；autoUpdate 只在挂载期监听祖先滚动/窗口缩放/ResizeObserver，锚点用 transform 动画时这些全都不触发，只有 animationFrame 每帧量矩形才跟得住。机制提炼自 floating-ui（MIT，32.8k★）公开文档 computePosition/middleware/flip/shift/arrow/autoUpdate，原生 JS 独立实现，带边界内滚动与锚点动画开关演示。',
+  deps: '无',
   note: '七个坑：① 浮层定位前必须先铺好初始布局——position:absolute + width:max-content + top:0 left:0，否则量到的是被容器撑坏的宽高，且溢出会触发重排造成测量抖动；② 浮层必须处于可见状态才能测量，display:none 下调 computePosition 得到 0×0；③ 中间件顺序即语义：offset 永远在最前、arrow/hide 在最后，flip 改变 placement 会让后续中间件整轮重跑（reset lifecycle），带 -start/-end 对齐时 flip 必须排在 shift 之前，否则对齐翻转会被平移抢先；④ arrow 的 middlewareData 只有一维有值，判断必须用 != null——0 是合法坐标，用 !x 会把贴边箭头判成缺失；⑤ limitShift 的停止条件是"浮层对边与锚点对边对齐"，不是简单 clamp 到边界，否则锚点会脱离浮层（detached）；⑥ rootBoundary 默认 viewport 用的是视觉视口（visualViewport），双指缩放/键盘弹出会变，右键菜单这类要锚死布局视口得显式传 layoutViewport/document；⑦ ResizeObserver 只报尺寸变化不报 transform 位移，IntersectionObserver 的 layoutShift 同理，纯位移动画必须开 animationFrame（代价是每帧 ~1ms 的全量重算）。',
 
   scenes: { places: ['面板', '菜单', '官网'], goals: ['操作反馈', '风格统一'], triggers: ['悬停', '点击'], projects: ['通用', '设计系统', '专业工具'] },

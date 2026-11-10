@@ -2,6 +2,7 @@ export default {
   id: 'slider-inset', group: 'feedback', name: '滑轨减宽度滑块',
   lib: 'ProUI',
   desc: '滑块的滑轨宽度减去 thumb 自身宽度：这样 thumb 中心滑到轨道最左端时正好压满最小值，不会有一小截 thumb 露在轨道外面、数值也到不了真正的 min。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-slider 几何处理，原生 CSS/JS 独立实现。',
+  deps: '无',
   note: '核心坑是坐标系错配：轨道是按 0–100% 填满算位置，thumb 却是有物理宽度的实体，两端各会多出半个 thumb。正解是给轨道容器留出 inset（padding 左右各 thumb/2，或 track 宽度 = 容器宽 − thumb 宽），位置计算再走 inset 内的百分比。第二个坑：拖拽时用 getBoundingClientRect 换算 pointer 位置，容器若带 transform 缩放，rect 是缩放后的布局坐标，必须除以缩放比还原，否则拖起来数值和光标对不上。第三个坑：:active 态给 thumb 放大时要把 transform-origin 钉在中心并接受 overflow，放大态 thumb 越界是正常的物理溢出，不要为了不溢出而缩小可拖区。',
   scenes: { places: ['检查器', '表单', '面板'], goals: ['操作反馈', '效率'], triggers: ['拖拽', '点击'], projects: ['专业工具', '编辑器', '桌面应用'] },
   code: `/* 滑轨减宽度滑块（提炼自 pro-ui.dev 公开文档，vanilla 复刻） */

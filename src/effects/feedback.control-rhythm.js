@@ -2,6 +2,7 @@ export default {
   id: 'control-rhythm', group: 'feedback', name: '控件节奏与扩区点击',
   lib: 'Astryx',
   desc: '一行里混排固定高度按钮、内容自适应选择器、紧凑图标按钮：共享基线与表观高度形成节奏；紧凑控件视觉只有 24px，但点击区用伪元素向外扩到 44px——视觉尺寸和目标尺寸是两回事。机制提炼自 Astryx（meta/astryx，Meta 开源设计系统）公开文档 control-rhythm.md 的 DR1–DR4 规则，原生 CSS 独立实现，带点击区可视化开关。',
+  deps: '无',
   note: '三个坑：① 扩点击区必须用伪元素 inset 负值外扩（::after{position:absolute;inset:-10px}），不能给按钮加 padding——padding 会改表观高度破坏节奏（DR2 要求尺寸和密度一起调），也别用 outline；② 相邻控件的扩区会互相重叠，重叠区的点击归属由 DOM 顺序决定（后画的盖上面），要么给控件间留出 ≥2×扩量的间隙，要么把整行做成一个带分段热区的容器；③ 基线对齐别用 align-items:center——不同字号的控件行盒底不齐，用 align-items:baseline（或统一高度 + 统一 line-height），图标要跟文字基线对齐得算 descender，垂直居中只是"看起来差不多"。焦点环画在视觉轮廓上（focus-visible 贴元素本体），画到扩区边界会看起来错位。',
 
   scenes: { places: ['工具栏', '表单', '面板'], goals: ['效率', '操作反馈', '风格统一'], triggers: ['点击'], projects: ['专业工具', '编辑器', '移动端'] },

@@ -2,6 +2,7 @@ export default {
   id: 'scrub-number', group: 'feedback', name: '像素计步拖拽数值',
   lib: 'ProUI',
   desc: '专业软件的数字输入：在数值上横向拖拽改数，每 4px 计一步；关键是"从按下那一刻的像素统算步数"，不是逐帧累加——拖回按下处，旧数值精确复原。Shift 五倍速、Alt 五分之一速，双击可直接键入。机制提炼自 ProUI（pro-ui.dev）公开文档描述的 pro-number-input 行为，原生 JS 独立实现。',
+  deps: '无',
   note: '最大的坑是逐帧累加（value += dx/4）：浮点误差会一路漂移，拖回来数值回不到原点，用户看到的是"松手后数字自己跳了一下"。正解是记录按下像素和按下时的值，每帧用 startVal + steps*step 统算，数学上严格可逆。第二个坑：拖拽期间必须 setPointerCapture 并 preventDefault，否则鼠标滑出控件边界事件就断了，数值卡在半路。第三个坑：步长和像素的比值（4px/步）决定手感——太小像搓不动，太大一甩就飞，改之前先想想用户调的量级。',
   scenes: { places: ['检查器', '表单', '工具栏'], goals: ['操作反馈', '效率'], triggers: ['拖拽', '键盘'], projects: ['专业工具', '编辑器', '桌面应用'] },
   code: `/* 像素计步拖拽数值（提炼自 pro-ui.dev 公开文档，vanilla 复刻） */

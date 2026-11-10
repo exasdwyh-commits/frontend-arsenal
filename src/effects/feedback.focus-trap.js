@@ -3,6 +3,7 @@ export default {
   lib: 'Floating UI',
   desc: '模态浮层里的焦点只进不出：打开时焦点进浮层（guards 用 contains 自己判断而不是捕获标记，避免嵌套浮层互相打架），Tab 在浮层内循环（首尾哨兵接住越界），关闭时 returnFocus 归还给打开前的元素；浮层没有可聚焦项时焦点落容器本身，配合 visuallyHiddenDismiss 让读屏器能走到关闭按钮。机制提炼自 floating-ui（MIT）公开文档 FloatingFocusManager，原生 JS 独立实现，带哨兵循环与归还演示。',
 
+  deps: '无',
   note: '七个坑：① guards 判定"焦点是否在浮层内"要用 contains(浮层) 而不是布尔标记位——嵌套两个浮层时，外层的标记会被内层的开合重置，焦点在内层却被外层判成"跑到外面去了"而错误归还；② returnFocus 必须存"打开前真正持有焦点的元素"而不是随手存触发按钮；但它为 body/已卸载时不能去 focus 已 display:none 的浮层容器——隐藏后再 focus 会静默失败、焦点掉回 body，要回退到永远可见的触发按钮（对齐 FloatingUI 默认归还 reference）；③ 首个可聚焦项的默认聚焦是 afterNextPaint（下一帧）而非同步——同步 focus 会让浏览器把滚动位置一起拽过去，浮层刚出现就被 scrollIntoView 顶一截；④ 浮层内没有任何可聚焦项时焦点必须落浮层容器（tabindex=-1），否则焦点留在背后页面，Tab 第一下就穿帮；⑤ 禁止用 inert/aria-hidden 之外的方式"藏"背景——但 inert 会连带把浮层也 inert 掉（浮层常挂在 body 下），背景和浮层必须分开标记；⑥ VisuallyHidden 的关闭按钮要留在 DOM 里：读屏器靠它退出，display:none 会让读屏器认为这个对话框没有出口；⑦ 兄弟浮层各自的 Escape 处理器不能 stopPropagation——同节点后续监听器会被整段挡掉，同一页面的其他浮层就收不到关闭信号。',
 
   scenes: { places: ['面板', '对话框', '专业工具'], goals: ['操作反馈', '风格统一'], triggers: ['键盘'], projects: ['通用', '设计系统', '专业工具'] },

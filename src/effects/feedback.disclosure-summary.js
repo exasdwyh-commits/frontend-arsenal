@@ -2,6 +2,7 @@ export default {
   id: 'disclosure-summary', group: 'feedback', name: '折叠区摘要汇报',
   lib: 'ProUI',
   desc: '检查器里的折叠分区收起后，标题行仍然汇报内部状态：显示关键值、已改项数、异常标记——不用展开就知道里面有什么。机制提炼自 ProUI（pro-ui.dev）公开文档描述的折叠面板摘要策略，原生 JS/CSS 独立实现。',
+  deps: '无',
   note: '要点是摘要必须和内部状态同源更新（同一函数既写控件又写摘要），手写两份必然漂移——某天改了滑块忘了改摘要，用户就被骗进折叠区。第二个坑：摘要内容要用 textContent 注入而非拼进模板字符串，控件值可能含用户输入（文件名等），拼字符串就是 XSS 通道。第三个坑：摘要行要 text-overflow:ellipsis 且 flex:1，分区窄的时候宁可省略号也不能让摘要把标题挤换行——检查器面板经常只有 200px 宽。',
   scenes: { places: ['检查器', '面板', '设置页'], goals: ['效率', '信息呈现'], triggers: ['滚动', '点击'], projects: ['专业工具', '编辑器', '桌面应用'] },
   code: `/* 折叠区摘要汇报（提炼自 pro-ui.dev 公开文档，vanilla 复刻） */

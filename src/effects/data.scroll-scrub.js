@@ -1,6 +1,7 @@
 export default {
   id: 'scroll-scrub', group: 'data', name: '滚动驱动进度', lib: '原生 JS',
   desc: '滚动位置直接映射为动画进度，滚多少动画走多少，回滚会倒退。',
+  deps: '无',
   note: '关键在 scrub 而不是 trigger：不是"滚到就播"，而是"滚动量 = 进度"。实现必须用 getBoundingClientRect 每帧量，不能用 scrollTop 缓存——否则有 sticky 元素的容器里会算错。start/end 用百分比会让不同高度的容器提示点不同，生产要改成像素锚点。',
   code: `// GSAP ScrollTrigger 的 scrub 模式
 ScrollTrigger.create({

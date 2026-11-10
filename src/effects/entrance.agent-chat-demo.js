@@ -2,6 +2,7 @@ export default {
   id: 'agent-chat-demo', group: 'entrance', name: '假 AI 对话演示',
   lib: 'Overflow Design',
   desc: '落地页上的"AI 正在干活"对话演示：用户提示逐字打入 → 工具调用卡（search_drawings 查询、返回 3 个结果、246ms 耗时）→ 文件卡（get_drawings 拉回 SVG）→ 助手回复流式吐出 → 停留 → 整段清空循环。机制提炼自 Overflow Design（overflow.design）首页的 MCP 演示（"agent 用它的 MCP 服务器找图标"的对话动画），原生 JS/CSS 独立实现；所有数字与结果均为表演数据，非真实调用。',
+  deps: '无',
   note: '核心是用一个帧时钟（rAF 累计时间）驱动分段进度：每个段有 start/end，进度 = (t-start)/(end-start)，比 setTimeout 链可暂停可跳帧。第二个坑：流式文本必须用 textContent 逐字追加，绝不能把已输出内容拼回 innerHTML 重写——一旦文本里含 < 或 & 就是自造的 XSS，而且每帧重建节点会把光标动画打断。第三个坑：循环重启要重置光标位置和滚动容器 scrollTop，只清文本不清状态的话第二轮会接着上一轮的时钟走。表演数据（246ms、结果数）要写死常量别假装真实计时。',
 
   scenes: { places: ['官网', '落地页', '文档'], goals: ['内容呈现', '转化'], triggers: ['滚动'], projects: ['开发者工具', '素材站', 'AI 产品'] },

@@ -98,16 +98,33 @@ app.innerHTML = GROUPS.map(g => {
   </section>`;
 }).join('');
 
-/* 卡片舞台：点击才加载 */
+/* 卡片舞台：点击才加载；内容整体缩放进 150px 缩略图（ResizeObserver 跟随后续尺寸变化） */
 const byId = Object.fromEntries(EFFECTS.map(e => [e.id, e]));
+const fitPreview = (stage, fit) => {
+  fit.style.transform = '';
+  let w = 0, h = 0;
+  for (const k of fit.children) {
+    if (k.tagName === 'STYLE') continue;
+    const r = k.getBoundingClientRect();
+    if (r.width > w) w = r.width;
+    if (r.height > h) h = r.height;
+  }
+  if (!w || !h) return;
+  const s = Math.min(stage.clientWidth / w, stage.clientHeight / h, 1);
+  if (s < 0.995) fit.style.transform = 'scale(' + s.toFixed(3) + ')';
+};
 document.querySelectorAll('[data-stage]').forEach(stage => {
   const id = stage.dataset.stage;
   stage.addEventListener('click', async () => {
     if (running.has(id)) return;
     const fx = byId[id];
     try {
-      const d = await mount(fx, stage);
-      running.set(id, d);
+      stage.innerHTML = '<div class="fit"></div>';
+      const fit = stage.querySelector('.fit');
+      const d = await mount(fx, fit);
+      const ro = new ResizeObserver(() => fitPreview(stage, fit));
+      ro.observe(fit);
+      running.set(id, () => { ro.disconnect(); d(); });
     } catch (err) {
       stage.innerHTML = `<div class="ph">加载失败<br>
         <span style="color:#c04">${err.message}</span><br>
