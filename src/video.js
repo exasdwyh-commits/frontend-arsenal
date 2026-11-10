@@ -22,6 +22,8 @@ grid.innerHTML = mgCards + opusCards;
 grid.addEventListener('click', event => {
   const button = event.target.closest('[data-video]');
   if (!button) return;
+  const box = document.createElement('div');
+  box.className = 'film-box';
   const video = document.createElement('video');
   video.controls = true;
   video.playsInline = true;
@@ -29,7 +31,25 @@ grid.addEventListener('click', event => {
   video.poster = button.dataset.poster;
   video.src = button.dataset.video;
   video.setAttribute('aria-label', button.getAttribute('aria-label'));
-  button.replaceWith(video);
+  const overlay = document.createElement('div');
+  overlay.className = 'film-overlay';
+  overlay.innerHTML = '<span class="spin" aria-hidden="true"></span><b>正在从原项目加载样片…</b><i>视频托管在外部 GitHub Pages，网络慢时请挂代理</i>';
+  box.append(video, overlay);
+  button.replaceWith(box);
+
+  const hideOverlay = () => overlay.remove();
+  const buffered = () => {
+    if (!video.duration || !video.buffered.length) return;
+    const pct = Math.min(100, Math.round(video.buffered.end(video.buffered.length - 1) / video.duration * 100));
+    const label = overlay.querySelector('b');
+    if (label) label.textContent = pct >= 100 ? '缓冲完成' : `正在加载… 已缓冲 ${pct}%`;
+  };
+  video.addEventListener('canplay', hideOverlay);
+  video.addEventListener('progress', buffered);
+  video.addEventListener('error', () => {
+    overlay.classList.add('err');
+    overlay.innerHTML = '<b>样片加载失败</b><i>无法访问外部 GitHub Pages，挂代理刷新后重试</i>';
+  }, { once: true });
   video.play().catch(() => {});
 });
 
