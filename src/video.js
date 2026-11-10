@@ -44,8 +44,16 @@ function filterFilms() {
     else card.querySelector('video')?.pause();
   });
   document.getElementById('filmCount').textContent = `${visible} / ${cards.length} 种风格`;
+  const clear = document.getElementById('filmClear');
+  clear.hidden = !query;
+  clear.textContent = `显示全部 ${cards.length} 种`;
   document.getElementById('filmEmpty').hidden = visible > 0;
 }
 document.getElementById('filmSearch').value = new URLSearchParams(location.search).get('q') || '';
 document.getElementById('filmSearch').addEventListener('input', filterFilms);
+document.getElementById('filmClear').addEventListener('click', () => {
+  document.getElementById('filmSearch').value = '';
+  filterFilms();
+  document.getElementById('filmSearch').focus();
+});
 filterFilms();

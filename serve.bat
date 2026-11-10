@@ -7,8 +7,8 @@ echo   关闭此窗口即停止服务
 echo ========================================
 where python >nul 2>nul
 if %errorlevel%==0 (
-    start "" http://localhost:8080/library.html
-    python -m http.server 8080
+    start "" http://localhost:8080/
+    python serve.py
     goto :eof
 )
 where npx >nul 2>nul
