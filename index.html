@@ -3,84 +3,471 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>前端武器库</title>
-<link rel="stylesheet" href="src/library.css">
+<title>前端武器库 · Frontend Arsenal</title>
+<meta name="description" content="154 个可运行的动效机制、81 支代码视频样片、420 份设计方法文档。不收截图，只收能搬进项目的机制。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 <style>
-.lib-entries{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:6px 0 8px}
-.lib-card{display:block;padding:26px;background:#fff;border:1px solid #e6e5df;border-radius:12px;color:inherit;text-decoration:none;transition:.15s}
-.lib-card:hover{border-color:#848c70;transform:translateY(-2px)}
-.lib-card .k{font-size:12px;font-weight:700;letter-spacing:.14em;color:#716f68}
-.lib-card h3{font-size:24px;letter-spacing:-.02em;margin:10px 0 6px}
-.lib-card p{color:#6a6b64;font-size:13.5px;margin:0}
-.lib-card .cnt{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
-.lib-card .cnt span{font-size:12px;font-weight:600;background:#edf2e1;padding:5px 9px;border-radius:4px}
-.home-sec{margin-top:44px}
-.item-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.item-grid .item{min-height:0}
-.item-grid .item h3{margin-top:14px}
-.new-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#848c70;margin-right:6px;vertical-align:1px}
-@media(max-width:820px){.lib-entries,.item-grid{grid-template-columns:1fr}}
+*,*::before,*::after{box-sizing:border-box}
+:root{
+  --bg:#07080b; --bg2:#0b0d12; --panel:#0f1219;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.17);
+  --fg:#eceef3; --dim:#8f97a8; --dim2:#717a8a;
+  --vi:#6b4bff; --cy:#3ccbff; --lime:#c3ea3a;
+  --shell:1240px;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);overflow-x:hidden;
+  font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:rgba(107,75,255,.4)}
+.shell{width:100%;max-width:var(--shell);margin:0 auto;padding:0 40px}
+@media(max-width:640px){.shell{padding:0 20px}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 颗粒质感（固定覆盖） ---------- */
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.038;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---------- 顶栏 ---------- */
+.topbar{position:fixed;inset:0 0 auto;z-index:50;border-bottom:1px solid transparent;
+  background:rgba(7,8,11,0);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:background .35s,border-color .35s}
+.topbar.scrolled{background:rgba(7,8,11,.78);border-bottom-color:var(--line)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:12px;
+  font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);
+  box-shadow:0 0 0 0 rgba(195,234,58,.6);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(195,234,58,.55)}70%{box-shadow:0 0 0 12px rgba(195,234,58,0)}100%{box-shadow:0 0 0 0 rgba(195,234,58,0)}}
+.brand em{font-style:normal;font-weight:500;letter-spacing:.06em;color:var(--dim);text-transform:none;font-size:13px}
+.topnav{display:flex;gap:26px}
+.topnav a{text-decoration:none;color:var(--dim);font-size:13px;letter-spacing:.02em;
+  padding-bottom:2px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.topnav a:hover{color:#fff;border-bottom-color:var(--vi)}
+@media(max-width:760px){.topnav{gap:16px}.topnav a:nth-child(3){display:none}.brand em{display:none}}
+
+/* ---------- 首屏 ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+  overflow:hidden;padding:112px 0 96px;isolation:isolate}
+.hero-bg{position:absolute;inset:-10%;z-index:-3;
+  background:radial-gradient(60% 50% at 18% 22%,rgba(72,40,190,.32),transparent 70%),
+             radial-gradient(50% 45% at 82% 20%,rgba(20,105,190,.26),transparent 70%),
+             radial-gradient(65% 55% at 58% 92%,rgba(104,32,190,.22),transparent 72%),
+             #07080b}
+#heroCanvas{position:absolute;inset:0;z-index:-2;width:100%;height:100%;display:block}
+.hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(7,8,11,.96) 0%,rgba(7,8,11,.35) 26%,rgba(7,8,11,0) 52%),
+             radial-gradient(ellipse 90% 75% at 50% 42%,transparent 38%,rgba(7,8,11,.72) 100%)}
+.hero>.shell{position:relative;z-index:2}
+.hero-grid{position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(to right,rgba(255,255,255,.05) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 62% at 50% 46%,#000 10%,transparent 74%);
+  mask-image:radial-gradient(ellipse 70% 62% at 50% 46%,#000 10%,transparent 74%)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin:0;font-size:11px;font-weight:700;
+  letter-spacing:.22em;color:#98a0b2;text-transform:uppercase}
+.eyebrow .live-dot{width:6px;height:6px;border-radius:50%;background:var(--cy);
+  box-shadow:0 0 12px 2px rgba(60,203,255,.7)}
+.hero-title{margin:22px 0 8px;font-size:clamp(44px,11.4vw,168px);line-height:.94;
+  font-weight:700;letter-spacing:-.07em;white-space:nowrap}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .hero-title{background:linear-gradient(100deg,#f2f4f8 34%,#ffffff 44%,#a891ff 50%,#6fe3ff 55%,#f2f4f8 66%);
+    background-size:260% 100%;-webkit-background-clip:text;background-clip:text;
+    color:transparent;-webkit-text-fill-color:transparent;
+    animation:sheen 9s linear infinite}
+}
+@keyframes sheen{from{background-position:120% 0}to{background-position:-140% 0}}
+.rot{position:relative;height:34px;overflow:hidden;margin:18px 0 0;
+  font-size:16px;font-weight:500;color:#c9d0de;letter-spacing:.01em}
+.rot-track{display:flex;flex-direction:column;
+  transition:transform .95s cubic-bezier(.16,1,.3,1)}
+.rot-track>span{height:34px;line-height:34px;white-space:nowrap}
+.rot-track>span::before{content:'';display:inline-block;width:14px;height:1px;background:var(--vi);
+  vertical-align:middle;margin-right:10px}
+.lead{max-width:600px;margin:20px 0 0;color:#a6aebe;font-size:16.5px;line-height:1.85}
+.cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14.5px;
+  font-weight:600;letter-spacing:.01em;border-radius:10px;padding:13px 22px;
+  transition:background .25s,border-color .25s,color .25s,transform .4s cubic-bezier(.16,1,.3,1)}
+.btn span{font-size:13px;opacity:.75}
+.btn-primary{background:var(--fg);color:#0a0b0e;will-change:transform}
+.btn-primary:hover{background:#fff}
+.btn-ghost{border:1px solid var(--line2);color:#dfe3ea}
+.btn-ghost:hover{border-color:#8b7bff;color:#fff;background:rgba(107,75,255,.09)}
+.scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  font-size:9.5px;letter-spacing:.28em;color:#5c6474;text-decoration:none}
+.scroll-cue i{display:block;width:1px;height:34px;background:linear-gradient(rgba(255,255,255,0),#6b7280);
+  animation:cue 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%,100%{transform:scaleY(.35);opacity:.5}50%{transform:scaleY(1);opacity:1}}
+@media(max-width:640px){.hero{padding:96px 0 80px}.lead{font-size:15px}.rot{font-size:14px}}
+
+/* ---------- 四格数据 ---------- */
+.statband{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,#0a0c11,#07080b)}
+.statband .shell{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:30px 0 26px;position:relative}
+.stat+.stat{padding-left:30px;border-left:1px solid var(--line)}
+.stat b{display:block;font-size:clamp(30px,3.7vw,46px);font-weight:600;line-height:1;
+  letter-spacing:-.05em;font-variant-numeric:tabular-nums;
+  background:linear-gradient(120deg,#fff,#a9b3c6);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent}
+.stat span{display:block;margin-top:9px;font-size:10.5px;letter-spacing:.2em;color:var(--dim2);text-transform:uppercase}
+@media(max-width:720px){.statband .shell{grid-template-columns:1fr 1fr}
+  .stat{padding:20px 0}.stat:nth-child(3){padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .stat:nth-child(4){border-top:1px solid var(--line)}}
+
+/* ---------- 段落骨架 ---------- */
+.sec{padding:104px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-start;gap:22px;margin-bottom:44px}
+.sec-idx{flex:none;padding-top:9px;font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:#7b8494}
+.sec h2{margin:0;font-size:clamp(29px,4.3vw,52px);line-height:1.14;letter-spacing:-.045em;font-weight:650}
+.sec-lead{max-width:640px;margin:16px 0 0;color:var(--dim);font-size:15.5px}
+.sec-lead b{color:#dde2ea;font-weight:600}
+.tail-link{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-size:14px;font-weight:600;
+  color:#cfd5e0;text-decoration:none;border-bottom:1px solid var(--line2);padding-bottom:4px;transition:.25s}
+.tail-link:hover{color:#fff;border-bottom-color:var(--vi)}
+.tail-link span{transition:transform .25s}
+.tail-link:hover span{transform:translate(3px,-3px)}
+
+/* ---------- 搜索 ---------- */
+.find{padding:92px 0 104px;border-bottom:1px solid var(--line)}
+.beam-card{position:relative;border-radius:20px;padding:1px;overflow:hidden;background:#1a1f2b}
+.beam-card::before{content:'';position:absolute;left:50%;top:50%;width:150%;aspect-ratio:1;
+  background:conic-gradient(from 0deg,transparent 0 56%,#6b4bff 72%,#7fe6ff 80%,transparent 88%);
+  animation:spin 8s linear infinite}
+@keyframes spin{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(1turn)}}
+.beam-in{position:relative;border-radius:19px;background:linear-gradient(160deg,#0f1219,#0a0c11 70%);
+  padding:32px 34px 30px}
+.find-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:6px}
+.find-top .k{font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase}
+.find-top .n{font-size:12px;color:var(--dim2);font-variant-numeric:tabular-nums}
+.search-row{display:flex;align-items:center;gap:14px;margin-top:6px}
+.search-row input{flex:1;min-width:0;width:100%;background:transparent;border:0;
+  border-bottom:1px solid var(--line2);outline:0;color:#fff;
+  font-size:clamp(18px,2.5vw,25px);font-weight:500;letter-spacing:-.02em;
+  padding:14px 2px;font-family:inherit;transition:border-color .3s}
+.search-row input::placeholder{color:#4d5566;font-weight:400}
+.search-row input:focus{border-bottom-color:var(--vi)}
+.btn-clear{flex:none;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#c7cedb;
+  border-radius:8px;padding:9px 16px;font:inherit;font-size:13px;cursor:pointer;transition:.2s}
+.btn-clear:hover{background:rgba(255,255,255,.12);color:#fff}
+.find-hint{margin:14px 0 0;font-size:12.5px;color:var(--dim2);line-height:1.9}
+.find-hint code{font:11.5px ui-monospace,Consolas,monospace;background:rgba(255,255,255,.07);
+  border-radius:4px;padding:1px 5px;color:#c8d0de}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
+.filters button{background:transparent;border:1px solid var(--line2);color:#cfd5e0;border-radius:20px;
+  padding:7px 14px;font:inherit;font-size:12.5px;cursor:pointer;transition:.2s}
+.filters button:hover{border-color:#8b7bff;color:#fff}
+.filters button[aria-pressed=true]{background:var(--lime);border-color:var(--lime);color:#14180b;font-weight:600}
+.filters span{opacity:.55;margin-left:5px;font-variant-numeric:tabular-nums}
+
+/* 搜索结果（沿用 library.js 生成的 .item 结构） */
+.results{margin-top:34px}
+.result-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:20px}
+.result-head h2{margin:0;font-size:15px;font-weight:600;letter-spacing:.02em}
+.result-head span{font-size:12.5px;color:var(--dim2);font-variant-numeric:tabular-nums}
+.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.item{position:relative;display:block;min-height:172px;padding:18px 18px 20px;text-decoration:none;
+  background:#0d1017;border:1px solid var(--line);border-radius:11px;color:inherit;
+  transition:background .2s,border-color .2s,transform .2s}
+.item:hover{background:#11141d;border-color:#4a3f8f;transform:translateY(-2px)}
+.badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
+  background:rgba(107,75,255,.18);color:#c3b6ff;padding:3px 8px;border-radius:4px;margin-right:8px}
+.category{color:var(--dim2);font-size:11.5px}
+.item h3{font-size:16.5px;margin:16px 22px 7px 0;letter-spacing:-.01em;font-weight:600}
+.item p{color:var(--dim);font-size:12.5px;line-height:1.65;margin:0;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.arrow{position:absolute;right:16px;top:16px;color:#5a6274;transition:transform .2s,color .2s}
+.item:hover .arrow{color:#9d8bff;transform:translate(2px,-2px)}
+#empty{color:var(--dim2);font-size:13.5px;margin:8px 0 0}
+@media(max-width:900px){.list{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.list{grid-template-columns:1fr}.beam-in{padding:22px 20px}}
+
+/* ---------- 理念 ---------- */
+.principle{display:grid;grid-template-columns:52px 300px 1fr;gap:32px;padding:30px 0;
+  border-top:1px solid var(--line);align-items:start}
+.principle:last-of-type{border-bottom:1px solid var(--line)}
+.p-num{font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.16em;color:#7b8494;padding-top:7px}
+.p-title{margin:0;font-size:clamp(18px,2.2vw,25px);line-height:1.4;letter-spacing:-.02em;font-weight:600}
+.p-title i{font-style:normal;color:#fff;
+  background:linear-gradient(transparent 64%,rgba(107,75,255,.5) 64%);
+  padding:0 1px}
+.p-body{margin:0;font-size:14.5px;color:var(--dim);line-height:1.85;max-width:580px}
+.p-body code{font:12.5px ui-monospace,Consolas,monospace;background:rgba(255,255,255,.07);
+  border-radius:4px;padding:1px 5px;color:#c8d0de}
+@media(max-width:860px){.principle{grid-template-columns:44px 1fr;gap:14px 18px}
+  .p-body{grid-column:2}}
+
+/* ---------- 收录 ---------- */
+.inside{display:grid;grid-template-columns:1fr 1fr;column-gap:60px;margin-top:46px}
+.inside-item{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:baseline;
+  padding:26px 0;border-top:1px solid var(--line)}
+.inside-item b{font-size:clamp(32px,4.4vw,54px);font-weight:600;line-height:1;letter-spacing:-.05em;
+  font-variant-numeric:tabular-nums;
+  background:linear-gradient(140deg,#fff,#98a3b8);-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent}
+.inside-item h3{margin:0 0 6px;font-size:15px;font-weight:600;letter-spacing:.01em}
+.inside-item p{margin:0;font-size:13px;color:var(--dim);line-height:1.75}
+.src-title{margin:64px 0 0;font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase}
+.srcs{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;margin-top:10px}
+.src{display:flex;align-items:baseline;gap:14px;padding:14px 2px;border-bottom:1px solid var(--line);
+  text-decoration:none;transition:padding .25s,color .25s}
+.src:hover{padding-left:9px}
+.src .nm{flex:none;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
+.src .ds{flex:1;min-width:0;font-size:12px;color:#7b8494;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.src .go{flex:none;font-size:12px;color:#4d5566;transition:.25s}
+.src:hover .nm{color:#fff}
+.src:hover .go{color:#9d8bff;transform:translate(2px,-2px)}
+@media(max-width:860px){.inside{grid-template-columns:1fr}.srcs{grid-template-columns:1fr}
+  .src{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:13px 2px}
+  .src .ds{grid-column:1/-1;white-space:normal;font-size:12.5px}
+  .src .go{grid-row:1;grid-column:2}}
+
+/* ---------- 自证 ---------- */
+.proof{display:grid;grid-template-columns:1fr 1fr;column-gap:60px}
+.proof-row{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline;
+  padding:15px 2px;border-bottom:1px solid var(--line)}
+.proof-row a{font-size:14.5px;font-weight:600;text-decoration:none;color:#dde2ea;transition:.2s}
+.proof-row a:hover{color:#9d8bff}
+.proof-row em{font-style:normal;font-weight:400;color:#7b8494;font-size:12px;margin-left:8px;
+  font-family:ui-monospace,Consolas,monospace}
+.proof-row span{font-size:12.5px;color:var(--dim2);text-align:right}
+@media(max-width:860px){.proof{grid-template-columns:1fr}.proof-row span{font-size:11.5px}}
+
+/* ---------- 三步 ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.step{border-top:1px solid var(--line2);padding-top:20px}
+.step .k{font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.18em;color:var(--dim2)}
+.step h3{margin:14px 0 10px;font-size:clamp(19px,2.4vw,25px);letter-spacing:-.025em;font-weight:600}
+.step p{margin:0;font-size:13.5px;color:var(--dim);line-height:1.85}
+.step code{font:12px ui-monospace,Consolas,monospace;background:rgba(255,255,255,.07);
+  border-radius:4px;padding:1px 5px;color:#c8d0de}
+@media(max-width:820px){.steps{grid-template-columns:1fr;gap:26px}}
+
+/* ---------- 页脚 ---------- */
+.foot{padding:70px 0 56px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:44px}
+.foot h4{margin:0 0 14px;font-size:10.5px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase}
+.foot a{display:block;text-decoration:none;color:#b6bdcb;font-size:13.5px;padding:4px 0;transition:color .2s}
+.foot a:hover{color:#fff}
+.foot p{margin:0;font-size:12.5px;color:var(--dim2);line-height:1.9}
+.foot-brand{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin:0 0 12px}
+.foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin-top:54px;padding-top:22px;border-top:1px solid var(--line);font-size:11.5px;color:var(--dim2)}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.foot-grid{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- 入场 ---------- */
+.rv{opacity:0;transform:translateY(20px);filter:blur(7px);
+  transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1),filter .85s;
+  transition-delay:calc(var(--i,0) * 70ms)}
+.rv.on{opacity:1;transform:none;filter:none}
+.hero .eyebrow,.hero-title,.rot,.lead,.cta-row{animation:rise .9s cubic-bezier(.16,1,.3,1) both}
+.hero-title{animation-delay:.06s}.rot{animation-delay:.14s}.lead{animation-delay:.2s}.cta-row{animation-delay:.28s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none;filter:none;transition:none}
+  .hero .eyebrow,.hero-title,.rot,.lead,.cta-row{animation:none}
+  .hero-title,.stat b,.inside-item b{animation:none}
+  .beam-card::before,.scroll-cue i,.brand .dot{animation:none}
+  .rot-track{transition:none}
+}
 </style>
 </head>
 <body>
-<main class="wrap">
-  <header>
-    <p class="eyebrow">WEBUI / PERSONAL ARSENAL</p>
-    <h1>前端武器库</h1>
-    <p class="intro">154 个动效机制、81 支代码视频样片、420 份设计技能文档。先搜索，再进两个库慢慢挑。</p>
-    <nav class="links" aria-label="专题库">
-      <a href="effects.html">动效图鉴 ↗</a>
-      <a href="video.html">代码视频库 ↗</a>
-      <a href="skills.html">技能库 ↗</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar" id="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html"><span class="dot"></span>WEBUI <em>前端武器库</em></a>
+    <nav class="topnav" aria-label="专题库">
+      <a href="effects.html">动效图鉴</a>
+      <a href="video.html">代码视频</a>
+      <a href="skills.html">技能文档</a>
+      <a href="sources.html">创作资源</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <section class="search-area"><label for="search">全库搜索</label><div class="search-row"><input id="search" type="search" placeholder="试试：按钮、转场、3D、字幕、焦点…" autocomplete="off"><button id="clear" type="button">清空</button></div><p>支持多个关键词，用空格分隔；按 / 快速聚焦搜索。结果包含动效代码、技能文档与视频样片。</p><div id="filters" class="filters" aria-label="资源类型"></div></section>
-  <section class="results" hidden><div class="result-head"><h2>搜索结果</h2><span id="count" aria-live="polite"></span></div><div id="list" class="list"></div><p id="empty" hidden>没有找到匹配结果。试试更短的关键词，或切换资源类型。</p></section>
-
-  <section class="lib-entries" aria-label="两个库">
-    <a class="lib-card" href="effects.html">
-      <span class="k">LIBRARY 01 · 动效代码库</span>
-      <h3>效果图鉴 + 视频样片</h3>
-      <p>154 个可交互的动效机制，点击舞台预览、复制代码；81 支代码视频风格样片，看片找提示词。</p>
-      <div class="cnt"><span>动效图鉴 154</span><span>视频样片 81</span><span>打开 ↗</span></div>
-    </a>
-    <a class="lib-card" href="skills.html">
-      <span class="k">LIBRARY 02 · UI 设计库</span>
-      <h3>设计技能文档</h3>
-      <p>420 份前端与设计方法文档：视觉体系、布局排版、动效原则与平台规范，按分类检索。</p>
-      <div class="cnt"><span>技能文档 420</span><span>打开 ↗</span></div>
-    </a>
-  </section>
-
-  <section class="home-sec">
-    <div class="result-head"><h2><span class="new-dot"></span>最新加入</h2><span>Floating UI 批次 · 浮层体系 5 个</span></div>
-    <div class="item-grid">
-      <a class="item" href="effects.html#smart-anchor"><div><span class="badge">空间与 3D</span><span class="category">Floating UI</span></div><h3>智能锚点定位</h3><p>浮层贴锚点绝不越界：offset→flip→shift→arrow 中间件管线。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#focus-trap"><div><span class="badge">交互反馈</span><span class="category">Floating UI</span></div><h3>浮层焦点管理</h3><p>模态里的焦点只进不出，嵌套浮层互不打架。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#list-nav"><div><span class="badge">交互反馈</span><span class="category">Floating UI</span></div><h3>组合导航与首字母跳转</h3><p>roving tabindex + typeahead，键盘可循环可跳首尾。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#overlay-dismiss"><div><span class="badge">交互反馈</span><span class="category">Floating UI</span></div><h3>浮层关闭与滚动锁定</h3><p>Esc / 外按 / 滚动都要说出关闭理由，IME 合成中不误关。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#tooltip-delay-group"><div><span class="badge">入场与转场</span><span class="category">Floating UI</span></div><h3>延迟组防抖浮层</h3><p>一组浮层共享延迟状态机，悬停 1 秒才开不打扰。</p><span class="arrow" aria-hidden="true">↗</span></a>
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="shell">
+    <p class="eyebrow"><span class="live-dot"></span>Personal Arsenal · 本地优先 · 零构建</p>
+    <h1 class="hero-title">前端武器库</h1>
+    <p class="rot" aria-hidden="true"><span class="rot-track" id="rotTrack">
+      <span>154 个可运行的动效机制</span>
+      <span>81 支代码视频样片</span>
+      <span>420 份设计方法文档</span>
+      <span>12 个上游开源项目</span>
+    </span></p>
+    <p class="sr">154 个可运行的动效机制、81 支代码视频样片、420 份设计方法文档，来自 12 个上游开源项目。</p>
+    <p class="lead">这里不收截图，只收能跑的机制。每一个效果都拆到依赖、坑和失败模式——看完就知道它能不能用在你的项目里。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" id="magnet" href="effects.html">进入动效图鉴 <span>↗</span></a>
+      <a class="btn btn-ghost" href="#find">搜一下你要的效果 <span>↓</span></a>
     </div>
-  </section>
+  </div>
+  <a class="scroll-cue" href="#find" aria-label="向下浏览"><span>SCROLL</span><i></i></a>
+</section>
 
-  <section class="home-sec">
-    <div class="result-head"><h2>热门推荐</h2><span>每个分类挑一个代表效果</span></div>
-    <div class="item-grid">
-      <a class="item" href="effects.html#gradient-heading"><div><span class="badge">入场与转场</span><span class="category">原生 JS</span></div><h3>渐变标题</h3><p>文字渐变流光扫过，品牌首屏标题的标配。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#magnetic-btn"><div><span class="badge">交互反馈</span><span class="category">原生 JS</span></div><h3>磁吸按钮</h3><p>鼠标靠近时按钮被"吸"过去，高端官网标配手感。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#css3d-card-ring"><div><span class="badge">空间与 3D</span><span class="category">CSS 3D</span></div><h3>CSS 3D 环形卡片</h3><p>纯 CSS transform 排出 CoverFlow 式卡环。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#border-beam"><div><span class="badge">粒子与氛围</span><span class="category">原生 JS</span></div><h3>边框光束</h3><p>一束光沿卡片边框跑圈，激活态一眼可见。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#gravity-drop"><div><span class="badge">物理与拟真</span><span class="category">原生 JS</span></div><h3>重力坠落</h3><p>真实重力与弹跳参数，落地回弹不穿地。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#count-up"><div><span class="badge">数据动效</span><span class="category">原生 JS</span></div><h3>数字滚动</h3><p>数字翻滚到目标值，数据卡片的点睛之笔。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#waveform"><div><span class="badge">声音驱动</span><span class="category">Web Audio</span></div><h3>波形律动</h3><p>音频驱动波形起伏，播放器与可视化常用。</p><span class="arrow" aria-hidden="true">↗</span></a>
-      <a class="item" href="effects.html#gl-transition"><div><span class="badge">入场与转场</span><span class="category">WebGL</span></div><h3>着色器转场</h3><p>GLSL 片元做画面转场，12 种子效果一套管线。</p><span class="arrow" aria-hidden="true">↗</span></a>
+<div class="statband">
+  <div class="shell">
+    <div class="stat"><b data-count="154">154</b><span>动效机制</span></div>
+    <div class="stat"><b data-count="81">81</b><span>视频样片</span></div>
+    <div class="stat"><b data-count="420">420</b><span>设计文档</span></div>
+    <div class="stat"><b data-count="12">12</b><span>上游项目</span></div>
+  </div>
+</div>
+
+<section class="find" id="find">
+  <div class="shell">
+    <div class="beam-card">
+      <div class="beam-in">
+        <div class="find-top"><span class="k">全库检索 / Search</span><span class="n">655 条索引</span></div>
+        <div class="search-row">
+          <input id="search" type="search" placeholder="按钮、转场、3D、字幕、焦点…" autocomplete="off" aria-label="全库搜索">
+          <button id="clear" class="btn-clear" type="button">清空</button>
+        </div>
+        <p class="find-hint">空格分隔多个关键词，按 <code>/</code> 随时聚焦。结果直接落到对应页面——动效到舞台、文档到正文、样片到片单。</p>
+        <div id="filters" class="filters" aria-label="资源类型"></div>
+      </div>
     </div>
-  </section>
+    <section class="results" hidden>
+      <div class="result-head"><h2>搜索结果</h2><span id="count" aria-live="polite"></span></div>
+      <div id="list" class="list"></div>
+      <p id="empty" hidden>没有匹配。换个更短的词，或切到「全部」。</p>
+    </section>
+  </div>
+</section>
 
-  <footer>前端武器库 · 本地优先 · 内容随项目文件保存 · <a href="README.md">规范与投稿</a></footer>
-</main>
+<section class="sec">
+  <div class="shell">
+    <div class="sec-head" data-rv><span class="sec-idx">01 / 理念</span><h2>好看的东西很多，<br>能用的很少。</h2></div>
+    <p class="sec-lead" data-rv style="--i:1">这个库只解决一件事：当你看到一个好机制，能不能在五分钟内把它拆开、看懂、搬走。所以每条收录都按同一套标准过筛。</p>
+
+    <div class="principle" data-rv style="--i:2">
+      <span class="p-num">01</span>
+      <h3 class="p-title">机制，不是<i>截图</i></h3>
+      <p class="p-body">每个效果是一个自包含模块：<code>init(el)</code> 挂载、返回 <code>destroy</code> 收尾。没有构建、没有运行时、没有隐藏的全局状态。</p>
+    </div>
+    <div class="principle" data-rv style="--i:3">
+      <span class="p-num">02</span>
+      <h3 class="p-title">代价，写在<i>脸上</i></h3>
+      <p class="p-body">依赖、坑、失效场景逐条写明——哪种浏览器会崩、什么时候该换方案。不知道边界的效果，等于没写。</p>
+    </div>
+    <div class="principle" data-rv style="--i:4">
+      <span class="p-num">03</span>
+      <h3 class="p-title">出处，永远<i>可追</i></h3>
+      <p class="p-body">12 个上游项目逐一标注作者与授权。这里只做提炼和重组，想读原文，每个名字都是出口。</p>
+    </div>
+    <div class="principle" data-rv style="--i:5">
+      <span class="p-num">04</span>
+      <h3 class="p-title">本地，优先于<i>在线</i></h3>
+      <p class="p-body">没有 CDN、没有账号、没有请求。所有文件躺在仓库里，断网、离线、换个机器，照样能翻能抄。</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="inside">
+  <div class="shell">
+    <div class="sec-head" data-rv><span class="sec-idx">02 / 收录</span><h2>这里面到底有什么。</h2></div>
+    <p class="sec-lead" data-rv style="--i:1">四类内容，一条检索线串起来。数字是实的，每一个都点得进去。</p>
+
+    <div class="inside">
+      <div class="inside-item" data-rv style="--i:2"><b>154</b><div><h3>动效机制</h3><p>按「用户想要什么」分成七组：入场、反馈、空间、粒子、物理、数据、声音。每条带可运行舞台、依赖、坑与源码。</p></div></div>
+      <div class="inside-item" data-rv style="--i:3"><b>81</b><div><h3>代码视频样片</h3><p>mg-styles-15 的 15 种 MG 风格 + lemo-opuscar 的 66 种电影风格。画面与配乐全部由代码生成。</p></div></div>
+      <div class="inside-item" data-rv style="--i:4"><b>420</b><div><h3>设计方法文档</h3><p>从视觉体系、布局排版到平台规范，八类整理，站内直接读，也能一键看原始 Markdown。</p></div></div>
+      <div class="inside-item" data-rv style="--i:5"><b>124</b><div><h3>镜头配方</h3><p>逐镜头的运镜、节奏、时长与抽帧结论，写清「为什么这样剪」，不是只给你看成品。</p></div></div>
+    </div>
+
+    <p class="src-title" data-rv>整合自 12 个上游项目 · 点名字回原仓库</p>
+    <div class="srcs" data-rv style="--i:1">
+      <a class="src" href="https://github.com/Vincentwei1021/mg-styles-15" target="_blank" rel="noopener noreferrer"><span class="nm">mg-styles-15</span><span class="ds">15 种 MG 风格全开源</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" rel="noopener noreferrer"><span class="nm">lemo-opuscar</span><span class="ds">66 种电影风格 · 纯代码做片</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/Vincentwei1021/video-shotcraft" target="_blank" rel="noopener noreferrer"><span class="nm">video-shotcraft</span><span class="ds">电影感产品片 · 124 镜头配方</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/JohnHeibel/ClaudeAnimationBase" target="_blank" rel="noopener noreferrer"><span class="nm">ClaudeAnimationBase</span><span class="ds">手绘角色动画规则</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/meta/astryx" target="_blank" rel="noopener noreferrer"><span class="nm">meta/astryx</span><span class="ds">Meta 设计系统 · 250 篇规格</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/alchaincyf/huashu-design" target="_blank" rel="noopener noreferrer"><span class="nm">huashu-design</span><span class="ds">HTML-native 设计 skill · 41 篇</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/floating-ui/floating-ui" target="_blank" rel="noopener noreferrer"><span class="nm">floating-ui</span><span class="ds">浮层定位基建 · 46 篇</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/jimliu/baoyu-design" target="_blank" rel="noopener noreferrer"><span class="nm">baoyu-design</span><span class="ds">设计美学 · 45 篇</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/mileson/chaojifeng-video-design" target="_blank" rel="noopener noreferrer"><span class="nm">chaojifeng</span><span class="ds">视频设计方法论 · 30 篇</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/elayadesign/ai-design-skills" target="_blank" rel="noopener noreferrer"><span class="nm">ai-design-skills</span><span class="ds">落地页设计系统</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener noreferrer"><span class="nm">impeccable</span><span class="ds">设计总控 skill · 18 命令</span><span class="go">↗</span></a>
+      <a class="src" href="https://www.overflow.design" target="_blank" rel="noopener noreferrer"><span class="nm">overflow.design</span><span class="ds">图标与尺寸指南 · 5 篇</span><span class="go">↗</span></a>
+    </div>
+    <a class="tail-link" href="sources.html">站内提炼版：四个项目的完整方法论 <span>↗</span></a>
+  </div>
+</section>
+
+<section class="sec" id="proof">
+  <div class="shell">
+    <div class="sec-head" data-rv><span class="sec-idx">03 / 自证</span><h2>这一页，就是展品。</h2></div>
+    <p class="sec-lead" data-rv style="--i:1">没有框架、没有 CDN、没有构建。你能看到的每一处动态都来自图鉴里的机制——点名字，去看它怎么实现。</p>
+
+    <div class="proof" data-rv style="--i:2">
+      <div class="proof-row"><a href="effects.html#aurora">Canvas 光幕<em>canvas 2d</em></a><span>首屏背景 · 自绘</span></div>
+      <div class="proof-row"><a href="effects.html#gradient-word-sweep">渐变扫光充能词<em>gradient-word-sweep</em></a><span>主标题</span></div>
+      <div class="proof-row"><a href="effects.html#pill-slot-cycle">词槽老虎机<em>pill-slot-cycle</em></a><span>副标题计数轮换</span></div>
+      <div class="proof-row"><a href="effects.html#magnetic-btn">磁吸按钮<em>magnetic-btn</em></a><span>主按钮跟随</span></div>
+      <div class="proof-row"><a href="effects.html#border-beam">边框光束<em>border-beam</em></a><span>检索面板边框</span></div>
+      <div class="proof-row"><a href="effects.html#count-up">数字滚动<em>count-up</em></a><span>四组统计</span></div>
+      <div class="proof-row"><a href="effects.html#stagger-in">分组依次入场<em>stagger-in</em></a><span>全页滚动浮现</span></div>
+    </div>
+
+    <a class="tail-link" href="effects.html">全部 154 个机制，进图鉴慢慢挑 <span>↗</span></a>
+  </div>
+</section>
+
+<section class="sec" id="usage">
+  <div class="shell">
+    <div class="sec-head" data-rv><span class="sec-idx">04 / 用法</span><h2>三步，从想法到能跑的代码。</h2></div>
+    <div class="steps" data-rv style="--i:1">
+      <div class="step"><span class="k">STEP 01</span><h3>说你要的感觉</h3><p>不用记库名。搜「按钮」「转场」「3D」「字幕」，中英文、场景词都认。空格分词，越具体越准。</p></div>
+      <div class="step"><span class="k">STEP 02</span><h3>看它真的跑起来</h3><p>舞台是实时渲染，不是录屏。旁边写着依赖、坑和崩溃场景——这一屏就够判断能不能用。</p></div>
+      <div class="step"><span class="k">STEP 03</span><h3>拿走那一个文件</h3><p>复制 <code>init(el, ctx)</code>，挂到容器上，收尾调 <code>destroy()</code>。没有第二步，也不用改构建。</p></div>
+    </div>
+    <a class="tail-link" href="#find">从搜索开始 <span>↑</span></a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="shell">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-brand">WEBUI / 前端武器库</p>
+        <p>一个人的前端参考库。动效、样片、方法文档各自独立，但都遵循同一条规矩：能跑、能抄、能查清出处。</p>
+      </div>
+      <div>
+        <h4>库</h4>
+        <a href="effects.html">动效图鉴</a>
+        <a href="video.html">代码视频库</a>
+        <a href="skills.html">技能文档</a>
+        <a href="sources.html">创作资源</a>
+      </div>
+      <div>
+        <h4>文档</h4>
+        <a href="README.md">仓库说明与投稿</a>
+        <a href="agent/README.md">Agent 使用协议</a>
+        <a href="https://github.com/exasdwyh-commits/frontend-arsenal" target="_blank" rel="noopener noreferrer">GitHub 仓库 ↗</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>内容提炼自 12 个开源项目，授权与出处见仓库 README。</span>
+      <span>本地运行 · 无构建 · 无依赖</span>
+    </div>
+  </div>
+</footer>
+
 <script type="module" src="src/library.js"></script>
+<script type="module" src="src/portal.js"></script>
 </body>
 </html>

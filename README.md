@@ -27,7 +27,7 @@
 
 ```
 WebUI/
-├── index.html              # 门户首页：搜索 + 两库入口 + 最新/热门（手动精选）
+├── index.html              # 门户首页：理念 / 全库搜索 / 收录来源 / 三步用法
 ├── effects.html            # 效果图鉴：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
 ├── skills.html             # 技能库：420 个前端可用 Skill 文档的浏览/阅读页
