@@ -44,7 +44,9 @@ WebUI/
     │   ├── entrance.stagger-in.js
     │   ├── entrance.wipe-reveal.js
     │   └── ...
-    └── groups.js           # 分组定义（7 组，按"意图"分，不按库名分）
+    ├── groups.js           # 分组定义（7 组，按"意图"分，不按库名分）
+    ├── portal.js           # 首页动态层：四场景实时短片 + 计数/轮换/浮现（JS 失效内容仍可读）
+    └── library.js          # 首页全库搜索：655 条索引与跳转规则
 ```
 
 ## 加一个效果的完整流程（3 步）
