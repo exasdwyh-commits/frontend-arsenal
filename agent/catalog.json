@@ -485,7 +485,7 @@
     "src/effects/entrance.rs-transition-list.js": "7f72514cf1cb0adbe8f7b32457868c1ad41ef111b7f22a5b7dccd1891c1fb791",
     "src/effects/entrance.spring-enter.js": "c2451999f4dcd446c911103272c917902837a5f607a615a38162fbbe6d959d14",
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
-    "src/effects/entrance.stagger-in.js": "d8403226181b85bc73f79ea203740de153e31d667e4280c4dd038c93a5d1086d",
+    "src/effects/entrance.stagger-in.js": "11487e19b91ec8d93f1bb87149a211f329fa39527e86e50121e7f7223faadd44",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
     "src/effects/entrance.tooltip-delay-group.js": "904af6cf88f1b13848cb998a4f3d5e223f88f48322dbbaacd135030b3c69b755",
     "src/effects/entrance.tr-blur-fade.js": "e5c2623da60226d83e82b89a0eaf13415c2b6cc2f71435cb11e31411e9766a06",
@@ -590,7 +590,7 @@
     "src/effects/space.rtl-logical.js": "d8445f269b1da33069e9a3a861d910ca9835c7774eb52dc35838fdab3679255a",
     "src/effects/space.smart-anchor.js": "87ecfdd33f579e3b3085f20db3076a019f5b467db8b474d904cc35fbc43a893c",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
-    "src/engine.js": "9428a3628e8c4839749a78c697e1df82f228ed7daae71fd89d2169a49d6c5bec",
+    "src/engine.js": "f424b75c5482b9b55ceacb3543283fcf38f37a8ec801e2109eb742533ce291d2",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
     "src/registry.js": "672fa9a19a2e873e98eb1bdb63d6e45b37d060fb5d9edbf8b86ea24281abcd26",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
@@ -1603,7 +1603,7 @@
       "preview": "effects.html#stagger-in",
       "implementation": "demo-module",
       "technology": "Anime.js",
-      "declaredDependencies": "animejs@3.2.2",
+      "declaredDependencies": "animejs@3.2.2（随库附带 src/vendor/anime.min.js，无需联网）",
       "notes": "错位值 90ms 是手感临界点：低于 50ms 会糊成一片，高于 150ms 用户开始等。缓动务必用 easeOutExpo，easeOutQuad 会显廉价。",
       "scenes": {
         "places": [
