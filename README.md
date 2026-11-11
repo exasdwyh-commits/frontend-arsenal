@@ -1,5 +1,12 @@
 # 前端武器库 · Frontend Arsenal（WebUI 图鉴 + 技能库）
 
+## 在线地址
+
+- 站点：https://exasdwyh-commits.github.io/frontend-arsenal/ （GitHub Pages，main 分支直发）
+- 本地：`npm start` 或 `serve.bat` 后访问 `http://localhost:8080/`
+
+站点零构建、零依赖，所有文件都在仓库里；唯一的第三方库 anime.js 已随库附带在 `src/vendor/`，不连 CDN 也能跑。
+
 ## Agent 使用入口
 
 本库面向编程 Agent 的资源选择与适配；人类页面负责浏览和审核。先阅读 [Agent 使用协议](agent/README.md)，再使用机器索引 `agent/catalog.json`。在仓库根目录执行 `npm run agent:check` 检查索引，`node scripts/agent-catalog.mjs list --query "按钮" --kind effect` 查询，`node scripts/agent-catalog.mjs show effect:magnetic-btn` 获取源码位置与使用边界。更新内容后运行 `npm run agent:build`。无需 npm 依赖；Agent 工具需要 Node.js 18+。
@@ -47,7 +54,9 @@ WebUI/
     │   ├── entrance.wipe-reveal.js
     │   └── ...
     ├── groups.js           # 分组定义（7 组，按"意图"分，不按库名分）
-    ├── portal.js           # 首页动态层：四场景实时短片 + 计数/轮换/浮现（JS 失效内容仍可读）
+    ├── vendor/
+    │   └── anime.min.js    # anime.js v3.2.2（MIT）本地副本，stagger-in 离线也能跑
+    ├── portal.js           # 首页动态层：四场景实时短片 + 墨渗开屏 + 数字滚轮（JS 失效内容仍可读）
     └── library.js          # 首页全库搜索：655 条索引与跳转规则
 ```
 

@@ -6,9 +6,13 @@ import { EFFECTS } from './registry.js';
 import { GROUPS, GROUP_MAP } from './groups.js';
 import { sceneFor, dimensions, scenePreview } from './scenes.js';
 
-/* ---------- CDN 经典脚本加载器 ----------
+/* ---------- 第三方库加载器 ----------
    file:// 下 ES Module 的 import() 会被 CORS 拦死，
-   所以第三方库一律走经典 <script>。 */
+   所以第三方库一律走经典 <script>。
+   本地副本优先：本地跑得通就不碰网络，CDN 只做兜底。 */
+const LOCAL = {
+  anime: new URL('./vendor/anime.min.js', import.meta.url).href
+};
 const CDN = {
   anime: 'https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js'
 };
@@ -21,7 +25,7 @@ export function loadScript(url) {
     s.src = url;
     s.async = false;
     s.onload = () => res();
-    s.onerror = () => rej(new Error('CDN 加载失败: ' + url.split('/').pop()));
+    s.onerror = () => rej(new Error('脚本加载失败: ' + url.split('/').pop()));
     document.head.appendChild(s);
   }).then(() => { scriptCache.set(url, Promise.resolve()); })
     .catch(e => { scriptCache.delete(url); throw e; });
@@ -32,7 +36,8 @@ export function loadScript(url) {
 export async function ensure(lib) {
   if (lib === 'anime') {
     if (window.anime) return window.anime;
-    await loadScript(CDN.anime).catch(() => {});  // CDN 挂了也要降级，不能白屏
+    if (LOCAL.anime) await loadScript(LOCAL.anime).catch(() => {});
+    if (!window.anime) await loadScript(CDN.anime).catch(() => {});  // CDN 挂了也要降级，不能白屏
     return window.anime || null;
   }
   return null;
@@ -128,7 +133,7 @@ document.querySelectorAll('[data-stage]').forEach(stage => {
     } catch (err) {
       stage.innerHTML = `<div class="ph">加载失败<br>
         <span style="color:#c04">${err.message}</span><br>
-        <span style="color:#4a5368">需联网访问 CDN</span></div>`;
+        <span style="color:#4a5368">这个效果自带降级实现，或需联网取库</span></div>`;
     }
   });
 });

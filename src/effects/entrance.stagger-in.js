@@ -1,9 +1,10 @@
 export default {
   id: 'stagger-in', group: 'entrance', name: '错位入场', lib: 'Anime.js',
   desc: '文字/卡片逐项错位淡入，最适合首屏标题与列表加载。',
-  deps: 'animejs@3.2.2',
+  deps: 'animejs@3.2.2（随库附带 src/vendor/anime.min.js，无需联网）',
   note: '错位值 90ms 是手感临界点：低于 50ms 会糊成一片，高于 150ms 用户开始等。缓动务必用 easeOutExpo，easeOutQuad 会显廉价。',
-  code: `// CDN: <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
+  code: `// 库已内置 anime.min.js，离线也能跑：<script src="src/vendor/anime.min.js"></script>
+// 真要换成 CDN：<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 anime({
   targets: '.item',
   translateY: [24, 0],
