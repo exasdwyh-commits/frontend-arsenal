@@ -28,6 +28,8 @@
 ```
 WebUI/
 ├── index.html              # 门户首页：理念 / 全库搜索 / 收录来源 / 三步用法
+│                           # 首屏为实时渲染的四场景短片 + 墨渗开屏；左下角有动效开关，
+│                           # 也可用 index.html?motion=off 强制静帧（记在 localStorage）
 ├── effects.html            # 效果图鉴：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
 ├── skills.html             # 技能库：420 个前端可用 Skill 文档的浏览/阅读页

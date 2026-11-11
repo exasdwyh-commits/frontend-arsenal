@@ -4,7 +4,21 @@
    脚本挂了、rAF 不跑、用户开了减少动效，页面都要完整可用。
    ============================================================ */
 
-const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sysReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* 动效开关：默认开。
+   这一页存在的意义就是展示动效，所以不替访客做决定；
+   但左下角永远留着一个开关，想关随时关，选择会记住。
+   ?motion=on / ?motion=off 也认，方便直接分享带/不带动效的地址。 */
+let motionPref = null;
+try {
+  const q = new URLSearchParams(location.search).get('motion');
+  if (q === 'on' || q === 'off') localStorage.setItem('arsenal-motion', q);
+  motionPref = localStorage.getItem('arsenal-motion');
+} catch (_) {}
+
+const reduce = motionPref === 'off';
+if (reduce) document.documentElement.classList.add('no-motion');
 
 /* ---------- 顶栏：滚动后加深 ---------- */
 const bar = document.getElementById('topbar');
@@ -12,6 +26,118 @@ if (bar) {
   const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 12);
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+/* ============================================================
+   开屏：墨渗（ink-bleed-reveal 的首页版）
+   黑色盖层上一笔墨从标题处洇开，边缘用三层正弦扰动当湍流，
+   露完整页后整层摘掉。没有视频，也没有 SVG 滤镜链。
+   ============================================================ */
+const inkEl = document.getElementById('inkOpen');
+if (inkEl) {
+  const inkCv = document.getElementById('inkCanvas');
+  const ictx = inkCv && inkCv.getContext ? inkCv.getContext('2d') : null;
+  if (!ictx || reduce) {
+    inkEl.remove();
+  } else {
+    const DPR = Math.min(devicePixelRatio || 1, 1.5);
+    const t0 = performance.now();
+    let W = 0, H = 0, raf = 0, done = false, cleared = false;
+
+    const resize = () => {
+      W = innerWidth; H = innerHeight;
+      inkCv.width = Math.round(W * DPR);
+      inkCv.height = Math.round(H * DPR);
+      ictx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    };
+    resize();
+
+    const cx = () => W * .32;
+    const cy = () => H * .46;
+
+    const blob = (r, wob, ph) => {
+      const N = 160;
+      ictx.beginPath();
+      for (let i = 0; i <= N; i++) {
+        const a = i / N * Math.PI * 2;
+        const k = 1 + wob * (
+          .075 * Math.sin(a * 5 + ph) +
+          .050 * Math.sin(a * 9 - ph * 1.7) +
+          .030 * Math.sin(a * 17 + ph * 2.3)
+        );
+        const x = cx() + Math.cos(a) * r * k;
+        const y = cy() + Math.sin(a) * r * k;
+        i ? ictx.lineTo(x, y) : ictx.moveTo(x, y);
+      }
+      ictx.closePath();
+    };
+
+    const finish = () => {
+      if (done) return;
+      done = true;
+      cancelAnimationFrame(raf);
+      removeEventListener('resize', resize);
+      inkEl.remove();
+    };
+
+    const skip = () => finish();
+    addEventListener('wheel', skip, { passive: true, once: true });
+    addEventListener('touchstart', skip, { passive: true, once: true });
+    addEventListener('keydown', skip, { once: true });
+    addEventListener('resize', resize);
+
+    const draw = now => {
+      const p = Math.min(1, Math.max(0, (now - t0 - 80) / 1450));
+      const e = 1 - Math.pow(1 - p, 2.2);
+      const wob = p < .74 ? 1 : Math.max(0, 1 - (p - .74) / .26);
+      const ph = 1.2 + (now - t0) * .0009;
+      const R = Math.hypot(Math.max(cx(), W - cx()), Math.max(cy(), H - cy())) * 1.02 + 70;
+      const r = R * e;
+
+      ictx.clearRect(0, 0, W, H);
+      ictx.fillStyle = '#0a0b13';
+      ictx.fillRect(0, 0, W, H);
+
+      /* 挖洞：外圈糊、内圈实，边缘才有墨的厚度 */
+      ictx.globalCompositeOperation = 'destination-out';
+      ictx.save(); ictx.filter = 'blur(30px)'; blob(r, wob * 1.18, ph); ictx.fill(); ictx.restore();
+      ictx.save(); ictx.filter = 'blur(7px)'; blob(r * .982, wob, ph * 1.4); ictx.fill(); ictx.restore();
+      ictx.globalCompositeOperation = 'source-over';
+
+      /* 湿墨边：一条有厚度的紫黑水线 + 细亮线 + 飞溅 */
+      ictx.save();
+      ictx.strokeStyle = 'rgba(96,66,220,.20)';
+      ictx.lineWidth = 26;
+      ictx.shadowColor = 'rgba(107,75,255,.55)';
+      ictx.shadowBlur = 34;
+      blob(r * 1.015, wob, ph);
+      ictx.stroke();
+      ictx.strokeStyle = 'rgba(178,158,255,.46)';
+      ictx.lineWidth = 2.6;
+      blob(r, wob, ph * 1.1);
+      ictx.stroke();
+      ictx.restore();
+
+      /* 墨点：几个小滴子跑在墨锋前面 */
+      ictx.save();
+      ictx.fillStyle = 'rgba(132,104,255,.34)';
+      for (let i = 0; i < 12; i++) {
+        const a = i * 2.399 + ph * .35;
+        const rr = r * (1.035 + .055 * Math.sin(i * 7.1 + ph));
+        const rad = 1.6 + 3 * Math.abs(Math.sin(i * 3.7 + ph));
+        ictx.beginPath();
+        ictx.arc(cx() + Math.cos(a) * rr, cy() + Math.sin(a) * rr, rad, 0, 6.2832);
+        ictx.fill();
+      }
+      ictx.restore();
+
+      if (!cleared) { cleared = true; inkEl.style.background = 'transparent'; }
+
+      if (p < 1) raf = requestAnimationFrame(draw);
+      else finish();
+    };
+    raf = requestAnimationFrame(draw);
+  }
 }
 
 /* ============================================================
@@ -298,6 +424,10 @@ if (reelCv && reelCv.getContext) {
       else if (visible) start();
     });
     addEventListener('resize', () => { stop(); resize(); if (visible) start(); });
+
+    /* 兜底：某些环境（后台标签、合成器未就绪）不触发 IntersectionObserver，
+       1.2 秒后还没跑起来就直接开，别让短片哑掉。 */
+    setTimeout(() => { if (!raf && visible) start(); }, 1200);
   }
 }
 
@@ -312,26 +442,91 @@ if (track && track.children.length > 1 && !reduce) {
   }, 2600);
 }
 
-/* ---------- 数字滚动：进视口才跑 ---------- */
-const counters = [...document.querySelectorAll('[data-count]')];
-const runCount = el => {
-  const to = Number(el.dataset.count) || 0;
-  if (reduce) { el.textContent = String(to); return; }
-  const t0 = performance.now(), dur = 1100;
-  const step = now => {
-    const p = Math.min((now - t0) / dur, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = String(Math.round(to * eased));
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
+/* ============================================================
+   数字滚轮：每一位数字各占一列，滚动位置直接驱动进位
+   滚回上面，数字会倒着退回去——不是一次性播放的动画
+   ============================================================ */
+const odoEls = [...document.querySelectorAll('[data-to]')];
+const odos = [];
+
+for (const el of odoEls) {
+  const target = String(el.dataset.to).trim();
+  const sr = el.querySelector('.sr');
+  el.textContent = '';
+  el.classList.add('odo');
+
+  const strips = [];
+  for (let i = 0; i < target.length; i++) {
+    const col = document.createElement('span');
+    col.className = 'odo-col';
+    col.setAttribute('aria-hidden', 'true');
+
+    const strip = document.createElement('span');
+    strip.className = 'odo-strip';
+    strip.appendChild(document.createElement('i'));      /* 首位留空，避免 099 */
+    for (let d = 0; d < 10; d++) {
+      const n = document.createElement('span');
+      n.textContent = String(d);
+      strip.appendChild(n);
+    }
+    col.appendChild(strip);
+    el.appendChild(col);
+    strips.push(strip);
+  }
+  if (sr) el.appendChild(sr);
+  odos.push({ el, to: Number(target) || 0, strips, last: -1 });
+}
+
+const setOdo = (o, v) => {
+  const n = Math.max(0, Math.round(v));
+  const width = o.strips.length;
+  for (let i = 0; i < width; i++) {
+    const place = Math.pow(10, width - 1 - i);
+    const digit = Math.floor(n / place) % 10;
+    const slot = (place > 1 && n < place) ? 0 : digit + 1;
+    if (slot === o['p' + i]) continue;
+    o['p' + i] = slot;
+    o.strips[i].style.transform = 'translateY(' + (-slot) + 'em)';
+  }
 };
-if ('IntersectionObserver' in window) {
-  const io = new IntersectionObserver(entries => {
-    for (const en of entries) if (en.isIntersecting) { io.unobserve(en.target); runCount(en.target); }
-  }, { threshold: .4 });
-  counters.forEach(c => io.observe(c));
-} else counters.forEach(runCount);
+
+const paintOdos = () => {
+  const vh = innerHeight;
+  for (const o of odos) {
+    const r = o.el.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (vh * .94 - r.top) / (vh * .36)));
+    const eased = 1 - Math.pow(1 - p, 3);
+    setOdo(o, o.to * (reduce ? 1 : eased));
+  }
+};
+
+/* 只有 8 个数字，直接同步算；比等一帧更跟手，滚动时数字才像被手搓出来的 */
+const onOdoScroll = () => paintOdos();
+if (odos.length) {
+  addEventListener('scroll', onOdoScroll, { passive: true });
+  addEventListener('resize', onOdoScroll);
+  paintOdos();
+}
+
+/* ---------- 首屏标目：解码一次（文字乱码逐步收敛） ---------- */
+const dec = document.getElementById('decode');
+if (dec && !reduce) {
+  const text = dec.textContent;
+  const CHARS = '!#$%&*+<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const run = () => {
+    const t0 = performance.now();
+    const step = now => {
+      const p = Math.min((now - t0) / 950, 1);
+      const settled = Math.floor(text.length * p);
+      dec.textContent = text.slice(0, settled) +
+        text.slice(settled).replace(/\S/g, () => CHARS[(Math.random() * CHARS.length) | 0]);
+      if (p < 1) requestAnimationFrame(step);
+      else dec.textContent = text;
+    };
+    requestAnimationFrame(step);
+  };
+  setTimeout(run, 900);
+}
 
 /* ---------- 滚动浮现（类由脚本加，JS 失效时内容照常可见） ---------- */
 const revealEls = [...document.querySelectorAll('[data-rv]')];
@@ -350,6 +545,22 @@ if (!reduce && 'IntersectionObserver' in window) {
       if (r.top < innerHeight * 1.15 && r.bottom > -60) el.classList.add('on');
     }
   }, 1200);
+}
+
+/* ---------- 动效开关：永远可见，想关随时关 ---------- */
+const pill = document.getElementById('motionPill');
+if (pill) {
+  const txt = document.getElementById('motionTxt');
+  pill.hidden = false;
+  pill.dataset.on = reduce ? '0' : '1';
+  txt.textContent = reduce
+    ? '动效已关'
+    : (sysReduce ? '动效：开（系统建议减弱）' : '动效：开');
+  pill.title = reduce ? '点击开启动效' : '点击关闭动效';
+  pill.addEventListener('click', () => {
+    try { localStorage.setItem('arsenal-motion', reduce ? 'on' : 'off'); } catch (_) {}
+    location.replace(location.pathname + location.hash);
+  });
 }
 
 /* ---------- 磁吸按钮 ---------- */
