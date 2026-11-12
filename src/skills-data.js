@@ -3362,28 +3362,12 @@ export const SKILLS = [
     "bytes": 4040
   },
   {
-    "id": "vantage-install",
-    "name": "Installing Vantage",
-    "desc": "This guide covers installing the Vantage theme (luci-theme-vantage) and",
-    "cat": "import",
-    "zh": "Vantage 安装与主题结构",
-    "bytes": 47493
-  },
-  {
     "id": "vantage-luci-contract",
     "name": "LuCI 25.12 theme contract",
     "desc": "What the LuCI core expects from a theme on OpenWrt 25.12, and the places",
     "cat": "ds",
     "zh": "LuCI 主题契约",
     "bytes": 14069
-  },
-  {
-    "id": "vantage-roadmap",
-    "name": "Roadmap",
-    "desc": "Ideas and planned work, roughly in priority order. Nothing here is",
-    "cat": "import",
-    "zh": "Vantage 路线图",
-    "bytes": 5073
   },
   {
     "id": "vantage-spec",
