@@ -2330,6 +2330,22 @@ export const SKILLS = [
     "bytes": 5936
   },
   {
+    "id": "emil-apple-design",
+    "name": "apple-design",
+    "desc": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring anim",
+    "cat": "design",
+    "zh": "Apple 风格界面设计",
+    "bytes": 22880
+  },
+  {
+    "id": "emil-design-eng",
+    "name": "Design Engineering",
+    "desc": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel g",
+    "cat": "design",
+    "zh": "动效打磨方法论",
+    "bytes": 27415
+  },
+  {
     "id": "experiment-workflow",
     "name": "experiment-workflow",
     "desc": "Experiment workflow From idea to pre-registered design to honest read-out",
@@ -3336,6 +3352,22 @@ export const SKILLS = [
     "cat": "ds",
     "zh": "套用设计系统",
     "bytes": 18534
+  },
+  {
+    "id": "vercel-web-design-guidelines",
+    "name": "web-design-guidelines",
+    "desc": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"chec",
+    "cat": "design",
+    "zh": "Web 界面审查技能",
+    "bytes": 1231
+  },
+  {
+    "id": "vercel-web-interface-guidelines",
+    "name": "Web Interface Guidelines",
+    "desc": "Review UI code for Vercel Web Interface Guidelines compliance",
+    "cat": "design",
+    "zh": "界面规范审查规则",
+    "bytes": 8015
   },
   {
     "id": "watercolor-illustration",

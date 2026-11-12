@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<meta name="color-scheme" content="dark">
 <title>前端武器库 · Frontend Arsenal</title>
-<meta name="description" content="154 个可运行的动效机制、81 支代码视频样片、420 份设计方法文档。不收截图，只收能搬进项目的机制。">
+<meta name="description" content="154 个可运行的动效机制、81 支代码视频样片、424 份设计方法文档。不收截图，只收能搬进项目的机制。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -14,16 +16,33 @@
   --fg:#eceef3; --dim:#8f97a8; --dim2:#717a8a;
   --vi:#6b4bff; --cy:#3ccbff; --lime:#c3ea3a;
   --shell:1240px;
+  /* 自定义缓动：内置 ease/ease-out 太弱，曲线要"有劲" */
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-in-out:cubic-bezier(.77,0,.175,1);
+  --ease-drawer:cubic-bezier(.32,.72,0,1);
 }
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100;color-scheme:dark}
+@media(pointer:fine){html{overscroll-behavior:none}}
 body{margin:0;background:var(--bg);color:var(--fg);overflow-x:hidden;
   font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
-  -webkit-font-smoothing:antialiased}
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
 a{color:inherit}
 ::selection{background:rgba(107,75,255,.4)}
 .shell{width:100%;max-width:var(--shell);margin:0 auto;padding:0 40px}
 @media(max-width:640px){.shell{padding:0 20px}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 跳转主内容 + 统一焦点环 ---------- */
+.skip{position:fixed;left:14px;top:-60px;z-index:120;padding:10px 16px;border-radius:8px;
+  background:var(--fg);color:#0a0b0e;font-size:13px;font-weight:600;text-decoration:none;
+  transition:top .18s var(--ease-out)}
+.skip:focus{top:14px}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:4px}
+:focus:not(:focus-visible){outline:none}
+main:focus{outline:none}
+/* 锚点目标不被固定顶栏盖住 */
+#find,#idea,#inside,#proof,#usage{scroll-margin-top:86px}
+h1,h2,h3{text-wrap:balance}
 
 /* ---------- 颗粒质感（固定覆盖） ---------- */
 .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.038;mix-blend-mode:overlay;
@@ -34,24 +53,31 @@ a{color:inherit}
 .ink-open canvas{display:block;width:100%;height:100%}
 
 /* ---------- 动效开关（仅在系统关闭动效/手动选择后出现） ---------- */
-.motion-pill{position:fixed;left:20px;bottom:18px;z-index:70;display:inline-flex;align-items:center;gap:8px;
+.motion-pill{position:fixed;left:20px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:70;
+  display:inline-flex;align-items:center;gap:8px;
   background:rgba(11,13,19,.86);border:1px solid var(--line2);color:#c3cbd9;border-radius:20px;
   padding:7px 13px;font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.06em;cursor:pointer;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:border-color .2s,color .2s}
+  touch-action:manipulation;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:border-color .2s var(--ease-out),color .2s var(--ease-out),transform .16s var(--ease-out)}
 .motion-pill[hidden]{display:none}
-.motion-pill:hover{border-color:#8b7bff;color:#fff}
+@media(hover:hover) and (pointer:fine){.motion-pill:hover{border-color:#8b7bff;color:#fff}}
+.motion-pill:active{transform:scale(.97)}
 .motion-pill i{width:6px;height:6px;border-radius:50%;background:#7d8598;flex:none}
 .motion-pill[data-on="1"] i{background:var(--lime);box-shadow:0 0 9px rgba(195,234,58,.85)}
-@media(max-width:640px){.motion-pill{left:14px;bottom:12px;font-size:10px}}
-.ctl-row{position:fixed;right:20px;bottom:18px;z-index:70;display:flex;gap:8px;align-items:center}
+@media(max-width:640px){.motion-pill{left:14px;bottom:calc(12px + env(safe-area-inset-bottom));font-size:10px}}
+.ctl-row{position:fixed;right:20px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:70;
+  display:flex;gap:8px;align-items:center}
 .ctl{position:relative;display:inline-flex;align-items:center;gap:8px;
   background:rgba(11,13,19,.86);border:1px solid var(--line2);color:#c3cbd9;border-radius:20px;
   padding:7px 13px;font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.06em;cursor:pointer;
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:border-color .2s,color .2s}
-.ctl:hover{border-color:#8b7bff;color:#fff}
+  touch-action:manipulation;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  transition:border-color .2s var(--ease-out),color .2s var(--ease-out),transform .16s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.ctl:hover{border-color:#8b7bff;color:#fff}}
+.ctl:active{transform:scale(.97)}
 .ctl i{width:6px;height:6px;border-radius:50%;background:#7d8598;flex:none}
 .ctl.on i{background:var(--lime);box-shadow:0 0 9px rgba(195,234,58,.85)}
-@media(max-width:640px){.ctl-row{right:14px;bottom:12px}.ctl{font-size:10px;padding:6px 11px}}
+@media(max-width:640px){.ctl-row{right:14px;bottom:calc(12px + env(safe-area-inset-bottom))}
+  .ctl{font-size:10px;padding:6px 11px}}
 
 /* ---------- 顶栏 ---------- */
 .topbar{position:fixed;inset:0 0 auto;z-index:50;border-bottom:1px solid transparent;
@@ -67,8 +93,8 @@ a{color:inherit}
 .brand em{font-style:normal;font-weight:500;letter-spacing:.06em;color:var(--dim);text-transform:none;font-size:13px}
 .topnav{display:flex;gap:26px}
 .topnav a{text-decoration:none;color:var(--dim);font-size:13px;letter-spacing:.02em;
-  padding-bottom:2px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-.topnav a:hover{color:#fff;border-bottom-color:var(--vi)}
+  padding-bottom:2px;border-bottom:1px solid transparent;transition:color .2s var(--ease-out),border-color .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.topnav a:hover{color:#fff;border-bottom-color:var(--vi)}}
 @media(max-width:760px){.topnav{gap:16px}.topnav a:nth-child(3){display:none}.brand em{display:none}}
 
 /* ---------- 首屏 ---------- */
@@ -113,13 +139,17 @@ a{color:inherit}
 .lead{max-width:600px;margin:20px 0 0;color:#a6aebe;font-size:16.5px;line-height:1.85}
 .cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:38px}
 .btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14.5px;
-  font-weight:600;letter-spacing:.01em;border-radius:10px;padding:13px 22px;
-  transition:background .25s,border-color .25s,color .25s,transform .4s cubic-bezier(.16,1,.3,1)}
+  font-weight:600;letter-spacing:.01em;border-radius:10px;padding:13px 22px;touch-action:manipulation;
+  transition:background .2s var(--ease-out),border-color .2s var(--ease-out),color .2s var(--ease-out),transform .16s var(--ease-out)}
 .btn span{font-size:13px;opacity:.75}
 .btn-primary{background:var(--fg);color:#0a0b0e;will-change:transform}
-.btn-primary:hover{background:#fff}
 .btn-ghost{border:1px solid var(--line2);color:#dfe3ea}
-.btn-ghost:hover{border-color:#8b7bff;color:#fff;background:rgba(107,75,255,.09)}
+@media(hover:hover) and (pointer:fine){
+  .btn-primary:hover{background:#fff}
+  .btn-ghost:hover{border-color:#8b7bff;color:#fff;background:rgba(107,75,255,.09)}
+}
+/* 按下反馈：按钮必须"听见了" */
+.btn:active{transform:scale(.97)}
 .scroll-cue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;
   display:flex;flex-direction:column;align-items:center;gap:8px;
   font-size:9.5px;letter-spacing:.28em;color:#5c6474;text-decoration:none}
@@ -131,8 +161,10 @@ a{color:inherit}
 .reel{margin:0;width:100%;max-width:540px;justify-self:end;min-width:0}
 .reel-screen{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;
   background:#08090d;border:1px solid rgba(255,255,255,.14);cursor:grab;touch-action:pan-y;
+  user-select:none;-webkit-user-select:none;
   box-shadow:0 50px 100px -40px rgba(107,75,255,.7),0 0 0 1px rgba(0,0,0,.55) inset}
 .reel-screen.grabbing{cursor:grabbing}
+.reel-screen.grabbing *{cursor:grabbing !important}
 #reelCanvas{display:block;width:100%;height:100%}
 .reel-screen::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;
   background:repeating-linear-gradient(to bottom,rgba(255,255,255,.022) 0 1px,transparent 1px 3px)}
@@ -153,15 +185,18 @@ a{color:inherit}
   pointer-events:auto;cursor:ew-resize;touch-action:none}
 .reel-bar i{position:absolute;inset:0;transform:scaleX(0);transform-origin:left;
   background:linear-gradient(90deg,var(--vi),var(--cy));will-change:transform}
-.reel-ctl{display:flex;align-items:center;gap:8px;margin-top:12px}
+.reel-ctl{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
 .reel-btn{flex:none;background:rgba(255,255,255,.05);border:1px solid var(--line);color:#aeb7c7;
   border-radius:8px;padding:6px 12px;font:10.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.08em;
-  cursor:pointer;transition:.2s}
-.reel-btn:hover{background:rgba(255,255,255,.11);color:#fff}
+  cursor:pointer;touch-action:manipulation;
+  transition:background .18s var(--ease-out),border-color .18s var(--ease-out),color .18s var(--ease-out),transform .16s var(--ease-out)}
+.reel-btn:active{transform:scale(.97)}
+@media(hover:hover) and (pointer:fine){.reel-btn:hover{background:rgba(255,255,255,.11);color:#fff}}
 .reel-btn[aria-pressed=true]{background:rgba(107,75,255,.22);border-color:#6b4bff;color:#fff}
 .reel-knob{display:flex;align-items:baseline;gap:8px;margin-left:auto;color:#6f7889;
   font:10.5px/1 ui-monospace,Consolas,monospace}
-.reel-knob b{color:#c3cdda;font-weight:600;font-variant-numeric:tabular-nums;min-width:30px;text-align:right}
+.reel-knob b{color:#c3cdda;font-weight:600;font-variant-numeric:tabular-nums;min-width:30px;text-align:right;
+  cursor:ew-resize;touch-action:none;border-radius:4px;padding:2px 4px}
 .reel figcaption{display:flex;align-items:baseline;gap:9px;margin-top:14px;
   font-size:11.5px;line-height:1.6;color:#6f7889;letter-spacing:.01em}
 .reel figcaption b{flex:none;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
@@ -249,14 +284,17 @@ html.no-motion .kr-base{color:inherit}
 .find-top .n{font-size:12px;color:var(--dim2);font-variant-numeric:tabular-nums}
 .search-row{display:flex;align-items:center;gap:14px;margin-top:6px}
 .search-row input{flex:1;min-width:0;width:100%;background:transparent;border:0;
-  border-bottom:1px solid var(--line2);outline:0;color:#fff;
+  border-bottom:1px solid var(--line2);outline:0;color:#fff;   /* 焦点用下边框+光晕表示，不靠 outline */
   font-size:clamp(18px,2.5vw,25px);font-weight:500;letter-spacing:-.02em;
-  padding:14px 2px;font-family:inherit;transition:border-color .3s}
+  padding:14px 2px;font-family:inherit;transition:border-color .2s var(--ease-out),box-shadow .2s var(--ease-out)}
 .search-row input::placeholder{color:#4d5566;font-weight:400}
-.search-row input:focus{border-bottom-color:var(--vi)}
+.search-row input:focus{border-bottom-color:var(--vi);box-shadow:0 1px 0 0 var(--vi)}
+.search-row input:focus-visible{outline:2px solid var(--cy);outline-offset:6px;border-radius:4px}
 .btn-clear{flex:none;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#c7cedb;
-  border-radius:8px;padding:9px 16px;font:inherit;font-size:13px;cursor:pointer;transition:.2s}
-.btn-clear:hover{background:rgba(255,255,255,.12);color:#fff}
+  border-radius:8px;padding:9px 16px;font:inherit;font-size:13px;cursor:pointer;touch-action:manipulation;
+  transition:background .18s var(--ease-out),color .18s var(--ease-out),transform .16s var(--ease-out)}
+.btn-clear:active{transform:scale(.97)}
+@media(hover:hover) and (pointer:fine){.btn-clear:hover{background:rgba(255,255,255,.12);color:#fff}}
 .find-hint{margin:14px 0 0;font-size:12.5px;color:var(--dim2);line-height:1.9}
 .find-hint code{font:11.5px ui-monospace,Consolas,monospace;background:rgba(255,255,255,.07);
   border-radius:4px;padding:1px 5px;color:#c8d0de}
@@ -271,7 +309,8 @@ html.no-motion .kr-base{color:inherit}
   box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 4px 9px -2px rgba(0,0,0,.5);
   will-change:transform,width}
 .filters.group button{position:relative;z-index:2;background:transparent;border:0;color:#8f97a8;
-  padding:7px 14px;font:inherit;font-size:12.5px;cursor:pointer;white-space:nowrap;flex:none}
+  padding:7px 14px;font:inherit;font-size:12.5px;cursor:pointer;white-space:nowrap;flex:none;
+  touch-action:manipulation;transition:color .18s var(--ease-out)}
 .filters.group button span{opacity:.55;margin-left:5px;font-variant-numeric:tabular-nums}
 .filters.group button[aria-pressed=true]{color:#14180b;font-weight:600}
 .filters.group button[aria-pressed=true] span{opacity:.65}
@@ -286,16 +325,20 @@ html.no-motion .filters-thumb{transition:none}
 .list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .item{position:relative;display:block;min-height:172px;padding:18px 18px 20px;text-decoration:none;
   background:#0d1017;border:1px solid var(--line);border-radius:11px;color:inherit;
-  transition:background .2s,border-color .2s,transform .2s}
-.item:hover{background:#11141d;border-color:#4a3f8f;transform:translateY(-2px)}
+  content-visibility:auto;contain-intrinsic-size:auto 172px;
+  transition:background .2s var(--ease-out),border-color .2s var(--ease-out),transform .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+  .item:hover{background:#11141d;border-color:#4a3f8f;transform:translateY(-2px)}
+  .item:hover::after{opacity:1}
+}
 .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;
   background:rgba(107,75,255,.18);color:#c3b6ff;padding:3px 8px;border-radius:4px;margin-right:8px}
 .category{color:var(--dim2);font-size:11.5px}
 .item h3{font-size:16.5px;margin:16px 22px 7px 0;letter-spacing:-.01em;font-weight:600}
 .item p{color:var(--dim);font-size:12.5px;line-height:1.65;margin:0;
   display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.arrow{position:absolute;right:16px;top:16px;color:#5a6274;transition:transform .2s,color .2s}
-.item:hover .arrow{color:#9d8bff;transform:translate(2px,-2px)}
+.arrow{position:absolute;right:16px;top:16px;color:#5a6274;transition:transform .2s var(--ease-out),color .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.item:hover .arrow{color:#9d8bff;transform:translate(2px,-2px)}}
 #empty{color:var(--dim2);font-size:13.5px;margin:8px 0 0}
 @media(max-width:900px){.list{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.list{grid-template-columns:1fr}.beam-in{padding:22px 20px}}
@@ -333,9 +376,12 @@ html.no-motion .filters-thumb{transition:none}
 .src .nm{flex:none;font-size:14.5px;font-weight:600;letter-spacing:-.01em}
 .src .ds{flex:1;min-width:0;font-size:12px;color:#7b8494;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.src .go{flex:none;font-size:12px;color:#4d5566;transition:.25s}
-.src:hover .nm{color:#fff}
-.src:hover .go{color:#9d8bff;transform:translate(2px,-2px)}
+.src .go{flex:none;font-size:12px;color:#4d5566;transition:color .2s var(--ease-out),transform .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+  .src:hover{padding-left:9px}
+  .src:hover .nm{color:#fff}
+  .src:hover .go{color:#9d8bff;transform:translate(2px,-2px)}
+}
 @media(max-width:860px){.inside{grid-template-columns:1fr}.srcs{grid-template-columns:1fr}
   .src{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:13px 2px}
   .src .ds{grid-column:1/-1;white-space:normal;font-size:12.5px}
@@ -368,8 +414,12 @@ html.no-motion .filters-thumb{transition:none}
 .tryout-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .tryout-btn{text-align:left;background:#0d1017;border:1px solid var(--line);border-radius:11px;
   padding:16px 18px;color:var(--dim);font:inherit;font-size:13px;line-height:1.7;cursor:pointer;
-  transition:background .2s,border-color .2s,transform .2s}
-.tryout-btn:hover{background:#12151e;border-color:#4a3f8f;transform:translateY(-2px);color:#cfd5e0}
+  touch-action:manipulation;
+  transition:background .2s var(--ease-out),border-color .2s var(--ease-out),color .2s var(--ease-out),transform .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+  .tryout-btn:hover{background:#12151e;border-color:#4a3f8f;transform:translateY(-2px);color:#cfd5e0}
+}
+.tryout-btn:active{transform:scale(.98)}
 .tryout-btn b{display:block;margin-bottom:4px;font:10px/1 ui-monospace,Consolas,monospace;
   letter-spacing:.16em;color:var(--lime);text-transform:uppercase;font-weight:600}
 @media(max-width:820px){.tryout-grid{grid-template-columns:1fr}}
@@ -378,8 +428,8 @@ html.no-motion .filters-thumb{transition:none}
 .foot{padding:70px 0 56px}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:44px}
 .foot h4{margin:0 0 14px;font-size:10.5px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase}
-.foot a{display:block;text-decoration:none;color:#b6bdcb;font-size:13.5px;padding:4px 0;transition:color .2s}
-.foot a:hover{color:#fff}
+.foot a{display:block;text-decoration:none;color:#b6bdcb;font-size:13.5px;padding:4px 0;transition:color .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.foot a:hover{color:#fff}}
 .foot p{margin:0;font-size:12.5px;color:var(--dim2);line-height:1.9}
 .foot-brand{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin:0 0 12px}
 .foot-bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
@@ -397,7 +447,8 @@ html.no-motion .filters-thumb{transition:none}
 .hero .reel{animation:rise 1.1s cubic-bezier(.16,1,.3,1) .2s both}
 @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 
-/* 动效总开关：只有访客主动关掉（或脚本判定关掉）时才落到这套静帧样式 */
+/* 动效总开关：只有访客主动关掉（或脚本判定关掉）时才落到这套静帧样式。
+   按 Emil 的主张：减少动效 ≠ 零动效——颜色与透明度过渡保留，位移与旋转去掉。 */
 html.no-motion{scroll-behavior:auto}
 html.no-motion .rv{opacity:1;transform:none;filter:none;transition:none}
 html.no-motion .hero .eyebrow,html.no-motion .hero-title,html.no-motion .rot,
@@ -406,6 +457,9 @@ html.no-motion .hero-title{animation:none}
 html.no-motion .beam-card::before,html.no-motion .scroll-cue i,
 html.no-motion .brand .dot,html.no-motion .reel-live i{animation:none}
 html.no-motion .rot-track{transition:none}
+@media(hover:hover) and (pointer:fine){
+  html.no-motion .item:hover,html.no-motion .tryout-btn:hover{transform:none}
+}
 
 /* ---------- X-Ray 拆解模式：按 X 或点右下角开关 ---------- */
 .xray .topbar,.xray .motion-pill,.xray .ctl-row,.xray .grain,
@@ -413,7 +467,7 @@ html.no-motion .rot-track{transition:none}
 .xray .hero::after,.xray .hero-grid{display:none}
 .xray .hero-bg{opacity:.35}
 html.xray body{background:#04050a}
-.xray .item{outline:0}
+html.xray .item{outline-color:rgba(141,120,255,.75)}
 .xray .fx{position:relative}
 .xray .fx::after{content:attr(data-fx);position:absolute;top:-10px;right:0;z-index:6;
   font:400 8.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.12em;color:#9db4ff;
@@ -453,6 +507,7 @@ html.xray .xray-hud{opacity:1;transform:none}
 <body>
 <div class="grain" aria-hidden="true"></div>
 <div class="ink-open" id="inkOpen" aria-hidden="true"><canvas id="inkCanvas"></canvas></div>
+<a class="skip" href="#main">跳到主要内容</a>
 <button class="motion-pill" id="motionPill" type="button" hidden><i></i><span id="motionTxt">动效</span></button>
 <div class="ctl-row">
   <button class="ctl" id="xrayBtn" type="button" title="拆解模式：把整页正在跑的机制全部标出来（按 X 键）"><i></i><span>拆解 X-Ray</span></button>
@@ -494,6 +549,7 @@ html.xray .xray-hud{opacity:1;transform:none}
   </div>
 </header>
 
+<main id="main" tabindex="-1">
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-grid" aria-hidden="true"></div>
@@ -505,10 +561,10 @@ html.xray .xray-hud{opacity:1;transform:none}
         <p class="rot" aria-hidden="true"><span class="rot-track" id="rotTrack">
           <span>154 个可运行的动效机制</span>
           <span>81 支代码视频样片</span>
-          <span>420 份设计方法文档</span>
-          <span>12 个上游开源项目</span>
+          <span>424 份设计方法文档</span>
+          <span>14 个上游开源项目</span>
         </span></p>
-        <p class="sr">154 个可运行的动效机制、81 支代码视频样片、420 份设计方法文档，来自 12 个上游开源项目。</p>
+        <p class="sr">154 个可运行的动效机制、81 支代码视频样片、424 份设计方法文档，来自 14 个上游开源项目。</p>
         <p class="lead">这里不收截图，只收能跑的机制。每一个效果都拆到依赖、坑和失败模式——看完就知道它能不能用在你的项目里。</p>
         <div class="cta-row">
           <a class="btn btn-primary" id="magnet" href="effects.html">进入动效图鉴 <span>↗</span></a>
@@ -536,6 +592,7 @@ html.xray .xray-hud{opacity:1;transform:none}
         <div class="reel-ctl">
           <button type="button" class="reel-btn" id="reelPrev" aria-label="上一段">← PREV</button>
           <button type="button" class="reel-btn" id="reelNext" aria-label="下一段">NEXT →</button>
+          <button type="button" class="reel-btn" id="reelPause" aria-pressed="false" aria-label="暂停或继续短片">⏸ 暂停</button>
           <button type="button" class="reel-btn" id="reelTrans" aria-pressed="false" title="切镜时用噪波溶解过渡" aria-label="切换到噪波溶解转场">转场：溶解</button>
           <span class="reel-knob" title="按住往左右拖，实时调当前场景的参数">
             <span id="knobName">粒子数</span>
@@ -554,8 +611,8 @@ html.xray .xray-hud{opacity:1;transform:none}
   <div class="shell">
     <div class="stat"><b data-to="154"><span class="sr">154</span></b><span>动效机制</span></div>
     <div class="stat"><b data-to="81"><span class="sr">81</span></b><span>视频样片</span></div>
-    <div class="stat"><b data-to="420"><span class="sr">420</span></b><span>设计文档</span></div>
-    <div class="stat"><b data-to="12"><span class="sr">12</span></b><span>上游项目</span></div>
+    <div class="stat"><b data-to="424"><span class="sr">424</span></b><span>设计文档</span></div>
+    <div class="stat"><b data-to="13"><span class="sr">13</span></b><span>上游项目</span></div>
   </div>
 </div>
 
@@ -565,7 +622,7 @@ html.xray .xray-hud{opacity:1;transform:none}
       <div class="beam-in">
         <div class="find-top"><span class="k">全库检索 / Search</span><span class="n">655 条索引</span></div>
         <div class="search-row">
-          <input id="search" type="search" placeholder="按钮、转场、3D、字幕、焦点…" autocomplete="off" aria-label="全库搜索">
+          <input id="search" name="q" type="search" placeholder="按钮、转场、3D、字幕、焦点…" autocomplete="off" spellcheck="false" aria-label="全库搜索">
           <button id="clear" class="btn-clear" type="button">清空</button>
         </div>
         <p class="find-hint">空格分隔多个关键词，按 <code>/</code> 随时聚焦。结果直接落到对应页面——动效到舞台、文档到正文、样片到片单。</p>
@@ -598,7 +655,7 @@ html.xray .xray-hud{opacity:1;transform:none}
     <div class="principle" data-rv style="--i:4">
       <span class="p-num">03</span>
       <h3 class="p-title">出处，永远<i>可追</i></h3>
-      <p class="p-body">12 个上游项目逐一标注作者与授权。这里只做提炼和重组，想读原文，每个名字都是出口。</p>
+      <p class="p-body">14 个上游项目逐一标注作者与授权。这里只做提炼和重组，想读原文，每个名字都是出口。</p>
     </div>
     <div class="principle" data-rv style="--i:5">
       <span class="p-num">04</span>
@@ -616,11 +673,11 @@ html.xray .xray-hud{opacity:1;transform:none}
     <div class="inside">
       <div class="inside-item" data-rv style="--i:2"><b data-to="154"><span class="sr">154</span></b><div><h3>动效机制</h3><p>按「用户想要什么」分成七组：入场、反馈、空间、粒子、物理、数据、声音。每条带可运行舞台、依赖、坑与源码。</p></div></div>
       <div class="inside-item" data-rv style="--i:3"><b data-to="81"><span class="sr">81</span></b><div><h3>代码视频样片</h3><p>mg-styles-15 的 15 种 MG 风格 + lemo-opuscar 的 66 种电影风格。画面与配乐全部由代码生成。</p></div></div>
-      <div class="inside-item" data-rv style="--i:4"><b data-to="420"><span class="sr">420</span></b><div><h3>设计方法文档</h3><p>从视觉体系、布局排版到平台规范，八类整理，站内直接读，也能一键看原始 Markdown。</p></div></div>
+      <div class="inside-item" data-rv style="--i:4"><b data-to="424"><span class="sr">424</span></b><div><h3>设计方法文档</h3><p>从视觉体系、布局排版到平台规范，八类整理，站内直接读，也能一键看原始 Markdown。</p></div></div>
       <div class="inside-item" data-rv style="--i:5"><b data-to="124"><span class="sr">124</span></b><div><h3>镜头配方</h3><p>逐镜头的运镜、节奏、时长与抽帧结论，写清「为什么这样剪」，不是只给你看成品。</p></div></div>
     </div>
 
-    <p class="src-title" data-rv>整合自 12 个上游项目 · 点名字回原仓库</p>
+    <p class="src-title" data-rv>整合自 14 个上游项目 · 点名字回原仓库</p>
     <div class="srcs" data-rv style="--i:1">
       <a class="src" href="https://github.com/Vincentwei1021/mg-styles-15" target="_blank" rel="noopener noreferrer"><span class="nm">mg-styles-15</span><span class="ds">15 种 MG 风格全开源</span><span class="go">↗</span></a>
       <a class="src" href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" rel="noopener noreferrer"><span class="nm">lemo-opuscar</span><span class="ds">66 种电影风格 · 纯代码做片</span><span class="go">↗</span></a>
@@ -634,6 +691,8 @@ html.xray .xray-hud{opacity:1;transform:none}
       <a class="src" href="https://github.com/elayadesign/ai-design-skills" target="_blank" rel="noopener noreferrer"><span class="nm">ai-design-skills</span><span class="ds">落地页设计系统</span><span class="go">↗</span></a>
       <a class="src" href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener noreferrer"><span class="nm">impeccable</span><span class="ds">设计总控 skill · 18 命令</span><span class="go">↗</span></a>
       <a class="src" href="https://web.archive.org/web/2026/https://www.overflow.design/" target="_blank" rel="noopener noreferrer"><span class="nm">overflow.design</span><span class="ds">图标与尺寸指南 · 5 篇</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/vercel-labs/agent-skills" target="_blank" rel="noopener noreferrer"><span class="nm">vercel-labs</span><span class="ds">界面规范 · 100+ 条规则</span><span class="go">↗</span></a>
+      <a class="src" href="https://github.com/emilkowalski/skills" target="_blank" rel="noopener noreferrer"><span class="nm">emilkowalski</span><span class="ds">动效打磨方法论 · 2 篇</span><span class="go">↗</span></a>
     </div>
     <a class="tail-link" href="sources.html">站内提炼版：四个项目的完整方法论 <span>↗</span></a>
   </div>
@@ -684,6 +743,7 @@ html.xray .xray-hud{opacity:1;transform:none}
     <a class="tail-link" href="#find">从搜索开始 <span>↑</span></a>
   </div>
 </section>
+</main>
 
 <footer class="foot">
   <div class="shell">
@@ -708,7 +768,7 @@ html.xray .xray-hud{opacity:1;transform:none}
       </div>
     </div>
     <div class="foot-bottom">
-      <span>内容提炼自 12 个开源项目，授权与出处见仓库 README。</span>
+      <span>内容提炼自 13 个开源项目，授权与出处见仓库 README。</span>
       <span>本地运行 · 无构建 · 无依赖</span>
     </div>
   </div>

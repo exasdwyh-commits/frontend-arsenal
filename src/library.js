@@ -95,6 +95,23 @@ function render() {
   document.querySelector('#count').textContent = `找到 ${matched.length} 项`;
   document.querySelector('#empty').hidden = matched.length > 0;
   list.innerHTML = matched.map(item => `<a class="item" href="${escape(item.href)}"><div><span class="badge">${escape(item.type)}</span><span class="category">${escape(item.category)}</span></div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p><span class="arrow" aria-hidden="true">↗</span></a>`).join('');
+
+  /* URL 反映状态：搜索词和类型都能分享、能深链 */
+  const url = new URL(location.href);
+  if (search.value.trim()) url.searchParams.set('q', search.value.trim());
+  else url.searchParams.delete('q');
+  if (type !== '全部') url.searchParams.set('type', type);
+  else url.searchParams.delete('type');
+  history.replaceState(null, '', url.pathname + url.search + url.hash);
+}
+
+/* 初次进入：从 URL 读回状态 */
+{
+  const params = new URLSearchParams(location.search);
+  const q = params.get('q');
+  if (q) search.value = q;
+  const t = params.get('type');
+  if (t && types.includes(t)) type = t;
 }
 
 addEventListener('resize', queueThumb);

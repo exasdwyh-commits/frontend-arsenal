@@ -3,7 +3,7 @@
   "protocol": "agent/README.md",
   "coverage": {
     "effects": 154,
-    "skills": 420,
+    "skills": 424,
     "videos": 81,
     "effectsWithScenes": 63,
     "recipes": 1,
@@ -307,6 +307,8 @@
     "skills/design-feedback.md": "2eebf12b5f2924d1306878324335610c96b69c38b189160df639c5959e22595d",
     "skills/design-system-authoring-guide.md": "04a2fd1bf2c12ab4b2e5101bca082ede76c973cb62bfecb8dcac1be14215e91d",
     "skills/design-system-preview.md": "7459de34a36e8ce38fdd4e7a9c59b5f183a9a4a22c6c624ce687d2abf220891f",
+    "skills/emil-apple-design.md": "77bb63b7043bb93aca2ff4ab040c249484eef35682bb6ff7163433c31d30adc7",
+    "skills/emil-design-eng.md": "965cc3108047a1f68e504977ae7816c66115b202a32e7509c0b8305314839c54",
     "skills/experiment-workflow.md": "bb16d966bbef6d922ea0f5d66f12509a1d98d723b84cc1ee68f95633202adfd1",
     "skills/export-as-pptx-editable.md": "0d6bf6a7585415caa927c8c9d3feaebed7b0df2612445f46635fd8b183ec51c6",
     "skills/export-as-pptx-screenshots.md": "e0d40453ca742bc533ed693d2fdd3d88281a6cadf1a9e553d6d56f9b15147cf3",
@@ -433,6 +435,8 @@
     "skills/trifold-brochure.md": "4ae5f456feabcd7c8d62081cf433f5098d5df44e3630ddae7c18cdac879489c9",
     "skills/tweaks-protocol.md": "fa486d5bc340256b23ae136fedc28052844572d2832904257d78dc0d0b0ce935",
     "skills/use-design-system.md": "3e15c3ab2d6d4e0fccc8bd1eb679d7f6896c0449a2fce35a85be6fa1e82493d5",
+    "skills/vercel-web-design-guidelines.md": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f",
+    "skills/vercel-web-interface-guidelines.md": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
     "skills/watercolor-illustration.md": "63f7874c490257b796ed037e716b60b4a473ba89476d062d184b143e4d62851f",
     "skills/website-landing-page.md": "e5b4bd8a06ad5bd3ca54c906b33da415d3ec6004ddb749faa539222fd7165337",
     "skills/wireframe.md": "c98e5d3e4822be61f484335c6b4386811a517a151498ee4a89a251dddaf3f008",
@@ -594,7 +598,7 @@
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
     "src/registry.js": "672fa9a19a2e873e98eb1bdb63d6e45b37d060fb5d9edbf8b86ea24281abcd26",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
-    "src/skills-data.js": "2372171d69fb1522238d4c029f8836b95c99080b4efd525d6683cae8bf122667",
+    "src/skills-data.js": "be526f26fd8273b251551f3a8032621293a9cd91f6d2297b11a21b27f4eee728",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
   },
   "resources": [
@@ -13822,6 +13826,58 @@
       }
     },
     {
+      "id": "skill:emil-apple-design",
+      "kind": "skill",
+      "title": "Apple 风格界面设计",
+      "description": "Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring anim",
+      "category": "设计与美学",
+      "aliases": [
+        "apple-design",
+        "emil-apple-design"
+      ],
+      "source": "skills/emil-apple-design.md",
+      "preview": "skills.html?skill=emil-apple-design",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/emil-apple-design.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:emil-design-eng",
+      "kind": "skill",
+      "title": "动效打磨方法论",
+      "description": "This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel g",
+      "category": "设计与美学",
+      "aliases": [
+        "Design Engineering",
+        "emil-design-eng"
+      ],
+      "source": "skills/emil-design-eng.md",
+      "preview": "skills.html?skill=emil-design-eng",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/emil-design-eng.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "skill:experiment-workflow",
       "kind": "skill",
       "title": "设计实验工作流",
@@ -17088,6 +17144,58 @@
       "integration": {
         "readBeforeUse": [
           "skills/use-design-system.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vercel-web-design-guidelines",
+      "kind": "skill",
+      "title": "Web 界面审查技能",
+      "description": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"chec",
+      "category": "设计与美学",
+      "aliases": [
+        "web-design-guidelines",
+        "vercel-web-design-guidelines"
+      ],
+      "source": "skills/vercel-web-design-guidelines.md",
+      "preview": "skills.html?skill=vercel-web-design-guidelines",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vercel-web-design-guidelines.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vercel-web-interface-guidelines",
+      "kind": "skill",
+      "title": "界面规范审查规则",
+      "description": "Review UI code for Vercel Web Interface Guidelines compliance",
+      "category": "设计与美学",
+      "aliases": [
+        "Web Interface Guidelines",
+        "vercel-web-interface-guidelines"
+      ],
+      "source": "skills/vercel-web-interface-guidelines.md",
+      "preview": "skills.html?skill=vercel-web-interface-guidelines",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vercel-web-interface-guidelines.md"
         ],
         "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
       },

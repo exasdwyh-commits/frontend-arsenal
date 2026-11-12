@@ -175,35 +175,17 @@ if (reelCv && reelCv.getContext) {
   const rand = (a, b) => a + Math.random() * (b - a);
   const clear = () => { ctx.fillStyle = BG; ctx.fillRect(0, 0, W, H); };
 
-  /* --- 转场：噪波溶解 + 波形搅动 --- */
-  const wash = u => {
-    const a = 1.18 * u, d = 1 - u * u;
-    ctx.save();
-    ctx.globalAlpha = .55 * (1 - u);
-    ctx.strokeStyle = 'rgba(160,130,255,.9)';
-    ctx.lineWidth = 2;
-    for (const y of [H * .27, H * .55, H * .83]) {
-      ctx.beginPath();
-      for (let j = 0; j <= 80; j++) {
-        const x = j / 80 * W;
-        const yy = y + d * (Math.sin(a + j * .3) * 13 * H * .035 + Math.sin(a * 1.7 + j * .07) * 21 * H * .05);
-        j ? ctx.lineTo(x, yy) : ctx.moveTo(x, yy);
-      }
-      ctx.stroke();
-    }
-    ctx.restore();
-  };
-
+  /* --- 转场：模糊叠化（Emil 的老招：模糊能盖住两个状态重叠的缝） --- */
   const dissolve = u => {
     const t = Math.PI * 2 * u;
     const cx0 = W * (.5 + .12 * Math.sin(t)), cy0 = H * (.5 + .1 * Math.cos(t * .8));
-    const rad = 95 * (1 - u) + 26;
-    for (let i = 0; i < 9; i++) {
-      const a = i / 9 * TAU + t * .35;
-      const rr = Math.max(W, H) * (.08 + .55 * u * (.75 + .25 * Math.sin(a * 3 + t)));
+    const rad = 90 * (1 - u) + 24;
+    for (let i = 0; i < 7; i++) {
+      const a = i / 7 * TAU + t * .35;
+      const rr = Math.max(W, H) * (.08 + .5 * u * (.75 + .25 * Math.sin(a * 3 + t)));
       const x = cx0 + Math.cos(a) * rr, y = cy0 + Math.sin(a) * rr * .72;
       const g = ctx.createRadialGradient(x, y, 0, x, y, rad);
-      g.addColorStop(0, 'rgba(238,241,246,' + (.26 * (1 - u)).toFixed(3) + ')');
+      g.addColorStop(0, 'rgba(238,241,246,' + (.14 * (1 - u)).toFixed(3) + ')');
       g.addColorStop(1, 'rgba(238,241,246,0)');
       ctx.fillStyle = g;
       ctx.beginPath(); ctx.arc(x, y, rad, 0, TAU); ctx.fill();
@@ -449,6 +431,15 @@ if (reelCv && reelCv.getContext) {
     }
   };
 
+  /* 拖参数的键盘替代：方向键调步进，Shift 加速，Home/End 到端点。
+     纯拖拽没有键盘路径，等于把一部分人挡在外面。 */
+  const nudgeKnob = delta => {
+    const span = param.max - param.min;
+    const step = span / 40 * delta;
+    param.value = Math.max(param.min, Math.min(param.max, param.value + step));
+    syncKnob();
+  };
+
   const enterScene = i => {
     prev = cur;
     idx = i;
@@ -478,20 +469,25 @@ if (reelCv && reelCv.getContext) {
     tiltV = (tiltV + (want - tilt) * .06 - tiltV * .12) * .86;
     tilt = Math.max(-1, Math.min(1, tilt + tiltV));
 
+    /* 转场期间新画面本身是虚的，聚焦到实——所以要在绘制时就挂 blur */
+    ctx.save();
+    if (transT > 0 && transMode === 'wash') ctx.filter = 'blur(' + (transT * 7).toFixed(1) + 'px)';
     cur.obj.draw(local, local * SCENE / 1000, boost);
+    ctx.restore();
 
-    /* 转场叠层：新场景已经在画，上面盖一层上一段 + 溶解噪声 */
+    /* 转场叠层：新画面从模糊里聚焦，旧画面化开（blur 盖住两个状态的缝） */
     if (transT > 0 && transMode === 'wash') {
-      transT = Math.max(0, transT - 1 / 22);
+      transT = Math.max(0, transT - 1 / 24);
+      const k = transT;
       if (prev && prev.obj) {
         ctx.save();
-        ctx.globalAlpha = transT * .9;
-        prev.obj.draw(local * .5, local * SCENE / 1000, boost);
+        ctx.globalAlpha = k * k;
+        ctx.filter = 'blur(' + (k * 9).toFixed(1) + 'px)';
+        prev.obj.draw(local * .6, local * SCENE / 1000, boost);
         ctx.restore();
       }
-      const u = 1 - transT;
-      if (u < .22) dissolve(u / .22);
-      else if (u < .5) wash((u - .22) / .28);
+      const u = 1 - k;
+      if (u < .35) dissolve(u / .35);
     }
 
     if (barEl) barEl.style.transform = 'scaleX(' + local.toFixed(4) + ')';
@@ -588,6 +584,39 @@ if (reelCv && reelCv.getContext) {
       screen.addEventListener('pointerleave', () => { pointerX = NaN; pointerY = NaN; });
     }
 
+    /* ---------- 参数滑块：拖 + 键盘两条路 ---------- */
+    const knob = knobVal;
+    if (knob) {
+      let kStart = 0, kBase = 0, kMoved = false;
+      knob.addEventListener('pointerdown', e => {
+        kMoved = false;
+        kStart = e.clientX; kBase = param.value;
+        knob.setPointerCapture(e.pointerId);
+        e.preventDefault();
+        e.stopPropagation();
+      });
+      knob.addEventListener('pointermove', e => {
+        if (!knob.hasPointerCapture?.(e.pointerId) && !kMoved && e.buttons === 0) return;
+        const dx = e.clientX - kStart;
+        if (Math.abs(dx) > 2) kMoved = true;
+        const span = param.max - param.min;
+        param.value = Math.max(param.min, Math.min(param.max, kBase + dx / 2.2 * span / 100));
+        syncKnob();
+      });
+      const endKnob = e => {
+        try { knob.releasePointerCapture(e.pointerId); } catch (_) {}
+      };
+      knob.addEventListener('pointerup', endKnob);
+      knob.addEventListener('pointercancel', endKnob);
+      knob.addEventListener('keydown', e => {
+        const big = e.shiftKey ? 5 : 1;
+        if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { nudgeKnob(big); e.preventDefault(); }
+        else if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { nudgeKnob(-big); e.preventDefault(); }
+        else if (e.key === 'Home') { param.value = param.min; syncKnob(); e.preventDefault(); }
+        else if (e.key === 'End') { param.value = param.max; syncKnob(); e.preventDefault(); }
+      });
+    }
+
     /* ---------- 底栏进度条可拖 ---------- */
     const wrap = barWrap;
     if (wrap) {
@@ -622,6 +651,7 @@ if (reelCv && reelCv.getContext) {
     const prevBtn = document.getElementById('reelPrev');
     const nextBtn = document.getElementById('reelNext');
     const transBtn = document.getElementById('reelTrans');
+    const pauseBtn = document.getElementById('reelPause');
     if (prevBtn) prevBtn.addEventListener('click', () => seekScene(-1));
     if (nextBtn) nextBtn.addEventListener('click', () => seekScene(1));
     if (transBtn) {
@@ -631,6 +661,15 @@ if (reelCv && reelCv.getContext) {
         transBtn.setAttribute('aria-pressed', String(transMode === 'cut'));
         transBtn.setAttribute('aria-label', transMode === 'wash' ? '切镜用噪波溶解过渡' : '切镜用硬切');
       });
+    }
+    /* 自动播放的片子必须给一个看得见的暂停键（Vercel 界面规范） */
+    if (pauseBtn) {
+      const syncPause = () => {
+        pauseBtn.textContent = paused ? '▶ 继续' : '⏸ 暂停';
+        pauseBtn.setAttribute('aria-pressed', String(paused));
+      };
+      pauseBtn.addEventListener('click', () => { paused = !paused; syncPause(); });
+      syncPause();
     }
     const tryReel = document.getElementById('tryReel');
     if (tryReel) tryReel.addEventListener('click', () => {

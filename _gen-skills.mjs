@@ -130,6 +130,12 @@ const META = {
   'overflow-notion-cover-size':   ['doc', 'Notion 封面尺寸'],
   'overflow-notion-icons-upload': ['doc', 'Notion 图标上传流程'],
   'overflow-notion-icons-figma':  ['doc', 'Notion 图标 Figma 流'],
+  // ---- Vercel Web Interface Guidelines（vercel-labs，MIT，2 个） ----
+  'vercel-web-interface-guidelines': ['design', '界面规范审查规则'],
+  'vercel-web-design-guidelines':    ['design', 'Web 界面审查技能'],
+  // ---- emilkowalski/skills（MIT，2 个：动效打磨方法 + Apple 风格设计） ----
+  'emil-design-eng':   ['design', '动效打磨方法论'],
+  'emil-apple-design': ['design', 'Apple 风格界面设计'],
   // ---- astryx（meta/astryx，MIT，41 个） ----
   // docs/design 17 + IME 守卫设计
   'astryx-design-readme':             ['design', 'Astryx 设计文档导览'],
