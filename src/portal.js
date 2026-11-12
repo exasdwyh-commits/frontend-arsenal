@@ -98,10 +98,12 @@ if (inkEl) {
       ictx.fillStyle = '#0a0b13';
       ictx.fillRect(0, 0, W, H);
 
-      /* 挖洞：外圈糊、内圈实，边缘才有墨的厚度 */
+      /* 挖洞：外圈糊、内圈实，边缘才有墨的厚度。
+         原来两层全屏 blur(30px)+blur(7px) 是开屏最卡的瞬间——
+         全屏模糊每帧都在重算，降到一层、半径砍半，视觉几乎无损。 */
       ictx.globalCompositeOperation = 'destination-out';
-      ictx.save(); ictx.filter = 'blur(30px)'; blob(r, wob * 1.18, ph); ictx.fill(); ictx.restore();
-      ictx.save(); ictx.filter = 'blur(7px)'; blob(r * .982, wob, ph * 1.4); ictx.fill(); ictx.restore();
+      ictx.save(); ictx.filter = 'blur(16px)'; blob(r, wob * 1.15, ph); ictx.fill(); ictx.restore();
+      ictx.save(); ictx.filter = 'blur(3px)'; blob(r * .984, wob, ph * 1.4); ictx.fill(); ictx.restore();
       ictx.globalCompositeOperation = 'source-over';
 
       /* 湿墨边：一条有厚度的紫黑水线 + 细亮线 + 飞溅 */
@@ -152,7 +154,9 @@ if (inkEl) {
 const reelCv = document.getElementById('reelCanvas');
 if (reelCv && reelCv.getContext) {
   const ctx = reelCv.getContext('2d');
-  const DPR = Math.min(window.devicePixelRatio || 1, 2);
+  /* DPR 封顶 1.5：全屏画布的像素量直接决定每帧填充成本，
+     2 倍图在集显上就是白烧一倍，跟肉眼几乎看不出差别。 */
+  const DPR = Math.min(window.devicePixelRatio || 1, 1.5);
   const TAU = Math.PI * 2;
   const SCENE = 4200;
   const BG = '#08090d';
@@ -210,11 +214,18 @@ if (reelCv && reelCv.getContext) {
     ctx.fillRect(0, 0, W, H);
     ctx.globalCompositeOperation = 'lighter';
 
-    const g = ctx.createRadialGradient(W * .5, H * .52, 0, W * .5, H * .52, Math.min(W, H) * .62);
-    g.addColorStop(0, 'rgba(72,48,180,' + (.10 * boost).toFixed(3) + ')');
-    g.addColorStop(1, 'rgba(8,9,13,0)');
-    ctx.fillStyle = g;
+    /* 底部一层缓慢呼吸的紫光，避免画面发死。
+       渐变对象缓存起来复用——每帧 createRadialGradient 会不停分配对象。 */
+    if (!flow.glow || flow.glowW !== W || flow.glowH !== H) {
+      flow.glowW = W; flow.glowH = H;
+      flow.glow = ctx.createRadialGradient(W * .5, H * .52, 0, W * .5, H * .52, Math.min(W, H) * .62);
+      flow.glow.addColorStop(0, 'rgba(72,48,180,.10)');
+      flow.glow.addColorStop(1, 'rgba(8,9,13,0)');
+    }
+    ctx.globalAlpha = Math.min(1, boost);
+    ctx.fillStyle = flow.glow;
     ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = 1;
 
     ctx.lineWidth = 1.2;
     ctx.lineCap = 'round';
@@ -263,11 +274,17 @@ if (reelCv && reelCv.getContext) {
     const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
     const fov = Math.min(W, H) * 2.4;
 
-    const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(W, H) * .62);
-    glow.addColorStop(0, 'rgba(107,75,255,' + (.16 * boost).toFixed(3) + ')');
-    glow.addColorStop(1, 'rgba(8,9,13,0)');
-    ctx.fillStyle = glow;
+    /* 渐变缓存复用，避免每帧新建对象 */
+    if (!torus.glow || torus.gw !== W || torus.gh !== H) {
+      torus.gw = W; torus.gh = H;
+      torus.glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(W, H) * .62);
+      torus.glow.addColorStop(0, 'rgba(107,75,255,.16)');
+      torus.glow.addColorStop(1, 'rgba(8,9,13,0)');
+    }
+    ctx.globalAlpha = Math.min(1, boost);
+    ctx.fillStyle = torus.glow;
     ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = 1;
 
     const project = (x, y, z) => {
       const y2 = y * cosX - z * sinX;
@@ -410,6 +427,10 @@ if (reelCv && reelCv.getContext) {
     { name: '数据波面', obj: wave, p: { name: '波幅', min: 40, max: 220, value: 100, unit: '%' } },
     { name: '文字切片', obj: type, p: { name: '错位强度', min: 0, max: 200, value: 100, unit: '%' } }
   ];
+
+  /* 窄屏自动减粒子：手机 GPU 比桌面弱得多，别一上来就 520 条 */
+  const narrow = () => innerWidth < 720;
+  if (narrow()) scenes[0].p.value = 260;
 
   const resize = () => {
     W = reelCv.clientWidth || 1;
@@ -701,6 +722,33 @@ if (track && track.children.length > 1 && !reduce) {
 }
 
 /* ============================================================
+   滚动调度：所有跟着滚动走的逻辑共用一个 rAF。
+   一次滚动里 getBoundingClientRect 读一次、写一次，
+   别在滚动回调里反复强制重排（layout thrashing）。
+   ============================================================ */
+const scrollTasks = [];
+let scrollQueued = false;
+
+const onScrollFrame = () => {
+  scrollQueued = false;
+  for (const fn of scrollTasks) {
+    try { fn(); } catch (_) {}
+  }
+};
+
+const queueScroll = () => {
+  if (scrollQueued) return;
+  scrollQueued = true;
+  requestAnimationFrame(onScrollFrame);
+};
+
+const addScrollTask = fn => {
+  scrollTasks.push(fn);
+  addEventListener('scroll', queueScroll, { passive: true });
+  addEventListener('resize', queueScroll);
+};
+
+/* ============================================================
    数字滚轮：每一位数字各占一列，滚动位置直接驱动进位
    滚回上面，数字会倒着退回去——不是一次性播放的动画
    ============================================================ */
@@ -758,11 +806,8 @@ const paintOdos = () => {
   }
 };
 
-/* 只有 8 个数字，直接同步算；比等一帧更跟手，滚动时数字才像被手搓出来的 */
-const onOdoScroll = () => paintOdos();
 if (odos.length) {
-  addEventListener('scroll', onOdoScroll, { passive: true });
-  addEventListener('resize', onOdoScroll);
+  addScrollTask(paintOdos);
   paintOdos();
 }
 
@@ -796,21 +841,14 @@ if (!reduce && 'IntersectionObserver' in window) {
 
   /* 兜底：某些环境（窗口被遮挡、后台标签页）IO 回调会停滞，
      滚动时自己补一遍——不能因为观察器不回调就让内容一直隐形。 */
-  let rvQueued = 0;
   const sweep = () => {
-    rvQueued = 0;
     for (const el of revealEls) {
       if (el.classList.contains('on')) continue;
       const r = el.getBoundingClientRect();
       if (r.top < innerHeight * 1.05 && r.bottom > -60) el.classList.add('on');
     }
   };
-  const queueSweep = () => {
-    if (rvQueued) return;
-    rvQueued = requestAnimationFrame(sweep);
-  };
-  addEventListener('scroll', queueSweep, { passive: true });
-  addEventListener('resize', queueSweep);
+  addScrollTask(sweep);
   setTimeout(sweep, 1200);
 }
 
@@ -863,14 +901,7 @@ if (ideaTitle) {
       parts.caret.style.left = '0%';
       parts.caret.style.width = Math.max(0, p * 100).toFixed(2) + '%';
     };
-    let queued = false;
-    const onScroll = () => {
-      if (queued) return;
-      queued = true;
-      requestAnimationFrame(() => { queued = false; paint(); });
-    };
-    addEventListener('scroll', onScroll, { passive: true });
-    addEventListener('resize', onScroll);
+    addScrollTask(paint);
     paint();
   }
 }

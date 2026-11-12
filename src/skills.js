@@ -2,7 +2,7 @@
    skills.html —— 技能库（前端可用的 Skill 文档浏览）
    零依赖：内置迷你 Markdown 渲染器，技能文档以 .md 原样存于 skills/
    ============================================================ */
-import { CATS, SKILLS } from './skills-data.js';
+import { CATS, SKILLS } from './skills-data.js?v=20261112';
 
 /* ---------- Markdown → HTML（够用子集，转义优先） ---------- */
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');

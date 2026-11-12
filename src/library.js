@@ -86,15 +86,35 @@ function syncFilters() {
   queueThumb();
 }
 
+/* 列表渲染：只在真有查询或已选类型时才建 DOM。
+   空查询时如果还渲染，等于每次进站都白建 655 个节点——首屏最贵的一笔冤枉开销。 */
+const MAX_SHOWN = 200;
+
 function render() {
   const words = search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const matched = items.filter(item => (type === '全部' || item.type === type) && words.every(word => [item.title,item.category,item.description,...item.extra].join(' ').toLowerCase().includes(word)));
   const results = document.querySelector('.results');
-  if (results) results.hidden = !words.length && type === '全部';
+  const showList = words.length > 0 || type !== '全部';
+  if (results) results.hidden = !showList;
   syncFilters();
   document.querySelector('#count').textContent = `找到 ${matched.length} 项`;
   document.querySelector('#empty').hidden = matched.length > 0;
-  list.innerHTML = matched.map(item => `<a class="item" href="${escape(item.href)}"><div><span class="badge">${escape(item.type)}</span><span class="category">${escape(item.category)}</span></div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p><span class="arrow" aria-hidden="true">↗</span></a>`).join('');
+
+  if (!showList) {
+    list.innerHTML = '';
+  } else {
+    const shown = matched.slice(0, MAX_SHOWN);
+    list.innerHTML = shown.map(item => `<a class="item" href="${escape(item.href)}"><div><span class="badge">${escape(item.type)}</span><span class="category">${escape(item.category)}</span></div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p><span class="arrow" aria-hidden="true">↗</span></a>`).join('');
+    if (matched.length > shown.length) {
+      const more = document.createElement('p');
+      more.className = 'more-hint';
+      more.textContent = `还有 ${matched.length - shown.length} 条没显示 —— 搜得更准一点，或者换个词。`;
+      list.after(more);
+    } else {
+      document.querySelector('.more-hint')?.remove();
+    }
+  }
+  if (!showList) document.querySelector('.more-hint')?.remove();
 
   /* URL 反映状态：搜索词和类型都能分享、能深链 */
   const url = new URL(location.href);
@@ -125,8 +145,21 @@ if (matchMedia('(pointer:fine)').matches) {
     card.style.setProperty('--my', ((event.clientY - r.top) / (r.height || 1) * 100).toFixed(1) + '%');
   });
 }
-filters.addEventListener('click', event => { const button = event.target.closest('[data-type]'); if (button) { type = button.dataset.type; render(); } });
-search.addEventListener('input', render);
-document.querySelector('#clear').addEventListener('click', () => { search.value = ''; type = '全部'; render(); search.focus(); });
+/* 输入防抖：中文输入法下每敲一下都会触发 input，不抖就是白算白排 */
+let typeTimer = 0;
+const scheduleRender = () => {
+  clearTimeout(typeTimer);
+  typeTimer = setTimeout(render, 120);
+};
+
+filters.addEventListener('click', event => {
+  const button = event.target.closest('[data-type]');
+  if (button) { type = button.dataset.type; clearTimeout(typeTimer); render(); }
+});
+search.addEventListener('input', scheduleRender);
+document.querySelector('#clear').addEventListener('click', () => {
+  clearTimeout(typeTimer);
+  search.value = ''; type = '全部'; render(); search.focus();
+});
 document.addEventListener('keydown', event => { if (event.key === '/' && !/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) { event.preventDefault(); search.focus(); } });
 render();

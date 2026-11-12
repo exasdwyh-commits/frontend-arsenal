@@ -44,8 +44,10 @@ main:focus{outline:none}
 #find,#idea,#inside,#proof,#usage{scroll-margin-top:86px}
 h1,h2,h3{text-wrap:balance}
 
-/* ---------- 颗粒质感（固定覆盖） ---------- */
-.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.038;mix-blend-mode:overlay;
+/* ---------- 颗粒质感（固定覆盖） ----------
+   mix-blend-mode: overlay 会强制整屏做一次混合合成，
+   换成普通低透明度叠加，视觉几乎一样，合成开销小一个量级。 */
+.grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
 
 /* ---------- 开屏：墨渗（首帧黑色，墨从标题处洇开露出整页） ---------- */
@@ -79,17 +81,23 @@ h1,h2,h3{text-wrap:balance}
 @media(max-width:640px){.ctl-row{right:14px;bottom:calc(12px + env(safe-area-inset-bottom))}
   .ctl{font-size:10px;padding:6px 11px}}
 
-/* ---------- 顶栏 ---------- */
+/* ---------- 顶栏 ----------
+   backdrop-filter 作用在全屏宽的固定层上，滚动时每帧都要重新取背景模糊，
+   这是"滚动就卡"的头号来源：滚动态改用不透明底，只在页面顶部时启用模糊。 */
 .topbar{position:fixed;inset:0 0 auto;z-index:50;border-bottom:1px solid transparent;
   background:rgba(7,8,11,0);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  transition:background .35s,border-color .35s}
-.topbar.scrolled{background:rgba(7,8,11,.78);border-bottom-color:var(--line)}
+  transition:background .35s var(--ease-out),border-color .35s var(--ease-out)}
+.topbar.scrolled{background:rgba(9,11,16,.94);border-bottom-color:var(--line);backdrop-filter:none;
+  -webkit-backdrop-filter:none}
 .topbar-in{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:12px;
   font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);
-  box-shadow:0 0 0 0 rgba(195,234,58,.6);animation:pulse 2.6s ease-out infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(195,234,58,.55)}70%{box-shadow:0 0 0 12px rgba(195,234,58,0)}100%{box-shadow:0 0 0 0 rgba(195,234,58,0)}}
+.brand .dot{position:relative;width:7px;height:7px;border-radius:50%;background:var(--lime);flex:none}
+/* 呼吸圈用伪元素做 scale/opacity，不用 box-shadow——阴影动画每帧都要重绘 */
+.brand .dot::after{content:'';position:absolute;inset:-2px;border-radius:50%;
+  border:1px solid rgba(195,234,58,.75);animation:ping 2.6s ease-out infinite;pointer-events:none}
+@keyframes ping{0%{transform:scale(.6);opacity:.85}70%{transform:scale(2.4);opacity:0}
+  100%{transform:scale(2.4);opacity:0}}
 .brand em{font-style:normal;font-weight:500;letter-spacing:.06em;color:var(--dim);text-transform:none;font-size:13px}
 .topnav{display:flex;gap:26px}
 .topnav a{text-decoration:none;color:var(--dim);font-size:13px;letter-spacing:.02em;
@@ -121,14 +129,20 @@ h1,h2,h3{text-wrap:balance}
 .eyebrow .live-dot{width:6px;height:6px;border-radius:50%;background:var(--cy);
   box-shadow:0 0 12px 2px rgba(60,203,255,.7)}
 .hero-title{margin:22px 0 8px;font-size:clamp(62px,6.5vw,104px);line-height:.94;
-  font-weight:700;letter-spacing:-.07em;white-space:nowrap}
+  font-weight:700;letter-spacing:-.07em;white-space:nowrap;position:relative}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .hero-title{background:linear-gradient(100deg,#f2f4f8 34%,#ffffff 44%,#a891ff 50%,#6fe3ff 55%,#f2f4f8 66%);
     background-size:260% 100%;-webkit-background-clip:text;background-clip:text;
-    color:transparent;-webkit-text-fill-color:transparent;
-    animation:sheen 9s linear infinite}
+    color:transparent;-webkit-text-fill-color:transparent}
 }
-@keyframes sheen{from{background-position:120% 0}to{background-position:-140% 0}}
+/* 扫光是一道独立光条平移过去，只动 transform——
+   动文字的 background-position 等于每帧重新光栅化整块标题，最贵的一笔。 */
+.hero-title::after{content:'';position:absolute;top:-12%;bottom:-12%;left:-45%;width:42%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),rgba(168,145,255,.55),transparent);
+  transform:translate3d(0,0,0) skewX(-16deg);
+  animation:sweep 7s linear infinite;pointer-events:none;mix-blend-mode:screen;will-change:transform}
+@keyframes sweep{from{transform:translate3d(0,0,0) skewX(-16deg)}
+  to{transform:translate3d(420%,0,0) skewX(-16deg)}}
 .rot{position:relative;height:34px;overflow:hidden;margin:18px 0 0;
   font-size:16px;font-weight:500;color:#c9d0de;letter-spacing:.01em}
 .rot-track{display:flex;flex-direction:column;
@@ -325,7 +339,7 @@ html.no-motion .filters-thumb{transition:none}
 .list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .item{position:relative;display:block;min-height:172px;padding:18px 18px 20px;text-decoration:none;
   background:#0d1017;border:1px solid var(--line);border-radius:11px;color:inherit;
-  content-visibility:auto;contain-intrinsic-size:auto 172px;
+  content-visibility:auto;contain-intrinsic-size:172px;
   transition:background .2s var(--ease-out),border-color .2s var(--ease-out),transform .2s var(--ease-out)}
 @media(hover:hover) and (pointer:fine){
   .item:hover{background:#11141d;border-color:#4a3f8f;transform:translateY(-2px)}
@@ -340,6 +354,7 @@ html.no-motion .filters-thumb{transition:none}
 .arrow{position:absolute;right:16px;top:16px;color:#5a6274;transition:transform .2s var(--ease-out),color .2s var(--ease-out)}
 @media(hover:hover) and (pointer:fine){.item:hover .arrow{color:#9d8bff;transform:translate(2px,-2px)}}
 #empty{color:var(--dim2);font-size:13.5px;margin:8px 0 0}
+.more-hint{margin:16px 0 0;font-size:12.5px;color:var(--dim2);text-align:center}
 @media(max-width:900px){.list{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.list{grid-template-columns:1fr}.beam-in{padding:22px 20px}}
 
@@ -455,7 +470,8 @@ html.no-motion .hero .eyebrow,html.no-motion .hero-title,html.no-motion .rot,
 html.no-motion .lead,html.no-motion .cta-row,html.no-motion .hero .reel{animation:none}
 html.no-motion .hero-title{animation:none}
 html.no-motion .beam-card::before,html.no-motion .scroll-cue i,
-html.no-motion .brand .dot,html.no-motion .reel-live i{animation:none}
+html.no-motion .brand .dot::after,html.no-motion .hero-title::after,
+html.no-motion .reel-live i{animation:none}
 html.no-motion .rot-track{transition:none}
 @media(hover:hover) and (pointer:fine){
   html.no-motion .item:hover,html.no-motion .tryout-btn:hover{transform:none}
@@ -774,7 +790,7 @@ html.xray .xray-hud{opacity:1;transform:none}
   </div>
 </footer>
 
-<script type="module" src="src/library.js"></script>
-<script type="module" src="src/portal.js"></script>
+<script type="module" src="src/library.js?v=20261112"></script>
+<script type="module" src="src/portal.js?v=20261112"></script>
 </body>
 </html>
