@@ -3354,6 +3354,46 @@ export const SKILLS = [
     "bytes": 18534
   },
   {
+    "id": "vantage-design-system",
+    "name": "Vantage 设计体系提炼",
+    "desc": "从 Vantage（OpenWrt 仪表盘主题，GPL-3.0）提炼的受限设备界面设计方法——性能预算写成数字、数据三态、暗亮双主题不闪白、一个搜索框统治所有对象、顶栏降级顺序、契约先行。",
+    "cat": "design",
+    "zh": "受限设备界面设计提炼",
+    "bytes": 4040
+  },
+  {
+    "id": "vantage-install",
+    "name": "Installing Vantage",
+    "desc": "This guide covers installing the Vantage theme (luci-theme-vantage) and",
+    "cat": "import",
+    "zh": "Vantage 安装与主题结构",
+    "bytes": 47493
+  },
+  {
+    "id": "vantage-luci-contract",
+    "name": "LuCI 25.12 theme contract",
+    "desc": "What the LuCI core expects from a theme on OpenWrt 25.12, and the places",
+    "cat": "ds",
+    "zh": "LuCI 主题契约",
+    "bytes": 14069
+  },
+  {
+    "id": "vantage-roadmap",
+    "name": "Roadmap",
+    "desc": "Ideas and planned work, roughly in priority order. Nothing here is",
+    "cat": "import",
+    "zh": "Vantage 路线图",
+    "bytes": 5073
+  },
+  {
+    "id": "vantage-spec",
+    "name": "Vantage — v1 specification",
+    "desc": "Status: implemented (v1, released as 1.0.x). This is the contract",
+    "cat": "design",
+    "zh": "Vantage 设计规格",
+    "bytes": 40315
+  },
+  {
     "id": "vercel-web-design-guidelines",
     "name": "web-design-guidelines",
     "desc": "Review UI code for Web Interface Guidelines compliance. Use when asked to \"review my UI\", \"check accessibility\", \"audit design\", \"review UX\", or \"chec",

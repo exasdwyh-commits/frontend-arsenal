@@ -1,0 +1,53 @@
+前端武器库 · Frontend Arsenal
+================================
+
+本仓库采用 **逐文件授权（per-file licensing）**：
+
+  1. 本仓库原创内容（首页、效果图鉴、技能库框架、src/ 下的原创机制与脚本）
+     以 MIT 许可证提供，见下方全文。
+  2. 明确标注为其他许可证的第三方内容，按其原授权提供：
+       - vendor/vantage/                GPL-3.0-or-later
+                                       来源 anothaDev/luci-theme-vantage
+       - skills/vantage-spec.md         GPL-3.0-or-later
+       - skills/vantage-luci-contract.md GPL-3.0-or-later
+       - skills/vantage-install.md      GPL-3.0-or-later
+       - skills/vantage-roadmap.md      GPL-3.0-or-later
+     这些文件为上游原样收录，未作修改。详见 vendor/vantage/NOTICE.md。
+  3. 其余 skills/*.md 为各上游项目的原样收录，授权见各文件来源说明与
+     仓库 README 的来源清单（多为 MIT，个别为 Apache-2.0 / CC BY 4.0）。
+
+提示：本仓库同时包含 MIT 与 GPL-3.0-or-later 的内容。
+若你要整体再分发本仓库，需同时满足 MIT 与 GPL-3.0 的条款；
+若只使用其中某个文件，按该文件自身的授权即可。
+
+
+MIT License
+-----------
+
+Copyright (c) 2026 frontend-arsenal contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+GNU GENERAL PUBLIC LICENSE v3.0 or later
+----------------------------------------
+
+适用于 vendor/vantage/ 与 skills/vantage-*.md 中标注为 GPL-3.0-or-later 的文件。
+许可证全文见 https://www.gnu.org/licenses/gpl-3.0.html
+（上游副本见 vendor/vantage/ 上游 LICENSE 的对应内容）。

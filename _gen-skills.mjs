@@ -136,6 +136,12 @@ const META = {
   // ---- emilkowalski/skills（MIT，2 个：动效打磨方法 + Apple 风格设计） ----
   'emil-design-eng':   ['design', '动效打磨方法论'],
   'emil-apple-design': ['design', 'Apple 风格界面设计'],
+  // ---- Vantage（anothaDev/luci-theme-vantage，GPL-3.0-or-later，5 个） ----
+  'vantage-spec':            ['design', 'Vantage 设计规格'],
+  'vantage-design-system':   ['design', '受限设备界面设计提炼'],
+  'vantage-luci-contract':   ['ds', 'LuCI 主题契约'],
+  'vantage-install':         ['import', 'Vantage 安装与主题结构'],
+  'vantage-roadmap':         ['import', 'Vantage 路线图'],
   // ---- astryx（meta/astryx，MIT，41 个） ----
   // docs/design 17 + IME 守卫设计
   'astryx-design-readme':             ['design', 'Astryx 设计文档导览'],

@@ -3,7 +3,7 @@
   "protocol": "agent/README.md",
   "coverage": {
     "effects": 154,
-    "skills": 424,
+    "skills": 429,
     "videos": 81,
     "effectsWithScenes": 63,
     "recipes": 1,
@@ -435,6 +435,11 @@
     "skills/trifold-brochure.md": "4ae5f456feabcd7c8d62081cf433f5098d5df44e3630ddae7c18cdac879489c9",
     "skills/tweaks-protocol.md": "fa486d5bc340256b23ae136fedc28052844572d2832904257d78dc0d0b0ce935",
     "skills/use-design-system.md": "3e15c3ab2d6d4e0fccc8bd1eb679d7f6896c0449a2fce35a85be6fa1e82493d5",
+    "skills/vantage-design-system.md": "dc9d4369ded3d057a5f1ef4815fc53185fefe88457a19ac6756665e2fdd34206",
+    "skills/vantage-install.md": "f51e96a625061fd5dcab7084714f500e3aab24b62a9439b2c3132e62ec98fb00",
+    "skills/vantage-luci-contract.md": "3367a9a08e1f9e23cae2300e843e872e132424d7db511d814c864feb0c5f8605",
+    "skills/vantage-roadmap.md": "2c85a18f73b2936b3f3ff2771d97ec71b0fa997d044fc200a314440e59eb4e92",
+    "skills/vantage-spec.md": "74ccc2a01427215fc7b3260e9e1b2fba654f5d31dcbcbc97d26cd4845bcde8c4",
     "skills/vercel-web-design-guidelines.md": "f4647ca866a3accf763777f83e7682954f0187cd6bea7eea0399796652414e8f",
     "skills/vercel-web-interface-guidelines.md": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234",
     "skills/watercolor-illustration.md": "63f7874c490257b796ed037e716b60b4a473ba89476d062d184b143e4d62851f",
@@ -598,7 +603,7 @@
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
     "src/registry.js": "672fa9a19a2e873e98eb1bdb63d6e45b37d060fb5d9edbf8b86ea24281abcd26",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
-    "src/skills-data.js": "be526f26fd8273b251551f3a8032621293a9cd91f6d2297b11a21b27f4eee728",
+    "src/skills-data.js": "1fb480a10e637ace3b1382ca05d934b40cf09222288e70e59902516177842694",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
   },
   "resources": [
@@ -17144,6 +17149,136 @@
       "integration": {
         "readBeforeUse": [
           "skills/use-design-system.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vantage-design-system",
+      "kind": "skill",
+      "title": "受限设备界面设计提炼",
+      "description": "从 Vantage（OpenWrt 仪表盘主题，GPL-3.0）提炼的受限设备界面设计方法——性能预算写成数字、数据三态、暗亮双主题不闪白、一个搜索框统治所有对象、顶栏降级顺序、契约先行。",
+      "category": "设计与美学",
+      "aliases": [
+        "Vantage 设计体系提炼",
+        "vantage-design-system"
+      ],
+      "source": "skills/vantage-design-system.md",
+      "preview": "skills.html?skill=vantage-design-system",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vantage-design-system.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vantage-install",
+      "kind": "skill",
+      "title": "Vantage 安装与主题结构",
+      "description": "This guide covers installing the Vantage theme (luci-theme-vantage) and",
+      "category": "导入与研究",
+      "aliases": [
+        "Installing Vantage",
+        "vantage-install"
+      ],
+      "source": "skills/vantage-install.md",
+      "preview": "skills.html?skill=vantage-install",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vantage-install.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vantage-luci-contract",
+      "kind": "skill",
+      "title": "LuCI 主题契约",
+      "description": "What the LuCI core expects from a theme on OpenWrt 25.12, and the places",
+      "category": "设计系统",
+      "aliases": [
+        "LuCI 25.12 theme contract",
+        "vantage-luci-contract"
+      ],
+      "source": "skills/vantage-luci-contract.md",
+      "preview": "skills.html?skill=vantage-luci-contract",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vantage-luci-contract.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vantage-roadmap",
+      "kind": "skill",
+      "title": "Vantage 路线图",
+      "description": "Ideas and planned work, roughly in priority order. Nothing here is",
+      "category": "导入与研究",
+      "aliases": [
+        "Roadmap",
+        "vantage-roadmap"
+      ],
+      "source": "skills/vantage-roadmap.md",
+      "preview": "skills.html?skill=vantage-roadmap",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vantage-roadmap.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "skill:vantage-spec",
+      "kind": "skill",
+      "title": "Vantage 设计规格",
+      "description": "Status: implemented (v1, released as 1.0.x). This is the contract",
+      "category": "设计与美学",
+      "aliases": [
+        "Vantage — v1 specification",
+        "vantage-spec"
+      ],
+      "source": "skills/vantage-spec.md",
+      "preview": "skills.html?skill=vantage-spec",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/vantage-spec.md"
         ],
         "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
       },
