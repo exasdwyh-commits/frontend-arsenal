@@ -603,7 +603,7 @@
     "src/effects/space.rtl-logical.js": "d8445f269b1da33069e9a3a861d910ca9835c7774eb52dc35838fdab3679255a",
     "src/effects/space.smart-anchor.js": "87ecfdd33f579e3b3085f20db3076a019f5b467db8b474d904cc35fbc43a893c",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
-    "src/engine.js": "f424b75c5482b9b55ceacb3543283fcf38f37a8ec801e2109eb742533ce291d2",
+    "src/engine.js": "8ab963607e933abc954f2e60b86220c64f0ab5aa699f7775e5c65f59fac74870",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
     "src/registry.js": "df51bf2bef49bc100154f16f9e68336fedabfb4be342cc50fe92523eddac6ba0",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",

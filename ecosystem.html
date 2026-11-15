@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07080b">
 <meta name="color-scheme" content="dark">
 <title>动效工具链 · WebUI 图鉴</title>
-<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个 0 成本动效工作室仓库（3D / 视频 / 配乐，含 GPU 门槛说明），标注授权与本库 160 个原生机制的对照。">
+<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个「0 成本工作室」仓库与 18 份可丢给 AI 学的合集，共 50 条上游参考，逐条标注授权、能否在浏览器运行与本库 160 个原生机制的对照。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -144,6 +144,20 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 .stack-k.on{background:rgba(195,234,58,.14);color:#c8ea63}
 .stack-k.off{background:rgba(255,255,255,.07);color:#98a1b0}
 @media(max-width:860px){.stack{grid-template-columns:1fr}}
+/* ---------- 合集：18 份可丢给 AI 学的资料 ---------- */
+.kb{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin-top:20px}
+.kb-row{display:grid;grid-template-columns:auto 1fr;gap:3px 10px;align-items:baseline;
+  padding:11px 0;border-bottom:1px solid var(--line)}
+.kb-row b{font-size:13px;font-weight:600;color:#e6eaf2;white-space:nowrap}
+.kb-row b i{font-style:normal;font-weight:400;color:#6f7a8b;font-size:10px;margin-left:6px;
+  font-family:ui-monospace,Consolas,monospace;letter-spacing:.06em}
+.kb-row em{font-style:normal;justify-self:end;white-space:nowrap;
+  font:9.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.06em;color:#8b93a4}
+.kb-row p{grid-column:1/-1;margin:1px 0 0;font-size:11.5px;color:#93a0b4;line-height:1.6}
+.kb-row a{color:#a99bff;text-decoration:none;border-bottom:1px solid rgba(169,155,255,.3)}
+.kb-dup{color:#5f6a7b !important}
+.vb{color:#c8ea63;border-bottom:1px dashed rgba(200,234,99,.45);white-space:nowrap}
+@media(max-width:860px){.kb{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -167,9 +181,9 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
   <div class="shell">
     <p class="eyebrow"><i></i>ECOSYSTEM / 动效工具链</p>
     <h1>从想法到成片，<br>一条线。</h1>
-    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；末尾另附 14 个「整间工作室」仓库——3D、视频、配乐都在里面。每个都标了授权、给了上游仓库，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
+    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；后面还挂两份合集：14 个「整间工作室」仓库（3D / 视频 / 配乐）、18 份能直接丢给 AI 学的资料。一共 <b>50 条上游参考</b>（去重 44），每条都标了授权和「能不能在浏览器里跑」，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
     <div class="stats">
-      <div class="stat"><b>32</b><span>上游参考</span></div>
+      <div class="stat"><b>50</b><span>上游参考</span></div>
       <div class="stat"><b>5</b><span>制作阶段</span></div>
       <div class="stat"><b>160</b><span>库内机制</span></div>
       <div class="stat"><b>0</b><span>运行时依赖</span></div>
@@ -360,6 +374,52 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
       <b>OpenToonz</b> 是桌面软件，抄的是工作流；
       <b>Hunyuan3D-2 / TRELLIS / LTX-2 / LivePortrait / RIFE / MusicGen</b> 这 6 个要 GPU，前端只负责喂输入、放输出——把它们写成「能在浏览器跑」是耍流氓。
     </p>
+  </div>
+</section>
+
+<section class="stage-sec" id="collection">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">07</span><h2>合集：18 份可以直接丢给 AI 学的资料</h2><span class="stage-en">Collection</span></div>
+    <p class="stage-desc">这份清单是混着给的——视频渲染、3D 引擎、游戏状态机、粒子库都在里面。既然要做合集就照同一把尺子标：授权、能不能在浏览器里跑、我们库里哪条机制是它的原生版。<span class="vb">上文已出现过 6 个</span>，标了「上文已列」，不重复注水。</p>
+
+    <div class="kb">
+      <div class="kb-row"><b>Remotion Skills <i>视频</i></b><em>Remotion 许可</em>
+        <p>官方把「用 React 写视频」的规矩做成技能包给 AI 读，但 Remotion 本身是商用分级收费，个人免费。库内：无——图鉴不做视频渲染，交付那节只留了 <a href="ecosystem.html#render">gifenc</a></p></div>
+      <div class="kb-row"><b>Motion Canvas <i>图解动画</i></b><em>MIT</em>
+        <p>代码即分镜，画「解释型动画」最顺手。库内等价：<a href="effects.html#timeline-orch">timeline-orch</a> / <a href="effects.html#draw-path">draw-path</a></p></div>
+      <div class="kb-row"><b>Motion <i>动效内核</i></b><em>MIT · 上文已列</em>
+        <p>布局动画与出现动画的默认答案（原 Framer Motion）。库内等价：<a href="effects.html#spring-enter">spring-enter</a> / <a href="effects.html#stagger-in">stagger-in</a></p></div>
+      <div class="kb-row"><b>Ola <i>数值平滑</i></b><em>MIT</em>
+        <p>“让数字自己滑过去”的最小实现，不到 1KB。库内等价：<a href="effects.html#count-up">count-up</a> / <a href="effects.html#scrub-number">scrub-number</a></p></div>
+      <div class="kb-row"><b>Anime.js <i>时间线</i></b><em>MIT · 上文已列</em>
+        <p>时间线 + 错峰 + SVG 变形的老牌答案。库内等价：<a href="effects.html#ease-shelf">ease-shelf</a> / <a href="effects.html#stagger-in">stagger-in</a></p></div>
+      <div class="kb-row"><b>Manim <i>公式动画</i></b><em>MIT</em>
+        <p>3Blue1Brown 那套数学动画，Python + LaTeX 出片。库内：<a href="effects.html#draw-path">draw-path</a>（描边自绘同构，公式排版没有等价）</p></div>
+      <div class="kb-row"><b>Shifty <i>缓动引擎</i></b><em>MIT</em>
+        <p>只管补间与缓动曲线，小到能塞进任何项目。库内等价：<a href="effects.html#ease-shelf">ease-shelf</a> / <a href="effects.html#p5-lerp-ease">p5-lerp-ease</a></p></div>
+      <div class="kb-row"><b>Two.js <i>2D 矢量</i></b><em>MIT</em>
+        <p>同一份场景描述同时喂 SVG 和 Canvas 两套后端。库内等价：<a href="effects.html#path-arc-length">path-arc-length</a> / <a href="effects.html#draw-path">draw-path</a></p></div>
+      <div class="kb-row"><b>Lottie Web <i>矢量播放器</i></b><em>MIT · 上文已列</em>
+        <p>把 AE 导出的 JSON 播出来，体积小、跨端一致。库内：无——图鉴只收手写机制，不收 AE 管线产物</p></div>
+      <div class="kb-row"><b>TweenJS <i>顺序补间</i></b><em>MIT</em>
+        <p>“等上一个结束再动下一个”的链式补间，CreateJS 家族。库内等价：<a href="effects.html#timeline-tracks">timeline-tracks</a> / <a href="effects.html#timeline-orch">timeline-orch</a></p></div>
+      <div class="kb-row"><b>LUME <i>HTML 写 3D</i></b><em>MIT</em>
+        <p>用标签写 3D 场景，Web Components 路子。库内等价：<a href="effects.html#css3d-card-ring">css3d-card-ring</a> / <a href="effects.html#three-cube">three-cube</a></p></div>
+      <div class="kb-row"><b>gifenc <i>GIF 导出</i></b><em>MIT · 上文已列</em>
+        <p>canvas 帧序列直接编码成 GIF，不需要服务端。见 <a href="ecosystem.html#render">05 交付</a></p></div>
+      <div class="kb-row"><b>Konva <i>Canvas 画布</i></b><em>MIT · 上文已列</em>
+        <p>给 canvas 补上图层、命中检测和拖拽。库内等价：<a href="effects.html#elastic-drag">elastic-drag</a> / <a href="effects.html#knob-gesture">knob-gesture</a></p></div>
+      <div class="kb-row"><b>Blender <i>绑定/角色</i></b><em>GPL-2.0+</em>
+        <p>资产与绑定的源头，出的 glb 才是前端要接的东西。库内：无等价（前端只负责显示）</p></div>
+      <div class="kb-row"><b>Three.js <i>3D 场景</i></b><em>MIT · 上文已列</em>
+        <p>WebGL 的通用底座，几乎所有 3D 网页下面都有它。库内等价：<a href="effects.html#gl-rotating-box">gl-rotating-box</a> / <a href="effects.html#gl-instanced-grid">gl-instanced-grid</a></p></div>
+      <div class="kb-row"><b>Godot <i>游戏状态机</i></b><em>MIT</em>
+        <p>AnimationTree 那套状态机值得抄进复杂 UI 的动效编排。库内等价：<a href="effects.html#timeline-orch">timeline-orch</a>（状态切换思路）</p></div>
+      <div class="kb-row"><b>Babylon.js <i>3D 渲染</i></b><em>Apache-2.0</em>
+        <p>比 Three 更“自带引擎”的选择，动画系统与物理都内建。库内等价：<a href="effects.html#gl-wave-surface">gl-wave-surface</a> / <a href="effects.html#gl-raycast-hover">gl-raycast-hover</a></p></div>
+      <div class="kb-row"><b>Proton <i>粒子</i></b><em>MIT</em>
+        <p>发射器 + 生命周期，2D 粒子的轻量方案。库内等价：<a href="effects.html#gl-particle-vortex">gl-particle-vortex</a> / <a href="effects.html#radial-wave">radial-wave</a></p></div>
+    </div>
   </div>
 </section>
 
