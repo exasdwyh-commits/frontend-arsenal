@@ -4,7 +4,7 @@
    ============================================================ */
 import { GROUP_MAP } from './groups.js';
 
-/* ---- 入场与转场 (45) ---- */
+/* ---- 入场与转场 (46) ---- */
 import entranceAgentChatDemo from './effects/entrance.agent-chat-demo.js';
 import entranceBentoLightup from './effects/entrance.bento-lightup.js';
 import entranceBlindsFlip from './effects/entrance.blinds-flip.js';
@@ -33,6 +33,7 @@ import entranceRsTransitionList from './effects/entrance.rs-transition-list.js';
 import entranceSpringEnter from './effects/entrance.spring-enter.js';
 import entranceSpringModal from './effects/entrance.spring-modal.js';
 import entranceStaggerIn from './effects/entrance.stagger-in.js';
+import entranceSwarmRebuild from './effects/entrance.swarm-rebuild.js';
 import entranceTextScramble from './effects/entrance.text-scramble.js';
 import entranceTooltipDelayGroup from './effects/entrance.tooltip-delay-group.js';
 import entranceTrBlurFade from './effects/entrance.tr-blur-fade.js';
@@ -183,7 +184,7 @@ export const EFFECTS = [
   entranceOutlineFill,
   entrancePillSlotCycle, entrancePixelHeading,
   entrancePopupRise, entranceReducedMotionTiers, entranceRsTransitionList, entranceSpringEnter, entranceSpringModal,
-  entranceStaggerIn, entranceTextScramble, entranceTooltipDelayGroup, entranceTrBlurFade, entranceTrBurn,
+  entranceStaggerIn, entranceSwarmRebuild, entranceTextScramble, entranceTooltipDelayGroup, entranceTrBlurFade, entranceTrBurn,
   entranceTrCrossWarp, entranceTrDisplaceWarp, entranceTrEdgeGlow, entranceTrGlitch,
   entranceTrMosaic, entranceTrNoiseDissolve, entranceTrPixelize, entranceTrRipple,
   entranceTrSwirl, entranceTrWaterdrop, entranceTypewriterCaret, entranceWeightPump, entranceWipeReveal,

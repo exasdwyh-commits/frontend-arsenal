@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07080b">
+<meta name="color-scheme" content="dark">
+<title>动效工具链 · WebUI 图鉴</title>
+<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，标注授权与本库 155 个原生机制的对照。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--bg:#07080b;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.17);
+  --fg:#eceef3;--dim:#8f97a8;--dim2:#717a8a;--vi:#6b4bff;--cy:#3ccbff;--lime:#c3ea3a;
+  --shell:1180px;--ease-out:cubic-bezier(.23,1,.32,1)}
+html{scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);overflow-x:hidden;
+  font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+::selection{background:rgba(107,75,255,.4)}
+.shell{width:100%;max-width:var(--shell);margin:0 auto;padding:0 40px}
+@media(max-width:640px){.shell{padding:0 20px}}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:4px}
+.skip{position:fixed;left:14px;top:-60px;z-index:120;padding:10px 16px;border-radius:8px;
+  background:var(--fg);color:#0a0b0e;font-size:13px;font-weight:600;text-decoration:none}
+.skip:focus{top:14px}
+
+/* 顶栏 */
+.topbar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);
+  background:#0b0d12}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:12px;
+  font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:none}
+.brand em{font-style:normal;font-weight:500;letter-spacing:.06em;color:var(--dim);text-transform:none;font-size:13px}
+.topnav{display:flex;gap:22px}
+.topnav a{text-decoration:none;color:var(--dim);font-size:13px;padding-bottom:2px;
+  border-bottom:1px solid transparent;transition:color .2s var(--ease-out),border-color .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.topnav a:hover{color:#fff;border-bottom-color:var(--vi)}}
+.topnav a[aria-current=page]{color:#fff;border-bottom-color:var(--lime)}
+@media(max-width:760px){.topnav{gap:12px}.topnav a{font-size:12px}.brand em{display:none}}
+
+/* 首屏 */
+.hero{padding:80px 0 56px;border-bottom:1px solid var(--line);
+  background:radial-gradient(60% 70% at 20% 0%,rgba(72,40,190,.20),transparent 70%)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin:0;font-size:11px;font-weight:700;
+  letter-spacing:.22em;color:#98a0b2;text-transform:uppercase}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--cy);box-shadow:0 0 12px 2px rgba(60,203,255,.7)}
+h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spacing:-.06em;font-weight:700}
+.lead{max-width:720px;margin:20px 0 0;color:#a6aebe;font-size:16.5px;line-height:1.85}
+.stats{display:flex;gap:0;margin-top:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{flex:1;padding:20px 0;border-left:1px solid var(--line);padding-left:24px}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:clamp(28px,3.4vw,42px);font-weight:600;line-height:1;letter-spacing:-.05em;
+  font-variant-numeric:tabular-nums;background:linear-gradient(120deg,#fff,#a9b3c6);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{display:block;margin-top:8px;font-size:10.5px;letter-spacing:.2em;color:var(--dim2);text-transform:uppercase}
+@media(max-width:640px){.stat{padding-left:14px}.stat span{font-size:9px;letter-spacing:.1em}}
+
+/* 演示舞台 */
+.demo{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-k{font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase;margin:0 0 12px}
+.sec-h{margin:0 0 12px;font-size:clamp(24px,3.4vw,38px);line-height:1.2;letter-spacing:-.04em;font-weight:650}
+.sec-p{max-width:680px;margin:0;color:var(--dim);font-size:14.5px;line-height:1.85}
+.demo-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:26px 0 18px}
+.demo-btn{background:var(--fg);color:#0a0b0e;border:0;border-radius:9px;padding:11px 20px;
+  font:inherit;font-size:14px;font-weight:600;cursor:pointer;touch-action:manipulation;
+  transition:transform .16s var(--ease-out),background .2s var(--ease-out)}
+.demo-btn:active{transform:scale(.97)}
+@media(hover:hover) and (pointer:fine){.demo-btn:hover{background:#fff}}
+.demo-btn[disabled]{opacity:.5;cursor:default}
+.demo-note{font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.08em;color:var(--dim2)}
+.demo-stage{position:relative;height:270px;border:1px solid var(--line2);border-radius:14px;overflow:hidden;
+  background:linear-gradient(160deg,#101320,#0a0c13);padding:26px 30px;
+  display:flex;flex-direction:column;gap:11px;box-shadow:0 40px 90px -40px rgba(107,75,255,.55)}
+.ds-k{font:700 10px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:#8b93a4}
+.ds-stage h3{margin:0;font-size:clamp(20px,3vw,30px);line-height:1.25;letter-spacing:-.03em;font-weight:650}
+.ds-stage p{margin:0;font-size:13.5px;color:var(--dim)}
+.ds-row{display:flex;gap:10px;margin-top:6px;flex-wrap:wrap}
+.ds-card{flex:1;min-width:110px;background:rgba(255,255,255,.05);border:1px solid var(--line);
+  border-radius:9px;padding:12px 14px}
+.ds-card em{display:block;font:9px/1 ui-monospace,Consolas,monospace;letter-spacing:.14em;color:var(--dim2);font-style:normal}
+.ds-card b{display:block;margin-top:7px;font-size:19px;font-weight:700;color:var(--lime);letter-spacing:-.02em}
+.ds-link{margin-top:auto;font-size:12.5px;color:#9d8bff}
+/* srb 会把 .demo-stage 的直接子元素当块；给它相对定位基准 */
+.demo-stage>*{position:relative}
+
+/* 阶段 */
+.stage-sec{padding:64px 0;border-bottom:1px solid var(--line)}
+.stage-head{display:flex;align-items:baseline;gap:18px;margin-bottom:10px}
+.stage-num{font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:var(--vi);padding-top:8px}
+.stage-head h2{margin:0;font-size:clamp(22px,3vw,32px);letter-spacing:-.04em;font-weight:650}
+.stage-en{font:10px/1 ui-monospace,Consolas,monospace;letter-spacing:.18em;color:var(--dim2);text-transform:uppercase}
+.stage-desc{margin:0 0 28px;color:var(--dim);font-size:14px;max-width:680px}
+.eco-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:820px){.eco-list{grid-template-columns:1fr}}
+.eco{display:block;padding:18px 20px;background:#0d1017;border:1px solid var(--line);
+  border-radius:11px;text-decoration:none;color:inherit;
+  transition:background .2s var(--ease-out),border-color .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){
+  .eco:hover{background:#12151e;border-color:#4a3f8f}}
+.eco-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.eco-name{font-size:16.5px;font-weight:650;letter-spacing:-.02em}
+.eco-name span{font-size:11px;font-weight:400;color:var(--dim2);margin-left:7px}
+.eco-lic{flex:none;font:9.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.1em;
+  color:#c3b6ff;background:rgba(107,75,255,.15);border-radius:4px;padding:4px 7px}
+.eco-lic.gpl{color:#ffb4a8;background:rgba(255,120,100,.12)}
+.eco-lic.unk{color:#9aa4b5;background:rgba(255,255,255,.06)}
+.eco p{margin:9px 0 0;font-size:12.5px;line-height:1.7;color:var(--dim)}
+.eco-eq{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);
+  font-size:11.5px;color:var(--dim2);line-height:1.8}
+.eco-eq b{color:#8f97a8;font-weight:600}
+.eco-eq a{color:#a99bff;text-decoration:none;border-bottom:1px solid rgba(169,155,255,.35)}
+.eco-eq a:hover{color:#fff}
+.eco-ext{display:block;margin-top:9px;font:10px/1 ui-monospace,Consolas,monospace;
+  letter-spacing:.1em;color:#5f6879}
+
+/* 尾注 / 页脚 */
+.outro{padding:64px 0 80px}
+.outro h2{margin:0 0 14px;font-size:clamp(22px,3vw,32px);letter-spacing:-.04em;font-weight:650}
+.outro p{max-width:720px;margin:0 0 14px;color:var(--dim);font-size:14.5px;line-height:1.9}
+.outro code{font:12px ui-monospace,Consolas,monospace;background:rgba(255,255,255,.07);
+  border-radius:4px;padding:1px 5px;color:#c8d0de}
+.foot{border-top:1px solid var(--line);padding:34px 0 48px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:36px}
+.foot h4{margin:0 0 12px;font-size:10.5px;font-weight:700;letter-spacing:.22em;color:var(--dim2);text-transform:uppercase}
+.foot a{display:block;text-decoration:none;color:#b6bdcb;font-size:13px;padding:3px 0}
+@media(hover:hover) and (pointer:fine){.foot a:hover{color:#fff}}
+.foot p{margin:0;font-size:12.5px;color:var(--dim2);line-height:1.9}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:24px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html"><span class="dot"></span>WEBUI <em>前端武器库</em></a>
+    <nav class="topnav" aria-label="专题库">
+      <a href="effects.html">动效图鉴</a>
+      <a href="video.html">代码视频</a>
+      <a href="skills.html">技能文档</a>
+      <a href="sources.html">创作资源</a>
+      <a href="ecosystem.html" aria-current="page">动效工具链</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<section class="hero">
+  <div class="shell">
+    <p class="eyebrow"><i></i>ECOSYSTEM / 动效工具链</p>
+    <h1>从想法到成片，<br>一条线。</h1>
+    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线。每个都标了授权、给了上游仓库，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
+    <div class="stats">
+      <div class="stat"><b>18</b><span>上游库</span></div>
+      <div class="stat"><b>5</b><span>制作阶段</span></div>
+      <div class="stat"><b>155</b><span>库内机制</span></div>
+      <div class="stat"><b>0</b><span>运行时依赖</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="demo">
+  <div class="shell">
+    <p class="sec-k">LIVE / 先看个真的</p>
+    <h2 class="sec-h">一群光标，把页面重新拼一遍</h2>
+    <p class="sec-p">参考 <a href="https://github.com/magnoscg/agent-build" target="_blank" rel="noopener noreferrer">magnoscg/agent-build</a>（MIT，纯原生 JS）与 swarm-site，我们把它复刻成了库里的第 155 个机制。下面这块是真的在跑——点一下，8 个 agent 会逐个选中页面块、量尺寸、把它们揭示出来。全程标注 <b>SIMULATION</b>，不假装真有 AI 在改页面。</p>
+    <div class="demo-bar">
+      <button class="demo-btn" id="runSwarm" type="button">▶ 运行模拟</button>
+      <span class="demo-note" id="swarmNote">SIMULATION · 内容均为表演数据 · 减少动效时不播放</span>
+    </div>
+    <div class="demo-stage ds-stage" id="swarmStage">
+      <div class="ds-k">OVERVIEW / 状态总览</div>
+      <h3>整个网络，一屏看完</h3>
+      <p>38 台设备在线 · 2 条告警 · 上行 94 Mbps</p>
+      <div class="ds-row">
+        <div class="ds-card"><em>CPU</em><b>12%</b></div>
+        <div class="ds-card"><em>MEM</em><b>41%</b></div>
+        <div class="ds-card"><em>WAN</em><b>OK</b></div>
+      </div>
+      <span class="ds-link">查看完整报告 ↗</span>
+    </div>
+  </div>
+</section>
+
+<section class="stage-sec" id="brief">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">01</span><h2>把话说清楚</h2><span class="stage-en">Brief</span></div>
+    <p class="stage-desc">先定需求、规格与镜头语言，再决定用什么工具。这一层是「给 Agent 的说明书」，不是运行时依赖。</p>
+    <div class="eco-list">
+      <div class="eco">
+        <div class="eco-top"><span class="eco-name">Remotion Skills <span>Agent 视频制作规范</span></span><span class="eco-lic unk">见上游</span></div>
+        <p>13 个 Agent Skill：composition、动画、排版、字幕、地图、渲染、多语言……覆盖「Brief → Render」全流程，是目前最完整的视频制作说明书。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#timeline-orch">时间轴编排</a> · <a href="effects.html#timeline-tracks">时间轴轨道</a> · <a href="effects.html#word-captions">逐词字幕</a></div>
+        <a class="eco-ext" href="https://github.com/remotion-dev/skills" target="_blank" rel="noopener noreferrer">github.com/remotion-dev/skills ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stage-sec" id="build">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">02</span><h2>把场景搭起来</h2><span class="stage-en">Build</span></div>
+    <p class="stage-desc">从 2D 解说场景到完整 3D 世界。这一层的库负责「有什么可动」，通常体量最大。</p>
+    <div class="eco-list">
+      <div class="eco"><div class="eco-top"><span class="eco-name">Motion Canvas <span>动画解说</span></span><span class="eco-lic">MIT</span></div>
+        <p>用代码写时间轴驱动的解说动画，生成器 + 播放器一体，适合教程与产品演示。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#timeline-orch">时间轴编排</a> · <a href="effects.html#waveform">波形律动</a></div>
+        <a class="eco-ext" href="https://github.com/motion-canvas/motion-canvas" target="_blank" rel="noopener noreferrer">motion-canvas/motion-canvas ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">LUME <span>HTML 做 3D</span></span><span class="eco-lic">MIT</span></div>
+        <p>用自定义元素在 DOM 里搭 3D 场景，CSS 能选中 3D 物体，WebGL 与 HTML 混排。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#css3d-card-ring">CSS 3D 环形卡片</a> · <a href="effects.html#tilt-3d">3D 倾斜卡片</a></div>
+        <a class="eco-ext" href="https://github.com/lume/lume" target="_blank" rel="noopener noreferrer">lume/lume ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Three.js <span>3D 场景</span></span><span class="eco-lic">MIT</span></div>
+        <p>WebGL 事实标准。手写矩阵、光照、材质的做法我们在库里也有原生版本。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#gl-rotating-box">手写矩阵旋转盒</a> · <a href="effects.html#gl-wave-surface">Shader 波动曲面</a></div>
+        <a class="eco-ext" href="https://github.com/mrdoob/three.js" target="_blank" rel="noopener noreferrer">mrdoob/three.js ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Babylon.js <span>3D 渲染引擎</span></span><span class="eco-lic">Apache-2.0</span></div>
+        <p>完整的 3D 引擎：实例化、拾取、粒子、物理。我们拆了其中几个机制做成零依赖版。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#gl-instanced-grid">实例化网格阵列</a> · <a href="effects.html#gl-raycast-hover">射线拾取高亮</a></div>
+        <a class="eco-ext" href="https://github.com/BabylonJS/Babylon.js" target="_blank" rel="noopener noreferrer">BabylonJS/Babylon.js ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Godot <span>游戏动画系统</span></span><span class="eco-lic">MIT</span></div>
+        <p>开源的完整游戏引擎，物理与关节约束是很好的动画教科书。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#gravity-drop">重力坠落</a> · <a href="effects.html#matter-spring-chain">弹簧约束链</a></div>
+        <a class="eco-ext" href="https://github.com/godotengine/godot" target="_blank" rel="noopener noreferrer">godotengine/godot ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Blender <span>绑定与角色动画</span></span><span class="eco-lic gpl">GPL</span></div>
+        <p>离线 3D 创作套件。GPL，商用/分发前请自行核对条款；库里只参考它的空间表达。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#css3d-card-ring">CSS 3D 环形卡片</a> · <a href="effects.html#gl-rotating-box">3D 旋转</a></div>
+        <a class="eco-ext" href="https://github.com/blender/blender" target="_blank" rel="noopener noreferrer">blender/blender ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage-sec" id="animate">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">03</span><h2>让它动起来</h2><span class="stage-en">Animate</span></div>
+    <p class="stage-desc">插值、缓动、时间轴、粒子、矢量播放——动效库的主体。我们库里 155 个机制大半集中在这一层。</p>
+    <div class="eco-list">
+      <div class="eco"><div class="eco-top"><span class="eco-name">Motion <span>布局过渡</span></span><span class="eco-lic">MIT</span></div>
+        <p>Framer Motion 的独立内核，FLIP 布局动画、弹簧、手势，框架无关。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#height-morph">高度平滑变形</a> · <a href="effects.html#grid-reflow">网格重排动画</a> · <a href="effects.html#stagger-in">错位入场</a></div>
+        <a class="eco-ext" href="https://github.com/motiondivision/motion" target="_blank" rel="noopener noreferrer">motiondivision/motion ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Anime.js <span>时间轴与错位</span></span><span class="eco-lic">MIT</span></div>
+        <p>时间轴、stagger、SVG 描边。我们把它本地化了一份（<code>src/vendor/anime.min.js</code>）给 stagger-in 离线跑。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#timeline-orch">时间轴编排</a> · <a href="effects.html#stagger-in">错位入场</a> · <a href="effects.html#draw-path">SVG 描边书写</a></div>
+        <a class="eco-ext" href="https://github.com/juliangarnier/anime" target="_blank" rel="noopener noreferrer">juliangarnier/anime ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Shifty <span>Tween 播放与缓动</span></span><span class="eco-lic">MIT</span></div>
+        <p>极小的 tween 引擎，可暂停、可串接、自定义 easing。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#ease-shelf">缓动货架</a> · <a href="effects.html#p5-lerp-ease">帧率无关缓动</a></div>
+        <a class="eco-ext" href="https://github.com/jeremyckahn/shifty" target="_blank" rel="noopener noreferrer">jeremyckahn/shifty ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">TweenJS <span>序列属性动画</span></span><span class="eco-lic">MIT</span></div>
+        <p>CreateJS 套件里的补间库，链式调用、按序播放。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#timeline-tracks">时间轴轨道</a> · <a href="effects.html#grid-stagger">网格波纹错位</a></div>
+        <a class="eco-ext" href="https://github.com/CreateJS/TweenJS" target="_blank" rel="noopener noreferrer">CreateJS/TweenJS ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Ola <span>平滑值插值</span></span><span class="eco-lic">MIT</span></div>
+        <p>一个只做「从当前值平滑追到目标值」的小库，适合滚动驱动。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#p5-lerp-ease">帧率无关缓动</a> · <a href="effects.html#fk-wave">链式跟随</a></div>
+        <a class="eco-ext" href="https://github.com/franciscop/ola" target="_blank" rel="noopener noreferrer">franciscop/ola ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Manim <span>数学动画</span></span><span class="eco-lic">MIT</span></div>
+        <p>用 Python 精确编排公式与几何变换，逐帧可复现。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#draw-path">SVG 描边书写</a> · <a href="effects.html#timeline-orch">时间轴编排</a></div>
+        <a class="eco-ext" href="https://github.com/ManimCommunity/manim" target="_blank" rel="noopener noreferrer">ManimCommunity/manim ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Two.js <span>2D 矢量场景</span></span><span class="eco-lic">MIT</span></div>
+        <p>一套 API 同时输出 SVG / Canvas / WebGL 的 2D 矢量场景。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#draw-path">SVG 描边书写</a> · <a href="effects.html#gradient-flow">流动渐变</a></div>
+        <a class="eco-ext" href="https://github.com/jonobr1/two.js" target="_blank" rel="noopener noreferrer">jonobr1/two.js ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Lottie Web <span>矢量动画播放</span></span><span class="eco-lic">MIT</span></div>
+        <p>播放 AE 导出的 JSON 矢量动画，设计师与前端之间的桥。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#draw-path">SVG 描边书写</a> · <a href="effects.html#mask-shape-cycles">形状遮罩转场族</a></div>
+        <a class="eco-ext" href="https://github.com/airbnb/lottie-web" target="_blank" rel="noopener noreferrer">airbnb/lottie-web ↗</a></div>
+      <div class="eco"><div class="eco-top"><span class="eco-name">Proton <span>粒子发射器</span></span><span class="eco-lic">MIT</span></div>
+        <p>发射器 + 行为（重力、吸引、旋转、衰减）组合出粒子效果。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#particles">粒子星云</a> · <a href="effects.html#gl-particles-cloud">GPU 粒子云</a> · <a href="effects.html#gravity-field">引力场轨道</a></div>
+        <a class="eco-ext" href="https://github.com/drawcall/Proton" target="_blank" rel="noopener noreferrer">drawcall/Proton ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage-sec" id="refine">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">04</span><h2>磨到能上手</h2><span class="stage-en">Refine</span></div>
+    <p class="stage-desc">交互与命中测试：让画面不只是播，还能点、能拖、能选中。</p>
+    <div class="eco-list">
+      <div class="eco"><div class="eco-top"><span class="eco-name">Konva <span>交互式 Canvas</span></span><span class="eco-lic unk">见上游</span></div>
+        <p>场景图 + 事件系统 + 命中检测，Canvas 里做可交互图形的标准答案。GitHub API 未识别许可，请以仓库 LICENSE 为准。</p>
+        <div class="eco-eq"><b>库内等价：</b><a href="effects.html#radial-wave">点阵涟漪</a> · <a href="effects.html#gl-raycast-hover">射线拾取高亮</a></div>
+        <a class="eco-ext" href="https://github.com/konvajs/konva" target="_blank" rel="noopener noreferrer">konvajs/konva ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage-sec" id="render">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">05</span><h2>交付出去</h2><span class="stage-en">Render</span></div>
+    <p class="stage-desc">最后一公里：把浏览器里的实时画面变成文件。</p>
+    <div class="eco-list">
+      <div class="eco"><div class="eco-top"><span class="eco-name">gifenc <span>GIF 编码</span></span><span class="eco-lic">MIT</span></div>
+        <p>纯 JS 的 GIF 编码器，把 canvas 帧序列直接写成 GIF，无需服务端。</p>
+        <div class="eco-eq"><b>库内暂无等价</b>——导出类能力，我们主打「实时渲染不产文件」；需要时按它的思路自己加一层编码。</div>
+        <a class="eco-ext" href="https://github.com/mattdesl/gifenc" target="_blank" rel="noopener noreferrer">mattdesl/gifenc ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="shell">
+    <h2>为什么我们一个都不装</h2>
+    <p>这 18 个库都很强，但每一个都是一份要维护的依赖、一段要打包的体积、一个要跟版本走的 API。这个库的取舍反过来：<b>只收机制，不收库</b>——把「缓动曲线」「时间轴编排」「粒子发射」「FLIP 布局过渡」这些可复用的内核，用原生 JS/CSS 重写成自包含的 <code>init(el)</code> 模块，挂上就能跑，摘掉就干净。</p>
+    <p>所以上面每一行的「库内等价」不是替代关系，而是<b>同一个机制的两种交付形态</b>：要完整工程能力就用上游，要抄一个能跑的机制就回图鉴。首页那段实时短片、墨渗开屏、数字滚轮，全是这么来的。</p>
+    <p style="margin-top:26px"><a href="effects.html" style="color:#a99bff;border-bottom:1px solid rgba(169,155,255,.4);text-decoration:none">去图鉴挑机制 ↗</a> · <a href="index.html" style="color:#a99bff;border-bottom:1px solid rgba(169,155,255,.4);text-decoration:none">回首页 ↗</a></p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="shell foot-grid">
+    <div><p class="brand" style="margin:0 0 10px"><span class="dot"></span>WEBUI / 前端武器库</p>
+      <p>本地运行 · 零构建 · 零依赖。收录内容与上游授权见仓库 README。</p></div>
+    <div><h4>库</h4>
+      <a href="effects.html">动效图鉴</a><a href="video.html">代码视频库</a>
+      <a href="skills.html">技能文档</a><a href="sources.html">创作资源</a></div>
+    <div><h4>文档</h4>
+      <a href="index.html">首页</a>
+      <a href="https://github.com/exasdwyh-commits/frontend-arsenal#readme" target="_blank" rel="noopener noreferrer">仓库说明 ↗</a>
+      <a href="https://exasdwyh-commits.github.io/frontend-arsenal/" target="_blank" rel="noopener noreferrer">在线站点 ↗</a></div>
+  </div>
+</footer>
+
+<script type="module">
+import swarm from './src/effects/entrance.swarm-rebuild.js';
+
+const stage = document.getElementById('swarmStage');
+const btn = document.getElementById('runSwarm');
+const note = document.getElementById('swarmNote');
+let destroy = null;
+/* 与首页共用同一个动效偏好：默认开，访客在左下角关掉才静帧 */
+let pref = null;
+try { pref = localStorage.getItem('arsenal-motion'); } catch (_) {}
+const reduce = pref === 'off';
+
+if (reduce) {
+  btn.disabled = true;
+  note.textContent = 'SIMULATION · 动效已关，去首页左下角开启后再回来';
+} else {
+  btn.addEventListener('click', () => {
+    if (destroy) { destroy(); destroy = null; }
+    btn.disabled = true;
+    note.textContent = 'SIMULATION · 正在重建…';
+    destroy = swarm.init(stage, {
+      loop: false, count: 8,
+      onDone: () => { btn.disabled = false; note.textContent = 'SIMULATION · 完成，可再跑一次'; }
+    });
+  });
+}
+</script>
+</body>
+</html>

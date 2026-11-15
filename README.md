@@ -38,12 +38,13 @@
 
 ```
 WebUI/
-├── index.html              # 门户首页：理念 / 全库搜索 / 收录来源 / 三步用法
+├── index.html              # 门户首页：理念 / 全库搜索 / 收录来源 / 三步用法（顶栏可进动效工具链）
 │                           # 首屏为实时渲染的四场景短片（可拖画面调参、可拖进度、可切镜）
 │                           # + 墨渗开屏；按 X 开 X-Ray 拆解模式，右下角可开合成音效
 │                           # 左下角有动效开关，也可用 index.html?motion=off 强制静帧
 ├── effects.html            # 效果图鉴：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
+├── ecosystem.html          # 动效工具链：18 个上游库按 5 阶段组织 + 原生等价机制对照
 ├── skills.html             # 技能库：427 个前端可用 Skill 文档的浏览/阅读页
 ├── skills/                 # 技能文档原样存放（427 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档、meta/astryx · MIT、floating-ui · MIT、vercel-labs · MIT、emilkowalski · MIT）
 ├── vendor/                 # 第三方上游原样副本（逐文件授权，详见 LICENSE）
@@ -57,7 +58,9 @@ WebUI/
     ├── skills.css          # 技能库样式（复用 style.css 的设计 token）
     ├── skills-data.js      # 技能清单（id / 分类 / 描述，由 skills/ 目录生成）
     ├── effects/            # 每个效果一个文件，一个文件导出一个对象
-    │   ├── entrance.stagger-in.js
+    │   ├── entrance.swarm-rebuild.js  # 第 155 个机制：光标群重建页面（原生复刻 agent-build）
+│   ├── entrance.swarm-rebuild.js  # 第 155 个机制：光标群重建页面（原生复刻 agent-build）
+│   ├── entrance.stagger-in.js
     │   ├── entrance.wipe-reveal.js
     │   └── ...
     ├── groups.js           # 分组定义（7 组，按"意图"分，不按库名分）
@@ -142,7 +145,7 @@ export const EFFECTS = [ /* ... */ magneticBtn ];
 
 ---
 
-## 当前收录（154 个 / 7 组）
+## 当前收录（155 个 / 7 组）
 
 | 组 | 数量 | 代表效果 |
 |---|---:|---|

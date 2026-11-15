@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "protocol": "agent/README.md",
   "coverage": {
-    "effects": 154,
+    "effects": 155,
     "skills": 427,
     "videos": 81,
-    "effectsWithScenes": 63,
+    "effectsWithScenes": 64,
     "recipes": 1,
     "verifiedTemplates": 0
   },
@@ -493,6 +493,7 @@
     "src/effects/entrance.spring-enter.js": "c2451999f4dcd446c911103272c917902837a5f607a615a38162fbbe6d959d14",
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
     "src/effects/entrance.stagger-in.js": "11487e19b91ec8d93f1bb87149a211f329fa39527e86e50121e7f7223faadd44",
+    "src/effects/entrance.swarm-rebuild.js": "240bce723d6d1cde490fe6e4f6761aa93d4f3602999e5cace0f4f0e8594ec89b",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
     "src/effects/entrance.tooltip-delay-group.js": "904af6cf88f1b13848cb998a4f3d5e223f88f48322dbbaacd135030b3c69b755",
     "src/effects/entrance.tr-blur-fade.js": "e5c2623da60226d83e82b89a0eaf13415c2b6cc2f71435cb11e31411e9766a06",
@@ -599,7 +600,7 @@
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
     "src/engine.js": "f424b75c5482b9b55ceacb3543283fcf38f37a8ec801e2109eb742533ce291d2",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
-    "src/registry.js": "672fa9a19a2e873e98eb1bdb63d6e45b37d060fb5d9edbf8b86ea24281abcd26",
+    "src/registry.js": "9596d5c5bb30fb86981200238d2e9d633ce7163751c0276d794dffd1a4d57005",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
     "src/skills-data.js": "6b09dfa7b84f7c8785d35dc01ec1e0dbbf554712e03c6d45cf62a1c137599778",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
@@ -1633,6 +1634,55 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/entrance.stagger-in.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:swarm-rebuild",
+      "kind": "effect",
+      "title": "光标群重建页面",
+      "description": "一群带名牌的 AI 光标从中心飞出，逐个给页面块套上选框、标尺寸、打字/淡入，配 HUD 进度与「SIMULATION」标识，把整页一块块重建出来。机制提炼自 magnoscg/agent-build（MIT）与 swarm-site，原生 JS/CSS 独立实现；所有角色名与进度均为表演数据，不连接任何真实 Agent。",
+      "category": "入场与转场",
+      "source": "src/effects/entrance.swarm-rebuild.js",
+      "preview": "effects.html#swarm-rebuild",
+      "implementation": "demo-module",
+      "technology": "agent-build / swarm-site",
+      "declaredDependencies": "无",
+      "notes": "四个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是\"每个 agent 各自领一个块\"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。",
+      "scenes": {
+        "places": [
+          "首屏",
+          "发布会",
+          "作品集"
+        ],
+        "goals": [
+          "营造氛围",
+          "内容呈现"
+        ],
+        "triggers": [
+          "页面加载",
+          "点击"
+        ],
+        "projects": [
+          "AI 产品",
+          "开发者工具",
+          "品牌官网"
+        ]
+      },
+      "sceneEvidence": "src/effects/entrance.swarm-rebuild.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/entrance.swarm-rebuild.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"

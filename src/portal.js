@@ -412,7 +412,7 @@ if (reelCv && reelCv.getContext) {
     ctx.font = '9px ui-monospace,Consolas,monospace';
     ctx.textAlign = 'left';
     ctx.fillStyle = 'rgba(190,200,220,.42)';
-    const tick = '154 MECHANISMS / 81 FILMS / 420 DOCS';
+    const tick = '155 MECHANISMS / 81 FILMS / 427 DOCS';
     const tw = ctx.measureText(tick).width;
     const shift = (t * 46) % (tw + 40);
     const x0 = W * .05 - shift;
