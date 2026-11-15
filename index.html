@@ -104,6 +104,14 @@ h1,h2,h3{text-wrap:balance}
   padding-bottom:2px;border-bottom:1px solid transparent;transition:color .2s var(--ease-out),border-color .2s var(--ease-out)}
 @media(hover:hover) and (pointer:fine){.topnav a:hover{color:#fff;border-bottom-color:var(--vi)}}
 @media(max-width:760px){.topnav{gap:14px}.topnav a:nth-child(3),.topnav a:nth-child(4){display:none}.brand em{display:none}}
+/* 窄屏入口变多：导航自己横向滚，绝不把整页撑宽 */
+@media(max-width:860px){
+  .topbar-in{min-width:0;gap:12px}
+  .brand{flex:none}
+  .topnav{min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .topnav::-webkit-scrollbar{display:none}
+  .topnav a{white-space:nowrap;flex:none}
+}
 
 /* ---------- 首屏 ---------- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
@@ -276,6 +284,11 @@ html.no-motion .odo-strip{transition:none}
 .kr-caret{position:absolute;bottom:.12em;height:3px;border-radius:2px;background:var(--cy);
   box-shadow:0 2px 10px rgba(60,203,255,.55);opacity:0}
 html.no-motion .kr-base{color:inherit}
+/* 窄屏标题必然换行，而充能层是 nowrap 的——它会把整页撑宽，这里直接退回纯文本 */
+@media(max-width:640px){
+  .kr-fill,.kr-caret{display:none}
+  .kr-base{color:inherit}
+}
 .sec-lead{max-width:640px;margin:16px 0 0;color:var(--dim);font-size:15.5px}
 .sec-lead b{color:#dde2ea;font-weight:600}
 .tail-link{display:inline-flex;align-items:center;gap:8px;margin-top:30px;font-size:14px;font-weight:600;
@@ -592,6 +605,7 @@ html.xray .xray-hud{opacity:1;transform:none}
       <a href="skills.html">技能文档</a>
       <a href="sources.html">创作资源</a>
       <a href="ecosystem.html">动效工具链</a>
+      <a href="claude.html">Claude 专版</a>
     </nav>
   </div>
 </header>
@@ -826,6 +840,7 @@ html.xray .xray-hud{opacity:1;transform:none}
         <a href="skills.html">技能文档</a>
         <a href="sources.html">创作资源</a>
         <a href="ecosystem.html">动效工具链</a>
+        <a href="claude.html">Claude 专版</a>
       </div>
       <div>
         <h4>文档</h4>

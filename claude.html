@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Claude 专版 · WebUI 图鉴</title>
+<meta name="description" content="从 Claude 的界面输出里提炼的 9 条判据：流式输出、思考态、一次只放一张能提交的建议卡、焦点归还、关闭理由、IME 守卫、折叠摘要、控件节奏、减少动效分档。每条都对应库里的可运行机制，并标了什么时候别用。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%23c3ea3a%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%230a0b0e%22/></svg>">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{--bg:#07080b;--panel:#0b0d12;--line:rgba(255,255,255,.09);--line2:rgba(255,255,255,.17);
+  --fg:#eceef3;--dim:#8f97a8;--dim2:#717a8a;--vi:#6b4bff;--cy:#3ccbff;--lime:#c3ea3a;--amber:#d99a2b;
+  --shell:1180px;--ease-out:cubic-bezier(.23,1,.32,1)}
+html{scroll-behavior:smooth;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);overflow-x:hidden;
+  font:15.5px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+a{color:inherit}
+::selection{background:rgba(107,75,255,.4)}
+.shell{width:100%;max-width:var(--shell);margin:0 auto;padding:0 40px}
+@media(max-width:640px){.shell{padding:0 20px}}
+:focus-visible{outline:2px solid var(--cy);outline-offset:3px;border-radius:4px}
+.skip{position:fixed;left:14px;top:-60px;z-index:120;padding:10px 16px;border-radius:8px;
+  background:var(--fg);color:#0a0b0e;font-size:13px;font-weight:600;text-decoration:none}
+.skip:focus{top:14px}
+
+/* 顶栏 */
+.topbar{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:var(--panel)}
+.topbar-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-size:12px;
+  font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);flex:none}
+.brand em{font-style:normal;font-weight:500;letter-spacing:.06em;color:var(--dim);text-transform:none;font-size:13px}
+.topnav{display:flex;gap:22px}
+.topnav a{text-decoration:none;color:var(--dim);font-size:13px;padding-bottom:2px;
+  border-bottom:1px solid transparent;transition:color .2s var(--ease-out),border-color .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.topnav a:hover{color:#fff;border-bottom-color:var(--vi)}}
+.topnav a[aria-current=page]{color:#fff;border-bottom-color:var(--lime)}
+@media(max-width:760px){.topnav{gap:12px}.topnav a{font-size:12px}.brand em{display:none}}
+/* 6 个入口在窄屏必然挤：让导航自己横向滚，别把整页撑宽 */
+@media(max-width:860px){
+  .topbar-in{min-width:0;gap:12px}
+  .brand{flex:none}
+  .topnav{min-width:0;overflow-x:auto;white-space:nowrap;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;padding-bottom:1px}
+  .topnav::-webkit-scrollbar{display:none}
+  .topnav a{white-space:nowrap;flex:none}
+}
+
+/* 首屏 */
+.hero{padding:80px 0 56px;border-bottom:1px solid var(--line);
+  background:radial-gradient(60% 70% at 22% 0%,rgba(195,234,58,.10),transparent 68%),
+             radial-gradient(50% 60% at 90% 10%,rgba(107,75,255,.18),transparent 70%)}
+.eyebrow{display:flex;align-items:center;gap:10px;margin:0;font-size:11px;font-weight:700;
+  letter-spacing:.22em;color:#98a0b2;text-transform:uppercase}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px 2px rgba(195,234,58,.7)}
+h1{margin:20px 0 0;font-size:clamp(34px,5.8vw,68px);line-height:1.1;letter-spacing:-.055em;font-weight:700}
+h1 mark{background:linear-gradient(180deg,transparent 62%,rgba(195,234,58,.22) 62%);color:inherit}
+.lead{max-width:720px;margin:20px 0 0;color:#a6aebe;font-size:16.5px;line-height:1.85}
+.stats{display:flex;margin-top:44px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{flex:1;padding:20px 0 20px 24px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font-size:clamp(26px,3.2vw,40px);font-weight:600;line-height:1;letter-spacing:-.05em;
+  font-variant-numeric:tabular-nums;background:linear-gradient(120deg,#fff,#a9b3c6);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{display:block;margin-top:8px;font-size:10.5px;letter-spacing:.2em;color:var(--dim2);text-transform:uppercase}
+@media(max-width:640px){.stat{padding-left:14px}.stat span{font-size:9px;letter-spacing:.1em}}
+/* 4 个统计在窄屏挤不下：拆成 2×2，别让它们把页面撑宽 */
+@media(max-width:640px){
+  .stats{display:grid;grid-template-columns:1fr 1fr}
+  .stat{padding:16px 0;border-left:0;border-top:1px solid var(--line)}
+  .stat:nth-child(-n+2){border-top:0}
+  .stat:nth-child(even){padding-left:18px;border-left:1px solid var(--line)}
+}
+
+/* 通用段落 */
+.sec{padding:64px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.sec-num{font:700 11px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:var(--lime)}
+.sec-head h2{margin:0;font-size:clamp(22px,3vw,32px);letter-spacing:-.04em;font-weight:650}
+.sec-en{font:10px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:var(--dim2);text-transform:uppercase}
+.sec-p{margin:14px 0 0;max-width:760px;color:#9aa3b4;font-size:14px;line-height:1.85}
+
+/* 判据行 */
+.rules{margin-top:26px;border-top:1px solid var(--line)}
+.rule{display:grid;grid-template-columns:46px 1fr;gap:2px 18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.rule-n{font:700 11px/1.7 ui-monospace,Consolas,monospace;letter-spacing:.1em;color:#4f5a6b}
+.rule h3{margin:0;font-size:16px;font-weight:650;letter-spacing:-.02em}
+.rule-why{margin:6px 0 0;color:#9aa3b4;font-size:13.5px;line-height:1.8}
+.rule-why b{color:#c8d0de;font-weight:600}
+.rule-foot{grid-column:2;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;
+  text-decoration:none;font:11px/1.6 ui-monospace,Consolas,monospace;letter-spacing:.02em;
+  color:#c3b8ff;background:rgba(169,155,255,.10);border:1px solid rgba(169,155,255,.24);
+  transition:background .18s var(--ease-out),border-color .18s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.chip:hover{background:rgba(169,155,255,.2);border-color:rgba(169,155,255,.5);color:#fff}}
+.rule-no{color:#c2ab84;font-size:12.5px;line-height:1.7;margin:8px 0 0;padding-left:10px;
+  border-left:2px solid var(--amber)}
+@media(max-width:620px){.rule{grid-template-columns:1fr;gap:0}.rule-foot{grid-column:1}}
+
+/* 习惯卡片 */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.card{padding:20px 22px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.card h3{margin:0;font-size:14.5px;font-weight:650}
+.card p{margin:9px 0 0;color:#9aa3b4;font-size:13px;line-height:1.8}
+.card code{font:12px/1 ui-monospace,Consolas,monospace;color:#c8ea63;background:rgba(195,234,58,.09);
+  padding:2px 6px;border-radius:4px}
+.card .mini{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+@media(max-width:760px){.cards{grid-template-columns:1fr}}
+
+/* 文档三连 */
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.doc{display:block;padding:20px 22px;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;text-decoration:none;transition:border-color .2s var(--ease-out),transform .2s var(--ease-out)}
+@media(hover:hover) and (pointer:fine){.doc:hover{border-color:var(--line2);transform:translateY(-2px)}}
+.doc b{display:block;font-size:14.5px;font-weight:650;letter-spacing:-.01em}
+.doc small{display:block;margin-top:8px;color:#9aa3b4;font-size:12.5px;line-height:1.75}
+.doc i{display:block;margin-top:12px;font-style:normal;
+  font:10px/1 ui-monospace,Consolas,monospace;letter-spacing:.14em;color:#6f7a8b}
+@media(max-width:860px){.docs{grid-template-columns:1fr}}
+
+/* 验收清单 */
+.check{margin-top:24px;counter-reset:c;list-style:none;padding:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:10px 24px}
+.check li{counter-increment:c;position:relative;padding:12px 0 12px 34px;
+  border-bottom:1px solid var(--line);color:#a6aebe;font-size:13.5px;line-height:1.75}
+.check li::before{content:counter(c,decimal-leading-zero);position:absolute;left:0;top:12px;
+  font:700 10px/1.9 ui-monospace,Consolas,monospace;letter-spacing:.1em;color:var(--lime)}
+.check b{color:#e6eaf2;font-weight:600}
+@media(max-width:760px){.check{grid-template-columns:1fr}}
+
+/* 收尾 */
+.outro{padding:64px 0 78px}
+.outro h2{margin:0 0 14px;font-size:clamp(22px,3vw,32px);letter-spacing:-.04em;font-weight:650}
+.outro p{max-width:800px;color:#9aa3b4;font-size:14.5px;line-height:1.9;margin:0 0 14px}
+.outro code{font:12.5px/1 ui-monospace,Consolas,monospace;background:rgba(255,255,255,.07);
+  border-radius:4px;padding:2px 6px;color:#c8d0de}
+.foot{border-top:1px solid var(--line);padding:28px 0 44px;color:var(--dim2);font-size:12.5px}
+.foot a{color:#8f97a8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.16)}
+.foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到主要内容</a>
+
+<header class="topbar">
+  <div class="shell topbar-in">
+    <a class="brand" href="index.html"><span class="dot"></span>WEBUI <em>前端武器库</em></a>
+    <nav class="topnav" aria-label="专题库">
+      <a href="effects.html">动效图鉴</a>
+      <a href="video.html">代码视频</a>
+      <a href="skills.html">技能文档</a>
+      <a href="sources.html">创作资源</a>
+      <a href="ecosystem.html">动效工具链</a>
+      <a href="claude.html" aria-current="page">Claude 专版</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+<section class="hero">
+  <div class="shell">
+    <p class="eyebrow"><i></i>CLAUDE / 从它的输出里学判断</p>
+    <h1>Claude 做界面，<br>值钱的不是它写的代码。</h1>
+    <p class="lead">同一句需求，它交出来的东西通常"看着对"——差别不在配色，在几个被反复验证的判断：什么时候该有动效、状态的边界在哪、出错时先说哪句话。这一页把它们逐条拆开，每条都指向库里能跑的机制，并写明<b>什么时候不该用</b>。</p>
+    <div class="stats">
+      <div class="stat"><b>9</b><span>界面判据</span></div>
+      <div class="stat"><b>3</b><span>官方文档</span></div>
+      <div class="stat"><b>163</b><span>可跑机制</span></div>
+      <div class="stat"><b>0</b><span>运行时依赖</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-num">01</span><h2>九条判据</h2><span class="sec-en">Judgement</span></div>
+    <p class="sec-p">不是"像 Claude 的视觉"，是它做界面时的取舍。每条都配了库里的机制、为什么这么做，以及抄错的典型症状。</p>
+
+    <div class="rules">
+      <div class="rule">
+        <span class="rule-n">01</span>
+        <div><h3>输出要像"在写"，不是"跳出来"</h3>
+          <p class="rule-why">逐字出现让人有时间跟上，也让人相信真的在算。关键在于<b>节奏可以不均匀</b>（词与词之间有快慢），但光标必须一直在，结束时要停住而不是继续闪。</p>
+          <p class="rule-no">速度低于每秒 12 字就开始难受；为了"像 AI"故意放慢是最常见的自伤。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#typewriter-caret">typewriter-caret</a><a class="chip" href="effects.html#agent-chat-demo">agent-chat-demo</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">02</span>
+        <div><h3>思考态只承诺"还活着"，不承诺进度</h3>
+          <p class="rule-why">模型给不出真实百分比，所以界面也不该给。三个点、一道扫光、一句"正在查资料"——它们的作用是<b>消解"是不是卡了"的焦虑</b>，而不是报告进度。</p>
+          <p class="rule-no">骨架屏超过 3 秒就该换文案或给取消入口，扫光只是在骗"还在动"。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#thinking-dots">thinking-dots</a><a class="chip" href="effects.html#skeleton-shimmer">skeleton-shimmer</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">03</span>
+        <div><h3>建议卡一次只让一张能提交</h3>
+          <p class="rule-why">两张卡都能点，用户就要先做一次"点哪张"的决策，而这一步跟任务本身无关。叠着放、前卡飞出后卡顶上，<b>同一时刻只有一个可执行动作</b>。</p>
+          <p class="rule-no">建议卡的进度条别伪造"真实进度"：要么接真事件，要么明说这是演示。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#agent-stack">agent-stack</a><a class="chip" href="effects.html#button-morph">button-morph</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">04</span>
+        <div><h3>浮层关得掉，焦点回得来</h3>
+          <p class="rule-why">模态的正确性不在动效，在<b>焦点只进不出、出了就归还</b>。打开时记住"谁持有焦点"，关闭时还回去；目标是 body 就退回永远可见的触发按钮。</p>
+          <p class="rule-no">最常见的坑是忘了归还——关闭后焦点必须回到触发元素。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#focus-trap">focus-trap</a><a class="chip" href="effects.html#smart-anchor">smart-anchor</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">05</span>
+        <div><h3>关闭要说出理由</h3>
+          <p class="rule-why">点遮罩关、按 Esc 关、点关闭按钮关，在有未保存内容时<b>后果完全不同</b>。把 reason 三分，才能在不该关的时候拦住，而不是一刀切地全关。</p>
+          <p class="rule-no">关闭理由要分清：点遮罩关和按 Esc 关，对"有未保存内容"的处理不一样。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#overlay-dismiss">overlay-dismiss</a><a class="chip" href="effects.html#exit-motion">exit-motion</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">06</span>
+        <div><h3>输入法组合期，Enter 不是确认</h3>
+          <p class="rule-why">中文候选词还没上屏时，Enter 属于输入法。键盘处理器必须<b>先让路</b>：组合中按 Enter 是"提交候选"，不是"发送消息"。这一条不做，中文用户根本没法用。</p>
+          <p class="rule-no">组合期拦按键会让中文用户打不出字；Enter/Esc 只在 isComposing 为 false 时生效。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#ime-guard">ime-guard</a><a class="chip" href="effects.html#intent-fill">intent-fill</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">07</span>
+        <div><h3>收起之后，仍要汇报里面有什么</h3>
+          <p class="rule-why">折叠是为了"不占地方"，不是为了"藏起来"。标题行保留关键值、已改项数、异常标记，<b>不用展开就能判断要不要展开</b>——专业工具与聊天记录列表都靠这一手。</p>
+          <p class="rule-no">摘要行最多 3 个值，再多就比展开还乱。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#disclosure-summary">disclosure-summary</a><a class="chip" href="effects.html#height-morph">height-morph</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">08</span>
+        <div><h3>控件看起来紧凑，命中区不能跟着变紧凑</h3>
+          <p class="rule-why">一行里混排按钮、选择器、图标钮时，视觉高度要有节奏，但<b>点击区用伪元素向外扩到 44px</b>。表观 24px + 命中 44px，才同时好看和好点。</p>
+          <p class="rule-no">视觉 24px、点击区 44px——别把"看起来小"当成"点得准"。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#control-rhythm">control-rhythm</a><a class="chip" href="effects.html#pro-material">pro-material</a></div>
+        </div>
+      </div>
+
+      <div class="rule">
+        <span class="rule-n">09</span>
+        <div><h3>减少动效 = 分档，不是关掉</h3>
+          <p class="rule-why">系统说"减少动效"，用户要的是<b>别晃、别跳、别失焦</b>，不是"失去所有状态反馈"。粗指针只做 ≤200ms 的纯淡变，细指针保留短位移，其余一律给终态。</p>
+          <p class="rule-no">别把"减少动效"实现成"关掉所有动效"——用户会丢掉状态变化的反馈。</p>
+          <div class="rule-foot"><a class="chip" href="effects.html#reduced-motion-tiers">reduced-motion-tiers</a><a class="chip" href="effects.html#spring-modal">spring-modal</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="habits">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-num">02</span><h2>它写代码时的四个习惯</h2><span class="sec-en">Habits</span></div>
+    <p class="sec-p">这四条比视觉更值得抄：它们决定了交付物能不能进真实项目。</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>用状态机，不用一串布尔</h3>
+        <p><code>idle → busy → done → error</code> 是互斥的四个状态，不是一个 <code>loading</code> 加三个 flag。状态互斥，就不会出现"既成功又报错"的界面。</p>
+        <div class="mini"><a class="chip" href="effects.html#button-morph">button-morph</a><a class="chip" href="effects.html#island-morph">island-morph</a></div>
+      </div>
+      <div class="card">
+        <h3>先画中间态，再动手</h3>
+        <p>宽、圆角、内容一起变的时候，最容易露出的不是首尾，是<b>中间那一帧</b>——半截文字、错位图标。先把中间态画出来，动画才有地方站。</p>
+        <div class="mini"><a class="chip" href="effects.html#anime-morph">anime-morph</a><a class="chip" href="effects.html#flip-resize">flip-resize</a></div>
+      </div>
+      <div class="card">
+        <h3>每个动效都要能拆干净</h3>
+        <p><code>init(el)</code> 返回清理函数：取消 rAF、移除监听、断开 observer、关掉 WebGL 上下文。不能清理的动效，第二次进入页面就是泄漏。</p>
+        <div class="mini"><a class="chip" href="effects.html#magnetic-btn">磁吸按钮</a><a class="chip" href="effects.html#three-cube">three-cube</a></div>
+      </div>
+      <div class="card">
+        <h3>只收机制，不收库</h3>
+        <p>它能用 GSAP 三行写完，也能用原生写清楚。差别是<b>三年后还能不能改</b>。这个库的取舍一样：<code>code</code> 里可以提库名，<code>init()</code> 里一律原生。</p>
+        <div class="mini"><a class="chip" href="ecosystem.html#studio">工具链页</a><a class="chip" href="effects.html#ease-shelf">ease-shelf</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="docs">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-num">03</span><h2>站内已收的 Claude 文档</h2><span class="sec-en">Docs</span></div>
+    <p class="sec-p">Anthropic 官方 skill 原文，按上游原样存进 <code>skills/</code>，可搜可读。三篇分工不同：一篇管方向，一篇管"ARTIFACT 里怎么调模型"，一篇管交付。</p>
+
+    <div class="docs">
+      <a class="doc" href="skills.html?skill=frontend-design">
+        <b>frontend-design</b>
+        <small>先定审美方向再写代码：目的、语气、差异化三问，把"看起来像模板"提前掐掉。没有品牌约束时最该先读的一篇。</small>
+        <i>ANTHROPIC / 设计方向</i>
+      </a>
+      <a class="doc" href="skills.html?skill=claude-api-in-prototypes">
+        <b>claude-api-in-prototypes</b>
+        <small>在 HTML artifact 里直接调 <code>window.claude.complete</code>，不装 SDK、不要 key——原型阶段最省事的一条路。</small>
+        <i>ANTHROPIC / 原型集成</i>
+      </a>
+      <a class="doc" href="skills.html?skill=handoff-to-claude-code">
+        <b>handoff-to-claude-code</b>
+        <small>把设计整理成开发能直接用的交付包：目录、截图、规格、验收点。给 Claude Code 接手时少问三轮。</small>
+        <i>ANTHROPIC / 交付</i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="checklist">
+  <div class="shell">
+    <div class="sec-head"><span class="sec-num">04</span><h2>它的产出，过这六道</h2><span class="sec-en">Checklist</span></div>
+    <p class="sec-p">AI 交出来的动效，八成问题集中在这六处。图鉴里每条机制的「复制为 AI 需求」已经把这几条写进 prompt，这里是给人看的版本。</p>
+
+    <ol class="check">
+      <li><b>能清理吗</b>：<code>init()</code> 有没有返回函数？取消 rAF、移除监听、断开 observer、关上下文。</li>
+      <li><b>碰全局了吗</b>：只改传入的 <code>el</code>，别写 <code>document.body</code>、别用标签选择器改公共样式。</li>
+      <li><b>尊重减少动效吗</b>：命中 <code>prefers-reduced-motion</code> 时给终态，而不是"关掉一切"。</li>
+      <li><b>触屏能用吗</b>：只依赖 hover 的交互，在手机上等于不存在，要有手势或降级。</li>
+      <li><b>数字和图形同源吗</b>：滚动数字与柱条读的是同一个值，否则观众看到的是两个结论。</li>
+      <li><b>知道什么时候别用吗</b>：每条机制的 <code>avoid</code> 就是这一条——阈值、条件、反例。</li>
+    </ol>
+  </div>
+</section>
+
+<section class="outro">
+  <div class="shell">
+    <h2>这一页不站队</h2>
+    <p>它不证明 Claude 比别的模型强，只说明一件事：<b>好的界面判断是可拆解的</b>。拆成九条判据、六道验收，就能拿去要求任何模型——包括我自己。</p>
+    <p>所以图鉴里没有"Claude 风格"这种东西。有的是 <code>typewriter-caret</code> 的字速、<code>ime-guard</code> 的组合期判断、<code>overlay-dismiss</code> 的三分理由——每一条都能单独拿走，放进任何一套设计系统。</p>
+    <p>要把它直接变成活儿：打开任意机制，点「复制为 AI 需求」，那段 prompt 里已经带上了这条机制的坑、反例和硬约束。</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="shell foot-grid">
+    <span>Claude 专版 · 判据来自库内 163 个机制与 3 篇 Anthropic 官方文档</span>
+    <span><a href="effects.html">动效图鉴 ↗</a> · <a href="skills.html">技能文档 ↗</a> · <a href="index.html">回首页 ↗</a></span>
+  </div>
+</footer>
+</body>
+</html>
