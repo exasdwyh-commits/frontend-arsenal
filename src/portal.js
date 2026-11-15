@@ -1019,6 +1019,52 @@ if (pill) {
   });
 }
 
+/* ---------- 现场：光标群重建（第 155 个机制，本页自带一个可重放实例） ---------- */
+const swarmStage = document.getElementById('swarmStage');
+if (swarmStage) {
+  const swarmNote = document.getElementById('swarmNote');
+  const swarmAgain = document.getElementById('swarmAgain');
+  let swarmDestroy = null;
+
+  const say = t => { if (swarmNote) swarmNote.textContent = t; };
+
+  const runSwarm = () => {
+    if (reduce) { say('动效已关 · 直接看成品态'); return; }
+    if (swarmDestroy) { swarmDestroy(); swarmDestroy = null; }
+    say('SIMULATION · 正在重建…');
+    /* 懒加载：滚到这一段才去拿这 17KB，首屏不为它付钱 */
+    import('./effects/entrance.swarm-rebuild.js?v=20261116').then(mod => {
+      swarmDestroy = mod.default.init(swarmStage, {
+        loop: false,
+        count: 6,
+        chrome: false,   /* 只留光标+选框+进度条，HUD 会盖住宿主自己的排版 */
+        dim: 0.16,       /* 幽灵底：块全隐会先出现一块空白，像加载失败 */
+        onDone: () => say('SIMULATION · 表演数据 · 点「重放」再来一次')
+      });
+    }).catch(() => say('这个机制没加载出来 · 内容照常显示'));
+  };
+
+  if (reduce) {
+    if (swarmAgain) swarmAgain.disabled = true;
+    say('动效已关 · 直接看成品态');
+  } else {
+    /* 只在第一次进入视野时跑一次；之后交给「重放」，不跟着滚动反复触发 */
+    let armed = true;
+    if ('IntersectionObserver' in window) {
+      const swarmIO = new IntersectionObserver(entries => {
+        for (const e of entries) {
+          if (e.isIntersecting && armed) { armed = false; swarmIO.disconnect(); runSwarm(); }
+        }
+      }, { threshold: 0.5 });
+      swarmIO.observe(swarmStage);
+    } else {
+      armed = false;
+      runSwarm();
+    }
+    if (swarmAgain) swarmAgain.addEventListener('click', () => { armed = false; runSwarm(); });
+  }
+}
+
 /* ---------- 磁吸按钮 ---------- */
 const mag = document.getElementById('magnet');
 if (mag && !reduce && matchMedia('(pointer:fine)').matches) {

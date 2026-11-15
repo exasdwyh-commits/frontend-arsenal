@@ -3,7 +3,7 @@ export default {
   lib: 'agent-build / swarm-site',
   desc: '一群带名牌的 AI 光标从中心飞出，逐个给页面块套上选框、标尺寸、打字/淡入，配 HUD 进度与「SIMULATION」标识，把整页一块块重建出来。机制提炼自 magnoscg/agent-build（MIT）与 swarm-site，原生 JS/CSS 独立实现；所有角色名与进度均为表演数据，不连接任何真实 Agent。',
   deps: '无',
-  note: '六个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是"每个 agent 各自领一个块"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活；⑤ 出发点要按角度散开、t0 要逐个错开几十毫秒，所有光标同点同刻起飞会先糊成一坨再齐步走，像复印机而不是一群人（名牌也要朝背离中心的一侧挂，否则下半圈互相压住）；⑥ agent 数量必须按块数封顶，多余的光标只会空转。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。',
+  note: '六个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是"每个 agent 各自领一个块"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活；⑤ 出发点要按角度散开、t0 要逐个错开几十毫秒，所有光标同点同刻起飞会先糊成一坨再齐步走，像复印机而不是一群人（名牌也要朝背离中心的一侧挂，否则下半圈互相压住）；⑥ agent 数量必须按块数封顶，多余的光标只会空转。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。两个接入参数：chrome:false 去掉 HUD/标尺/角标（嵌进正文时它们会盖住宿主排版），dim:0.16 给块留一层幽灵底（全隐会让卡片先空一下，像加载失败）。',
 
   scenes: { places: ['首屏', '发布会', '作品集'], goals: ['营造氛围', '内容呈现'], triggers: ['页面加载', '点击'], projects: ['AI 产品', '开发者工具', '品牌官网'] },
   code: `/* 帧时钟 + 并发 agent 队列（原生复刻，零依赖） */
@@ -129,6 +129,9 @@ agents.forEach((a, i) => {
     host.classList.add('srb');
     const W = () => host.clientWidth || 1;
     const H = () => host.clientHeight || 1;
+    /* chrome:false 只留光标、选框和底部进度条——嵌进正文时，
+       HUD 与标尺会盖住宿主自己的排版 */
+    const chrome = opts.chrome !== false;
 
     /* overlay 都挂在 host 内，跟着舞台一起被缩放，坐标用 offset* 布局值 */
     const layer = document.createElement('div');
@@ -139,7 +142,7 @@ agents.forEach((a, i) => {
 
     const ruler = document.createElement('div');
     ruler.className = 'srb-ruler';
-    layer.appendChild(ruler);
+    if (chrome) layer.appendChild(ruler);
 
     const hud = document.createElement('div');
     hud.className = 'srb-hud';
@@ -148,12 +151,12 @@ agents.forEach((a, i) => {
     const hudText = document.createElement('span');
     hud.appendChild(hudName);
     hud.appendChild(hudText);
-    layer.appendChild(hud);
+    if (chrome) layer.appendChild(hud);
 
     const live = document.createElement('div');
     live.className = 'srb-live';
     live.textContent = '● LIVE';
-    layer.appendChild(live);
+    if (chrome) layer.appendChild(live);
 
     const bar = document.createElement('div');
     bar.className = 'srb-bar';
@@ -222,12 +225,23 @@ agents.forEach((a, i) => {
     });
 
     /* 隐藏所有块：visibility 保布局，原子不占位也不塌；opacity 只负责淡入 */
+    /* dim>0 时块不彻底隐藏，而是留一层幽灵底：嵌进正文的卡片里，
+       全隐会先出现一块空白，像加载失败；幽灵底既保住"待重建"的观感，
+       也不会让版面塌下去。dim=0 仍是从无到有（图鉴舞台用这个）。 */
+    const DIM = Math.max(0, Math.min(0.9, opts.dim || 0));
     const saved = blocks.map(b => ({ node: b, vis: b.style.visibility, op: b.style.opacity }));
     for (const b of blocks) {
-      b.classList.add('srb-block');
-      b.style.visibility = 'hidden';
-      b.style.opacity = '0';
+      if (DIM > 0) {
+        b.style.opacity = String(DIM);
+      } else {
+        b.style.visibility = 'hidden';
+        b.style.opacity = '0';
+      }
     }
+    /* 过渡类下一帧再挂：同一帧挂上会从 1 淡到幽灵底，看着像闪一下 */
+    requestAnimationFrame(() => {
+      for (const b of blocks) b.classList.add('srb-block');
+    });
 
     const place = (agent, job, p) => {
       const bx = job.node.offsetLeft, by = job.node.offsetTop;
@@ -263,7 +277,10 @@ agents.forEach((a, i) => {
     const finish = () => {
       if (finished) return;
       finished = true;
-      for (const b of blocks) { b.style.visibility = 'visible'; b.style.opacity = '1'; }
+      for (const b of blocks) {
+        b.style.visibility = 'visible';
+        b.style.opacity = '1';
+      }
       for (const a of agents) { a.c.style.opacity = '0'; a.box.style.opacity = '0'; }
       hud.style.opacity = '0'; live.style.opacity = '0'; ruler.style.opacity = '0';
       barFill.style.width = '100%';
@@ -278,7 +295,15 @@ agents.forEach((a, i) => {
       finished = false; cycleDone = false;
       next = 0;
       for (const j of JOBS) j.done = false;
-      for (const b of blocks) { b.style.visibility = 'hidden'; b.style.opacity = '0'; }
+      for (const b of blocks) {
+        if (DIM > 0) {
+          b.style.visibility = 'visible';
+          b.style.opacity = String(DIM);
+        } else {
+          b.style.visibility = 'hidden';
+          b.style.opacity = '0';
+        }
+      }
       for (const a of agents) {
         a.hx = a.homeX; a.hy = a.homeY;
         a.c.style.transform = 'translate(' + a.hx.toFixed(1) + 'px,' + a.hy.toFixed(1) + 'px)';

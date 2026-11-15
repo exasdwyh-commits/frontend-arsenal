@@ -413,6 +413,36 @@ html.no-motion .filters-thumb{transition:none}
 .proof-row span{font-size:12.5px;color:var(--dim2);text-align:right}
 @media(max-width:860px){.proof{grid-template-columns:1fr}.proof-row span{font-size:11.5px}}
 
+/* ---------- 现场：光标群重建（swarm-rebuild） ---------- */
+.swarm{margin:40px 0 46px}
+.swarm-stage{position:relative;overflow:hidden;border:1px solid var(--line2);border-radius:16px;
+  padding:28px 30px;background:linear-gradient(160deg,#101320,#0a0c13);
+  display:flex;flex-direction:column;gap:12px;
+  box-shadow:0 44px 96px -54px rgba(107,75,255,.62)}
+.sw-k{margin:0;font:700 10px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:#8b93a4}
+.swarm-stage h3{margin:0;font-size:clamp(20px,3vw,28px);line-height:1.25;letter-spacing:-.03em;font-weight:650}
+.sw-p{margin:0;color:var(--dim);font-size:13.5px}
+.sw-row{display:flex;gap:12px;margin-top:2px;flex-wrap:wrap}
+.sw-card{flex:1;min-width:118px;background:rgba(255,255,255,.05);border:1px solid var(--line);
+  border-radius:10px;padding:13px 15px}
+.sw-card em{display:block;font:9px/1 ui-monospace,Consolas,monospace;letter-spacing:.14em;
+  color:var(--dim2);font-style:normal}
+.sw-card b{display:block;margin-top:8px;font-size:21px;font-weight:700;letter-spacing:-.02em;
+  color:var(--lime);font-variant-numeric:tabular-nums}
+.sw-link{align-self:flex-start;margin-top:2px;font-size:12.5px;color:#9d8bff;text-decoration:none;
+  border-bottom:1px solid rgba(157,139,255,.35);padding-bottom:2px;transition:color .2s}
+@media(hover:hover) and (pointer:fine){.sw-link:hover{color:#fff}}
+.swarm-foot{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:14px}
+.swarm-note{font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.08em;color:var(--dim2)}
+.swarm-again{margin-left:auto;background:rgba(255,255,255,.05);border:1px solid var(--line2);
+  color:#cfd5e0;border-radius:8px;padding:8px 14px;font:inherit;font-size:12.5px;cursor:pointer;
+  touch-action:manipulation;transition:background .18s var(--ease-out),color .18s var(--ease-out),transform .16s var(--ease-out)}
+.swarm-again:active{transform:scale(.97)}
+@media(hover:hover) and (pointer:fine){.swarm-again:hover{background:rgba(255,255,255,.1);color:#fff}}
+.swarm-again[disabled]{opacity:.45;cursor:default}
+@media(max-width:640px){.swarm-stage{padding:22px 18px}.sw-card{min-width:84px;padding:11px 12px}
+  .sw-card b{font-size:18px}}
+
 /* ---------- 三步 ---------- */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 .step{border-top:1px solid var(--line2);padding-top:20px}
@@ -719,9 +749,27 @@ html.xray .xray-hud{opacity:1;transform:none}
 <section class="sec" id="proof">
   <div class="shell">
     <div class="sec-head" data-rv><span class="sec-idx">03 / 自证</span><h2>这一页，就是展品。</h2></div>
-    <p class="sec-lead" data-rv style="--i:1">没有框架、没有 CDN、没有构建。首屏那段短片，加上下面这十二处机制，全部是这个仓库里的文件——点名字，去看它怎么实现。</p>
+    <p class="sec-lead" data-rv style="--i:1">没有框架、没有 CDN、没有构建。首屏那段短片，加上下面这十三处机制，全部是这个仓库里的文件——点名字，去看它怎么实现。</p>
 
-    <div class="proof" data-rv style="--i:2">
+    <div class="swarm" data-rv style="--i:2">
+      <div class="swarm-stage" id="swarmStage">
+        <p class="sw-k">OVERVIEW / 武器库概览</p>
+        <h3>这一页，正在被重建。</h3>
+        <p class="sw-p">5 个块 · 6 个光标 · 全部在这个页面里实时跑</p>
+        <div class="sw-row">
+          <div class="sw-card"><em>机制</em><b>155</b></div>
+          <div class="sw-card"><em>样片</em><b>81</b></div>
+          <div class="sw-card"><em>文档</em><b>427</b></div>
+        </div>
+        <a class="sw-link" href="effects.html#swarm-rebuild">这个机制怎么实现的 ↗</a>
+      </div>
+      <div class="swarm-foot">
+        <span class="swarm-note" id="swarmNote">SIMULATION · 表演数据 · 滚到这儿跑一次</span>
+        <button type="button" class="swarm-again" id="swarmAgain">↻ 重放</button>
+      </div>
+    </div>
+
+    <div class="proof" data-rv style="--i:3">
       <div class="proof-row"><a href="https://github.com/exasdwyh-commits/frontend-arsenal/blob/main/src/portal.js" target="_blank" rel="noopener noreferrer">四场景实时短片<em>portal.js</em></a><span>首屏 · 无视频文件</span></div>
       <div class="proof-row"><a href="https://github.com/exasdwyh-commits/frontend-arsenal/blob/main/src/portal.js" target="_blank" rel="noopener noreferrer">手写透视投影<em>torus</em></a><span>短片场景 02</span></div>
       <div class="proof-row"><a href="effects.html#ink-bleed-reveal">墨渗开屏<em>ink-bleed-reveal</em></a><span>首帧 · 墨从标题洇开</span></div>
@@ -735,6 +783,7 @@ html.xray .xray-hud{opacity:1;transform:none}
       <div class="proof-row"><a href="effects.html#segmented-thumb">分段滑块<em>segmented-thumb</em></a><span>筛选器拇指</span></div>
       <div class="proof-row"><a href="effects.html#karaoke-fill">滚动逐字充能<em>karaoke-fill</em></a><span>理念标题</span></div>
       <div class="proof-row"><a href="effects.html#stagger-in">分组依次入场<em>stagger-in</em></a><span>全页滚动浮现</span></div>
+      <div class="proof-row"><a href="effects.html#swarm-rebuild">光标群重建<em>swarm-rebuild</em></a><span>上面那段现场 · 第 155 个机制</span></div>
       <div class="proof-row"><a href="effects.html#tone-click">合成点击音<em>tone-click</em></a><span>右下开关 · 零音频文件</span></div>
     </div>
 
@@ -794,6 +843,6 @@ html.xray .xray-hud{opacity:1;transform:none}
 </footer>
 
 <script type="module" src="src/library.js?v=20261112"></script>
-<script type="module" src="src/portal.js?v=20261112"></script>
+<script type="module" src="src/portal.js?v=20261116"></script>
 </body>
 </html>

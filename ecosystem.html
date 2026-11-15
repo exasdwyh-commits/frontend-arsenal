@@ -349,7 +349,7 @@ if (reduce) {
     btn.disabled = true;
     note.textContent = 'SIMULATION · 正在重建…';
     destroy = swarm.init(stage, {
-      loop: false, count: 8,
+      loop: false, count: 8, dim: 0.16,
       onDone: () => { btn.disabled = false; note.textContent = 'SIMULATION · 完成，可再跑一次'; }
     });
   });
