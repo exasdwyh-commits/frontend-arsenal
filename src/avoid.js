@@ -49,6 +49,7 @@ export const AVOID = {
   'spring-enter':         '弹簧的过冲在密集列表里互相打架，列表项用临界阻尼（不过冲）。',
   'spring-modal':         '弹窗过冲会把内容顶出可视区，overflow 记得裁掉。',
   'stagger-in':           '总时长 = 单项时长 + 间隔×数量，超过 600ms 用户已经在往下滚了。',
+  'svg-morph':            '两条路径点数差太多时，中间态会退化成"一坨"；复杂图标别硬 morph，改用交叉淡化。',
   'swarm-rebuild':        '这是"AI 在替我操作"的演示语言，别在真实产品里假装有多个光标在干活。',
   'text-scramble':        '乱码解码适合 3~8 个字短标签；长句乱码会被读成加载失败。',
   'tooltip-delay-group':  '首开延迟 1000ms 是为了不打扰，但键盘聚焦必须立刻显示，不能等。',
@@ -126,6 +127,7 @@ export const AVOID = {
   'photo-to-3d':          '假厚度只在方正物体上成立；人像和复杂轮廓会被一眼看穿。',
   'rtl-logical':          '逻辑属性换完还要测图标方向，箭头和返回键不会自动镜像。',
   'smart-anchor':         '中间件顺序错了就翻车：先 offset，再 flip，再 shift，箭头最后算。',
+  'portrait-alive':       '三层信号一旦同频（眼、头、呼吸同一个节奏），人像立刻变成机器人；头部幅度守住 6°。',
   'three-cube':           '同页多个 WebGL 上下文会被浏览器回收；超过 8 个就要合并或主动销毁。',
 
   /* ---------- 粒子与氛围 ---------- */
@@ -157,6 +159,7 @@ export const AVOID = {
   'gravity-drop':         '回弹要收敛：阻尼 0.72 左右，触地容差留 1~2px，否则会抖。',
   'matter-compound-body': '复合刚体质心不在几何中心，抛出去会"歪着转"——这是对的，别修。',
   'matter-spring-chain':  'stiffness 太高手感爆炸；配 damping 一起调，先固定步长。',
+  'cloth-grid':           '约束迭代少于 3 次像橡皮筋，多于 6 次像硬纸板；布料不是"越软越好"。',
   'morph-blob':           '圆角形变属于"软"语义；按钮和输入框用它，点击区域会变模糊。',
   'rapier-ccd-bullet':    'CCD 只给高速小物体开，全场景开等于白烧 CPU。',
   'rapier-motor-joint':   '马达限位要留缓冲，硬撞限位会抖成蜂鸣。',

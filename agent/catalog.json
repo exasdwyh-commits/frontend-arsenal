@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "protocol": "agent/README.md",
   "coverage": {
-    "effects": 160,
+    "effects": 163,
     "skills": 427,
     "videos": 81,
     "effectsWithScenes": 64,
@@ -496,6 +496,7 @@
     "src/effects/entrance.spring-enter.js": "c2451999f4dcd446c911103272c917902837a5f607a615a38162fbbe6d959d14",
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
     "src/effects/entrance.stagger-in.js": "11487e19b91ec8d93f1bb87149a211f329fa39527e86e50121e7f7223faadd44",
+    "src/effects/entrance.svg-morph.js": "6f971a2909bfbc1b4fde7b54d986146de4e229fb4112b80caf84325d692921d2",
     "src/effects/entrance.swarm-rebuild.js": "e74af92e2419168581bfc648da32c78b224b4508e15c18c72b5d4aea3f1be4d7",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
     "src/effects/entrance.tooltip-delay-group.js": "904af6cf88f1b13848cb998a4f3d5e223f88f48322dbbaacd135030b3c69b755",
@@ -572,6 +573,7 @@
     "src/effects/particle.stripe-guides.js": "fad44cea9fe1b48174e907d31fc8f8bd66a46d4398b69943021defdbd784d30a",
     "src/effects/particle.texture-overlay.js": "208de4af46933c34dfac0eb0de11baa093e77bf48b8b0eba65b305be230b27dd",
     "src/effects/particle.watercolor-wash.js": "e6c19c3ccac6ff7e3410cf0434694027c9a2dd4b3ec079413899f05b9a1ee24c",
+    "src/effects/physics.cloth-grid.js": "3b2e94330f501b3fd180d018321d4a20924f22ba989eec270a30ff0ab671cf3b",
     "src/effects/physics.elastic-drag.js": "04190b29a1f70f47f3de456b06a5a37c7a6f64b0e21d10715a2b7500670d8908",
     "src/effects/physics.fk-wave.js": "443c048d0224445ce55a735a943145a99083f27245c0738aa43094ffd81f3fb9",
     "src/effects/physics.gravity-drop.js": "4c44fd99d2ca29ad400d0c502600e97ea0c3eba1580f2fd7c8481762f2f7d618",
@@ -600,12 +602,13 @@
     "src/effects/space.parallax-depth.js": "ce09464d5768f774114d067021f13825fe388eded4a35fe13b1c56e244938a16",
     "src/effects/space.path-arc-length.js": "52ab4e0715fe04fe84b895579ad645c029c2329b7d141fbf8f19e206c31ad328",
     "src/effects/space.photo-to-3d.js": "012a4b6fc233730c3c60162863cdd7c5355c483365b4ec9f05a7fde721af140e",
+    "src/effects/space.portrait-alive.js": "52b7b348e861f9afdb80a0c7b3cb18c206b26ce0078ad3df0a62e3d9bde88638",
     "src/effects/space.rtl-logical.js": "d8445f269b1da33069e9a3a861d910ca9835c7774eb52dc35838fdab3679255a",
     "src/effects/space.smart-anchor.js": "87ecfdd33f579e3b3085f20db3076a019f5b467db8b474d904cc35fbc43a893c",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
-    "src/engine.js": "adbd08183fb23a655e36a397105f14fddb6599f393a33b416f3344fb1292b474",
+    "src/engine.js": "85b7be47bf714d3b05420129edbc1a6586af80e4e7e8e980f1abd24e495b3ce0",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
-    "src/registry.js": "df51bf2bef49bc100154f16f9e68336fedabfb4be342cc50fe92523eddac6ba0",
+    "src/registry.js": "a48b550d1e8b825764b4c6c68880e911dd30b591583bd877739392305536e732",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
     "src/skills-data.js": "6b09dfa7b84f7c8785d35dc01ec1e0dbbf554712e03c6d45cf62a1c137599778",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
@@ -1669,6 +1672,36 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/entrance.stagger-in.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:svg-morph",
+      "kind": "effect",
+      "title": "SVG 路径变形",
+      "description": "一个图形直接\"长\"成另一个形状，中间每一帧都是合法路径——不是两图交叉淡化。",
+      "category": "入场与转场",
+      "source": "src/effects/entrance.svg-morph.js",
+      "preview": "effects.html#svg-morph",
+      "implementation": "demo-module",
+      "technology": "anime.js / MorphSVG 思路（原生采样实现）",
+      "declaredDependencies": "无",
+      "notes": "两条路径的命令数、顺序不同，就不能直接插值 d，必须先按长度采样成同样多的点再点对点插值。采样 48~96 个点足够：少了拐角变圆，多了每帧拼的字符串太长。起点必须对齐（同方向、同起始位置），否则图形会\"拧\"着过去。getTotalLength 要等元素真的进了文档才准，不能对游离节点取长度。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/entrance.svg-morph.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
@@ -4496,6 +4529,36 @@
       }
     },
     {
+      "id": "effect:portrait-alive",
+      "kind": "effect",
+      "title": "静图复活",
+      "description": "一张不会动的人像被\"点活\"：呼吸、随机眨眼、眼珠跟着指针、头轻微转向。",
+      "category": "空间与 3D",
+      "source": "src/effects/space.portrait-alive.js",
+      "preview": "effects.html#portrait-alive",
+      "implementation": "demo-module",
+      "technology": "LivePortrait 的浏览器等价物（纯 CSS/JS 微动）",
+      "declaredDependencies": "无（真·人像驱动要跑模型，这里是把\"活着\"的那几个信号手工做出来）",
+      "notes": "让人像\"活\"的不是大动作，是三层滞后：眼珠先动（几乎无延迟）、头随后（约 80ms 追上）、呼吸从不与两者同步。眨眼必须随机间隔（2~6s），固定节奏比不眨更像机器人。幅度是硬上限：头部超过 6° 立刻变假，眼珠位移超过瞳孔半径的一半就会\"翻白眼\"。真实驱动（LivePortrait）是把这些信号从一段视频里学出来再迁移，浏览器这层只负责把参数转成 transform。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/space.portrait-alive.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:aurora",
       "kind": "effect",
       "title": "极光帘幕",
@@ -5393,6 +5456,36 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/physics.matter-spring-chain.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:cloth-grid",
+      "kind": "effect",
+      "title": "布料网格",
+      "description": "一块被钉住上沿的布：拖动一角，整片跟着软下去，松手回弹还在抖。",
+      "category": "物理与拟真",
+      "source": "src/effects/physics.cloth-grid.js",
+      "preview": "effects.html#cloth-grid",
+      "implementation": "demo-module",
+      "technology": "matter-js / 约束求解（原生 verlet）",
+      "declaredDependencies": "无（matter-js 的 Constraint + Verlet 求解同一套东西）",
+      "notes": "只连上下左右的邻居会\"塌\"成一条线，必须补对角约束抗剪切。约束每次迭代都改位置而不是给力，迭代 4 次左右就能稳；少了像橡皮筋，多了像硬纸板。拖拽时直接把点的位置设成指针坐标并把上一帧位置也设过去（速度归零），比加弹簧力稳定得多，不会甩飞。固定步长很重要：帧率一抖，重力积分就变，布会自己飘。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/physics.cloth-grid.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"

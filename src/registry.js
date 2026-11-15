@@ -26,6 +26,7 @@ import entranceMaskShapeCycles from './effects/entrance.mask-shape-cycles.js';
 import entranceNeonFrame from './effects/entrance.neon-frame.js';
 import entranceOutlineFill from './effects/entrance.outline-fill.js';
 import entranceOnionSkin from './effects/entrance.onion-skin.js';
+import entranceSvgMorph from './effects/entrance.svg-morph.js';
 import entrancePillSlotCycle from './effects/entrance.pill-slot-cycle.js';
 import entrancePixelHeading from './effects/entrance.pixel-heading.js';
 import entrancePopupRise from './effects/entrance.popup-rise.js';
@@ -112,6 +113,7 @@ import spacePathArcLength from './effects/space.path-arc-length.js';
 import spaceRtlLogical from './effects/space.rtl-logical.js';
 import spaceSmartAnchor from './effects/space.smart-anchor.js';
 import spaceThreeCube from './effects/space.three-cube.js';
+import spacePortraitAlive from './effects/space.portrait-alive.js';
 
 /* ---- 粒子与氛围 (20) ---- */
 import particleAurora from './effects/particle.aurora.js';
@@ -142,6 +144,7 @@ import physicsFkWave from './effects/physics.fk-wave.js';
 import physicsGravityDrop from './effects/physics.gravity-drop.js';
 import physicsMatterCompoundBody from './effects/physics.matter-compound-body.js';
 import physicsMatterSpringChain from './effects/physics.matter-spring-chain.js';
+import physicsClothGrid from './effects/physics.cloth-grid.js';
 import physicsMorphBlob from './effects/physics.morph-blob.js';
 import physicsRapierCcdBullet from './effects/physics.rapier-ccd-bullet.js';
 import physicsRapierMotorJoint from './effects/physics.rapier-motor-joint.js';
@@ -189,7 +192,7 @@ export const EFFECTS = [
   entranceOutlineFill, entranceOnionSkin,
   entrancePillSlotCycle, entrancePixelHeading,
   entrancePopupRise, entranceReducedMotionTiers, entranceRsTransitionList, entranceSpringEnter, entranceSpringModal,
-  entranceStaggerIn, entranceSwarmRebuild, entranceTextScramble, entranceTooltipDelayGroup, entranceTrBlurFade, entranceTrBurn,
+  entranceStaggerIn, entranceSvgMorph, entranceSwarmRebuild, entranceTextScramble, entranceTooltipDelayGroup, entranceTrBlurFade, entranceTrBurn,
   entranceTrCrossWarp, entranceTrDisplaceWarp, entranceTrEdgeGlow, entranceTrGlitch,
   entranceTrMosaic, entranceTrNoiseDissolve, entranceTrPixelize, entranceTrRipple,
   entranceTrSwirl, entranceTrWaterdrop, entranceTypewriterCaret, entranceWeightPump, entranceWipeReveal,
@@ -207,7 +210,7 @@ export const EFFECTS = [
   spaceCardStack, spaceCarouselStep, spaceCss3dCardRing, spaceCutoutCard, spaceDepthEcho, spaceFlipResize, spaceFoldCard,
   spaceGlInstancedGrid, spaceGlRaycastHover, spaceGlRotatingBox, spaceGlWaveSurface,
   spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceRtlLogical, spaceSmartAnchor,
-  spaceThreeCube, spacePhotoTo3d,
+  spaceThreeCube, spacePhotoTo3d, spacePortraitAlive,
   // 粒子与氛围
   particleAurora, particleBorderBeam, particleCrtTape, particleDitherImage, particleDofBlur, particleEdgeBlur,
   particleFlutedGlass, particleGlParticleVortex, particleGlParticlesCloud, particleGlowOrb,
@@ -216,7 +219,7 @@ export const EFFECTS = [
   particleWatercolorWash, particleDiffusionDenoise,
   // 物理与拟真
   physicsElasticDrag, physicsFkWave, physicsGravityDrop, physicsMatterCompoundBody,
-  physicsMatterSpringChain, physicsMorphBlob, physicsRapierCcdBullet,
+  physicsMatterSpringChain, physicsClothGrid, physicsMorphBlob, physicsRapierCcdBullet,
   physicsRapierMotorJoint, physicsRapierRagdoll2d, physicsRapierRopeChain,
   physicsRapierStackCollapse, physicsRsChainOrch,
   // 数据动效
