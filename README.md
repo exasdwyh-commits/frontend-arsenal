@@ -45,7 +45,7 @@ WebUI/
 ├── effects.html            # 效果图鉴：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
 ├── ecosystem.html          # 动效工具链：18 个上游库按 5 阶段组织 + 14 个「0 成本工作室」仓库 + 18 份可丢给 AI 学的合集（共 50 条参考，标注授权与能否在浏览器跑）+ 原生等价机制对照
-├── claude.html             # Claude 专版：9 条界面判据 + 4 个工程习惯 + 3 篇官方文档 + 6 道验收，每条都深链到可跑机制
+├── claude.html             # Claude 专版：9 条界面判据 + 4 个工程习惯 + 3 篇官方文档 + 6 道验收 + 05 可视化对比台（点击才播的三场景前后对比）
 ├── skills.html             # 技能库：427 个前端可用 Skill 文档的浏览/阅读页
 ├── skills/                 # 技能文档原样存放（427 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档、meta/astryx · MIT、floating-ui · MIT、vercel-labs · MIT、emilkowalski · MIT）
 ├── vendor/                 # 第三方上游原样副本（逐文件授权，详见 LICENSE）
@@ -55,6 +55,7 @@ WebUI/
 └── src/
     ├── registry.js         # ★ 唯一需要手动维护的文件：效果清单
     ├── engine.js           # 加载器 / 舞台 / 弹窗 / 选型抽屉（一般不用动）
+    ├── claude-demo.js      # Claude 专版 05 节的对比台：3 场景、点击才播、切换必 destroy
     ├── avoid.js            # 每条机制的「什么时候别用」，按 id 索引 + 分组兜底
     ├── skills.js           # 技能库逻辑 + 内置迷你 Markdown 渲染器（零依赖）
     ├── skills.css          # 技能库样式（复用 style.css 的设计 token）
