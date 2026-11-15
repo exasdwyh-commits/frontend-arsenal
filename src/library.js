@@ -1,4 +1,4 @@
-import { EFFECTS } from './registry.js';
+import { EFFECTS } from './registry.js?v=20261119';
 import { GROUP_MAP } from './groups.js';
 import { SKILLS, CATS } from './skills-data.js';
 import { films, opus } from './video-data.js';

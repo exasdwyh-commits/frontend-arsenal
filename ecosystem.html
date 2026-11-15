@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07080b">
 <meta name="color-scheme" content="dark">
 <title>动效工具链 · WebUI 图鉴</title>
-<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，标注授权与本库 155 个原生机制的对照。">
+<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个 0 成本动效工作室仓库（3D / 视频 / 配乐，含 GPU 门槛说明），标注授权与本库 160 个原生机制的对照。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -111,7 +111,7 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 .eco-eq{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);
   font-size:11.5px;color:var(--dim2);line-height:1.8}
 .eco-eq b{color:#8f97a8;font-weight:600}
-.eco-eq a{color:#a99bff;text-decoration:none;border-bottom:1px solid rgba(169,155,255,.35)}
+.eco-eq a{color:#a99bff;text-decoration:none;border-bottom:1px solid rgba(169,160,255,.35)}
 .eco-eq a:hover{color:#fff}
 .eco-ext{display:block;margin-top:9px;font:10px/1 ui-monospace,Consolas,monospace;
   letter-spacing:.1em;color:#5f6879}
@@ -129,6 +129,21 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 @media(hover:hover) and (pointer:fine){.foot a:hover{color:#fff}}
 .foot p{margin:0;font-size:12.5px;color:var(--dim2);line-height:1.9}
 @media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:24px}}
+/* ---------- 第二份清单：0 成本动效工作室 ---------- */
+.stack{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;margin-top:22px}
+.stack-row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline;
+  padding:13px 0;border-bottom:1px solid var(--line)}
+.stack-row b{font-weight:600;font-size:13.5px;color:#e6eaf2}
+.stack-row b span{font-weight:400;color:#7b8494;font-size:11.5px;margin-left:7px}
+.stack-row em{font-style:normal;white-space:nowrap;
+  font:10px/1 ui-monospace,Consolas,monospace;letter-spacing:.06em;color:#8b93a4}
+.stack-row p{grid-column:1/-1;margin:2px 0 0;font-size:12px;color:#93a0b4;line-height:1.65}
+.stack-row a{color:#a99bff;text-decoration:none;border-bottom:1px solid rgba(169,155,255,.3)}
+.stack-k{display:inline-block;margin-left:6px;padding:1px 5px;border-radius:3px;
+  font:9px/1.5 ui-monospace,Consolas,monospace;letter-spacing:.08em}
+.stack-k.on{background:rgba(195,234,58,.14);color:#c8ea63}
+.stack-k.off{background:rgba(255,255,255,.07);color:#98a1b0}
+@media(max-width:860px){.stack{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -152,11 +167,11 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
   <div class="shell">
     <p class="eyebrow"><i></i>ECOSYSTEM / 动效工具链</p>
     <h1>从想法到成片，<br>一条线。</h1>
-    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线。每个都标了授权、给了上游仓库，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
+    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；末尾另附 14 个「整间工作室」仓库——3D、视频、配乐都在里面。每个都标了授权、给了上游仓库，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
     <div class="stats">
-      <div class="stat"><b>18</b><span>上游库</span></div>
+      <div class="stat"><b>32</b><span>上游参考</span></div>
       <div class="stat"><b>5</b><span>制作阶段</span></div>
-      <div class="stat"><b>155</b><span>库内机制</span></div>
+      <div class="stat"><b>160</b><span>库内机制</span></div>
       <div class="stat"><b>0</b><span>运行时依赖</span></div>
     </div>
   </div>
@@ -166,7 +181,7 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
   <div class="shell">
     <p class="sec-k">LIVE / 先看个真的</p>
     <h2 class="sec-h">一群光标，把页面重新拼一遍</h2>
-    <p class="sec-p">参考 <a href="https://github.com/magnoscg/agent-build" target="_blank" rel="noopener noreferrer">magnoscg/agent-build</a>（MIT，纯原生 JS）与 swarm-site，我们把它复刻成了库里的第 155 个机制。下面这块是真的在跑——点一下，一群 agent 会各自领一块，选中、量尺寸、再把它揭示出来（终点即起点，跑完停在成品态）。全程标注 <b>SIMULATION</b>，不假装真有 AI 在改页面。</p>
+    <p class="sec-p">参考 <a href="https://github.com/magnoscg/agent-build" target="_blank" rel="noopener noreferrer">magnoscg/agent-build</a>（MIT，纯原生 JS）与 swarm-site，我们把它复刻成了库里的第 160 个机制。下面这块是真的在跑——点一下，一群 agent 会各自领一块，选中、量尺寸、再把它揭示出来（终点即起点，跑完停在成品态）。全程标注 <b>SIMULATION</b>，不假装真有 AI 在改页面。</p>
     <div class="demo-bar">
       <button class="demo-btn" id="runSwarm" type="button">▶ 运行模拟</button>
       <span class="demo-note" id="swarmNote">SIMULATION · 内容均为表演数据 · 动效开关在首页左下角</span>
@@ -236,7 +251,7 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 <section class="stage-sec" id="animate">
   <div class="shell">
     <div class="stage-head"><span class="stage-num">03</span><h2>让它动起来</h2><span class="stage-en">Animate</span></div>
-    <p class="stage-desc">插值、缓动、时间轴、粒子、矢量播放——动效库的主体。我们库里 155 个机制大半集中在这一层。</p>
+    <p class="stage-desc">插值、缓动、时间轴、粒子、矢量播放——动效库的主体。我们库里 160 个机制大半集中在这一层。</p>
     <div class="eco-list">
       <div class="eco"><div class="eco-top"><span class="eco-name">Motion <span>布局过渡</span></span><span class="eco-lic">MIT</span></div>
         <p>Framer Motion 的独立内核，FLIP 布局动画、弹簧、手势，框架无关。</p>
@@ -304,12 +319,56 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
   </div>
 </section>
 
+<section class="stage-sec" id="studio">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">06</span><h2>另一份清单：0 成本动效工作室</h2><span class="stage-en">Studio</span></div>
+    <p class="stage-desc">上面 18 个是「做前端动效」的库，这 14 个拼的是整间工作室：动、物理、图表、2D 动画、3D 生成、视频生成、配乐。授权都写清了，能不能在浏览器里跑也标了——不把「要 GPU」的东西说成能直接抄。</p>
+
+    <div class="stack">
+      <div class="stack-row"><b>anime.js <span>动画引擎</span></b><em>MIT<i class="stack-k on">浏览器</i></em>
+        <p>缓动、时间轴、SVG 变形的祖师爷，半条街的顺滑都出自它。库内等价：<a href="effects.html#stagger-in">stagger-in</a> / <a href="effects.html#ease-shelf">ease-shelf</a> / <a href="effects.html#timeline-orch">timeline-orch</a></p></div>
+      <div class="stack-row"><b>react-spring <span>弹簧物理</span></b><em>MIT<i class="stack-k on">浏览器</i></em>
+        <p>把「每次 UI 移动都要有质量」变成默认值。库内等价：<a href="effects.html#spring-enter">spring-enter</a> / <a href="effects.html#rs-spring-presets">rs-spring-presets</a> / <a href="effects.html#elastic-drag">elastic-drag</a></p></div>
+      <div class="stack-row"><b>PixiJS <span>2D WebGL</span></b><em>MIT<i class="stack-k on">浏览器</i></em>
+        <p>万级精灵同屏还稳 60fps，粒子与后期的快车道。库内等价：<a href="effects.html#gl-particles-cloud">gl-particles-cloud</a> / <a href="effects.html#instanced-dots">instanced-dots</a></p></div>
+      <div class="stack-row"><b>p5.js <span>生成艺术</span></b><em>LGPL-2.1<i class="stack-k on">浏览器</i></em>
+        <p>几行就出画面，创意编程的通用语。库内等价：<a href="effects.html#p5-noise-drift">p5-noise-drift</a> / <a href="effects.html#p5-dpr-sharp">p5-dpr-sharp</a> / <a href="effects.html#watercolor-wash">watercolor-wash</a></p></div>
+      <div class="stack-row"><b>matter-js <span>2D 刚体</span></b><em>MIT<i class="stack-k on">浏览器</i></em>
+        <p>掉落、碰撞、堆叠，手感最像真实世界的那一档。库内等价：<a href="effects.html#matter-spring-chain">matter-spring-chain</a> / <a href="effects.html#matter-compound-body">matter-compound-body</a> / <a href="effects.html#gravity-drop">gravity-drop</a></p></div>
+      <div class="stack-row"><b>D3 <span>数据可视化</span></b><em>ISC<i class="stack-k on">浏览器</i></em>
+        <p>新闻编辑室那套图表背后基本都是它，力导向布局尤其好用。库内等价：<a href="effects.html#force-graph">force-graph</a>（新）/ <a href="effects.html#bar-grow">bar-grow</a> / <a href="effects.html#sparkline">sparkline</a></p></div>
+      <div class="stack-row"><b>OpenToonz <span>2D 动画软件</span></b><em>BSD-3<i class="stack-k off">桌面端</i></em>
+        <p>吉卜力在用的制作工具，逐帧检查那套「洋葱皮」值得抄进 UI。思路等价：<a href="effects.html#onion-skin">onion-skin</a>（新）/ <a href="effects.html#reduced-motion-tiers">reduced-motion-tiers</a></p></div>
+      <div class="stack-row"><b>Hunyuan3D-2 <span>图生 3D</span></b><em>腾讯社区许可<i class="stack-k off">需 GPU</i></em>
+        <p>一张图出带纹理网格，产线用得上；浏览器里只能拿到 glb 去显示。前端等价：<a href="effects.html#photo-to-3d">photo-to-3d</a>（新，假厚度）</p></div>
+      <div class="stack-row"><b>TRELLIS <span>图生 3D</span></b><em>MIT<i class="stack-k off">需 GPU</i></em>
+        <p>微软那套结构化 3D 生成，输出可直接进引擎。前端等价：<a href="effects.html#photo-to-3d">photo-to-3d</a> / <a href="effects.html#gl-rotating-box">gl-rotating-box</a></p></div>
+      <div class="stack-row"><b>LTX-2 <span>音视频生成</span></b><em>开放权重许可<i class="stack-k off">需 GPU</i></em>
+        <p>一个模型出声又出画，最高 4K；采样过程本身就是动效素材。过程等价：<a href="effects.html#diffusion-denoise">diffusion-denoise</a>（新）</p></div>
+      <div class="stack-row"><b>LivePortrait <span>人像驱动</span></b><em>自定义许可<i class="stack-k off">需 GPU</i></em>
+        <p>让一张照片说话、眨眼、点头，商用前务必看清条款。前端最接近的是<b>视差</b>，不是它能替代的：<a href="effects.html#parallax-depth">parallax-depth</a></p></div>
+      <div class="stack-row"><b>RIFE <span>补帧</span></b><em>MIT<i class="stack-k off">需 GPU</i></em>
+        <p>两个关键帧之间插出中间帧，慢动作靠它变顺。UI 里的同构做法是阻尼跟随：<a href="effects.html#p5-lerp-ease">p5-lerp-ease</a> / <a href="effects.html#scroll-scrub">scroll-scrub</a></p></div>
+      <div class="stack-row"><b>MusicGen <span>文生音乐</span></b><em>代码 MIT / 权重 CC-BY-NC<i class="stack-k off">需 GPU</i></em>
+        <p>「描述氛围，出配乐」；权重是非商用授权，上线要换。浏览器里的同类：<a href="effects.html#beat-grid">beat-grid</a>（新，WebAudio 音序器）</p></div>
+      <div class="stack-row"><b>Tone.js <span>音频框架</span></b><em>MIT<i class="stack-k on">浏览器</i></em>
+        <p>合成器、节拍、效果器都有现成的；音序器别用定时器直接排音。库内等价：<a href="effects.html#beat-grid">beat-grid</a>（新）/ <a href="effects.html#tone-click">tone-click</a> / <a href="effects.html#spectrum-bars">spectrum-bars</a></p></div>
+    </div>
+
+    <p style="margin-top:26px;font-size:12.5px;color:#8b93a4;line-height:1.9">
+      一句话分工：<b>anime / react-spring / PixiJS / p5 / matter / D3 / Tone.js</b> 这 7 个在浏览器里真能跑，抄的是机制；
+      <b>OpenToonz</b> 是桌面软件，抄的是工作流；
+      <b>Hunyuan3D-2 / TRELLIS / LTX-2 / LivePortrait / RIFE / MusicGen</b> 这 6 个要 GPU，前端只负责喂输入、放输出——把它们写成「能在浏览器跑」是耍流氓。
+    </p>
+  </div>
+</section>
+
 <section class="outro">
   <div class="shell">
     <h2>为什么我们一个都不装</h2>
-    <p>这 18 个库都很强，但每一个都是一份要维护的依赖、一段要打包的体积、一个要跟版本走的 API。这个库的取舍反过来：<b>只收机制，不收库</b>——把「缓动曲线」「时间轴编排」「粒子发射」「FLIP 布局过渡」这些可复用的内核，用原生 JS/CSS 重写成自包含的 <code>init(el)</code> 模块，挂上就能跑，摘掉就干净。</p>
+    <p>这些库都很强，但每一个都是一份要维护的依赖、一段要打包的体积、一个要跟版本走的 API。这个库的取舍反过来：<b>只收机制，不收库</b>——把「缓动曲线」「时间轴编排」「粒子发射」「FLIP 布局过渡」这些可复用的内核，用原生 JS/CSS 重写成自包含的 <code>init(el)</code> 模块，挂上就能跑，摘掉就干净。</p>
     <p>所以上面每一行的「库内等价」不是替代关系，而是<b>同一个机制的两种交付形态</b>：要完整工程能力就用上游，要抄一个能跑的机制就回图鉴。首页那段实时短片、墨渗开屏、数字滚轮，全是这么来的。</p>
-    <p style="margin-top:26px"><a href="effects.html" style="color:#a99bff;border-bottom:1px solid rgba(169,155,255,.4);text-decoration:none">去图鉴挑机制 ↗</a> · <a href="index.html" style="color:#a99bff;border-bottom:1px solid rgba(169,155,255,.4);text-decoration:none">回首页 ↗</a></p>
+    <p style="margin-top:26px"><a href="effects.html" style="color:#a99bff;border-bottom:1px solid rgba(169,160,255,.4);text-decoration:none">去图鉴挑机制 ↗</a> · <a href="index.html" style="color:#a99bff;border-bottom:1px solid rgba(169,160,255,.4);text-decoration:none">回首页 ↗</a></p>
   </div>
 </section>
 </main>

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "protocol": "agent/README.md",
   "coverage": {
-    "effects": 155,
+    "effects": 160,
     "skills": 427,
     "videos": 81,
     "effectsWithScenes": 64,
@@ -443,6 +443,7 @@
     "skills/watercolor-illustration.md": "63f7874c490257b796ed037e716b60b4a473ba89476d062d184b143e4d62851f",
     "skills/website-landing-page.md": "e5b4bd8a06ad5bd3ca54c906b33da415d3ec6004ddb749faa539222fd7165337",
     "skills/wireframe.md": "c98e5d3e4822be61f484335c6b4386811a517a151498ee4a89a251dddaf3f008",
+    "src/effects/audio.beat-grid.js": "c6015e034241b6683c9b56486431f590d703ee60f6851698c047c185af03e80a",
     "src/effects/audio.spectrum-bars.js": "f3619ae99d4ff7a9841ba0d61d969111c485d77e6e59fe93db9812d6b09fb564",
     "src/effects/audio.tone-click.js": "5e6537982f483a6a98952a249b0ad51d0117b33b5926bc06620cb827c2b32082",
     "src/effects/audio.waveform.js": "ed64f7b9d38a43f7ea568f6e4f9e796a210484ff84f5f9f4887136ad7b50ac95",
@@ -451,6 +452,7 @@
     "src/effects/data.before-after-slider.js": "ceec508f0742f00485e97eb04a3012bd9c87f6a25faa0fa228ba444a85b78468",
     "src/effects/data.count-up.js": "37a384c9fda101fc8bde01aa46faa6011c59522f7dd7c0a3e89c02d74d86c901",
     "src/effects/data.donut-ring.js": "c1c876e134fbbac02b8ecbd81f34b939f8b9fbaa0393af6854d911606c93f61c",
+    "src/effects/data.force-graph.js": "e05ac58ad7c0b92bead3e92f9d9db032f0a150fdfc30bbef8f4b99b70795b73c",
     "src/effects/data.glt-quantize-lod.js": "db777134366599539f6db8fb694f76892b1bf1dee4f75a3cbf5fd3119d7aa1d7",
     "src/effects/data.karaoke-fill.js": "6a534857d769cfc57868620eb5006a3ad7866c819abf075c113b702ac7163245",
     "src/effects/data.needle-gauge.js": "ffb596885a597d0b371830fc9e5675d651781976e89da6a0487aa8316a7e464f",
@@ -484,6 +486,7 @@
     "src/effects/entrance.marker-underline.js": "cb14a8999723bb004bd05112dff15fbd56425c4a84d1c85ddc246f7aa3966e47",
     "src/effects/entrance.mask-shape-cycles.js": "7455c329d32505e9460edef245ff022a484e150968971a14f1e3f02cbd9c60e7",
     "src/effects/entrance.neon-frame.js": "fbcbc930434e3c8e618b16b8d023cdb994af6091ed20af60f77fb033ba3780a0",
+    "src/effects/entrance.onion-skin.js": "b3464173a79259421aff5aba40e487c48cad6eaabd13cb1053028631017af646",
     "src/effects/entrance.outline-fill.js": "3cdfe4952a130585e9a4a4b2ce5e8e7d9bcdeb41f5575ca713836954291b2b31",
     "src/effects/entrance.pill-slot-cycle.js": "eaa6944195e5d4e1202e445afec4427811d97a324a331b534cec343d075989f6",
     "src/effects/entrance.pixel-heading.js": "48b85056b2e33091d8181169cbaa8cd32554028c24353661838528b20c088d5d",
@@ -493,7 +496,7 @@
     "src/effects/entrance.spring-enter.js": "c2451999f4dcd446c911103272c917902837a5f607a615a38162fbbe6d959d14",
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
     "src/effects/entrance.stagger-in.js": "11487e19b91ec8d93f1bb87149a211f329fa39527e86e50121e7f7223faadd44",
-    "src/effects/entrance.swarm-rebuild.js": "5c31c023b2473eeefd9af69226a6b651f8a58b474c15a9fa82eff5e767078ef9",
+    "src/effects/entrance.swarm-rebuild.js": "e74af92e2419168581bfc648da32c78b224b4508e15c18c72b5d4aea3f1be4d7",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
     "src/effects/entrance.tooltip-delay-group.js": "904af6cf88f1b13848cb998a4f3d5e223f88f48322dbbaacd135030b3c69b755",
     "src/effects/entrance.tr-blur-fade.js": "e5c2623da60226d83e82b89a0eaf13415c2b6cc2f71435cb11e31411e9766a06",
@@ -551,6 +554,7 @@
     "src/effects/particle.aurora.js": "c865ce19e5a5b77c2b9bb6c932332cde4e93bac667bed5ca3323712add5d6535",
     "src/effects/particle.border-beam.js": "20cd96f59a019533c7b53c521a3b7078d3835abd18e8fd8932af12e10c9d50c1",
     "src/effects/particle.crt-tape.js": "636eff7313a72eeb52654bceb37c7408e4bc9458a6cbc26ee39bc0421014fa32",
+    "src/effects/particle.diffusion-denoise.js": "5f23d391b8ee92bf7ad759b97aad736e75e049bb05881f52f1829697f7273472",
     "src/effects/particle.dither-image.js": "e59b75ab6f7dee897a0dcc9aa3baffc420761d4c3d0de62a298ded641f0dbcdc",
     "src/effects/particle.dof-blur.js": "6f0e355d8f98d34097e8f87f65efaed858366135b1aa1a30435e52e358417a73",
     "src/effects/particle.edge-blur.js": "5f563056b33628d4f8c924147adfc0535623832d0eb445bad1228d5e1423d40c",
@@ -595,12 +599,13 @@
     "src/effects/space.p5-stack-space.js": "66103d33a71057daf3a6317b7c95957ad315efd862828d3362f1d88a1805186c",
     "src/effects/space.parallax-depth.js": "ce09464d5768f774114d067021f13825fe388eded4a35fe13b1c56e244938a16",
     "src/effects/space.path-arc-length.js": "52ab4e0715fe04fe84b895579ad645c029c2329b7d141fbf8f19e206c31ad328",
+    "src/effects/space.photo-to-3d.js": "012a4b6fc233730c3c60162863cdd7c5355c483365b4ec9f05a7fde721af140e",
     "src/effects/space.rtl-logical.js": "d8445f269b1da33069e9a3a861d910ca9835c7774eb52dc35838fdab3679255a",
     "src/effects/space.smart-anchor.js": "87ecfdd33f579e3b3085f20db3076a019f5b467db8b474d904cc35fbc43a893c",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
     "src/engine.js": "f424b75c5482b9b55ceacb3543283fcf38f37a8ec801e2109eb742533ce291d2",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
-    "src/registry.js": "9596d5c5bb30fb86981200238d2e9d633ce7163751c0276d794dffd1a4d57005",
+    "src/registry.js": "df51bf2bef49bc100154f16f9e68336fedabfb4be342cc50fe92523eddac6ba0",
     "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
     "src/skills-data.js": "6b09dfa7b84f7c8785d35dc01ec1e0dbbf554712e03c6d45cf62a1c137599778",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
@@ -1317,6 +1322,36 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/entrance.outline-fill.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:onion-skin",
+      "kind": "effect",
+      "title": "洋葱皮逐帧",
+      "description": "当前帧实色，前后两帧只剩淡淡残影——一眼看出这一帧比上一帧多走了多少。",
+      "category": "入场与转场",
+      "source": "src/effects/entrance.onion-skin.js",
+      "preview": "effects.html#onion-skin",
+      "implementation": "demo-module",
+      "technology": "OpenToonz（动画检查器）",
+      "declaredDependencies": "无",
+      "notes": "残影必须\"降透明度 + 换色相\"两件事一起做：只降透明度会跟背景糊成一片，只换色相又抢不掉注意。前后帧各留 2 帧就够，再多就只剩一团。做逐帧对比时把过渡设成 0s（帧是跳变，不是插值），这正是它和补间动画最大的区别。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/entrance.onion-skin.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
@@ -4431,6 +4466,36 @@
       }
     },
     {
+      "id": "effect:photo-to-3d",
+      "kind": "effect",
+      "title": "图片立体化",
+      "description": "一张平面图被\"挤出\"成有厚度的盒子：拖它就转，松手自己慢慢回正。",
+      "category": "空间与 3D",
+      "source": "src/effects/space.photo-to-3d.js",
+      "preview": "effects.html#photo-to-3d",
+      "implementation": "demo-module",
+      "technology": "CSS 3D（TRELLIS / Hunyuan3D-2 的浏览器等价物）",
+      "declaredDependencies": "无（真·图生 3D 要跑模型，这里是把同一张图贴到六个面）",
+      "notes": "这条路能做的只是\"假厚度\"：正面用原图，侧面用同一张图压暗过一层，拐角靠 border 收边。真正的图生 3D（TRELLIS、Hunyuan3D-2）输出的是带纹理网格，得在服务端或 GPU 上跑，浏览器只负责加载 glb。做交互时把 transform-style:preserve-3d 加在父级，加在子级没用；面片要 backface-visibility:hidden，否则背面的图会透过来。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/space.photo-to-3d.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:aurora",
       "kind": "effect",
       "title": "极光帘幕",
@@ -5148,6 +5213,36 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/particle.watercolor-wash.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:diffusion-denoise",
+      "kind": "effect",
+      "title": "扩散去噪",
+      "description": "从纯噪声开始，一步比一步清楚——模型生成画面的过程，肉眼看得见。",
+      "category": "粒子与氛围",
+      "source": "src/effects/particle.diffusion-denoise.js",
+      "preview": "effects.html#diffusion-denoise",
+      "implementation": "demo-module",
+      "technology": "LTX-2 / 生成式视频的中间态",
+      "declaredDependencies": "无（真扩散要几十亿参数，这里只做\"节奏\"的同构演示）",
+      "notes": "生成类动画好看的关键不是\"随机\"，而是\"每步消掉的噪声越来越少\"：线性衰减会前半段几乎没变化、后半段突然成型，观感很假。用 1 - (1-t)^2 这种曲线，前几步大刀阔斧、后几步精修，正好对上真实采样器的观感。像素级重绘很贵，务必\"一步一画\"，不要每帧都重算整张画布。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/particle.diffusion-denoise.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
@@ -6223,6 +6318,36 @@
       }
     },
     {
+      "id": "effect:force-graph",
+      "kind": "effect",
+      "title": "力导向图",
+      "description": "节点互相排斥、连线像弹簧，整张图自己找到一个不打架的排布。",
+      "category": "数据动效",
+      "source": "src/effects/data.force-graph.js",
+      "preview": "effects.html#force-graph",
+      "implementation": "demo-module",
+      "technology": "D3（d3-force 思路，原生实现）",
+      "declaredDependencies": "无（d3-force 可直接用，这里手写是为了看清每一步）",
+      "notes": "三个力要一起调：斥力决定\"散开多大\"，弹簧决定\"收得多紧\"，向心力决定\"别飘出画布\"。alpha 衰减太快会僵住、太慢永远在抖——0.02/帧 是个能停下来的值。每帧 O(n²) 的斥力在 n>150 时就要换成四叉树，否则主线程直接爆。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/data.force-graph.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:spectrum-bars",
       "kind": "effect",
       "title": "真频谱分析",
@@ -6300,6 +6425,36 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/audio.waveform.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:beat-grid",
+      "kind": "effect",
+      "title": "步进音序器",
+      "description": "16 格 4 拍循环，点亮哪格哪格响；跑起来才有律动，停不下来才叫音序器。",
+      "category": "声音驱动",
+      "source": "src/effects/audio.beat-grid.js",
+      "preview": "effects.html#beat-grid",
+      "implementation": "demo-module",
+      "technology": "Tone.js 思路（WebAudio 原生实现）",
+      "declaredDependencies": "无（Tone.js 的 Tone.Sequence 封装了同一套东西）",
+      "notes": "千万别用 setInterval(16ms) 直接排音：定时器会被主线程里的任何长任务拉偏，听感上就是\"忽快忽慢\"。正确做法是\"预排\"——每 25ms 醒一次，把未来 100ms 内该响的拍子按 AudioContext.currentTime 精确排进音频时钟。节拍显示和发声也要分开：听觉走 AudioContext，视觉 highlight 允许晚一帧。另外 AudioContext 必须在用户手势里创建，否则一直是 suspended。",
+      "scenes": null,
+      "sceneEvidence": null,
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/audio.beat-grid.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"

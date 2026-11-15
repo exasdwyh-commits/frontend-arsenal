@@ -1019,49 +1019,52 @@ if (pill) {
   });
 }
 
-/* ---------- 现场：光标群重建（第 155 个机制，本页自带一个可重放实例） ---------- */
+/* ---------- 现场：光标群重建（第 155 个机制，点一下才跑） ----------
+   首页不放自动循环：这一个循环演示就能把整页的 scroll 帧吃掉。
+   现在默认是张静态卡，点「播放」才去取模块、建节点、跑一轮。 */
 const swarmStage = document.getElementById('swarmStage');
 if (swarmStage) {
   const swarmNote = document.getElementById('swarmNote');
   const swarmAgain = document.getElementById('swarmAgain');
-  let swarmDestroy = null;
+  const EFF = './effects/entrance.swarm-rebuild.js?v=20261119';
+  let swarmApi = null;
+  let waiting = false;
 
   const say = t => { if (swarmNote) swarmNote.textContent = t; };
+  const label = t => { if (swarmAgain) swarmAgain.textContent = t; };
 
-  const runSwarm = () => {
+  const play = () => {
     if (reduce) { say('动效已关 · 直接看成品态'); return; }
-    if (swarmDestroy) { swarmDestroy(); swarmDestroy = null; }
-    say('SIMULATION · 正在重建…');
-    /* 懒加载：滚到这一段才去拿这 17KB，首屏不为它付钱 */
-    import('./effects/entrance.swarm-rebuild.js?v=20261116').then(mod => {
-      swarmDestroy = mod.default.init(swarmStage, {
+    if (waiting) return;
+    /* 一轮跑完 overlay 会被摘掉，重播只能是「拆了重建」——
+       模块已经在缓存里，重建几乎不花时间 */
+    if (swarmApi) { swarmApi(); swarmApi = null; }
+    waiting = true;
+    label('载入中…');
+    import(EFF).then(mod => {
+      waiting = false;
+      swarmApi = mod.default.init(swarmStage, {
         loop: false,
         count: 6,
         chrome: false,   /* 只留光标+选框+进度条，HUD 会盖住宿主自己的排版 */
-        dim: 0.16,       /* 幽灵底：块全隐会先出现一块空白，像加载失败 */
-        onDone: () => say('SIMULATION · 表演数据 · 点「重放」再来一次')
+        dim: 0.16,       /* 幽灵底：块全隐会让卡片先空一下，像加载失败 */
+        dur: 1150,       /* 单块飞行时长：太短看不清在做什么 */
+        stagger: 210,    /* 起飞间隔：节奏靠这个，不是靠整体加速 */
+        onDone: () => { label('↻ 再来一次'); say('SIMULATION · 演完了 · 表演数据'); }
       });
-    }).catch(() => say('这个机制没加载出来 · 内容照常显示'));
+      say('SIMULATION · 正在重建…');
+    }).catch(() => { waiting = false; label('▶ 播放重建'); say('这个机制没加载出来 · 内容照常显示'); });
   };
 
   if (reduce) {
     if (swarmAgain) swarmAgain.disabled = true;
     say('动效已关 · 直接看成品态');
   } else {
-    /* 只在第一次进入视野时跑一次；之后交给「重放」，不跟着滚动反复触发 */
-    let armed = true;
-    if ('IntersectionObserver' in window) {
-      const swarmIO = new IntersectionObserver(entries => {
-        for (const e of entries) {
-          if (e.isIntersecting && armed) { armed = false; swarmIO.disconnect(); runSwarm(); }
-        }
-      }, { threshold: 0.5 });
-      swarmIO.observe(swarmStage);
-    } else {
-      armed = false;
-      runSwarm();
+    if (swarmAgain) {
+      swarmAgain.textContent = '▶ 播放重建';
+      swarmAgain.addEventListener('click', play);
     }
-    if (swarmAgain) swarmAgain.addEventListener('click', () => { armed = false; runSwarm(); });
+    say('SIMULATION · 点一下才跑 · 不点不耗电');
   }
 }
 

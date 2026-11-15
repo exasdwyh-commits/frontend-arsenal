@@ -25,6 +25,7 @@ import entranceMarkerUnderline from './effects/entrance.marker-underline.js';
 import entranceMaskShapeCycles from './effects/entrance.mask-shape-cycles.js';
 import entranceNeonFrame from './effects/entrance.neon-frame.js';
 import entranceOutlineFill from './effects/entrance.outline-fill.js';
+import entranceOnionSkin from './effects/entrance.onion-skin.js';
 import entrancePillSlotCycle from './effects/entrance.pill-slot-cycle.js';
 import entrancePixelHeading from './effects/entrance.pixel-heading.js';
 import entrancePopupRise from './effects/entrance.popup-rise.js';
@@ -106,6 +107,7 @@ import spaceGlWaveSurface from './effects/space.gl-wave-surface.js';
 import spaceMinimalCard from './effects/space.minimal-card.js';
 import spaceP5StackSpace from './effects/space.p5-stack-space.js';
 import spaceParallaxDepth from './effects/space.parallax-depth.js';
+import spacePhotoTo3d from './effects/space.photo-to-3d.js';
 import spacePathArcLength from './effects/space.path-arc-length.js';
 import spaceRtlLogical from './effects/space.rtl-logical.js';
 import spaceSmartAnchor from './effects/space.smart-anchor.js';
@@ -116,6 +118,7 @@ import particleAurora from './effects/particle.aurora.js';
 import particleBorderBeam from './effects/particle.border-beam.js';
 import particleCrtTape from './effects/particle.crt-tape.js';
 import particleDitherImage from './effects/particle.dither-image.js';
+import particleDiffusionDenoise from './effects/particle.diffusion-denoise.js';
 import particleDofBlur from './effects/particle.dof-blur.js';
 import particleEdgeBlur from './effects/particle.edge-blur.js';
 import particleFlutedGlass from './effects/particle.fluted-glass.js';
@@ -153,6 +156,7 @@ import dataBeforeAfterSlider from './effects/data.before-after-slider.js';
 import dataBarGrow from './effects/data.bar-grow.js';
 import dataCountUp from './effects/data.count-up.js';
 import dataDonutRing from './effects/data.donut-ring.js';
+import dataForceGraph from './effects/data.force-graph.js';
 import dataGltQuantizeLod from './effects/data.glt-quantize-lod.js';
 import dataKaraokeFill from './effects/data.karaoke-fill.js';
 import dataNeedleGauge from './effects/data.needle-gauge.js';
@@ -170,6 +174,7 @@ import dataWordReel from './effects/data.word-reel.js';
 
 /* ---- 声音驱动 (3) ---- */
 import audioSpectrumBars from './effects/audio.spectrum-bars.js';
+import audioBeatGrid from './effects/audio.beat-grid.js';
 import audioToneClick from './effects/audio.tone-click.js';
 import audioWaveform from './effects/audio.waveform.js';
 
@@ -181,7 +186,7 @@ export const EFFECTS = [
   entranceGradientHeading, entranceGradientWordSweep, entranceGridStagger, entranceHeightMorph,
   entranceInkBleedReveal, entranceLetterDrop, entranceLightBoard,
   entranceCornerSpotlight, entranceListReveal, entranceMarkerUnderline, entranceMaskShapeCycles, entranceNeonFrame,
-  entranceOutlineFill,
+  entranceOutlineFill, entranceOnionSkin,
   entrancePillSlotCycle, entrancePixelHeading,
   entrancePopupRise, entranceReducedMotionTiers, entranceRsTransitionList, entranceSpringEnter, entranceSpringModal,
   entranceStaggerIn, entranceSwarmRebuild, entranceTextScramble, entranceTooltipDelayGroup, entranceTrBlurFade, entranceTrBurn,
@@ -202,13 +207,13 @@ export const EFFECTS = [
   spaceCardStack, spaceCarouselStep, spaceCss3dCardRing, spaceCutoutCard, spaceDepthEcho, spaceFlipResize, spaceFoldCard,
   spaceGlInstancedGrid, spaceGlRaycastHover, spaceGlRotatingBox, spaceGlWaveSurface,
   spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceRtlLogical, spaceSmartAnchor,
-  spaceThreeCube,
+  spaceThreeCube, spacePhotoTo3d,
   // 粒子与氛围
   particleAurora, particleBorderBeam, particleCrtTape, particleDitherImage, particleDofBlur, particleEdgeBlur,
   particleFlutedGlass, particleGlParticleVortex, particleGlParticlesCloud, particleGlowOrb,
   particleGradientFlow, particleGravityField, particleInstancedDots, particleP5GaussBurst,
   particleP5NoiseDrift, particleParticles, particleRadialWave, particleStripeGuides, particleTextureOverlay,
-  particleWatercolorWash,
+  particleWatercolorWash, particleDiffusionDenoise,
   // 物理与拟真
   physicsElasticDrag, physicsFkWave, physicsGravityDrop, physicsMatterCompoundBody,
   physicsMatterSpringChain, physicsMorphBlob, physicsRapierCcdBullet,
@@ -218,9 +223,9 @@ export const EFFECTS = [
   dataAgentStack, dataBarGrow, dataBeforeAfterSlider, dataCountUp, dataDonutRing, dataGltQuantizeLod,
   dataKaraokeFill, dataNeedleGauge, dataP5DprSharp, dataP5NoiselineStack, dataRollingNumber, dataScrollScrub,
   dataSkeletonShimmer, dataSparkline, dataThinkingDots, dataTimelineOrch, dataTimelineTracks,
-  dataWordCaptions, dataWordReel,
+  dataWordCaptions, dataWordReel, dataForceGraph,
   // 声音驱动
-  audioSpectrumBars, audioToneClick, audioWaveform,
+  audioSpectrumBars, audioToneClick, audioWaveform, audioBeatGrid,
 ];
 
 /* 加载即校验：id 重复 / 分组不存在 / 缺 init 直接抛错 */

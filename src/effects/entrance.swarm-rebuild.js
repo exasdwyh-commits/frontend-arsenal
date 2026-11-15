@@ -96,13 +96,14 @@ agents.forEach((a, i) => {
       STYLE = document.createElement('style');
       STYLE.setAttribute('data-fx', 'swarm-rebuild');
       STYLE.textContent = [
-      '.srb{position:relative;overflow:hidden}',
+      '.srb{position:relative;overflow:hidden;contain:layout}',
       '.srb-hud{position:absolute;left:10px;top:10px;z-index:8;display:flex;align-items:center;gap:8px;',
       '  font:10px/1 ui-monospace,Consolas,monospace;letter-spacing:.12em;color:#c6d0e0;',
       '  background:rgba(8,10,17,.9);border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:6px 9px}',
       '.srb-hud b{color:#c3ea3a;font-weight:700}',
       '.srb-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.12)}',
-      '.srb-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#6b4bff,#3ccbff)}',
+      '.srb-bar i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;',
+      '  background:linear-gradient(90deg,#6b4bff,#3ccbff)}',
       '.srb-cursor{position:absolute;left:0;top:0;z-index:7;pointer-events:none;will-change:transform}',
       '.srb-cursor svg{display:block;filter:drop-shadow(0 2px 4px rgba(0,0,0,.6))}',
       '.srb-tag{position:absolute;left:14px;top:14px;white-space:nowrap;font:9px/1 ui-monospace,Consolas,monospace;',
@@ -243,22 +244,43 @@ agents.forEach((a, i) => {
       for (const b of blocks) b.classList.add('srb-block');
     });
 
+    /* 几何一次量完，别每一帧读 offset*：读在写之后会强制同步布局，
+       6200px 的首页上每帧 20 次这样的读，就是"卡"的来源。 */
+    let GEO = [];
+    const measure = () => {
+      GEO = blocks.map(b => ({ l: b.offsetLeft, t: b.offsetTop, w: b.offsetWidth, h: b.offsetHeight }));
+    };
+    measure();
+
+    /* 窗口/字体变化后几何会变，但绝对不能每帧重量：只立个重测标记，
+       下一帧开跑前补一次。读在写之前，不会触发同步布局。 */
+    let ro = null;
+    if (typeof ResizeObserver === 'function') {
+      ro = new ResizeObserver(() => { needMeasure = true; });
+      ro.observe(host);
+    }
+
     const place = (agent, job, p) => {
-      const bx = job.node.offsetLeft, by = job.node.offsetTop;
+      const g = GEO[job.i] || GEO[0];
+      const bx = g.l, by = g.t;
       /* ease-out：先冲后稳 */
       const e = 1 - Math.pow(1 - p, 3);
       const x = agent.hx + (bx - agent.hx) * e;
       const y = agent.hy + (by - agent.hy) * e;
       agent.c.style.transform = 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px)';
       if (p > .5) {
-        const w = job.node.offsetWidth, h = job.node.offsetHeight;
-        agent.box.style.left = bx + 'px';
-        agent.box.style.top = by + 'px';
-        agent.box.style.width = w + 'px';
-        agent.box.style.height = h + 'px';
-        agent.box.style.opacity = '1';
-        agent.size.textContent = w + ' × ' + h;
-      } else {
+        /* 选框的几何只在换块时写一次；每帧重写会白白触发样式重算 */
+        const key = bx + ':' + by + ':' + g.w + ':' + g.h;
+        if (agent.boxKey !== key) {
+          agent.boxKey = key;
+          agent.box.style.left = bx + 'px';
+          agent.box.style.top = by + 'px';
+          agent.box.style.width = g.w + 'px';
+          agent.box.style.height = g.h + 'px';
+          agent.size.textContent = g.w + ' × ' + g.h;
+        }
+        if (agent.box.style.opacity !== '1') agent.box.style.opacity = '1';
+      } else if (agent.box.style.opacity !== '0') {
         agent.box.style.opacity = '0';
       }
     };
@@ -273,7 +295,11 @@ agents.forEach((a, i) => {
     /* 揭示发生在抵达前一点：等光标停稳再出内容，会显得"卡了一下" */
     const REVEAL_AT = 0.9;
     const DUR = Math.max(60, opts.dur || 620);
-    let t = 0, prev = 0, raf = 0, finished = false, cycleDone = false;
+    /* gap：循环时两轮之间的呼吸；stagger：每个 agent 的起飞间隔（节奏感来源） */
+    const GAP = Math.max(120, opts.gap == null ? 1400 : opts.gap);
+    const STAGGER = Math.max(0, opts.stagger == null ? 130 : opts.stagger);
+    let t = 0, prev = 0, raf = 0, finished = false, cycleDone = false, nextAt = 0, paused = false;
+    let lastDone = -1, needMeasure = false;
     const finish = () => {
       if (finished) return;
       finished = true;
@@ -283,17 +309,21 @@ agents.forEach((a, i) => {
       }
       for (const a of agents) { a.c.style.opacity = '0'; a.box.style.opacity = '0'; }
       hud.style.opacity = '0'; live.style.opacity = '0'; ruler.style.opacity = '0';
-      barFill.style.width = '100%';
+      barFill.style.transform = 'scaleX(1)';
       if (typeof opts.onDone === 'function') opts.onDone();
-      if (!loop) {
+      if (loop) {
+        /* 用时钟记下一轮的时间点，不用 setTimeout：暂停/恢复、切后台都不会错拍 */
+        nextAt = t + GAP;
+      } else {
         /* 一次性模式：淡出后把 overlay 整个摘掉，不留残影 */
         setTimeout(() => { if (layer.parentNode) layer.remove(); }, 500);
       }
     };
 
     const reset = () => {
-      finished = false; cycleDone = false;
-      next = 0;
+      finished = false; cycleDone = false; nextAt = 0;
+      next = 0; lastDone = -1;
+      measure();                     /* 每轮开跑前重量一次，尺寸变了也不会错位 */
       for (const j of JOBS) j.done = false;
       for (const b of blocks) {
         if (DIM > 0) {
@@ -308,18 +338,23 @@ agents.forEach((a, i) => {
         a.hx = a.homeX; a.hy = a.homeY;
         a.c.style.transform = 'translate(' + a.hx.toFixed(1) + 'px,' + a.hy.toFixed(1) + 'px)';
         a.job = takeJob();
+        a.boxKey = null;
         /* 错开起飞：同一个 t0 会让所有光标同步动作，像复印机而不是一群人 */
-        a.t0 = t + a.idx * 130;
+        a.t0 = t + a.idx * STAGGER;
         a.box.style.opacity = '0'; a.c.style.opacity = '1';
       }
       hud.style.opacity = '1'; live.style.opacity = '1'; ruler.style.opacity = '';
-      barFill.style.width = '0';
+      barFill.style.transform = 'scaleX(0)';
     };
 
+    /* 30fps 够用：单块飞行一秒多，降到 30 看不出步进，主线程负担却减半 */
+    const FRAME = 1000 / 30;
     const tick = now => {
+      if (prev && now - prev < FRAME - 1) { raf = requestAnimationFrame(tick); return; }
       const dt = prev ? Math.min(64, now - prev) : 16;
       prev = now;
       t += dt;
+      if (needMeasure) { needMeasure = false; measure(); }
 
       let doneCount = 0;
       for (const a of agents) {
@@ -328,33 +363,39 @@ agents.forEach((a, i) => {
           place(a, a.job, p);
           if (p >= REVEAL_AT) reveal(a.job);
           if (p >= 1) {
-            a.hx = a.job.node.offsetLeft; a.hy = a.job.node.offsetTop;
-            a.job = takeJob(); a.t0 = t;
+            const g = GEO[a.job.i] || GEO[0];
+            a.hx = g.l; a.hy = g.t;
+            a.job = takeJob(); a.t0 = t; a.boxKey = null;
             if (a.job) a.box.style.opacity = '0';
           }
         }
         if (!a.job) a.c.style.opacity = '0';
       }
       for (const j of JOBS) if (j.done) doneCount++;
-      const prog = doneCount / JOBS.length;
-      barFill.style.width = (prog * 100).toFixed(1) + '%';
-      hudText.textContent = ' ' + doneCount + ' / ' + JOBS.length + ' 块 · ' + agents.length + ' agents';
+      /* 进度条用 transform：width 每帧变会触发布局 */
+      if (doneCount !== lastDone) {
+        lastDone = doneCount;
+        barFill.style.transform = 'scaleX(' + (doneCount / JOBS.length).toFixed(3) + ')';
+        hudText.textContent = ' ' + doneCount + ' / ' + JOBS.length + ' 块 · ' + agents.length + ' agents';
+      }
 
       if (doneCount === JOBS.length && !cycleDone) {
         cycleDone = true;
         finish();
-        if (loop) setTimeout(() => { if (raf) reset(); }, 1400);
-        else { raf = 0; return; }
+        if (!loop) { raf = 0; return; }
       }
+      /* 循环：到点就开下一轮；此刻 t 没推进就什么都不做（不会错拍） */
+      if (loop && cycleDone && t >= nextAt) reset();
       raf = requestAnimationFrame(tick);
     };
 
     reset();
     raf = requestAnimationFrame(tick);
 
-    return () => {
+    const api = () => {
       cancelAnimationFrame(raf);
-      raf = 0;
+      raf = 0; paused = true;
+      if (ro) { ro.disconnect(); ro = null; }
       for (const s of saved) {
         s.node.style.visibility = s.vis;
         s.node.style.opacity = s.op;
@@ -364,5 +405,23 @@ agents.forEach((a, i) => {
       host.classList.remove('srb');
       /* STYLE 是同页所有实例共用的，谁都不许摘，留着无害 */
     };
+    /* 暂停/恢复：滚出视野时不烧 CPU，回来接着上一拍，不从头开始 */
+    api.pause = () => {
+      if (!raf) return;
+      cancelAnimationFrame(raf);
+      raf = 0; paused = true;
+    };
+    api.resume = () => {
+      if (!paused || (!loop && finished)) return;
+      paused = false;
+      prev = 0;
+      raf = requestAnimationFrame(tick);
+    };
+    api.restart = () => {
+      finished = false; cycleDone = false;
+      reset();
+      if (!raf) { paused = false; prev = 0; raf = requestAnimationFrame(tick); }
+    };
+    return api;
   }
 };
