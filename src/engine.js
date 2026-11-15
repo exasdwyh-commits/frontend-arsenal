@@ -4,6 +4,7 @@
    ============================================================ */
 import { EFFECTS } from './registry.js?v=20261119';
 import { GROUPS, GROUP_MAP } from './groups.js';
+import { avoidOf } from './avoid.js?v=20261120';
 import { sceneFor, dimensions, scenePreview } from './scenes.js';
 
 /* ---------- 第三方库加载器 ----------
@@ -156,6 +157,7 @@ document.addEventListener('click', e => {
 
 /* ---------- 弹窗 ---------- */
 const modal = document.getElementById('modal');
+const aiBtn = document.getElementById('mAi');
 let modalDestroy = null;
 
 async function openModal(id) {
@@ -165,6 +167,12 @@ async function openModal(id) {
   document.getElementById('mDeps').textContent = '依赖：' + fx.deps;
   document.getElementById('mCode').textContent = fx.code;
   document.getElementById('mNote').textContent = '实战注意：' + fx.note;
+  /* 反例：不是所有机制都适用所有场景，先讲清楚别在哪用 */
+  const av = avoidOf(fx);
+  const avEl = document.getElementById('mAvoid');
+  avEl.hidden = !av;
+  avEl.textContent = av ? '什么时候别用：' + av : '';
+  aiBtn.dataset.id = id;
   const st = document.getElementById('mStage');
   const panel = document.getElementById('scenePanel');
   panel.hidden = !['skeleton-shimmer', 'magnetic-btn'].includes(id);
@@ -209,6 +217,49 @@ copyBtn.onclick = async () => {
     copyBtn.classList.add('ok');
     setTimeout(() => { copyBtn.textContent = '复制代码'; copyBtn.classList.remove('ok'); }, 1400);
   } catch { copyBtn.textContent = '复制失败，请手动选中'; }
+};
+
+/* ---------- 复制为 AI 需求 ----------
+   给 agent 的不是一段裸代码，而是"要做什么 + 坑在哪 + 别在哪用 + 硬性约束"。
+   约束写死成本库的规矩（原生、可清理、尊重减少动效），省掉每次重复交代。 */
+function aiPrompt(fx) {
+  const g = GROUP_MAP[fx.group]?.name || fx.group;
+  const av = avoidOf(fx);
+  const lines = [
+    '用原生 JS/CSS 实现下面这个动效。不要引入任何运行时依赖——不要 React、GSAP、Three.js、Lottie 或动画库；下面提到的库只作思路参考，用原生能力重写等价效果。',
+    '',
+    `【机制】${fx.name}（${g} · ${fx.id}）`,
+    `【要做到】${fx.desc}`,
+    `【依赖说明】${fx.deps}`,
+    `【实现要点】${fx.note}`
+  ];
+  if (av) lines.push(`【什么时候别用】${av}`);
+  lines.push(
+    '',
+    '硬性要求：',
+    '1. 单文件模块，导出 `export default { id, group, name, desc, init(el, opts) }`；init 返回清理函数，负责取消 rAF、移除监听、断开 observer。',
+    '2. 只操作传入的 el，不碰 document.body 和全局样式；样式用 scoped class 或内联，别覆盖标签选择器。',
+    '3. 尊重 `prefers-reduced-motion`：命中时直接给终态，不播动画。',
+    '4. 移动端可用：触屏要有对应手势或降级，别只依赖 hover。',
+    '5. 输出完整可运行代码，不要省略号，不要「此处省略」；注释只写为什么，不写做了什么。',
+    '',
+    '参考实现（行为要一致，代码可以写得更干净）：',
+    '```js',
+    fx.code,
+    '```'
+  );
+  return lines.join('\n');
+}
+
+aiBtn.onclick = async () => {
+  const fx = byId[aiBtn.dataset.id];
+  if (!fx) return;
+  try {
+    await navigator.clipboard.writeText(aiPrompt(fx));
+    aiBtn.textContent = '已复制给 AI ✓';
+    aiBtn.classList.add('ok');
+    setTimeout(() => { aiBtn.textContent = '复制为 AI 需求'; aiBtn.classList.remove('ok'); }, 1600);
+  } catch { aiBtn.textContent = '复制失败，请手动选中'; }
 };
 
 /* ---------- 选型抽屉 ---------- */
@@ -263,6 +314,11 @@ document.getElementById('dCopy').onclick = async () => {
   [...picked].forEach(id => {
     const fx = byId[id];
     lines.push(`- **${fx.name}**：${fx.note}`);
+  });
+  lines.push('', '## 什么时候别用');
+  [...picked].forEach(id => {
+    const fx = byId[id];
+    lines.push(`- **${fx.name}**：${avoidOf(fx)}`);
   });
   try {
     await navigator.clipboard.writeText(lines.join('\n'));

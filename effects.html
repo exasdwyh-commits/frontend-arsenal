@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>效果图鉴 · WebUI</title>
-<link rel="stylesheet" href="src/style.css">
+<link rel="stylesheet" href="src/style.css?v=20261120">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 </head>
 <body>
@@ -59,9 +59,10 @@
     <div class="body">
       <div class="stage big" id="mStage"></div>
       <div id="scenePanel" class="scene-panel" hidden></div>
-      <div class="codebar"><span id="mDeps"></span><button id="mCopy">复制代码</button></div>
+      <div class="codebar"><span id="mDeps"></span><span class="cb-act"><button id="mAi" class="ghost">复制为 AI 需求</button><button id="mCopy">复制代码</button></span></div>
       <pre id="mCode"></pre>
       <div class="note" id="mNote"></div>
+      <div class="note avoid" id="mAvoid" hidden></div>
     </div>
   </div>
 </div>
@@ -73,6 +74,6 @@
   <button class="cta ghost" id="dClear">清空</button>
 </div>
 
-<script type="module" src="src/engine.js?v=20261119"></script>
+<script type="module" src="src/engine.js?v=20261120"></script>
 </body>
 </html>

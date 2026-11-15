@@ -54,6 +54,7 @@ WebUI/
 └── src/
     ├── registry.js         # ★ 唯一需要手动维护的文件：效果清单
     ├── engine.js           # 加载器 / 舞台 / 弹窗 / 选型抽屉（一般不用动）
+    ├── avoid.js            # 每条机制的「什么时候别用」，按 id 索引 + 分组兜底
     ├── skills.js           # 技能库逻辑 + 内置迷你 Markdown 渲染器（零依赖）
     ├── skills.css          # 技能库样式（复用 style.css 的设计 token）
     ├── skills-data.js      # 技能清单（id / 分类 / 描述，由 skills/ 目录生成）
@@ -222,11 +223,14 @@ Electron 的 pro-drag/pro-no-drag 拖拽区机制因浏览器无法演示未收�
 - **浮层焦点管理（focus-trap）**：guards 用 `contains(浮层)` 判定焦点是否在内（布尔标记在嵌套浮层下会互相打架）；Tab 首尾哨兵循环；打开存"真正持有焦点的元素"、关闭同步归还，归还目标为 body 时回退到永远可见的触发按钮（先 hide 再 focus 不可见元素会静默失败）；空焦点项落容器 tabindex=-1，visuallyHidden 关闭按钮留在 DOM 作读屏器出口。
 - 技能库另收 **46 篇**（48 篇 MDX 剔除 react-native 与 migration 2 篇）：定位算法（offset/flip/shift/arrow/inset/size/autoUpdate 各一篇 + middlewares 架构）、行为契约（useDismiss/FloatingFocusManager/FloatingDelayGroup/useHover/useClick/useRole/useDismiss/useInteractions/useFloating 等 hook 文档）、平台与主题（detectPlatform/CSS 逻辑属性/react 指南）、FAQ 与 ADR 决策记录。
 
-## 三个效率功能
+## 四个效率功能
 
 1. **深链** — `effects.html#sparkline` 直接打开该效果，甩链接给同事
-2. **选型清单导出** — 底部抽屉一键生成带分组/依赖/实战提醒的 Markdown 表格
-3. **选择记忆** — `localStorage` 记住，刷新不丢
+2. **选型清单导出** — 底部抽屉一键生成带分组/依赖/实战提醒/反例的 Markdown 表格
+3. **复制为 AI 需求** — 详情弹层一键复制完整 prompt：机制、要做到什么、实现要点、什么时候别用、硬性约束（原生、可清理、尊重减少动效）+ 参考代码，直接贴给 Claude/Codex 就能重写
+4. **选择记忆** — `localStorage` 记住，刷新不丢
+
+每条机制在详情里除了「实战注意」（怎么调、坑在哪），还有一条**「什么时候别用」**——写在 `src/avoid.js`，按 id 索引，一句一个具体阈值或条件（如「每帧 O(n²) 的斥力，节点超 150 要换四叉树」）。没写具体条目的机制会退到分组的兜底规则，所以新增效果不会露出空白。
 
 ## 已知约束（踩过的坑）
 
