@@ -493,7 +493,7 @@
     "src/effects/entrance.spring-enter.js": "c2451999f4dcd446c911103272c917902837a5f607a615a38162fbbe6d959d14",
     "src/effects/entrance.spring-modal.js": "863da6473796fc437bc51f9e302ea2dbef3b46e6e090a20fc664febb379cec08",
     "src/effects/entrance.stagger-in.js": "11487e19b91ec8d93f1bb87149a211f329fa39527e86e50121e7f7223faadd44",
-    "src/effects/entrance.swarm-rebuild.js": "240bce723d6d1cde490fe6e4f6761aa93d4f3602999e5cace0f4f0e8594ec89b",
+    "src/effects/entrance.swarm-rebuild.js": "066ca319bc19c0cf6cca22853e1db7ce33ee19cb460362c165d8635fe2a9a655",
     "src/effects/entrance.text-scramble.js": "0871ae4f46d7ec2734141fa6cdfa0804234d0369658c1f64e02d67fc46926e56",
     "src/effects/entrance.tooltip-delay-group.js": "904af6cf88f1b13848cb998a4f3d5e223f88f48322dbbaacd135030b3c69b755",
     "src/effects/entrance.tr-blur-fade.js": "e5c2623da60226d83e82b89a0eaf13415c2b6cc2f71435cb11e31411e9766a06",
@@ -1657,7 +1657,7 @@
       "implementation": "demo-module",
       "technology": "agent-build / swarm-site",
       "declaredDependencies": "无",
-      "notes": "四个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是\"每个 agent 各自领一个块\"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。",
+      "notes": "六个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是\"每个 agent 各自领一个块\"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活；⑤ 出发点要按角度散开、t0 要逐个错开几十毫秒，所有光标同点同刻起飞会先糊成一坨再齐步走，像复印机而不是一群人（名牌也要朝背离中心的一侧挂，否则下半圈互相压住）；⑥ agent 数量必须按块数封顶，多余的光标只会空转。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。",
       "scenes": {
         "places": [
           "首屏",

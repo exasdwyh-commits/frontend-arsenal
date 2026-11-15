@@ -3,7 +3,7 @@ export default {
   lib: 'agent-build / swarm-site',
   desc: '一群带名牌的 AI 光标从中心飞出，逐个给页面块套上选框、标尺寸、打字/淡入，配 HUD 进度与「SIMULATION」标识，把整页一块块重建出来。机制提炼自 magnoscg/agent-build（MIT）与 swarm-site，原生 JS/CSS 独立实现；所有角色名与进度均为表演数据，不连接任何真实 Agent。',
   deps: '无',
-  note: '四个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是"每个 agent 各自领一个块"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。',
+  note: '六个坑：① 隐藏块必须用 visibility:hidden 而不是 opacity/display——前者保住布局，光标量到的框才不会在揭示时整体跳动；② 块坐标用 offsetLeft/offsetTop（布局坐标），别用 getBoundingClientRect，否则舞台被 fitPreview 缩放后 overlay 与块会错位；③ 帧时钟用 dt 累加而不是 setTimeout 链，暂停/跳过/低帧率都不会漂；④ 光标群是"每个 agent 各自领一个块"的并发队列，不是全局一个进度条——否则看起来只有一个人在干活；⑤ 出发点要按角度散开、t0 要逐个错开几十毫秒，所有光标同点同刻起飞会先糊成一坨再齐步走，像复印机而不是一群人（名牌也要朝背离中心的一侧挂，否则下半圈互相压住）；⑥ agent 数量必须按块数封顶，多余的光标只会空转。另外：全程要写清楚 SIMULATION（agent-build 的硬规矩），不能让访客以为真有 AI 在改页面；动态样式走 element.style / CSSOM，不拼 innerHTML。',
 
   scenes: { places: ['首屏', '发布会', '作品集'], goals: ['营造氛围', '内容呈现'], triggers: ['页面加载', '点击'], projects: ['AI 产品', '开发者工具', '品牌官网'] },
   code: `/* 帧时钟 + 并发 agent 队列（原生复刻，零依赖） */
@@ -23,7 +23,14 @@ const tick = now => {
 };
 
 /* 关键①：visibility 保布局；②：offset* 抗缩放；④：并发队列 */
-for (const block of blocks) block.style.visibility = 'hidden';`,
+for (const block of blocks) block.style.visibility = 'hidden';
+
+/* 关键⑤：出发点按角度散开、起飞时间逐个错开，才像"一群人" */
+agents.forEach((a, i) => {
+  const ang = (Math.PI * 2 * i) / agents.length - Math.PI / 2;
+  a.homeX = cx + Math.cos(ang) * hubR;
+  a.homeY = cy + Math.sin(ang) * hubR;
+});`,
 
   init(el, ctx) {
     const opts = ctx || {};
@@ -66,7 +73,12 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
     };
 
     let blocks = [...host.children].filter(n => !/^(SCRIPT|STYLE)$/.test(n.tagName));
-    if (!blocks.length) { host.appendChild(buildDemo()); blocks = [...host.children]; }
+    if (!blocks.length) {
+      const demo = buildDemo();
+      host.appendChild(demo);
+      /* 演示块要拆成「块」而不是整块当一块，否则 7 个 agent 抢 1 个活 */
+      blocks = [...demo.children];
+    }
     if (!blocks.length) return () => {};
 
     /* 降动效替代：内容照常可见，只留一句说明，不给舞台留空白 */
@@ -107,7 +119,9 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
       '  opacity:.5;background:repeating-linear-gradient(90deg,rgba(255,255,255,.22) 0 1px,transparent 1px 20px)}',
       '.srb-live{position:absolute;right:10px;top:10px;z-index:8;',
       '  font:9px/1 ui-monospace,Consolas,monospace;letter-spacing:.16em;color:#8b93a4;',
-      '  background:rgba(8,10,17,.9);border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:6px 9px}'
+      '  background:rgba(8,10,17,.9);border:1px solid rgba(255,255,255,.16);border-radius:6px;padding:6px 9px}',
+      /* 揭示只淡入，visibility 负责保布局：两者分工，不给块加 transform/height 动画 */
+      '.srb .srb-block{transition:opacity .35s ease-out}'
     ].join('');
       document.head.appendChild(STYLE);
     }
@@ -153,7 +167,9 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
     const takeJob = () => (next < JOBS.length ? JOBS[next++] : null);
 
     const agents = [];
-    for (let i = 0; i < agentCount; i++) {
+    /* agent 多于块就是空转：一人一块封顶 */
+    const swarmSize = Math.min(agentCount, JOBS.length);
+    for (let i = 0; i < swarmSize; i++) {
       const c = document.createElement('div');
       c.className = 'srb-cursor';
       c.style.setProperty('--c', COLORS[i % COLORS.length]);
@@ -185,12 +201,33 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
       box.appendChild(size);
       layer.appendChild(box);
 
-      agents.push({ c, box, size, job: null, t0: 0, hx: W() / 2, hy: H() / 2 });
+      agents.push({ c, box, size, job: null, t0: 0, hx: 0, hy: 0, idx: i });
     }
 
-    /* 隐藏所有块：visibility 保布局，原子不占位也不塌 */
-    const saved = blocks.map(b => ({ node: b, vis: b.style.visibility }));
-    for (const b of blocks) b.style.visibility = 'hidden';
+    /* 出发点按角度散开：全部堆在正中会先糊成一坨再飞散，看不出"一群" */
+    const cx = W() / 2, cy = H() / 2;
+    const hubR = Math.min(W(), H()) * 0.16;
+    agents.forEach((a, i) => {
+      const ang = (Math.PI * 2 * i) / agents.length - Math.PI / 2;
+      a.homeX = cx + Math.cos(ang) * hubR;
+      a.homeY = cy + Math.sin(ang) * hubR;
+      a.hx = a.homeX; a.hy = a.homeY;
+      a.c.style.transform = 'translate(' + a.hx.toFixed(1) + 'px,' + a.hy.toFixed(1) + 'px)';
+      /* 名牌朝背离中心的一侧挂：全挂右下的话，下半圈的名牌会互相压住 */
+      const tag = a.c.lastChild;
+      const leftSide = Math.cos(ang) < 0;
+      tag.style.top = Math.sin(ang) > 0 ? '-16px' : '14px';
+      tag.style.left = leftSide ? '-8px' : '14px';
+      tag.style.transform = leftSide ? 'translateX(-100%)' : 'none';
+    });
+
+    /* 隐藏所有块：visibility 保布局，原子不占位也不塌；opacity 只负责淡入 */
+    const saved = blocks.map(b => ({ node: b, vis: b.style.visibility, op: b.style.opacity }));
+    for (const b of blocks) {
+      b.classList.add('srb-block');
+      b.style.visibility = 'hidden';
+      b.style.opacity = '0';
+    }
 
     const place = (agent, job, p) => {
       const bx = job.node.offsetLeft, by = job.node.offsetTop;
@@ -213,16 +250,20 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
     };
 
     const reveal = job => {
+      if (job.done) return;
       job.node.style.visibility = 'visible';
+      job.node.style.opacity = '1';
       job.done = true;
     };
 
+    /* 揭示发生在抵达前一点：等光标停稳再出内容，会显得"卡了一下" */
+    const REVEAL_AT = 0.9;
     const DUR = Math.max(60, opts.dur || 620);
     let t = 0, prev = 0, raf = 0, finished = false, cycleDone = false;
     const finish = () => {
       if (finished) return;
       finished = true;
-      for (const b of blocks) b.style.visibility = 'visible';
+      for (const b of blocks) { b.style.visibility = 'visible'; b.style.opacity = '1'; }
       for (const a of agents) { a.c.style.opacity = '0'; a.box.style.opacity = '0'; }
       hud.style.opacity = '0'; live.style.opacity = '0'; ruler.style.opacity = '0';
       barFill.style.width = '100%';
@@ -237,9 +278,14 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
       finished = false; cycleDone = false;
       next = 0;
       for (const j of JOBS) j.done = false;
-      for (const b of blocks) b.style.visibility = 'hidden';
+      for (const b of blocks) { b.style.visibility = 'hidden'; b.style.opacity = '0'; }
       for (const a of agents) {
-        a.job = takeJob(); a.t0 = t; a.box.style.opacity = '0'; a.c.style.opacity = '1';
+        a.hx = a.homeX; a.hy = a.homeY;
+        a.c.style.transform = 'translate(' + a.hx.toFixed(1) + 'px,' + a.hy.toFixed(1) + 'px)';
+        a.job = takeJob();
+        /* 错开起飞：同一个 t0 会让所有光标同步动作，像复印机而不是一群人 */
+        a.t0 = t + a.idx * 130;
+        a.box.style.opacity = '0'; a.c.style.opacity = '1';
       }
       hud.style.opacity = '1'; live.style.opacity = '1'; ruler.style.opacity = '';
       barFill.style.width = '0';
@@ -253,10 +299,10 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
       let doneCount = 0;
       for (const a of agents) {
         if (a.job) {
-          const p = Math.min(1, (t - a.t0) / DUR);
+          const p = Math.max(0, Math.min(1, (t - a.t0) / DUR));
           place(a, a.job, p);
+          if (p >= REVEAL_AT) reveal(a.job);
           if (p >= 1) {
-            reveal(a.job);
             a.hx = a.job.node.offsetLeft; a.hy = a.job.node.offsetTop;
             a.job = takeJob(); a.t0 = t;
             if (a.job) a.box.style.opacity = '0';
@@ -267,7 +313,7 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
       for (const j of JOBS) if (j.done) doneCount++;
       const prog = doneCount / JOBS.length;
       barFill.style.width = (prog * 100).toFixed(1) + '%';
-      hudText.textContent = ' ' + doneCount + ' / ' + JOBS.length + ' 块 · ' + agentCount + ' agents';
+      hudText.textContent = ' ' + doneCount + ' / ' + JOBS.length + ' 块 · ' + agents.length + ' agents';
 
       if (doneCount === JOBS.length && !cycleDone) {
         cycleDone = true;
@@ -284,7 +330,11 @@ for (const block of blocks) block.style.visibility = 'hidden';`,
     return () => {
       cancelAnimationFrame(raf);
       raf = 0;
-      for (const s of saved) s.node.style.visibility = s.vis;
+      for (const s of saved) {
+        s.node.style.visibility = s.vis;
+        s.node.style.opacity = s.op;
+        s.node.classList.remove('srb-block');
+      }
       layer.remove();
       host.classList.remove('srb');
       /* STYLE 是同页所有实例共用的，谁都不许摘，留着无害 */
