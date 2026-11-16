@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "protocol": "agent/README.md",
   "coverage": {
-    "effects": 163,
+    "effects": 167,
     "skills": 427,
     "videos": 81,
-    "effectsWithScenes": 64,
+    "effectsWithScenes": 68,
     "recipes": 1,
     "verifiedTemplates": 0
   },
@@ -463,6 +463,7 @@
     "src/effects/data.skeleton-shimmer.js": "f9d90ad34e1b78b989b22cd7b817efc113ed31bbb743ee951ca45209773fe620",
     "src/effects/data.sparkline.js": "67f364732b115d319331a6abaaa92e6b8883b901e71c02ff1271179eb90e0ef5",
     "src/effects/data.thinking-dots.js": "803a2bceaa421e24e5d07713d118297f2e19b24eca8e6f581040e6f829d14c57",
+    "src/effects/data.time-scrub.js": "f462fab07b1781d9d8406a868eebd565290e607ec5b3093eff014c4564629ed0",
     "src/effects/data.timeline-orch.js": "7fc46ba9fee71d8957b8cac69e8d8e1e0c99f07d6fe50919dba089f2878f5cdc",
     "src/effects/data.timeline-tracks.js": "3e5fc1f956490c52239e2c3ca03d306dca2d1c0c5af0b448239eef16d4e4872e",
     "src/effects/data.word-captions.js": "bec9a6fd7761894ae2925fa84a9bf650c3f48ceb3ac5b89fa715c2943490533d",
@@ -527,6 +528,7 @@
     "src/effects/feedback.dock-magnify.js": "93caff37f1e1ebb7aa967cda80cf4b051df50f07f1152a51a74c5c2d763d1a13",
     "src/effects/feedback.focus-trap.js": "9f37ba85f8c7dcd166f6168bff53bb25dacc62fea9b04d9210f2346ab1e13e78",
     "src/effects/feedback.grid-reflow.js": "34c9210aca911dc5cc2bcd48ed5bb9bc3324da4653c47ce7efbea775e22b1882",
+    "src/effects/feedback.hitstop.js": "dc569e568df6949858f0d9466485ef7dc646e5b62ccd7729a2f4eef385efa1d6",
     "src/effects/feedback.ime-guard.js": "d577b8cfef70dc4dfc25cae2287ed71b41c2008c85ae9c378747619ffb067e61",
     "src/effects/feedback.intent-fill.js": "cd51a5b701fdbe3be1d407d77434508fa1cda488b38a76201bd4f76c41070237",
     "src/effects/feedback.island-morph.js": "45d58951abbc5c69eaaecc00f3495c047359ac32bd0703543b57d2bd8a0dcd99",
@@ -558,6 +560,7 @@
     "src/effects/particle.diffusion-denoise.js": "5f23d391b8ee92bf7ad759b97aad736e75e049bb05881f52f1829697f7273472",
     "src/effects/particle.dither-image.js": "e59b75ab6f7dee897a0dcc9aa3baffc420761d4c3d0de62a298ded641f0dbcdc",
     "src/effects/particle.dof-blur.js": "6f0e355d8f98d34097e8f87f65efaed858366135b1aa1a30435e52e358417a73",
+    "src/effects/particle.echo-trail.js": "42ddd68046527497390473fab5348b4d310055686027015e2a6402bb16d0f32b",
     "src/effects/particle.edge-blur.js": "5f563056b33628d4f8c924147adfc0535623832d0eb445bad1228d5e1423d40c",
     "src/effects/particle.fluted-glass.js": "7a9011417031018f5f9961a385a7b3a1fd53d5d42dd6056bfe2acceb867d2ca3",
     "src/effects/particle.gl-particle-vortex.js": "4f83e3c833446795f114c2a641e635eab8ca3308071a26aa863626c1a22b14af",
@@ -566,6 +569,7 @@
     "src/effects/particle.gradient-flow.js": "02f300ee1da326dddf5c4731e1273e862039efc46c531223ede29717a0822a01",
     "src/effects/particle.gravity-field.js": "bf57d456a476a5398c62229e471723792aac7356206d6f4a43592096234740ec",
     "src/effects/particle.instanced-dots.js": "99e4fbfb1b247ff729116ab12027d2fde4371fd7ed6c297dad81697889a2dc01",
+    "src/effects/particle.light-buffer.js": "f2974ed674b3de29c69e6c108b47ce3b7e8dca8f046cb85537fde0cb34100c06",
     "src/effects/particle.p5-gauss-burst.js": "8ec6969d28b010ace5b17ce21a0f137bc8bb1dc12c242fecda6dd9fe3a37bd17",
     "src/effects/particle.p5-noise-drift.js": "a56231a0d0eb52c2c86d1dd6ae6e832022554b57a874fbeb97aa247076b7963f",
     "src/effects/particle.particles.js": "dc0fa57c6bcaf8a201c98362ca67b42b07b5ced971a66497c0ac2536d5810bde",
@@ -606,10 +610,10 @@
     "src/effects/space.rtl-logical.js": "d8445f269b1da33069e9a3a861d910ca9835c7774eb52dc35838fdab3679255a",
     "src/effects/space.smart-anchor.js": "87ecfdd33f579e3b3085f20db3076a019f5b467db8b474d904cc35fbc43a893c",
     "src/effects/space.three-cube.js": "6eea541e1536c09cf3771161f25c17e4ee24339a829c96d1950ebd8f15360972",
-    "src/engine.js": "85b7be47bf714d3b05420129edbc1a6586af80e4e7e8e980f1abd24e495b3ce0",
+    "src/engine.js": "8af3e2c40d9f1c81870aa5d8ddedfac2f1f719ecf07bfe2676157b710b868045",
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
-    "src/registry.js": "a48b550d1e8b825764b4c6c68880e911dd30b591583bd877739392305536e732",
-    "src/scenes.js": "fce5999a6773aed08fa981834cc60648df0a27d68b0c237a53b577bb84bc3b00",
+    "src/registry.js": "1732fe02efa9db5b0de972f8308884ff5e6144382004f8e74524f6539bfa6aee",
+    "src/scenes.js": "7d7fc1b410e1d2177de5a75437260d0d9fcc3c49a0e76499e1bc21ff9f64a2f4",
     "src/skills-data.js": "6b09dfa7b84f7c8785d35dc01ec1e0dbbf554712e03c6d45cf62a1c137599778",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
   },
@@ -2788,6 +2792,50 @@
       }
     },
     {
+      "id": "effect:hitstop",
+      "kind": "effect",
+      "title": "命中定格",
+      "description": "打中的那一瞬间把画面冻住 90ms，再抖 2~3px：重量感不是靠更慢的动画，是靠「时间停了一下」。",
+      "category": "交互反馈",
+      "source": "src/effects/feedback.hitstop.js",
+      "preview": "effects.html#hitstop",
+      "implementation": "demo-module",
+      "technology": "原生 rAF（暂停时间轴）",
+      "declaredDependencies": "无",
+      "notes": "定格是\"停止推进时间\"，不是把动画速度调慢——时间轴真的不动，观众才读得出撞击。90ms 是上限，超过 130ms 会被读成卡顿；同时抖幅压到 3px 以内，幅度一大就从\"重量\"变成\"故障\"。定格期间别重置缓动，恢复后从原相位继续，否则前面攒的速度全丢。连击要能叠加：第二次命中时重新计时，但幅度取最大值而不是相加。",
+      "scenes": {
+        "places": [
+          "按钮"
+        ],
+        "goals": [
+          "交互反馈"
+        ],
+        "triggers": [
+          "点击"
+        ],
+        "projects": [
+          "游戏化产品",
+          "品牌官网"
+        ]
+      },
+      "sceneEvidence": "src/scenes.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/feedback.hitstop.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:ime-guard",
       "kind": "effect",
       "title": "IME 组合守卫",
@@ -4758,6 +4806,51 @@
       }
     },
     {
+      "id": "effect:echo-trail",
+      "kind": "effect",
+      "title": "时间残影",
+      "description": "残影不是「留下来的尾巴」，而是把本体过去几个时刻的位置重新算一遍画出来——本体一停，它们就收拢消失。",
+      "category": "粒子与氛围",
+      "source": "src/effects/particle.echo-trail.js",
+      "preview": "effects.html#echo-trail",
+      "implementation": "demo-module",
+      "technology": "Canvas 2D（解析式回采样）",
+      "declaredDependencies": "无",
+      "notes": "残影要用「当前位置 + 衰减系数」反推过去的位置，而不是拿一张画布只擦一半做拖影：缓冲式残影在停手后还会留一串慢慢变淡的脏尾巴，且帧率一变长度就变。这里本体按固定系数逼近目标，过去 d 毫秒的位置可用同一个系数精确回算，所以任意一帧都能重放，导出也不会漂。反推是除以衰减（f>1），不是乘——算错方向残影会跑到本体前面，看着像「预判」而不是拖影。采样间隔决定尾巴长度（42ms × 7 个刚好读得出方向）；残影透明度要随「与本体距离」衰减，否则收拢时会叠成一坨更亮的点，看起来像没消失。",
+      "scenes": {
+        "places": [
+          "首屏",
+          "背景"
+        ],
+        "goals": [
+          "营造氛围"
+        ],
+        "triggers": [
+          "拖拽"
+        ],
+        "projects": [
+          "品牌官网",
+          "作品集"
+        ]
+      },
+      "sceneEvidence": "src/scenes.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/particle.echo-trail.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "effect:edge-blur",
       "kind": "effect",
       "title": "边缘渐进模糊",
@@ -5034,6 +5127,51 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/particle.instanced-dots.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:light-buffer",
+      "kind": "effect",
+      "title": "双缓冲加色光",
+      "description": "颜色画在一张不透明的底图上，光单独画一张用 lighter 叠上去——光是「加」上去的，不是盖上去的。",
+      "category": "粒子与氛围",
+      "source": "src/effects/particle.light-buffer.js",
+      "preview": "effects.html#light-buffer",
+      "implementation": "demo-module",
+      "technology": "Canvas 2D（两张画布）",
+      "declaredDependencies": "无",
+      "notes": "关键不在 lighter，而在分层：底层必须是不透明、偏暗的实色，光层才有地方加；一旦两层画在同一张画布，加色会把已经画好的颜色一起漂白，最后整屏发灰。光层用低 alpha 多次叠加而不是一次高 alpha，边缘才会自然过渡。必须压曝光：多盏光叠在一起时总 alpha 要有上限，超了就是一片死白，层次全没。光层 canvas 设 pointer-events:none，不然会挡掉底下的交互。",
+      "scenes": {
+        "places": [
+          "背景",
+          "首屏"
+        ],
+        "goals": [
+          "营造氛围"
+        ],
+        "triggers": [
+          "持续播放"
+        ],
+        "projects": [
+          "品牌官网",
+          "作品集"
+        ]
+      },
+      "sceneEvidence": "src/scenes.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/particle.light-buffer.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
@@ -6338,6 +6476,50 @@
         "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
         "readBeforeUse": [
           "src/effects/data.timeline-tracks.js",
+          "src/engine.js"
+        ],
+        "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"
+      },
+      "verification": {
+        "runtime": "unverified",
+        "mobile": "unknown",
+        "accessibility": "unknown",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
+      "id": "effect:time-scrub",
+      "kind": "effect",
+      "title": "时间轴硬拖动",
+      "description": "整段动画写成 render(t)：拖时间轴拖到哪一帧就是哪一帧，不补间、不追帧，回拖也完全一样。",
+      "category": "数据动效",
+      "source": "src/effects/data.time-scrub.js",
+      "preview": "effects.html#time-scrub",
+      "implementation": "demo-module",
+      "technology": "Canvas 2D（render(t) 纯函数）",
+      "declaredDependencies": "无",
+      "notes": "动画的身份是「t 到画面」的纯函数，不是一堆随时间累加的状态。拖动时直接把 t 写进去再 render，绝不能启动一个缓动去追目标值——那会让手和画面之间隔一层延迟，「硬 seek」就没了。所有缓动都必须在 render 内部由 t 现算（ease(t)），这样第 25 帧无论正放、倒放还是直接跳过去，像素都一样。状态机写法在倒放时会漂：加速和减速不对称，回拖的帧和来时对不上。逐帧导出同理：for (f = 0; f < N; f++) render(f / (N - 1))。",
+      "scenes": {
+        "places": [
+          "图表"
+        ],
+        "goals": [
+          "展示数据"
+        ],
+        "triggers": [
+          "拖拽"
+        ],
+        "projects": [
+          "数据产品",
+          "管理后台"
+        ]
+      },
+      "sceneEvidence": "src/scenes.js",
+      "integration": {
+        "contract": "default.init(element, {ensure, loadScript}) -> destroy, possibly async",
+        "readBeforeUse": [
+          "src/effects/data.time-scrub.js",
           "src/engine.js"
         ],
         "caveat": "演示 init 与 code 摘录可能不同；先读完整源文件，再适配目标项目。"

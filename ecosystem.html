@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07080b">
 <meta name="color-scheme" content="dark">
 <title>动效工具链 · WebUI 图鉴</title>
-<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个「0 成本工作室」仓库与 18 份可丢给 AI 学的合集，共 50 条上游参考，逐条标注授权、能否在浏览器运行与本库 163 个原生机制的对照。">
+<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个「0 成本工作室」仓库、18 份可丢给 AI 学的合集与 5 个上游研读，共 55 条上游参考，逐条标注授权、能否在浏览器运行与本库 167 个原生机制的对照。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -151,13 +151,16 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 .kb-row b{font-size:13px;font-weight:600;color:#e6eaf2;white-space:nowrap}
 .kb-row b i{font-style:normal;font-weight:400;color:#6f7a8b;font-size:10px;margin-left:6px;
   font-family:ui-monospace,Consolas,monospace;letter-spacing:.06em}
-.kb-row em{font-style:normal;justify-self:end;white-space:nowrap;
-  font:9.5px/1 ui-monospace,Consolas,monospace;letter-spacing:.06em;color:#8b93a4}
+.kb-row em{font-style:normal;justify-self:end;white-space:normal;text-align:right;
+  font:9.5px/1.45 ui-monospace,Consolas,monospace;letter-spacing:.06em;color:#8b93a4}
 .kb-row p{grid-column:1/-1;margin:1px 0 0;font-size:11.5px;color:#93a0b4;line-height:1.6}
+.kb-row code{font:11px ui-monospace,Consolas,monospace;background:rgba(255,255,255,.06);
+  border-radius:4px;padding:1px 4px;color:#b9c3d6}
 .kb-row a{color:#a99bff;text-decoration:none;border-bottom:1px solid rgba(169,155,255,.3)}
 .kb-dup{color:#5f6a7b !important}
 .vb{color:#c8ea63;border-bottom:1px dashed rgba(200,234,99,.45);white-space:nowrap}
-@media(max-width:860px){.kb{grid-template-columns:1fr}}
+@media(max-width:860px){.kb{grid-template-columns:1fr}
+  .kb-row em{justify-self:start;text-align:left;line-height:1.5}}
 </style>
 </head>
 <body>
@@ -182,11 +185,11 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
   <div class="shell">
     <p class="eyebrow"><i></i>ECOSYSTEM / 动效工具链</p>
     <h1>从想法到成片，<br>一条线。</h1>
-    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；后面还挂两份合集：14 个「整间工作室」仓库（3D / 视频 / 配乐）、18 份能直接丢给 AI 学的资料。一共 <b>50 条上游参考</b>（去重 44），每条都标了授权和「能不能在浏览器里跑」，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
+    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；后面还挂两份合集：14 个「整间工作室」仓库（3D / 视频 / 配乐）、18 份能直接丢给 AI 学的资料，外加 5 个上游研读。一共 <b>55 条上游参考</b>（去重 49），每条都标了授权和「能不能在浏览器里跑」，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
     <div class="stats">
-      <div class="stat"><b>50</b><span>上游参考</span></div>
+      <div class="stat"><b>55</b><span>上游参考</span></div>
       <div class="stat"><b>5</b><span>制作阶段</span></div>
-      <div class="stat"><b>163</b><span>库内机制</span></div>
+      <div class="stat"><b>167</b><span>库内机制</span></div>
       <div class="stat"><b>0</b><span>运行时依赖</span></div>
     </div>
   </div>
@@ -266,7 +269,7 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 <section class="stage-sec" id="animate">
   <div class="shell">
     <div class="stage-head"><span class="stage-num">03</span><h2>让它动起来</h2><span class="stage-en">Animate</span></div>
-    <p class="stage-desc">插值、缓动、时间轴、粒子、矢量播放——动效库的主体。我们库里 163 个机制大半集中在这一层。</p>
+    <p class="stage-desc">插值、缓动、时间轴、粒子、矢量播放——动效库的主体。我们库里 167 个机制大半集中在这一层。</p>
     <div class="eco-list">
       <div class="eco"><div class="eco-top"><span class="eco-name">Motion <span>布局过渡</span></span><span class="eco-lic">MIT</span></div>
         <p>Framer Motion 的独立内核，FLIP 布局动画、弹簧、手势，框架无关。</p>
@@ -420,6 +423,26 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
         <p>比 Three 更“自带引擎”的选择，动画系统与物理都内建。库内等价：<a href="effects.html#gl-wave-surface">gl-wave-surface</a> / <a href="effects.html#gl-raycast-hover">gl-raycast-hover</a></p></div>
       <div class="kb-row"><b>Proton <i>粒子</i></b><em>MIT</em>
         <p>发射器 + 生命周期，2D 粒子的轻量方案。库内等价：<a href="effects.html#gl-particle-vortex">gl-particle-vortex</a> / <a href="effects.html#radial-wave">radial-wave</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="stage-sec" id="research">
+  <div class="shell">
+    <div class="stage-head"><span class="stage-num">08</span><h2>上游研读：5 个项目，抄机制不抄工程</h2><span class="stage-en">Research</span></div>
+    <p class="stage-desc">最近逐份读完的上游。照同一把尺子记：<b>抄什么 / 不抄什么 / 授权 / 能不能在浏览器里跑</b>。结论都落回了图鉴，项目本体一个都没装；这份记录留着，免得「研究过」下次又从零开始。</p>
+
+    <div class="kb">
+      <div class="kb-row"><b>rea-video <i>视频分层</i></b><em>Apache-2.0 · Python + ffmpeg，浏览器跑不了</em>
+        <p>抄：<code>VIDEO.md</code> 把一支片拆成「镜头 / 层 / 时长」的可读清单，AI 能照着改、人也能审。不抄：Python 渲染管线与 TTS、ffmpeg 依赖。库内：<a href="effects.html#timeline-orch">timeline-orch</a>（分镜编排思路）</p></div>
+      <div class="kb-row"><b>lemo-opuscar <i>风格库</i></b><em>代码 MIT · 文档 CC BY-NC 4.0 · 成片 CC BY 4.0</em>
+        <p>抄：99 种风格各自带 <code>STYLE.md</code>，把构图、光、材质、镜头写成可执行约束，而不是一句「赛博朋克」。不抄：生成管线；非商用文档不能搬进商业模板。库内：无直接等价（图鉴不做生成）</p></div>
+      <div class="kb-row"><b>effectcraft <i>合成器</i></b><em>MIT OR Apache-2.0 · Rust 桌面 + 浏览器版，alpha</em>
+        <p>抄：308 个效果按「层 + 参数 + 关键帧」组织，参数即时间函数。不抄：Rust/wgpu 合成器本体、alpha 期 API。库内：<a href="effects.html#time-scrub">time-scrub</a>（render(t) 同构）</p></div>
+      <div class="kb-row"><b>pixelfx <i>像素特效</i></b><em>MIT · 纯 Canvas，能在浏览器跑</em>
+        <p>抄：颜色层 + 光层双缓冲、命中顿帧、解析式残影、12fps 姿态定格、调色板阶梯。不抄：整包像素后期。库内已落地 3 条：<a href="effects.html#light-buffer">light-buffer</a> / <a href="effects.html#hitstop">hitstop</a> / <a href="effects.html#echo-trail">echo-trail</a></p></div>
+      <div class="kb-row"><b>awesome-opus5-5-videos <i>提示词集</i></b><em>MIT · 纯文本清单</em>
+        <p>抄：703 条 prompt 按 Canvas / SVG / GSAP / GLSL / Three / Web Audio 标注技术栈，等于给「效果」加了第二维度。不抄：清单本体（不复制 703 条）。库内：待做——从 <code>lib</code> 字段派生技术栈筛选</p></div>
     </div>
   </div>
 </section>

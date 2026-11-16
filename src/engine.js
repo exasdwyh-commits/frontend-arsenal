@@ -2,9 +2,9 @@
    engine.js —— 加载器 / 舞台 / 弹窗 / 选型抽屉
    一般不用动。要改交互体验才碰这个文件。
    ============================================================ */
-import { EFFECTS } from './registry.js?v=20261121';
+import { EFFECTS } from './registry.js?v=20261123';
 import { GROUPS, GROUP_MAP } from './groups.js';
-import { avoidOf } from './avoid.js?v=20261121';
+import { avoidOf } from './avoid.js?v=20261123';
 import { sceneFor, dimensions, scenePreview } from './scenes.js';
 
 /* ---------- 第三方库加载器 ----------

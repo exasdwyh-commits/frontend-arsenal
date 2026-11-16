@@ -4,7 +4,7 @@
    ============================================================ */
 import { GROUP_MAP } from './groups.js';
 
-/* ---- 入场与转场 (46) ---- */
+/* ---- 入场与转场 (48) ---- */
 import entranceAgentChatDemo from './effects/entrance.agent-chat-demo.js';
 import entranceBentoLightup from './effects/entrance.bento-lightup.js';
 import entranceBlindsFlip from './effects/entrance.blinds-flip.js';
@@ -54,7 +54,7 @@ import entranceTypewriterCaret from './effects/entrance.typewriter-caret.js';
 import entranceWeightPump from './effects/entrance.weight-pump.js';
 import entranceWipeReveal from './effects/entrance.wipe-reveal.js';
 
-/* ---- 交互反馈 (37) ---- */
+/* ---- 交互反馈 (38) ---- */
 import feedbackAnimeMorph from './effects/feedback.anime-morph.js';
 import feedbackBgAnimateBtn from './effects/feedback.bg-animate-btn.js';
 import feedbackButtonMorph from './effects/feedback.button-morph.js';
@@ -67,6 +67,7 @@ import feedbackDisclosureSummary from './effects/feedback.disclosure-summary.js'
 import feedbackDockMagnify from './effects/feedback.dock-magnify.js';
 import feedbackFocusTrap from './effects/feedback.focus-trap.js';
 import feedbackGridReflow from './effects/feedback.grid-reflow.js';
+import feedbackHitstop from './effects/feedback.hitstop.js';
 import feedbackImeGuard from './effects/feedback.ime-guard.js';
 import feedbackIntentFill from './effects/feedback.intent-fill.js';
 import feedbackIslandMorph from './effects/feedback.island-morph.js';
@@ -93,7 +94,7 @@ import feedbackTextureBtn from './effects/feedback.texture-btn.js';
 import feedbackTilt3d from './effects/feedback.tilt-3d.js';
 import feedbackTriggerWidest from './effects/feedback.trigger-widest.js';
 
-/* ---- 空间与 3D (18) ---- */
+/* ---- 空间与 3D (20) ---- */
 import spaceCardStack from './effects/space.card-stack.js';
 import spaceCarouselStep from './effects/space.carousel-step.js';
 import spaceCss3dCardRing from './effects/space.css3d-card-ring.js';
@@ -115,13 +116,14 @@ import spaceSmartAnchor from './effects/space.smart-anchor.js';
 import spaceThreeCube from './effects/space.three-cube.js';
 import spacePortraitAlive from './effects/space.portrait-alive.js';
 
-/* ---- 粒子与氛围 (20) ---- */
+/* ---- 粒子与氛围 (23) ---- */
 import particleAurora from './effects/particle.aurora.js';
 import particleBorderBeam from './effects/particle.border-beam.js';
 import particleCrtTape from './effects/particle.crt-tape.js';
 import particleDitherImage from './effects/particle.dither-image.js';
 import particleDiffusionDenoise from './effects/particle.diffusion-denoise.js';
 import particleDofBlur from './effects/particle.dof-blur.js';
+import particleEchoTrail from './effects/particle.echo-trail.js';
 import particleEdgeBlur from './effects/particle.edge-blur.js';
 import particleFlutedGlass from './effects/particle.fluted-glass.js';
 import particleGlParticleVortex from './effects/particle.gl-particle-vortex.js';
@@ -130,6 +132,7 @@ import particleGlowOrb from './effects/particle.glow-orb.js';
 import particleGradientFlow from './effects/particle.gradient-flow.js';
 import particleGravityField from './effects/particle.gravity-field.js';
 import particleInstancedDots from './effects/particle.instanced-dots.js';
+import particleLightBuffer from './effects/particle.light-buffer.js';
 import particleP5GaussBurst from './effects/particle.p5-gauss-burst.js';
 import particleP5NoiseDrift from './effects/particle.p5-noise-drift.js';
 import particleParticles from './effects/particle.particles.js';
@@ -138,7 +141,7 @@ import particleStripeGuides from './effects/particle.stripe-guides.js';
 import particleTextureOverlay from './effects/particle.texture-overlay.js';
 import particleWatercolorWash from './effects/particle.watercolor-wash.js';
 
-/* ---- 物理与拟真 (12) ---- */
+/* ---- 物理与拟真 (13) ---- */
 import physicsElasticDrag from './effects/physics.elastic-drag.js';
 import physicsFkWave from './effects/physics.fk-wave.js';
 import physicsGravityDrop from './effects/physics.gravity-drop.js';
@@ -153,7 +156,7 @@ import physicsRapierRopeChain from './effects/physics.rapier-rope-chain.js';
 import physicsRapierStackCollapse from './effects/physics.rapier-stack-collapse.js';
 import physicsRsChainOrch from './effects/physics.rs-chain-orch.js';
 
-/* ---- 数据动效 (19) ---- */
+/* ---- 数据动效 (21) ---- */
 import dataAgentStack from './effects/data.agent-stack.js';
 import dataBeforeAfterSlider from './effects/data.before-after-slider.js';
 import dataBarGrow from './effects/data.bar-grow.js';
@@ -172,10 +175,11 @@ import dataSparkline from './effects/data.sparkline.js';
 import dataThinkingDots from './effects/data.thinking-dots.js';
 import dataTimelineOrch from './effects/data.timeline-orch.js';
 import dataTimelineTracks from './effects/data.timeline-tracks.js';
+import dataTimeScrub from './effects/data.time-scrub.js';
 import dataWordCaptions from './effects/data.word-captions.js';
 import dataWordReel from './effects/data.word-reel.js';
 
-/* ---- 声音驱动 (3) ---- */
+/* ---- 声音驱动 (4) ---- */
 import audioSpectrumBars from './effects/audio.spectrum-bars.js';
 import audioBeatGrid from './effects/audio.beat-grid.js';
 import audioToneClick from './effects/audio.tone-click.js';
@@ -200,7 +204,7 @@ export const EFFECTS = [
   feedbackAnimeMorph, feedbackBgAnimateBtn, feedbackButtonMorph, feedbackContactShadow, feedbackControlRhythm,
   feedbackCosmicBtn,
   feedbackCursorFollow, feedbackDirectionTabs, feedbackDisclosureSummary, feedbackDockMagnify, feedbackFocusTrap,
-  feedbackGridReflow, feedbackImeGuard,
+  feedbackGridReflow, feedbackHitstop, feedbackImeGuard,
   feedbackIntentFill, feedbackIslandMorph, feedbackIsoParametric, feedbackKnobGesture, feedbackListNav,
   feedbackMagneticBtn, feedbackNeumorphBtn, feedbackOverlayDismiss,
   feedbackP5LerpEase, feedbackProMaterial, feedbackReleaseNoFlash, feedbackRipple, feedbackRsDecayScroll,
@@ -212,9 +216,9 @@ export const EFFECTS = [
   spaceMinimalCard, spaceP5StackSpace, spaceParallaxDepth, spacePathArcLength, spaceRtlLogical, spaceSmartAnchor,
   spaceThreeCube, spacePhotoTo3d, spacePortraitAlive,
   // 粒子与氛围
-  particleAurora, particleBorderBeam, particleCrtTape, particleDitherImage, particleDofBlur, particleEdgeBlur,
+  particleAurora, particleBorderBeam, particleCrtTape, particleDitherImage, particleDofBlur, particleEchoTrail, particleEdgeBlur,
   particleFlutedGlass, particleGlParticleVortex, particleGlParticlesCloud, particleGlowOrb,
-  particleGradientFlow, particleGravityField, particleInstancedDots, particleP5GaussBurst,
+  particleGradientFlow, particleGravityField, particleInstancedDots, particleLightBuffer, particleP5GaussBurst,
   particleP5NoiseDrift, particleParticles, particleRadialWave, particleStripeGuides, particleTextureOverlay,
   particleWatercolorWash, particleDiffusionDenoise,
   // 物理与拟真
@@ -225,7 +229,7 @@ export const EFFECTS = [
   // 数据动效
   dataAgentStack, dataBarGrow, dataBeforeAfterSlider, dataCountUp, dataDonutRing, dataGltQuantizeLod,
   dataKaraokeFill, dataNeedleGauge, dataP5DprSharp, dataP5NoiselineStack, dataRollingNumber, dataScrollScrub,
-  dataSkeletonShimmer, dataSparkline, dataThinkingDots, dataTimelineOrch, dataTimelineTracks,
+  dataSkeletonShimmer, dataSparkline, dataThinkingDots, dataTimelineOrch, dataTimelineTracks, dataTimeScrub,
   dataWordCaptions, dataWordReel, dataForceGraph,
   // 声音驱动
   audioSpectrumBars, audioToneClick, audioWaveform, audioBeatGrid,
