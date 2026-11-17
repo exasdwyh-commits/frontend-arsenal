@@ -3,7 +3,7 @@
   "protocol": "agent/README.md",
   "coverage": {
     "effects": 167,
-    "skills": 427,
+    "skills": 428,
     "videos": 81,
     "effectsWithScenes": 68,
     "recipes": 1,
@@ -314,6 +314,7 @@
     "skills/export-as-pptx-screenshots.md": "e0d40453ca742bc533ed693d2fdd3d88281a6cadf1a9e553d6d56f9b15147cf3",
     "skills/export-as-video.md": "7df8820c33a37e5e770f37b0fe13bcf30da9082cd98348bc27c69795fd9cbdf6",
     "skills/exportable-video.md": "9b8427a4329d094ed1f069dde26ca1179d997ec6e0f45e654de2f462de958b7b",
+    "skills/figma-designer.md": "8dceb81be0d747d9f6aab4ca0e590f6c07a41665d3b60cb16689eda2ee56e312",
     "skills/flier.md": "8a53212fc1511d04fab1c5f80617b84b77037d426c89c3318fb6e1cc86b89d8d",
     "skills/floatingui-arrow.md": "bc61753f840fcb8ebae3c61e43ccecc9b4a0cc8d3a700d6a85266a05d6363a8e",
     "skills/floatingui-auto-placement.md": "5bb0fdb69438aa807697e60c50ca9ab62afa439b143552012121240c69a64da4",
@@ -413,7 +414,7 @@
     "skills/import-from-github.md": "09a366d16ad0f8a26fa55e9972e2d4b97187bc495ed01c781fe67ee0dbe7ff88",
     "skills/import-from-html.md": "b0a94e7c1b10f2bb34d37d6b08c1ac27ba2885ea66db7bde4be63fc314ce27f2",
     "skills/interactive-prototype.md": "69f1bdb5d1d43005e06b6e84abe2ec112bf205e28a2c88b304127affea6543ec",
-    "skills/landing-page-design.md": "203569792660ab6d71dcb2e4fa673c0c7a0df7c99801d04ab419a4cb08aceb2c",
+    "skills/landing-page-design.md": "0c0ad9323121c0cc4f52b637f64a3a446016f065ae9ebf012dab210559f03d5f",
     "skills/lemo-opuscar.md": "9036c5fd58ac3c3acc30b9183ed3a415829755a59d66b259a2b13a9fde5dd7c4",
     "skills/low-level-tweaks-api.md": "9a36407fa0aa111ce51b4d4c984be0265868e887db87f845c6ffdde708ae73d2",
     "skills/make-a-deck.md": "84d37725d5026959a1cc774e175ddfae4c4df559b8ad05e085aeca2981b7cd24",
@@ -614,7 +615,7 @@
     "src/groups.js": "e9c9d42342165e3d34baa262ecf8fb4b59a826dad92db892cf7ec58ec5e31571",
     "src/registry.js": "1732fe02efa9db5b0de972f8308884ff5e6144382004f8e74524f6539bfa6aee",
     "src/scenes.js": "7d7fc1b410e1d2177de5a75437260d0d9fcc3c49a0e76499e1bc21ff9f64a2f4",
-    "src/skills-data.js": "6b09dfa7b84f7c8785d35dc01ec1e0dbbf554712e03c6d45cf62a1c137599778",
+    "src/skills-data.js": "238a39c424ecf7c58fd51de987d22532e76e37576f88cc18e41f4c535e87d9b8",
     "src/video-data.js": "1b8adc601b8d157493af2904bec19c8b8a59b8f732e37753cf3b7b688cff7d0b"
   },
   "resources": [
@@ -14491,6 +14492,32 @@
       }
     },
     {
+      "id": "skill:figma-designer",
+      "kind": "skill",
+      "title": "Figma 设计系统",
+      "description": "Design inside Figma the way this designer does: real variables, text styles, auto layout and components, on a fixed visu",
+      "category": "设计系统",
+      "aliases": [
+        "Figma Designer",
+        "figma-designer"
+      ],
+      "source": "skills/figma-designer.md",
+      "preview": "skills.html?skill=figma-designer",
+      "implementation": "method-document",
+      "scenes": null,
+      "integration": {
+        "readBeforeUse": [
+          "skills/figma-designer.md"
+        ],
+        "caveat": "方法文档不等于组件；先核对所需工具、依赖和外部服务。"
+      },
+      "verification": {
+        "runtime": "not-applicable",
+        "composition": "unknown",
+        "license": "review-source"
+      }
+    },
+    {
       "id": "skill:flier",
       "kind": "skill",
       "title": "单页印刷品",
@@ -17068,7 +17095,7 @@
       "id": "skill:landing-page-design",
       "kind": "skill",
       "title": "落地页设计系统",
-      "description": "Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversion copywriting, SEO, plus stri",
+      "description": "Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversi",
       "category": "设计与美学",
       "aliases": [
         "Landing Page Design",

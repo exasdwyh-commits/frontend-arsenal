@@ -2386,6 +2386,14 @@ export const SKILLS = [
     "bytes": 2342
   },
   {
+    "id": "figma-designer",
+    "name": "Figma Designer",
+    "desc": "Design inside Figma the way this designer does: real variables, text styles, auto layout and components, on a fixed visu",
+    "cat": "ds",
+    "zh": "Figma 设计系统",
+    "bytes": 22054
+  },
+  {
     "id": "flier",
     "name": "flier",
     "desc": "Flier Print-ready single page",
@@ -3180,10 +3188,10 @@ export const SKILLS = [
   {
     "id": "landing-page-design",
     "name": "Landing Page Design",
-    "desc": "Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversion copywriting, SEO, plus stri",
+    "desc": "Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversi",
     "cat": "design",
     "zh": "落地页设计系统",
-    "bytes": 18750
+    "bytes": 22064
   },
   {
     "id": "lemo-opuscar",
