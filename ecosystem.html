@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07080b">
 <meta name="color-scheme" content="dark">
 <title>动效工具链 · WebUI 图鉴</title>
-<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个「0 成本工作室」仓库、18 份可丢给 AI 学的合集与 6 个上游研读，共 56 条上游参考，逐条标注授权、能否在浏览器运行与本库 167 个原生机制的对照。">
+<meta name="description" content="18 个开源代码动效库按 Brief → Build → Animate → Refine → Render 组织，另附 14 个「0 成本工作室」仓库、18 份可丢给 AI 学的合集与 7 个上游研读，共 57 条上游参考，逐条标注授权、能否在浏览器运行与本库 167 个原生机制的对照。">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%228%22 fill=%22%235F3BFF%22/><circle cx=%2216%22 cy=%2216%22 r=%226%22 fill=%22%233CCBFF%22/></svg>">
 <style>
 *,*::before,*::after{box-sizing:border-box}
@@ -185,9 +185,9 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
   <div class="shell">
     <p class="eyebrow"><i></i>ECOSYSTEM / 动效工具链</p>
     <h1>从想法到成片，<br>一条线。</h1>
-    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；后面还挂两份合集：14 个「整间工作室」仓库（3D / 视频 / 配乐）、18 份能直接丢给 AI 学的资料，外加 6 个上游研读。一共 <b>56 条上游参考</b>（去重 50），每条都标了授权和「能不能在浏览器里跑」，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
+    <p class="lead">18 个开源动效库，按 <b>Brief → Build → Animate → Refine → Render</b> 串成一条制作流水线；后面还挂两份合集：14 个「整间工作室」仓库（3D / 视频 / 配乐）、18 份能直接丢给 AI 学的资料，外加 7 个上游研读。一共 <b>57 条上游参考</b>（去重 51），每条都标了授权和「能不能在浏览器里跑」，并对照了我们库里的原生等价机制——想深读就跳出去，想直接抄就点回来。</p>
     <div class="stats">
-      <div class="stat"><b>56</b><span>上游参考</span></div>
+      <div class="stat"><b>57</b><span>上游参考</span></div>
       <div class="stat"><b>5</b><span>制作阶段</span></div>
       <div class="stat"><b>167</b><span>库内机制</span></div>
       <div class="stat"><b>0</b><span>运行时依赖</span></div>
@@ -429,7 +429,7 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
 
 <section class="stage-sec" id="research">
   <div class="shell">
-    <div class="stage-head"><span class="stage-num">08</span><h2>上游研读：6 个项目，抄机制不抄工程</h2><span class="stage-en">Research</span></div>
+    <div class="stage-head"><span class="stage-num">08</span><h2>上游研读：7 个项目，抄机制不抄工程</h2><span class="stage-en">Research</span></div>
     <p class="stage-desc">最近逐份读完的上游。照同一把尺子记：<b>抄什么 / 不抄什么 / 授权 / 能不能在浏览器里跑</b>。结论都落回了图鉴，项目本体一个都没装；这份记录留着，免得「研究过」下次又从零开始。</p>
 
     <div class="kb">
@@ -445,6 +445,8 @@ h1{margin:20px 0 0;font-size:clamp(36px,6.2vw,76px);line-height:1.08;letter-spac
         <p>抄：703 条 prompt 按 Canvas / SVG / GSAP / GLSL / Three / Web Audio 标注技术栈，等于给「效果」加了第二维度。不抄：清单本体（不复制 703 条）。库内：待做——从 <code>lib</code> 字段派生技术栈筛选</p></div>
       <div class="kb-row"><b>ai-design-skills <i>设计规范</i></b><em>MIT · 纯 Markdown，规则能直接落到 CSS</em>
         <p>抄：两层颜色 token（Core 10 阶 → 语义别名，Light/Dark 用 mode 不写两套色）、命名文字样式（Heading/Title/Body/Button/Caption 全落尺度）、按钮 5 类型 × 5 状态、统一曲线 <code>cubic-bezier(.22,1,.36,1)</code>（布局 500ms / 颜色 300ms）、真实事实校验与 390px 验收。不抄：禁背景渐变 / 禁单边边框 / 默认不用 eyebrow——这是品牌落地页的规矩，图鉴是工具型界面，整套套上会把现有视觉语言废掉；Figma MCP 工作流也不适用于本站。库内：两套技能已全收（<a href="skills.html?skill=landing-page-design">landing-page-design</a> / <a href="skills.html?skill=figma-designer">figma-designer</a>），动效无直接等价</p></div>
+      <div class="kb-row"><b>Oversight Supply <i>AI 网站素材</i></b><em>商业站 · 模板 $29–$129 / 会员 $15–$499 · 源码能在浏览器跑</em>
+        <p>抄：「提示词 + 完整源码」成对交付——AI 拿到的是可运行结构，不是风格形容词；三步流程（选 → 复制 → 粘贴）本身就是最省的说明文案；真机宽度预览与 390px 验收同理；视频风格的 Hook 0.3s 提问 → 概念 → 数字意义 → 反转骨架。不抄：模板与区块源码不进库（条款禁止转售/再分发/共享账号，免费区块也要账号）、预览图与品牌资产、重型 3D 场景工程。库内：用法与授权边界已写进 <a href="sources.html#supply">创作资源 05</a>，机制无直接等价（我们的卡片还不是「源码 + 提示词」成对）</p></div>
     </div>
   </div>
 </section>

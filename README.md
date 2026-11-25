@@ -44,7 +44,7 @@ WebUI/
 │                           # 左下角有动效开关，也可用 index.html?motion=off 强制静帧
 ├── effects.html            # 效果图鉴：从 registry.js 渲染，不用手改
 ├── video.html              # 代码视频库：四个来源项目的样片与镜头配方索引
-├── ecosystem.html          # 动效工具链：18 个上游库按 5 阶段组织 + 14 个「0 成本工作室」仓库 + 18 份可丢给 AI 学的合集 + 6 个上游研读（共 56 条参考，标注授权、能否在浏览器跑、原生等价机制对照）
+├── ecosystem.html          # 动效工具链：18 个上游库按 5 阶段组织 + 14 个「0 成本工作室」仓库 + 18 份可丢给 AI 学的合集 + 7 个上游研读（共 57 条参考，标注授权、能否在浏览器跑、原生等价机制对照）
 ├── claude.html             # Claude 专版：9 条界面判据 + 4 个工程习惯 + 3 篇官方文档 + 6 道验收 + 05 可视化对比台（点击才播的三场景前后对比）
 ├── skills.html             # 技能库：428 个前端可用 Skill 文档的浏览/阅读页
 ├── skills/                 # 技能文档原样存放（428 个 .md：baoyu-design · MIT、chaojifeng · MIT、lemo-opuscar · MIT+CC BY 4.0、impeccable · Apache-2.0、ai-design-skills · MIT、huashu-design · MIT、overflow.design · 站内公开文档、meta/astryx · MIT、floating-ui · MIT、vercel-labs · MIT、emilkowalski · MIT）

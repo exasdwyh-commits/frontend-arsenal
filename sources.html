@@ -17,12 +17,12 @@
     <a class="back-link" href="claude.html">Claude 专版 ↗</a>
     <div class="video-brand">WebUI <span>图鉴</span></div><p>代码视频 / 创作参考</p>
     <nav class="video-nav" aria-label="资源导航">
-      <a href="#cab">角色动画</a><a href="#mg">MG 风格</a><a href="#shotcraft">镜头配方</a><a href="#opuscar">电影风格</a>
+      <a href="#cab">角色动画</a><a href="#mg">MG 风格</a><a href="#shotcraft">镜头配方</a><a href="#opuscar">电影风格</a><a href="#supply">AI 网站素材</a>
     </nav>
-    <div class="side-note">先把四个项目的精华读完<br>再决定要不要跳出去。</div>
+    <div class="side-note">先把五个入口的精华读完<br>再决定要不要跳出去。</div>
   </aside>
   <main class="video-main">
-    <header class="video-intro"><div><div class="eyebrow">SOURCES / 创作资源汇总</div><h1>四个项目，一页读完。</h1><p>把 ClaudeAnimationBase、mg-styles-15、video-shotcraft、lemo-opuscar 的核心方法论提炼在站内；外部链接均已验证可达，作为深入阅读的出口。</p></div><a href="#cab" class="video-primary">从角色动画开始 <span>↘</span></a></header>
+    <header class="video-intro"><div><div class="eyebrow">SOURCES / 创作资源汇总</div><h1>五个入口，一页读完。</h1><p>把 ClaudeAnimationBase、mg-styles-15、video-shotcraft、lemo-opuscar 的核心方法论提炼在站内；第五个是 Oversight Supply——一套付费、但「提示词 + 完整源码」成对交付的 AI 网站素材库，适合直接喂给 AI 当参考。外部链接均已验证可达，作为深入阅读的出口。</p></div><a href="#cab" class="video-primary">从角色动画开始 <span>↘</span></a></header>
 
     <section id="cab" class="video-section">
       <div class="section-title"><div><span>01 / CHARACTER ANIMATION</span><h2>ClaudeAnimationBase</h2></div><p>p5.js + p5.brush · MIT · 手绘卡通角色动画起步套件</p></div>
@@ -187,7 +187,58 @@
       </div>
     </section>
 
-    <p class="video-footnote">以上内容提炼自四个项目的开源文档（MIT / Apache-2.0 / CC BY 4.0，以各仓库 LICENSE 为准），供站内速览；深入使用请以原仓库为准。外部链接于 2026-11-10 逐一验证可达，若你所在网络打不开，请挂代理后重试。</p>
+    <section id="supply" class="video-section">
+      <div class="section-title"><div><span>05 / AI WEBSITE SUPPLY</span><h2>Oversight Supply</h2></div><p>模板 · 区块 · 视频套件 · 付费 · 每份都带「提示词 + 完整源码」</p></div>
+      <div class="src-body">
+        <div class="src-col">
+          <h4>它解决什么</h4>
+          <ul>
+            <li>不是截图库，也不是"风格参考图"：每个条目都给一段<b>可直接粘进 AI builder 的提示词</b>，提示词里带着该区块/模板的完整源码，AI 从真实设计开始，而不是从空白页猜。</li>
+            <li>首页原话：<i>"Copy beautiful website sections into your AI builder. Every prompt includes the section's full source code, so your builder starts with the actual design."</i></li>
+          </ul>
+          <h4>三件东西（分别计价）</h4>
+          <ul>
+            <li><b>192 个网站模板</b>：整站级，带<b>真实发布站预览</b>——桌面 / 平板 / 手机三种真实宽度，不是截图、也不是把桌面版压缩了冒充手机。看中哪个风格，让 AI 照这个写。单买 $29–$129；会员：Sections $15/月（全部 Pro 区块 + 1 个模板额度）、Sections + Templates $39/月（3 个额度）、Lifetime $499 一次买断。一个额度永久解锁一个设计 + 它已提供的全部格式（Webflow / Framer / Figma 源文件，视该设计而定）。</li>
+            <li><b>70 个网站区块，41 个免费</b>：按 Portfolio hero / Hero / Scroll story / Pricing / 404 / Template section 分类。免费区块<b>只需注册账号</b>即可复制「提示词 + 源码」；Pro 区块随 $15/月 的 Sections 计划。可粘贴的目标写死在页面上：Claude Code、Cursor、v0、Windsurf、Lovable、Bolt。</li>
+            <li><b>4 个 AI 产品讲解视频风格</b>：1 个免费（Rays：暗场光线），3 个付费（Small details：Apple 干净的 3D 小细节；Organic：柔和呼吸的色晕；Kiln：制图台式的"落地有声"）。$9.99/月 或 $79.99/年，与模板计划分开。每个风格自带完整 walkthrough，配 Claude 用：给一个题材，它做分镜、写场景、出 9:16 成片。</li>
+          </ul>
+        </div>
+        <div class="src-col">
+          <h4>怎么用（三步，页面自己写死的流程）</h4>
+          <ol>
+            <li>选一个区块/模板，先看实时预览（模板预览不需要账号）。</li>
+            <li>点 <b>Copy prompt + code</b>，拿到的是提示词正文 + 该区块的源码。</li>
+            <li>粘进 Claude Code / Cursor / v0 / Windsurf / Lovable / Bolt，改几个字就是你的。</li>
+          </ol>
+          <h4>值得抄的机制（不是抄内容）</h4>
+          <ul>
+            <li><b>「提示词 + 完整源码」成对交付</b>：这是全站最该学的一条。只给风格描述，AI 只能猜；把可运行源码塞进上下文，AI 改的是真实结构。本站机制卡后续也按这个格式补：<i>效果 + 可执行提示词 + 能直接跑的最小源码</i>。</li>
+            <li><b>三步流程写成页面文案</b>：选 → 复制 → 粘贴，三个动词，没有解释性长文。工具型页面的说明就该这么短。</li>
+            <li><b>真机宽度预览</b>：桌面 / 平板 / 手机各开一次真实站点。这跟我们验收用的 390px 检查是同一件事——别拿缩放后的桌面版当移动端。</li>
+            <li><b>视频分镜骨架</b>：Hook 是「0.3 秒的一个问题」→ 讲清概念是什么 → 为什么某个数字重要 → 反转。四个风格共用这套骨架，只换视觉语言。做讲解片可以直接套。</li>
+          </ul>
+          <h4>不能抄的</h4>
+          <ul>
+            <li><b>模板与区块源码不进本站库</b>：付费内容，服务条款明确禁止转售、再分发模板文件或访问链接、共享账号、把模板本身当自己的产品卖；免费区块也要账号。所以这里只记用法，不搬文件。</li>
+            <li><b>不复制它的预览图与品牌资产</b>（webp 截图、logo、品牌插画）。</li>
+            <li><b>不搬它的重型 3D 场景工程</b>（Pavement / Vortex 这类）：与本站"无运行时依赖、纯原生"的收录口径冲突。</li>
+          </ul>
+          <h4>能不能在浏览器跑</h4>
+          <p style="margin:2px 0 8px;font-size:12.5px;color:#93a0b4;line-height:1.7">能。预览就是真实发布站；拿到的区块源码是纯前端 HTML/CSS/JS，本地双击即可打开。Pro 区块与视频风格需要账号或订阅。</p>
+          <h4>入口</h4>
+          <div class="src-links">
+            <a href="http://supply.madebyoversight.com/?collection=all" target="_blank" rel="noopener noreferrer">192 个模板（实时预览）↗</a>
+            <a href="http://supply.madebyoversight.com/sections?price=free" target="_blank" rel="noopener noreferrer">41 个免费区块 ↗</a>
+            <a href="http://supply.madebyoversight.com/videos/rays" target="_blank" rel="noopener noreferrer">免费视频风格 Rays ↗</a>
+            <a href="http://supply.madebyoversight.com/pricing" target="_blank" rel="noopener noreferrer">价格与授权 ↗</a>
+          </div>
+          <h4>站内相关</h4>
+          <div class="src-links"><a href="skills.html?skill=landing-page-design">落地页设计系统 ↗</a><a href="effects.html">效果图鉴 ↗</a><a href="ecosystem.html#research">上游研读记录 ↗</a></div>
+        </div>
+      </div>
+    </section>
+
+    <p class="video-footnote">以上内容提炼自五个项目的公开文档与页面（MIT / Apache-2.0 / CC BY 4.0 / 商业条款，以各自为准），供站内速览；深入使用请以原仓库或原站为准。Oversight Supply 为付费站，此处只记录用法与授权边界，未转载其模板、区块或预览素材。外部链接于 2026-11-25 逐一验证可达，若你所在网络打不开，请挂代理后重试。</p>
     <footer class="video-footer">创作资源汇总 · 回 <a href="video.html#sources" style="color:#cbbaff">项目资源</a> 或 <a href="video.html" style="color:#cbbaff">代码视频库</a></footer>
   </main>
 </div>
