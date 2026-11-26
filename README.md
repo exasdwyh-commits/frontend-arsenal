@@ -21,6 +21,24 @@
 
 通过首页 `index.html`（前端武器库）进入：全库统一搜索动效、技能和视频风格。支持空格分隔多个关键词、类型筛选和 `/` 快捷聚焦。搜索索引直接读取现有清单；新增视频样片请维护 `src/video-data.js`。视频搜索覆盖 81 支风格样片（mg-styles-15 ×15、lemo-opuscar ×66），项目资源和镜头配方请进入视频库浏览。启动本地服务后访问 `http://localhost:8080/`。
 
+## 日常查询速查
+
+按场景挑一种，命令在仓库根目录执行，全部无需安装依赖（Node.js 18+）。
+
+| 想做什么 | 怎么查 |
+| --- | --- |
+| 看效果长什么样、人工审核方向 | 浏览器开 [线上站点](https://exasdwyh-commits.github.io/frontend-arsenal/)，首页按 `/` 聚焦搜索，空格分隔多关键词，可按类型筛选 |
+| 本地改代码边看边调 | `npm start`（或 `serve.bat`）→ `http://localhost:8080/` |
+| 给编程 Agent / 脚本查资源 | `node scripts/agent-catalog.mjs list --query "按钮 悬停" --kind effect --limit 5` |
+| 按场景精确筛（页面位置 / 目标 / 目标项目） | `node scripts/agent-catalog.mjs list --place 按钮 --goal 交互反馈 --project 品牌官网` |
+| 取某个资源的源码位置与使用边界 | `node scripts/agent-catalog.mjs show effect:magnetic-btn` |
+| 找能拼在一起的组合配方 | `node scripts/agent-catalog.mjs list --kind recipe`，再 `show recipe:project-list` 看槽位与参数 |
+| 看上游参考 / 研读结论 | `ecosystem.html`（57 条参考，含授权与能否在浏览器跑）；创作素材用法见 `sources.html#supply` |
+| 想直接读某份技能原文 | `skills.html?skill=<id>`，或 `cat skills/<id>.md` |
+| 改过 `src/` 内容后索引过期 | `npm run agent:build` → `npm run agent:check`（失败返回非零退出码 + JSON 错误） |
+
+`list` 默认最多返回 20 条，关键词按空格分词且要求全部匹配；结果是目录匹配，不代表业务推荐或兼容性验证，未标注场景的条目可能漏检（去掉场景条件改用关键词）。完整字段含义与「如何从业务需求选到资源」的流程见 [Agent 使用协议](agent/README.md)。
+
 
 这是一个**可增长的 UI 效果图鉴**。目标不是做出漂亮的演示页，而是：**看到一个好机制 → 5 分钟内能扒进自己的项目**。
 
